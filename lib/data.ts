@@ -56,22 +56,28 @@ export const PRICING_TIERS = [
 
 export const TEAM_MEMBERS = [
   {
-    name: 'Tim',
-    role: 'Co-founder, Web Development',
+    name: 'Tim Pactwa',
+    role: 'Co-founder',
     school: 'Virginia Tech',
     focus: 'Computer Science',
     bio: "I build the sites. CS student at Virginia Tech with a focus on modern web technologies. I'm obsessed with performance, clean code, and building things that actually work.",
     initials: 'T',
     accentShape: 'square' as const,
+    github: 'https://github.com/timpactwa',
+    linkedin: 'https://linkedin.com/in/timpactwa',
+    image: '/tim.JPEG',
   },
   {
-    name: 'Partner',
-    role: 'Co-founder, Strategy & Marketing',
-    school: 'University TBD',
-    focus: 'Business & Marketing',
+    name: 'Luke Wilkins',
+    role: 'Co-founder',
+    school: 'Virginia Tech',
+    focus: 'Finance',
     bio: 'I handle the strategy. Business and marketing student focused on helping local businesses tell their story online and grow their customer base without burning money.',
     initials: 'P',
     accentShape: 'circle' as const,
+    github: 'https://github.com/placeholder',
+    linkedin: 'https://linkedin.com/in/placeholder',
+    image: '',
   },
 ]
 
