@@ -16,7 +16,7 @@ export default function Navbar() {
       <div className="container-studio">
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link href="/" className="text-xl font-black text-accent tracking-tight">
-            STUDIO
+            Render
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">

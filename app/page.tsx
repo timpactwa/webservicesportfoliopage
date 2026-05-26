@@ -5,7 +5,7 @@ import WhyUs from '@/components/sections/WhyUs'
 import PortfolioTeaser from '@/components/sections/PortfolioTeaser'
 
 export const metadata: Metadata = {
-  title: 'STUDIO | Web Design & AI Consulting for Local Business',
+  title: 'Render | Web Design & AI Consulting for Local Business',
 }
 
 export default function HomePage() {

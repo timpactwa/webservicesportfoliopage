@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="container-studio">
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10 mb-12">
           <div>
-            <p className="text-2xl font-black text-white mb-3">STUDIO</p>
+            <p className="text-2xl font-black text-white mb-3">Render</p>
             <p className="text-neutral-400 text-sm max-w-xs leading-relaxed">
               Honest agency work. Student driven. Morris County made.
             </p>
@@ -25,12 +25,12 @@ export default function Footer() {
           </nav>
         </div>
         <div className="border-t border-neutral-800 pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <p className="text-neutral-500 text-sm">© 2026 STUDIO. Morris County, NJ.</p>
+          <p className="text-neutral-500 text-sm">© 2026 Render. Morris County, NJ.</p>
           <a
-            href="mailto:hello@studio.com"
+            href="mailto:hello@render.com"
             className="text-sm text-neutral-400 hover:text-white transition-colors duration-150"
           >
-            hello@studio.com
+            hello@render.com
           </a>
         </div>
       </div>

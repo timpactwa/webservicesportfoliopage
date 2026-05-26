@@ -11,9 +11,9 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'STUDIO | Web Design & AI Consulting — Morris County, NJ',
+  title: 'Render | Web Design & AI Consulting — Morris County, NJ',
   description:
-    'STUDIO builds fast, modern websites and AI solutions for local businesses in Morris County, NJ. Student-run. Agency quality. Honest pricing.',
+    'Render builds fast, modern websites and AI solutions for local businesses in Morris County, NJ. Student-run. Agency quality. Honest pricing.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
