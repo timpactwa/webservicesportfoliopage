@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { NAV_LINKS } from '@/lib/data'
+import Logo from '@/components/ui/Logo'
 
 export default function Footer() {
   return (
@@ -7,7 +8,7 @@ export default function Footer() {
       <div className="container-studio">
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10 mb-12">
           <div>
-            <p className="text-2xl font-black text-white mb-3">Render</p>
+            <Logo variant="light" className="mb-3 h-auto w-40" />
             <p className="text-neutral-400 text-sm max-w-xs leading-relaxed">
               Honest agency work. Student driven. Morris County made.
             </p>

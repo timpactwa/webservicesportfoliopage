@@ -14,6 +14,15 @@ export const metadata: Metadata = {
   title: 'Render | Web Design & AI Consulting — Morris County, NJ',
   description:
     'Render builds fast, modern websites and AI solutions for local businesses in Morris County, NJ. Student-run. Agency quality. Honest pricing.',
+  icons: {
+    icon: [
+      {
+        url: '/brand/render-icon.svg',
+        type: 'image/svg+xml',
+      },
+    ],
+    shortcut: '/brand/render-icon.svg',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { NAV_LINKS } from '@/lib/data'
 import Button from '@/components/ui/Button'
+import Logo from '@/components/ui/Logo'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -15,8 +16,12 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-neutral-100">
       <div className="container-studio">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <Link href="/" className="text-xl font-black text-accent tracking-tight">
-            Render
+          <Link href="/" className="block shrink-0" aria-label="Render home">
+            <Logo
+              variant="dark"
+              priority
+              className="h-auto w-32 sm:w-36 md:w-40"
+            />
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">

@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Button from '@/components/ui/Button'
+import Logo from '@/components/ui/Logo'
 import PixelCanvas from '@/components/sections/PixelCanvas'
 
 export default function Hero() {
@@ -24,6 +25,19 @@ export default function Hero() {
 
       <div className="container-studio relative z-10 py-24">
         <div className="max-w-3xl">
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.25, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="mb-8"
+          >
+            <Logo
+              variant="icon"
+              priority
+              className="h-14 w-14"
+            />
+          </motion.div>
+
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
