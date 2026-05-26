@@ -95,11 +95,11 @@ Avoid selling broad SEO as a standalone service until there is a stronger proces
 
 Current tiers:
 
-- Starter: `$300-500` plus `$30-50/mo`
-- Standard: `$600-900` plus `$50-75/mo`
-- Premium: `$1,000-1,500` plus `$75-150/mo`
+- Starter: `$500` plus `$50/mo`
+- Standard: `$750` plus `$75/mo`
+- Premium: `$2,000` plus `$125/mo`
 
-Recommendation: these prices are low for custom website work, but they can make sense as founding-client pricing while the portfolio is still being built.
+Recommendation: these prices should be presented as fixed public package prices for clearly scoped website builds. Keep scope boundaries tight so the packages do not become unlimited custom work.
 
 A stronger pricing direction:
 
@@ -113,7 +113,9 @@ A stronger pricing direction:
 Best near-term approach:
 
 - Keep transparent founding-client pricing if needed to close early clients.
-- Accept a `$500` minimum for the right founding client if the project creates useful proof, a testimonial, or a strong portfolio example.
+- Keep Starter lean at 1-3 pages so the `$500` package remains sustainable.
+- Use Standard for a fuller local business site with service pages, local SEO setup, and conversion tracking.
+- Use Premium for larger sites that include booking, lead routing, or similar workflow integrations; full ecommerce should be quoted separately.
 - Show that prices will rise as portfolio depth increases.
 - Avoid pricing too low because it may signal low quality and leave no room for revisions, onboarding, meetings, and support.
 - Keep maintenance affordable at first, but define what is included so it does not become unlimited open-ended work.
