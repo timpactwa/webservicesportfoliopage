@@ -53,7 +53,7 @@ Recommended system:
 
 This is better than sending generic emails because local business owners get spammed constantly. The outreach has to prove that you actually looked at their business.
 
-Use Google Calendar and Google Meet for booked calls.
+Use the embedded Calendly scheduler for booked calls.
 
 ## Lead Scraping and Verification
 
@@ -134,7 +134,7 @@ My partner Tim and I run L&T Consulting and Design. We build modern websites and
 
 I had one quick idea: [specific improvement]. It could make it easier for customers to understand your services and contact you from their phone.
 
-Would you be open to a quick 15-20 minute call this week? No pressure either way. I can also send over a few notes if that is easier.
+Would you be open to a free consultation this week? No pressure either way. I can also send over a few notes if that is easier.
 
 Best,
 Luke
@@ -158,7 +158,7 @@ I noticed [specific issue]. We help local businesses modernize their websites an
 If interested:
 
 ```text
-That makes sense. The best next step would be a short 15-20 minute call where we learn about the business, what you want the site to do, and whether we can help. What does your schedule look like this week?
+That makes sense. The best next step would be a free consultation where we learn about the business, what you want the site to do, and whether we can help. What does your schedule look like this week?
 ```
 
 If not interested:

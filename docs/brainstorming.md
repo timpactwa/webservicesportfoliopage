@@ -22,7 +22,7 @@ This file holds rough ideas, open questions, and decisions that are not fully se
 - First lead source: `https://randolphlocal.com/directory/`
 - First target segment: businesses with no website listed, manually verified before outreach
 - Intake tool: Google Forms first
-- Booking stack: Google Calendar plus Google Meet
+- Booking stack: Calendly embedded on the contact page
 - Starting maintenance price: `$50/mo`
 
 ## Open Questions
@@ -58,7 +58,7 @@ This file holds rough ideas, open questions, and decisions that are not fully se
 - Do we want to make free short Loom audits for high-potential leads?
 - What local directory fields can be scraped reliably?
 - How should we verify whether a business truly has no website?
-- What should the first Google Calendar booking link be called?
+- What should future Calendly event types be called if we add more than one?
 
 ### Onboarding
 

@@ -121,9 +121,9 @@ Project data:
 
 Near-term website features:
 
-- Contact form that saves submissions and sends an email
+- Embedded Calendly scheduler on the contact page
 - Optional project intake form linked from post-call email
-- Thank-you page after submission
+- Thank-you page after booking or intake submission
 - Hidden lead source tracking
 - "Book a Call" primary CTA
 
