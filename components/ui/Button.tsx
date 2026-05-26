@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils'
 
 interface ButtonProps {
   children: React.ReactNode
-  variant?: 'primary' | 'secondary' | 'ghost'
+  variant?: 'primary' | 'secondary' | 'secondary-inverse' | 'ghost'
   size?: 'sm' | 'md' | 'lg'
   href?: string
   onClick?: () => void
@@ -16,6 +16,7 @@ interface ButtonProps {
 const variants = {
   primary: 'bg-accent text-white hover:bg-accent-dark',
   secondary: 'border-2 border-charcoal text-charcoal hover:bg-charcoal hover:text-white',
+  'secondary-inverse': 'border-2 border-white text-white hover:bg-white hover:text-charcoal',
   ghost: 'text-accent hover:underline',
 }
 

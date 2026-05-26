@@ -54,12 +54,7 @@ export default function Hero() {
             <Button variant="primary" size="lg" href="/contact">
               Book a Free Consultation
             </Button>
-            <Button
-              variant="secondary"
-              size="lg"
-              href="/work"
-              className="border-white text-white hover:bg-white hover:text-charcoal"
-            >
+            <Button variant="secondary-inverse" size="lg" href="/work">
               See Our Work
             </Button>
           </motion.div>
