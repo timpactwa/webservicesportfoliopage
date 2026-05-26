@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, type Variants } from 'framer-motion'
 import { TEAM_MEMBERS } from '@/lib/data'
 import TeamMember from '@/components/ui/TeamMember'
 
@@ -10,7 +10,7 @@ const values = [
   { title: 'Mutual benefit', description: 'You get a great site. We get real experience. Win-win.' },
 ]
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 28 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 }
