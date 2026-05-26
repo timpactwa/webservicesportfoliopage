@@ -29,7 +29,8 @@ The business is starting in Morris County, NJ, with Randolph as the first focuse
 | First lead source | https://randolphlocal.com/directory/ |
 | First lead segment | Businesses with no website listed, manually verified before outreach |
 | Outreach motion | Personalized email, then call follow-up |
-| Booking stack | Google Calendar plus Google Meet |
+| Booking stack | Calendly scheduling link with meeting details handled by Calendly |
+| Public lead form | Removed for now to keep booking low-friction |
 | Intake stack | Google Forms first; Typeform later only if polish becomes worth the cost |
 | Payment stack | Stripe Payment Links after the call |
 | Minimum founding-client project | $500 when the project creates useful proof or a strong first case study |
@@ -81,7 +82,7 @@ Lead generation
 -> No-website lead verification
 -> Personalized email outreach
 -> Call follow-up
--> Google Calendar booking
+-> Calendly booking
 -> Google Meet consultation
 -> Project summary
 -> Stripe deposit link

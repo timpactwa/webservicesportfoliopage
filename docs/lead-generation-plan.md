@@ -95,7 +95,7 @@ I found [Business Name] through the Randolph Local directory. I may have missed 
 
 My partner Tim and I run L&T Consulting and Design. We help local businesses set up clean, mobile-friendly websites so customers can find services, hours, contact info, and next steps without digging through social pages or directory listings.
 
-Would you be open to a quick 15-20 minute Google Meet this week? No pressure either way. I can also send over a few quick ideas first if that is easier.
+Would you be open to a free consultation this week? No pressure either way. I can also send over a few quick ideas first if that is easier.
 
 Best,
 Luke
@@ -104,7 +104,7 @@ L&T Consulting and Design
 
 ## Booking
 
-Use Google Calendar appointment scheduling and Google Meet for calls.
+Use the embedded Calendly scheduler for free consultation bookings.
 
 Recommended call name:
 
@@ -115,7 +115,7 @@ L&T Website Consultation
 Default call length:
 
 ```text
-20 minutes
+Free consultation
 ```
 
 ## Intake

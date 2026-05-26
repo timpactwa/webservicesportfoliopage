@@ -6,8 +6,8 @@ The onboarding process should be simple, repeatable, and professional.
 
 Suggested flow:
 
-1. Lead enters through outreach, website form, referral, or direct contact.
-2. L&T books a 15-20 minute intro call through Google Calendar.
+1. Lead enters through outreach, Calendly booking, referral, or direct contact.
+2. Lead books a free consultation through the embedded Calendly scheduler.
 3. L&T diagnoses the business need and confirms fit.
 4. L&T sends a short project summary and price.
 5. Client pays a deposit through Stripe.
@@ -20,6 +20,8 @@ Suggested flow:
 12. Site launches and handoff is completed.
 13. Optional maintenance starts.
 
+The public website should prioritize getting the lead onto the call. Detailed project information belongs in the post-call intake form.
+
 ## Intake Form
 
 Create a structured intake form after the sales call. Do not rely on email threads for core project information.
@@ -28,12 +30,14 @@ Recommendation: start with Google Forms, not Typeform.
 
 Why:
 
-- It is free and already fits the Google Calendar, Google Meet, Google Sheets, and Google Drive workflow.
+- It is free and already fits the Google Sheets and Google Drive workflow.
 - Responses can flow directly into Google Sheets for later automation and lead analysis.
 - It is easy for both founders to edit.
 - It is good enough for post-call intake because the client has already shown interest.
 
 Typeform can come later if the intake form becomes a public-facing conversion asset or if the experience needs to feel more polished.
+
+This is separate from public booking. The Google Forms intake is for project details after the lead has been qualified.
 
 The intake form should collect:
 
@@ -126,7 +130,7 @@ A website checkout can come later for fixed packages.
 
 Best current approach:
 
-- Website has "Book a Call" as the primary call to action.
+- Website has "Book a Call" as the primary call to action, opening the embedded Calendly scheduler with no required lead form.
 - After the call, send a proposal summary and Stripe deposit link.
 - Eventually add package checkout for standardized services if the offer becomes repeatable.
 

@@ -59,6 +59,7 @@ The project is working when:
 - A visitor understands what L&T Consulting and Design does within the first screen.
 - Pricing and services are easy to find.
 - The contact flow feels real and reliable.
+- The contact page makes the next step clear: book a free consultation directly through Calendly.
 - The site looks better than typical local business websites.
 - The codebase is simple enough to keep improving quickly.
 
@@ -97,8 +98,9 @@ Those can come later if the business needs them.
 - Maintenance: optional for now, may become packaged or required later.
 - Maintenance scope: hosting support, small edits, basic reports, and on-site tweaks, priced affordably at first.
 - Founding-client maintenance price: `$50/mo`.
-- Booking stack: Google Calendar plus Google Meet.
+- Booking stack: embedded Calendly scheduler.
+- Public website form: removed for now to keep booking low-friction.
 - Intake stack: Google Forms first, Typeform later if a more polished intake experience becomes worth the cost.
-- Information collection: client intake should happen through a structured form after a call or after a serious inquiry.
+- Information collection: basic lead details happen during the call; detailed project intake should happen through a structured Google Form after a call or after a serious inquiry.
 - Delivery target: roughly 2-4 weeks depending on scope, client responsiveness, and automation complexity.
 - Strategy should be revisited after 2-3 weeks of real outreach and planning.

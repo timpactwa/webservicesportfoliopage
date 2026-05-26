@@ -92,16 +92,17 @@ Components using Framer Motion or React state should include:
 
 Static pages should stay server components unless they need browser behavior.
 
-## Contact Form
+## Contact Page
 
-The contact form currently:
+The contact page currently:
 
-- Stores values in local React state
-- Performs client-side validation
-- Simulates a submit delay
-- Shows a success state
+- Shows an inline Calendly embed for the free consultation booking link
+- Loads Calendly's external widget script client-side
+- Keeps contact details beside the scheduler
 
-It does not send messages anywhere yet.
+There is no public lead form on the page right now. The goal is to reduce friction and get prospects onto a call first.
+
+Keep the full project intake separate. Detailed project information should be collected later through Google Forms after the lead has booked a call or shown serious interest.
 
 Future implementation options:
 
@@ -137,6 +138,5 @@ npm run build
 - Rename package from `studio-temp2` to a project-specific name.
 - Replace the default favicon.
 - Replace placeholder content.
-- Add real form submission.
 - Add real portfolio visuals or clearly labeled demo work.
 - Update metadata once the final brand and domain are known.
