@@ -29,8 +29,7 @@ function LinkedInIcon() {
   )
 }
 
-export default function TeamMember({ name, role, school, focus, bio, initials, accentShape, github, linkedin, image }: TeamMemberProps) {
-  const isRound = accentShape === 'circle'
+export default function TeamMember({ name, role, school, focus, bio, initials, github, linkedin, image }: TeamMemberProps) {
   return (
     <div>
       <div className="relative w-56 h-72 md:w-64 md:h-80 mb-6 overflow-hidden rounded-2xl">
