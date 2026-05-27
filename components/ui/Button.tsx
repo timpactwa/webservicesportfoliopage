@@ -32,6 +32,7 @@ const sizes = {
 const SHIMMER_COLORS = ['#ffffff', '#93c5fd', '#bfdbfe']
 const SHIMMER_COUNT = 15
 const SHIMMER_DURATION = 350
+const PIXEL_FADE = 200 // each pixel fades over this fixed duration after its startDelay
 
 export default function Button({
   children,
@@ -94,8 +95,7 @@ export default function Button({
       for (const px of pixels) {
         if (elapsed < px.startDelay) continue
         const localElapsed = elapsed - px.startDelay
-        const remaining = SHIMMER_DURATION - px.startDelay
-        const progress = Math.min(localElapsed / remaining, 1)
+        const progress = Math.min(localElapsed / PIXEL_FADE, 1)
         ctx.globalAlpha = Math.max(0, 1 - progress)
         ctx.fillStyle = px.color
         ctx.fillRect(px.x, px.y, px.size, px.size)
