@@ -1,3 +1,6 @@
+'use client'
+
+import { useRef, useCallback } from 'react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 
@@ -26,6 +29,10 @@ const sizes = {
   lg: 'px-8 py-4 text-lg',
 }
 
+const SHIMMER_COLORS = ['#ffffff', '#93c5fd', '#bfdbfe']
+const SHIMMER_COUNT = 15
+const SHIMMER_DURATION = 350
+
 export default function Button({
   children,
   variant = 'primary',
@@ -37,8 +44,11 @@ export default function Button({
   className,
   fullWidth,
 }: ButtonProps) {
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const frameRef = useRef<number | null>(null)
+
   const baseClass = cn(
-    'inline-flex items-center justify-center font-bold rounded-none transition-all duration-200',
+    'relative inline-flex items-center justify-center font-bold rounded-none transition-all duration-200',
     'focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2',
     variants[variant],
     sizes[size],
@@ -47,16 +57,112 @@ export default function Button({
     className
   )
 
+  const handleMouseEnter = useCallback(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+
+    const parent = canvas.parentElement
+    if (!parent) return
+
+    const dpr = window.devicePixelRatio || 1
+    const w = parent.offsetWidth
+    const h = parent.offsetHeight
+
+    canvas.width = w * dpr
+    canvas.height = h * dpr
+    canvas.style.width = `${w}px`
+    canvas.style.height = `${h}px`
+
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+    ctx.scale(dpr, dpr)
+
+    const pixels = Array.from({ length: SHIMMER_COUNT }, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      size: 2 + Math.random() * 4,
+      color: SHIMMER_COLORS[Math.floor(Math.random() * SHIMMER_COLORS.length)],
+      startDelay: Math.random() * 150,
+    }))
+
+    const startTime = performance.now()
+
+    const draw = (timestamp: number) => {
+      const elapsed = timestamp - startTime
+      ctx.clearRect(0, 0, w, h)
+
+      for (const px of pixels) {
+        if (elapsed < px.startDelay) continue
+        const localElapsed = elapsed - px.startDelay
+        const remaining = SHIMMER_DURATION - px.startDelay
+        const progress = Math.min(localElapsed / remaining, 1)
+        ctx.globalAlpha = Math.max(0, 1 - progress)
+        ctx.fillStyle = px.color
+        ctx.fillRect(px.x, px.y, px.size, px.size)
+      }
+      ctx.globalAlpha = 1
+
+      if (elapsed < SHIMMER_DURATION) {
+        frameRef.current = requestAnimationFrame(draw)
+      } else {
+        ctx.clearRect(0, 0, w, h)
+        frameRef.current = null
+      }
+    }
+
+    if (frameRef.current !== null) cancelAnimationFrame(frameRef.current)
+    frameRef.current = requestAnimationFrame(draw)
+  }, [])
+
+  const handleMouseLeave = useCallback(() => {
+    if (frameRef.current !== null) cancelAnimationFrame(frameRef.current)
+    frameRef.current = null
+    const canvas = canvasRef.current
+    if (!canvas) return
+    const ctx = canvas.getContext('2d')
+    if (ctx) ctx.clearRect(0, 0, canvas.width, canvas.height)
+  }, [])
+
+  const canvasEl = (
+    <canvas
+      ref={canvasRef}
+      aria-hidden="true"
+      style={{
+        position: 'absolute',
+        inset: 0,
+        width: '100%',
+        height: '100%',
+        pointerEvents: 'none',
+        zIndex: 20,
+      }}
+    />
+  )
+
   if (href) {
     return (
-      <Link href={href} className={baseClass} onClick={onClick}>
+      <Link
+        href={href}
+        className={baseClass}
+        onClick={onClick}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        {canvasEl}
         {children}
       </Link>
     )
   }
 
   return (
-    <button type={type} onClick={onClick} disabled={disabled} className={baseClass}>
+    <button
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+      className={baseClass}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {canvasEl}
       {children}
     </button>
   )
