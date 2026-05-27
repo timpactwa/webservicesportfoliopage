@@ -22,10 +22,18 @@ export default function PixelReveal({
 }: PixelRevealProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const frameRef = useRef<number>(0)
+  const frameRef = useRef<number | null>(null)
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const hasRun = useRef(false)
 
   const runAnimation = useCallback(() => {
+    // Respect reduced-motion preference
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const canvas = canvasRef.current
+      if (canvas) canvas.style.display = 'none'
+      return
+    }
+
     const canvas = canvasRef.current
     const container = containerRef.current
     if (!canvas || !container) return
@@ -119,7 +127,7 @@ export default function PixelReveal({
         if (entries[0].isIntersecting && !hasRun.current) {
           hasRun.current = true
           if (delay > 0) {
-            setTimeout(runAnimation, delay)
+            timeoutRef.current = setTimeout(runAnimation, delay)
           } else {
             runAnimation()
           }
@@ -132,7 +140,8 @@ export default function PixelReveal({
 
     return () => {
       observer.disconnect()
-      if (frameRef.current) cancelAnimationFrame(frameRef.current)
+      if (timeoutRef.current) clearTimeout(timeoutRef.current)
+      if (frameRef.current !== null) cancelAnimationFrame(frameRef.current)
     }
   }, [delay, runAnimation])
 
