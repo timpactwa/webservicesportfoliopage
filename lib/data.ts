@@ -72,11 +72,10 @@ export const TEAM_MEMBERS = [
     school: 'Virginia Tech',
     focus: 'Finance',
     bio: 'I handle the strategy. Business and marketing student focused on helping local businesses tell their story online and grow their customer base without burning money.',
-    initials: 'P',
+    initials: 'L',
     accentShape: 'circle' as const,
-    github: 'https://github.com/placeholder',
-    linkedin: 'https://linkedin.com/in/placeholder',
-    image: '',
+    linkedin: 'https://www.linkedin.com/in/lukewilkins2/',
+    image: '/luke.jpg',
   },
 ]
 

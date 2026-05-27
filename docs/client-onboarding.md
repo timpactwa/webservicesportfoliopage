@@ -8,11 +8,11 @@ Suggested flow:
 
 1. Lead enters through outreach, Calendly booking, referral, or direct contact.
 2. Lead books a free consultation through the embedded Calendly scheduler.
-3. L&T diagnoses the business need and confirms fit.
-4. L&T sends a short project summary and price.
+3. Render diagnoses the business need and confirms fit.
+4. Render sends a short project summary and price.
 5. Client pays a deposit through Stripe.
 6. Client completes the Google Forms intake form.
-7. L&T reviews intake answers and requests missing assets.
+7. Render reviews intake answers and requests missing assets.
 8. Project starts.
 9. Client reviews draft.
 10. Revisions are completed.
@@ -78,7 +78,7 @@ If the client does not have a website already, the intake should focus on busine
 - What are the top 3-5 services?
 - What proof do they have: reviews, photos, certifications, years in business?
 
-For new businesses, L&T may need to help write more of the copy. That should be priced into the project.
+For new businesses, Render may need to help write more of the copy. That should be priced into the project.
 
 ## Timeline
 
@@ -124,7 +124,7 @@ Why:
 - It is fast to set up.
 - It avoids building a complex checkout system too early.
 - It keeps pricing flexible while the offer is still changing.
-- It lets L&T send a custom payment link that matches the agreed scope.
+- It lets Render send a custom payment link that matches the agreed scope.
 
 A website checkout can come later for fixed packages.
 
@@ -170,7 +170,7 @@ Unlimited revisions before launch within the agreed project scope.
 This means:
 
 - Clients can request changes until the site feels right.
-- L&T is not charging for every small adjustment.
+- Render is not charging for every small adjustment.
 - The client cannot turn a 5-page site into a 15-page site without a scope change.
 - Brand-new features, major page additions, and changed business requirements can still be quoted separately.
 
@@ -182,7 +182,7 @@ Maintenance should be optional for now.
 
 Founding-client maintenance can include:
 
-- Hosting coordination or hosting coverage if L&T chooses to manage it
+- Hosting coordination or hosting coverage if Render chooses to manage it
 - Small website edits
 - Basic monthly performance or traffic report
 - On-site SEO tweaks

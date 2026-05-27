@@ -28,10 +28,10 @@ export default function Footer() {
         <div className="border-t border-neutral-800 pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <p className="text-neutral-500 text-sm">© 2026 Render. Morris County, NJ.</p>
           <a
-            href="mailto:hello@render.com"
+            href="mailto:renderlocalwebsites@gmail.com"
             className="text-sm text-neutral-400 hover:text-white transition-colors duration-150"
           >
-            hello@render.com
+            renderlocalwebsites@gmail.com
           </a>
         </div>
       </div>

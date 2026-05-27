@@ -135,8 +135,8 @@ npm run build
 
 ## Known Cleanup Items
 
-- Rename package from `studio-temp2` to a project-specific name.
+- Rename the package to a Render-specific package name.
 - Replace the default favicon.
 - Replace placeholder content.
 - Add real portfolio visuals or clearly labeled demo work.
-- Update metadata once the final brand and domain are known.
+- Confirm production DNS and deployment for `renderlocalwebsites.com`.
