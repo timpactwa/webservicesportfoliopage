@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { WHY_US_ITEMS } from '@/lib/data'
+import Button from '@/components/ui/Button'
 
 const containerVariants = {
   hidden: {},
@@ -24,7 +25,7 @@ export default function WhyUs() {
           transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="mb-14"
         >
-          <p className="text-accent font-bold text-sm uppercase tracking-widest mb-4">Why Studio</p>
+          <p className="text-accent font-bold text-sm uppercase tracking-widest mb-4">Why Render</p>
           <h2 className="text-display-xl font-black text-white">What makes us different.</h2>
         </motion.div>
 
@@ -42,6 +43,18 @@ export default function WhyUs() {
               <p className="text-neutral-400 text-sm leading-relaxed">{item.description}</p>
             </motion.div>
           ))}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="mt-16 flex justify-center"
+        >
+          <Button variant="primary" size="lg" href="/contact">
+            Book a Call
+          </Button>
         </motion.div>
       </div>
     </section>

@@ -42,7 +42,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="text-display-2xl font-black text-white mb-6"
+            className="text-display-lg md:text-display-2xl font-black text-white mb-6"
           >
             We Build the Web
             <br />
@@ -55,8 +55,8 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 1.55, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="text-lg md:text-xl text-neutral-400 max-w-xl mb-10 leading-relaxed"
           >
-            Render is a student-run web design and AI consulting agency serving Morris County, NJ.
-            Agency-quality work at honest prices.
+            Render is a founder-led web design and AI consulting agency serving Morris County, NJ.
+            Modern sites and practical AI tools at honest prices.
           </motion.p>
 
           <motion.div
@@ -66,10 +66,10 @@ export default function Hero() {
             className="flex flex-col sm:flex-row gap-4 mb-8"
           >
             <Button variant="primary" size="lg" href="/contact">
-              Book a Free Consultation
+              Book a Call
             </Button>
-            <Button variant="secondary-inverse" size="lg" href="/work">
-              See Our Work
+            <Button variant="secondary-inverse" size="lg" href="/services">
+              View Services
             </Button>
           </motion.div>
 

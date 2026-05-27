@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -10,15 +10,35 @@ import Logo from '@/components/ui/Logo'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
 
+  const isHome = pathname === '/'
+  const transparent = isHome && !scrolled
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    // Set initial state
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-neutral-100">
+    <header
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        transparent
+          ? 'bg-transparent border-b border-transparent'
+          : 'bg-white/90 backdrop-blur-md border-b border-neutral-100'
+      }`}
+    >
       <div className="container-studio">
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link href="/" className="block shrink-0" aria-label="Render home">
             <Logo
-              variant="dark"
+              variant={transparent ? 'light' : 'dark'}
               priority
               className="h-auto w-32 sm:w-36 md:w-40"
             />
@@ -30,7 +50,11 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={`text-sm font-semibold transition-colors duration-150 ${
-                  pathname === link.href
+                  transparent
+                    ? pathname === link.href
+                      ? 'text-white'
+                      : 'text-white/80 hover:text-white'
+                    : pathname === link.href
                     ? 'text-accent'
                     : 'text-neutral-600 hover:text-charcoal'
                 }`}
@@ -41,13 +65,19 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden md:block">
-            <Button variant="primary" size="sm" href="/contact">
+            <Button
+              variant={transparent ? 'secondary-inverse' : 'primary'}
+              size="sm"
+              href="/contact"
+            >
               Book a Call
             </Button>
           </div>
 
           <button
-            className="md:hidden p-2 text-neutral-600 hover:text-charcoal"
+            className={`md:hidden p-2 transition-colors duration-300 ${
+              transparent ? 'text-white hover:text-white/80' : 'text-neutral-600 hover:text-charcoal'
+            }`}
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
             aria-expanded={isOpen}

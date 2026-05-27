@@ -1,7 +1,6 @@
 export const NAV_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'Services', href: '/services' },
-  { label: 'Work', href: '/work' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ]
@@ -114,7 +113,7 @@ export const WHY_US_ITEMS = [
   {
     number: '02',
     title: 'Modern Tech Stack',
-    description: "Next.js, Tailwind, and real performance — not WordPress templates from 2015.",
+    description: "Fast, modern websites built for performance — not outdated templates that slow you down.",
   },
   {
     number: '03',
