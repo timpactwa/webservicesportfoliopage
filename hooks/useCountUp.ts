@@ -19,6 +19,12 @@ export function useCountUp<T extends HTMLElement = HTMLElement>({
   const hasRun = useRef(false)
 
   const runCount = useCallback(() => {
+    // Respect reduced-motion preference — snap to final value immediately
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setCount(to)
+      return
+    }
+
     const startTime = performance.now() + delay
 
     const tick = (currentTime: number) => {

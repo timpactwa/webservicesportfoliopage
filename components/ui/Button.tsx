@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useCallback } from 'react'
+import { useRef, useCallback, useEffect } from 'react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 
@@ -48,6 +48,13 @@ export default function Button({
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const frameRef = useRef<number | null>(null)
 
+  // Cancel any in-flight animation frame on unmount
+  useEffect(() => {
+    return () => {
+      if (frameRef.current !== null) cancelAnimationFrame(frameRef.current)
+    }
+  }, [])
+
   const baseClass = cn(
     'relative inline-flex items-center justify-center font-bold rounded-none transition-all duration-200',
     'focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2',
@@ -59,6 +66,7 @@ export default function Button({
   )
 
   const handleMouseEnter = useCallback(() => {
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     const canvas = canvasRef.current
     if (!canvas) return
 
