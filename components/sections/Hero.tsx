@@ -10,45 +10,63 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center bg-charcoal overflow-hidden">
       <PixelCanvas />
 
-      <div className="absolute right-8 top-1/2 -translate-y-1/2 pointer-events-none hidden lg:block">
+      {/* Atmospheric glow behind the sigil */}
+      <div
+        className="absolute inset-y-0 right-0 w-2/3 pointer-events-none hidden lg:block"
+        style={{ background: 'radial-gradient(ellipse at 75% 50%, rgba(37,99,235,0.09) 0%, transparent 65%)' }}
+      />
+
+      <div className="absolute right-32 top-1/2 -translate-y-1/2 pointer-events-none hidden lg:block">
         <motion.div
-          initial={{ opacity: 0, x: 40 }}
+          initial={{ opacity: 0, x: 48 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1.2, delay: 1.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 1.4, delay: 1.6, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           <svg
-            width="480"
-            height="420"
-            viewBox="0 0 480 420"
+            width="440"
+            height="300"
+            viewBox="0 0 440 300"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            {/* < */}
-            <path
-              d="M120 60 L30 210 L120 360"
-              stroke="white"
-              strokeOpacity="0.12"
-              strokeWidth="18"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            {/* / */}
-            <path
-              d="M210 360 L270 60"
-              stroke="white"
-              strokeOpacity="0.12"
-              strokeWidth="18"
-              strokeLinecap="round"
-            />
-            {/* > */}
-            <path
-              d="M360 60 L450 210 L360 360"
-              stroke="white"
-              strokeOpacity="0.12"
-              strokeWidth="18"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
+            <defs>
+              <linearGradient id="bracketGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.7" />
+                <stop offset="100%" stopColor="#2563EB" stopOpacity="0.3" />
+              </linearGradient>
+              <filter id="bracketGlow" x="-25%" y="-25%" width="150%" height="150%">
+                <feGaussianBlur stdDeviation="7" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+            <g filter="url(#bracketGlow)">
+              {/* < */}
+              <path
+                d="M105 40 L20 150 L105 260"
+                stroke="url(#bracketGrad)"
+                strokeWidth="30"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              {/* / */}
+              <path
+                d="M190 260 L255 40"
+                stroke="url(#bracketGrad)"
+                strokeWidth="30"
+                strokeLinecap="round"
+              />
+              {/* > */}
+              <path
+                d="M335 40 L420 150 L335 260"
+                stroke="url(#bracketGrad)"
+                strokeWidth="30"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </g>
           </svg>
         </motion.div>
       </div>
