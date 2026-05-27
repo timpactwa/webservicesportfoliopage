@@ -3,6 +3,7 @@
 import { motion, type Variants } from 'framer-motion'
 import { TEAM_MEMBERS } from '@/lib/data'
 import TeamMember from '@/components/ui/TeamMember'
+import ScanlineHeading from '@/components/ui/ScanlineHeading'
 
 const values = [
   { title: 'Quality over quantity', description: 'We take on fewer clients so we can do better work.' },
@@ -27,9 +28,13 @@ export default function AboutContent() {
             transition={{ duration: 0.55 }}
             className="mb-20"
           >
-            <h1 className="text-display-xl font-black text-charcoal mb-8 max-w-3xl">
+            <ScanlineHeading
+              as="h1"
+              className="text-display-xl font-black text-charcoal mb-8 max-w-3xl"
+              delay={0}
+            >
               Built for local.<br />Priced for real.
-            </h1>
+            </ScanlineHeading>
             <p className="text-accent font-bold text-sm uppercase tracking-widest mb-4">Our Mission</p>
             <p className="text-2xl text-neutral-600 leading-relaxed max-w-2xl">
               Tim brings the software. Luke brings the strategy. Together we help local businesses get modern websites and practical digital tools at a fraction of what a traditional agency charges. No overhead, no middlemen, just two people who care about the work.
