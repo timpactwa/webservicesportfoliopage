@@ -340,7 +340,7 @@ export default function Home() {
           className="relative max-w-2xl mx-auto px-6"
         >
           <p className="font-body text-fuego font-bold uppercase tracking-[0.25em] text-xs mb-5">
-            Doors open 11am – 10pm daily
+            Open 6 days a week · Closed Tuesdays
           </p>
           <h2 className="font-display text-golden text-6xl md:text-7xl mb-6 leading-none">
             Ready to eat?
