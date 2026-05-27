@@ -215,7 +215,7 @@ export default function Home() {
               </motion.h2>
             </div>
             <motion.p variants={fadeUp} custom={2} className="font-body text-muted max-w-sm">
-              Start here. These three define what we do — and they're under $6.
+              Start here. These three define what we do — and they&apos;re under $6.
             </motion.p>
           </motion.div>
 
@@ -346,7 +346,7 @@ export default function Home() {
             Ready to eat?
           </h2>
           <p className="font-body text-white/70 text-lg max-w-md mx-auto mb-10">
-            Walk in, grab a stool, or call ahead. We'll save you the corner booth.
+            Walk in, grab a stool, or call ahead. We&apos;ll save you the corner booth.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
