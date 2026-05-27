@@ -1,4 +1,7 @@
+'use client'
+
 import Button from './Button'
+import { useCountUp } from '@/hooks/useCountUp'
 
 interface PricingCardProps {
   tier: 'Starter' | 'Standard' | 'Premium'
@@ -17,6 +20,17 @@ export default function PricingCard({
   isHighlighted,
   ctaHref,
 }: PricingCardProps) {
+  // Parse numeric value from priceRange string (e.g. '$2,000' → 2000)
+  const numericPrice = parseInt(priceRange.replace(/[^0-9]/g, ''), 10)
+
+  const { count, ref } = useCountUp({
+    to: numericPrice,
+    duration: 1200,
+    delay: 200,
+  })
+
+  const displayPrice = `$${count.toLocaleString()}`
+
   return (
     <div
       className={`p-8 border relative ${
@@ -31,7 +45,12 @@ export default function PricingCard({
         </span>
       )}
       <p className="text-accent font-bold text-sm uppercase tracking-widest mb-4">{tier}</p>
-      <p className="text-4xl font-black mb-1">{priceRange}</p>
+      <p
+        ref={ref as React.RefObject<HTMLParagraphElement>}
+        className="text-4xl font-black mb-1"
+      >
+        {displayPrice}
+      </p>
       <p className={`text-sm mb-8 ${isHighlighted ? 'text-neutral-400' : 'text-neutral-500'}`}>
         + {monthlyRange} maintenance
       </p>
