@@ -10,7 +10,7 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center bg-charcoal overflow-hidden">
       <PixelCanvas />
 
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none hidden lg:block overflow-visible">
+      <div className="absolute right-8 top-1/2 -translate-y-1/2 pointer-events-none hidden lg:block">
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
@@ -22,7 +22,6 @@ export default function Hero() {
             viewBox="0 0 480 420"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="translate-x-24"
           >
             {/* < */}
             <path
