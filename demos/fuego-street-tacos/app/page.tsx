@@ -262,7 +262,7 @@ export default function Home() {
           <div className="mt-14 text-center">
             <Link
               href="/menu"
-              className="inline-flex items-center gap-2 font-body font-bold text-charcoal border-b-2 border-fuego pb-1 hover:text-fuego hover:gap-3 transition-all"
+              className="inline-flex items-center gap-2 font-body font-bold text-charcoal border-b-2 border-verde pb-1 hover:text-verde hover:gap-3 transition-all"
             >
               View full menu <span>→</span>
             </Link>
