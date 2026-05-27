@@ -8,6 +8,7 @@ export default function ContactPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setSubmitted(true)
+    setForm({ name: '', phone: '', date: '', time: '', party: '2', notes: '' })
   }
 
   const inputClass = "w-full font-body bg-white border-2 border-neutral-200 rounded-xl px-4 py-3 text-charcoal focus:outline-none focus:border-fuego transition-colors"
@@ -65,37 +66,37 @@ export default function ContactPage() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label className={labelClass}>Name</label>
-                <input required className={inputClass} placeholder="Your name"
+                <label htmlFor="res-name" className={labelClass}>Name</label>
+                <input id="res-name" required className={inputClass} placeholder="Your name"
                   value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} />
               </div>
               <div>
-                <label className={labelClass}>Phone</label>
-                <input required type="tel" className={inputClass} placeholder="(973) 555-0000"
+                <label htmlFor="res-phone" className={labelClass}>Phone</label>
+                <input id="res-phone" required type="tel" className={inputClass} placeholder="(973) 555-0000"
                   value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })} />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className={labelClass}>Date</label>
-                  <input required type="date" className={inputClass}
+                  <label htmlFor="res-date" className={labelClass}>Date</label>
+                  <input id="res-date" required type="date" className={inputClass}
                     value={form.date} onChange={e => setForm({ ...form, date: e.target.value })} />
                 </div>
                 <div>
-                  <label className={labelClass}>Time</label>
-                  <input required type="time" className={inputClass}
+                  <label htmlFor="res-time" className={labelClass}>Time</label>
+                  <input id="res-time" required type="time" className={inputClass}
                     value={form.time} onChange={e => setForm({ ...form, time: e.target.value })} />
                 </div>
               </div>
               <div>
-                <label className={labelClass}>Party Size</label>
-                <select className={inputClass} value={form.party} onChange={e => setForm({ ...form, party: e.target.value })}>
-                  {[1,2,3,4,5,6,7,8].map(n => <option key={n} value={n}>{n} {n === 1 ? 'person' : 'people'}</option>)}
+                <label htmlFor="res-party" className={labelClass}>Party Size</label>
+                <select id="res-party" className={inputClass} value={form.party} onChange={e => setForm({ ...form, party: e.target.value })}>
+                  {[1,2,3,4,5,6,7,8].map(n => <option key={n} value={String(n)}>{n} {n === 1 ? 'person' : 'people'}</option>)}
                   <option value="9+">9+ people</option>
                 </select>
               </div>
               <div>
-                <label className={labelClass}>Notes (optional)</label>
-                <textarea className={inputClass} rows={3} placeholder="Allergies, special occasions, etc."
+                <label htmlFor="res-notes" className={labelClass}>Notes (optional)</label>
+                <textarea id="res-notes" className={inputClass} rows={3} placeholder="Allergies, special occasions, etc."
                   value={form.notes} onChange={e => setForm({ ...form, notes: e.target.value })} />
               </div>
               <button type="submit"
