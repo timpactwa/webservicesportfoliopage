@@ -7,19 +7,14 @@ interface UseCountUpOptions {
   easing?: 'easeOut' | 'linear'
 }
 
-interface UseCountUpResult {
-  count: number
-  ref: React.RefObject<HTMLElement>
-}
-
-export function useCountUp({
+export function useCountUp<T extends HTMLElement = HTMLElement>({
   to,
   duration = 1200,
   delay = 0,
   easing = 'easeOut',
-}: UseCountUpOptions): UseCountUpResult {
+}: UseCountUpOptions): { count: number; ref: React.RefObject<T> } {
   const [count, setCount] = useState(0)
-  const ref = useRef<HTMLElement>(null)
+  const ref = useRef<T>(null)
   const frameRef = useRef<number>(0)
   const hasRun = useRef(false)
 
@@ -47,6 +42,11 @@ export function useCountUp({
     frameRef.current = requestAnimationFrame(tick)
   }, [to, duration, delay, easing])
 
+  const runCountRef = useRef(runCount)
+  useEffect(() => {
+    runCountRef.current = runCount
+  }, [runCount])
+
   useEffect(() => {
     const element = ref.current
     if (!element) return
@@ -55,7 +55,7 @@ export function useCountUp({
       (entries) => {
         if (entries[0].isIntersecting && !hasRun.current) {
           hasRun.current = true
-          runCount()
+          runCountRef.current()
         }
       },
       { threshold: 0.5 }
@@ -67,7 +67,7 @@ export function useCountUp({
       observer.disconnect()
       if (frameRef.current) cancelAnimationFrame(frameRef.current)
     }
-  }, [runCount])
+  }, []) // mount-only — observer doesn't depend on runCount directly
 
   return { count, ref }
 }
