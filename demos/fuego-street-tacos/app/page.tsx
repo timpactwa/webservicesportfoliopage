@@ -184,7 +184,7 @@ export default function Home() {
       <div className="h-6 bg-cream" style={{ clipPath: zigzagClip }} />
 
       {/* ─────────────────────────  MARQUEE  ───────────────────────── */}
-      <div className="bg-cream border-y-2 border-charcoal/10 overflow-hidden py-4">
+      <div aria-hidden="true" className="bg-cream border-y-2 border-charcoal/10 overflow-hidden py-4">
         <div className="flex whitespace-nowrap animate-[marquee_30s_linear_infinite]">
           {[...MARQUEE, ...MARQUEE, ...MARQUEE].map((word, i) => (
             <span
@@ -228,8 +228,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 variants={fadeUp}
                 custom={i}
-                whileHover={{ y: -6 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                whileHover={{ y: -6, transition: { type: 'spring', stiffness: 300, damping: 20 } }}
                 className="group rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-shadow bg-white border border-charcoal/5"
               >
                 <div className={`relative h-56 bg-gradient-to-br ${taco.from} ${taco.via} ${taco.to} flex items-center justify-center overflow-hidden`}>
@@ -314,7 +313,7 @@ export default function Home() {
                   {w.icon}
                 </div>
                 <h3 className="font-display text-white text-3xl mb-3">{w.label}</h3>
-                <p className="font-body text-white/85 leading-relaxed max-w-xs mx-auto">{w.desc}</p>
+                <p className="font-body text-white/80 leading-relaxed max-w-xs mx-auto">{w.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -343,9 +342,9 @@ export default function Home() {
           <p className="font-body text-fuego font-bold uppercase tracking-[0.25em] text-xs mb-5">
             Doors open 11am – 10pm daily
           </p>
-          <p className="font-display text-golden text-6xl md:text-7xl mb-6 leading-none">
+          <h2 className="font-display text-golden text-6xl md:text-7xl mb-6 leading-none">
             Ready to eat?
-          </p>
+          </h2>
           <p className="font-body text-white/70 text-lg max-w-md mx-auto mb-10">
             Walk in, grab a stool, or call ahead. We'll save you the corner booth.
           </p>
@@ -360,6 +359,7 @@ export default function Home() {
             </Link>
             <a
               href="tel:9735550198"
+              aria-label="Call us at (973) 555-0198"
               className="font-body font-bold text-white/80 text-lg hover:text-white transition-colors px-4 py-2"
             >
               or call <span className="text-golden underline underline-offset-4 decoration-golden/50">(973) 555-0198</span>
