@@ -10,16 +10,47 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center bg-charcoal overflow-hidden">
       <PixelCanvas />
 
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none hidden lg:block">
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none hidden lg:block overflow-visible">
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 1.6 }}
-          className="relative"
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.2, delay: 1.6, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <div className="w-[500px] h-[500px] border-[3px] border-accent/25 rounded-full" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-accent/15 rounded-full" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-accent/25 rounded-full" />
+          <svg
+            width="480"
+            height="420"
+            viewBox="0 0 480 420"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="translate-x-24"
+          >
+            {/* < */}
+            <path
+              d="M120 60 L30 210 L120 360"
+              stroke="white"
+              strokeOpacity="0.12"
+              strokeWidth="18"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            {/* / */}
+            <path
+              d="M210 360 L270 60"
+              stroke="white"
+              strokeOpacity="0.12"
+              strokeWidth="18"
+              strokeLinecap="round"
+            />
+            {/* > */}
+            <path
+              d="M360 60 L450 210 L360 360"
+              stroke="white"
+              strokeOpacity="0.12"
+              strokeWidth="18"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
         </motion.div>
       </div>
 
