@@ -25,6 +25,11 @@ export default function PortfolioTeaser() {
     <>
       <PixelReveal>
         <section className="py-20 md:py-32 bg-[#0F0F0F] relative overflow-hidden">
+          {/* Section divider — glowing accent line separating from WhyUs */}
+          <div
+            className="absolute top-0 left-0 right-0 h-px pointer-events-none"
+            style={{ background: 'linear-gradient(90deg, transparent 0%, #1D4ED8 25%, #3B82F6 50%, #1D4ED8 75%, transparent 100%)' }}
+          />
           {/* Subtle grid texture */}
           <div className="absolute inset-0 bg-grid-pattern opacity-[0.15] pointer-events-none" />
 

@@ -23,7 +23,7 @@ export default function ScanlineHeading({
   const prefersReducedMotion = useReducedMotion()
 
   return (
-    <div ref={ref} className="relative overflow-hidden">
+    <div ref={ref} className="relative overflow-hidden pb-2">
       {/* Scan line sweeps left to right — skipped for reduced-motion users */}
       {!prefersReducedMotion && (
         <motion.div
