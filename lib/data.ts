@@ -81,6 +81,15 @@ export const TEAM_MEMBERS = [
 
 export const PROJECTS = [
   {
+    projectName: 'Fuego Street Tacos',
+    category: 'Web Design + Online Ordering',
+    description: 'Full restaurant demo — animated menu, cart, and a simulated Stripe checkout with pickup & delivery.',
+    gradientFrom: 'from-orange-500',
+    gradientTo: 'to-red-600',
+    isComingSoon: false,
+    demoUrl: 'https://fuego-street-tacos.vercel.app',
+  },
+  {
     projectName: 'Morristown Bakery Co.',
     category: 'Web Design',
     gradientFrom: 'from-blue-500',
