@@ -4,11 +4,11 @@ This file holds rough ideas, open questions, and decisions that are not fully se
 
 ## Decisions Made
 
-- Business name: L&T Consulting and Design
+- Business name: Render
 - Founders: Luke Wilkins and Tim Pactwa
 - Starting market: Morris County and nearby areas
 - Future market: broader areas after the first local process works
-- Services: websites, practical AI automations, and on-site SEO for sites L&T builds
+- Services: websites, practical AI automations, and on-site SEO for sites Render builds
 - Maintenance: optional for now, may change later
 - Lead source: cold outreach to local businesses
 - Payment direction: Stripe Payment Links after a closed call, with website checkout later if packages become standardized
@@ -24,15 +24,17 @@ This file holds rough ideas, open questions, and decisions that are not fully se
 - Intake tool: Google Forms first
 - Booking stack: Calendly embedded on the contact page
 - Starting maintenance price: `$50/mo`
+- Website domain: `renderlocalwebsites.com`
+- Public email: `renderlocalwebsites@gmail.com`
 
 ## Open Questions
 
 ### Brand
 
-- Should the public name be written as `L&T Consulting and Design`, `L&T Consulting & Design`, or something shorter like `L&T Web Systems`?
+- How should the Render name and visual identity be applied across outreach, proposals, invoices, and client handoff materials?
 - Should the tone be more premium, more local, or more direct and scrappy?
 - Should the student/founder story be mentioned only on the About page or also lightly on the homepage?
-- What email domain will be used?
+- Should outreach continue from `renderlocalwebsites@gmail.com`, or should Render later move to domain-based inboxes like `hello@renderlocalwebsites.com`?
 
 ### Services
 

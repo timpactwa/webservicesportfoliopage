@@ -2,7 +2,7 @@
 
 ## Principle
 
-L&T Consulting and Design should use automation internally before selling automation externally.
+Render should use automation internally before selling automation externally.
 
 The goal is not to automate everything immediately. The goal is to design the business so repeatable steps can become automated over time.
 

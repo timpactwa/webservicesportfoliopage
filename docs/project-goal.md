@@ -2,7 +2,7 @@
 
 ## What We Are Building
 
-This project is a public-facing website for L&T Consulting and Design, a local web design, AI automation, and on-site SEO business founded by Luke Wilkins and Tim Pactwa.
+This project is a public-facing website for Render, a local web design, AI automation, and on-site SEO business founded by Luke Wilkins and Tim Pactwa.
 
 The first version should act as a credible portfolio and lead-generation site. It does not need to be huge. It needs to be clear, polished, fast, and convincing enough that a local business owner would book a call.
 
@@ -23,7 +23,7 @@ Secondary audience:
 
 ## Core Promise
 
-L&T Consulting and Design helps local businesses modernize their online presence and internal workflows with websites, on-site SEO, and practical AI automations.
+Render helps local businesses modernize their online presence and internal workflows with websites, on-site SEO, and practical AI automations.
 
 The site should make the offer feel:
 
@@ -49,14 +49,14 @@ This avoids making the offer feel inexperienced while still using the real advan
 Suggested phrasing:
 
 ```text
-L&T Consulting and Design is a lean local team founded by Luke Wilkins and Tim Pactwa. We build modern websites and practical automations for Morris County businesses without the overhead of a traditional agency.
+Render is a lean local team founded by Luke Wilkins and Tim Pactwa. We build modern websites and practical automations for Morris County businesses without the overhead of a traditional agency.
 ```
 
 ## Success Criteria
 
 The project is working when:
 
-- A visitor understands what L&T Consulting and Design does within the first screen.
+- A visitor understands what Render does within the first screen.
 - Pricing and services are easy to find.
 - The contact flow feels real and reliable.
 - The contact page makes the next step clear: book a free consultation directly through Calendly.
@@ -94,6 +94,8 @@ Those can come later if the business needs them.
 - First lead source: `https://randolphlocal.com/directory/`.
 - First outreach segment: businesses with no website listed, then manually verify whether they truly have no website.
 - Primary website CTA: `Book a Call`.
+- Website domain: `renderlocalwebsites.com`.
+- Public email: `renderlocalwebsites@gmail.com`.
 - Founding-client minimum: `$500` when the project creates useful proof or a strong first case study.
 - Maintenance: optional for now, may become packaged or required later.
 - Maintenance scope: hosting support, small edits, basic reports, and on-site tweaks, priced affordably at first.

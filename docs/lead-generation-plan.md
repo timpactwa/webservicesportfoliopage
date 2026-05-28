@@ -93,13 +93,13 @@ Hi [Name],
 
 I found [Business Name] through the Randolph Local directory. I may have missed it, but I could not find a dedicated website for the business.
 
-My partner Tim and I run L&T Consulting and Design. We help local businesses set up clean, mobile-friendly websites so customers can find services, hours, contact info, and next steps without digging through social pages or directory listings.
+My partner Tim and I run Render. We help local businesses set up clean, mobile-friendly websites so customers can find services, hours, contact info, and next steps without digging through social pages or directory listings.
 
 Would you be open to a free consultation this week? No pressure either way. I can also send over a few quick ideas first if that is easier.
 
 Best,
 Luke
-L&T Consulting and Design
+Render
 ```
 
 ## Booking
@@ -109,7 +109,7 @@ Use the embedded Calendly scheduler for free consultation bookings.
 Recommended call name:
 
 ```text
-L&T Website Consultation
+Render Website Consultation
 ```
 
 Default call length:

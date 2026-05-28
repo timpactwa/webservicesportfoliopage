@@ -130,7 +130,7 @@ Hi [Name],
 
 I came across [Business Name] and noticed [specific observation about their website, Google presence, mobile experience, or missing call to action].
 
-My partner Tim and I run L&T Consulting and Design. We build modern websites and simple automations for local businesses in the Morris County area.
+My partner Tim and I run Render. We build modern websites and simple automations for local businesses in the Morris County area.
 
 I had one quick idea: [specific improvement]. It could make it easier for customers to understand your services and contact you from their phone.
 
@@ -138,7 +138,7 @@ Would you be open to a free consultation this week? No pressure either way. I ca
 
 Best,
 Luke
-L&T Consulting and Design
+Render
 ```
 
 ## Call Script
@@ -146,7 +146,7 @@ L&T Consulting and Design
 Opening:
 
 ```text
-Hi, is this [Name]? This is Luke with L&T Consulting and Design. I sent over a quick email about [Business Name]'s website and had one specific idea I wanted to run by you. Do you have 30 seconds?
+Hi, is this [Name]? This is Luke with Render. I sent over a quick email about [Business Name]'s website and had one specific idea I wanted to run by you. Do you have 30 seconds?
 ```
 
 If yes:

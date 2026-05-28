@@ -1,12 +1,12 @@
-# L&T Consulting and Design Master Guide
+# Render Master Guide
 
-This repository contains the website and operating documentation for L&T Consulting and Design, a local web design, AI automation, and on-site SEO business founded by Luke Wilkins and Tim Pactwa.
+This repository contains the website and operating documentation for Render, a local web design, AI automation, and on-site SEO business founded by Luke Wilkins and Tim Pactwa.
 
 Use this README as the master map. It explains the project at a high level, captures the current decisions, and routes into the detailed docs when more context is needed.
 
 ## Project Overview
 
-L&T Consulting and Design helps local businesses modernize their online presence and reduce manual work.
+Render helps local businesses modernize their online presence and reduce manual work.
 
 The first version of the project has two connected goals:
 
@@ -19,7 +19,7 @@ The business is starting in Morris County, NJ, with Randolph as the first focuse
 
 | Area | Current decision |
 | --- | --- |
-| Business name | L&T Consulting and Design |
+| Business name | Render |
 | Founders | Luke Wilkins and Tim Pactwa |
 | Starting market | Morris County, NJ, starting with Randolph |
 | Future market | Broader NJ and nearby local-service markets |
@@ -30,6 +30,8 @@ The business is starting in Morris County, NJ, with Randolph as the first focuse
 | First lead segment | Businesses with no website listed, manually verified before outreach |
 | Outreach motion | Personalized email, then call follow-up |
 | Booking stack | Calendly scheduling link with meeting details handled by Calendly |
+| Website domain | renderlocalwebsites.com |
+| Public email | renderlocalwebsites@gmail.com |
 | Public lead form | Removed for now to keep booking low-friction |
 | Intake stack | Google Forms first; Typeform later only if polish becomes worth the cost |
 | Payment stack | Stripe Payment Links after the call |
@@ -159,8 +161,7 @@ Open questions live in [Brainstorming](docs/brainstorming.md). Do not duplicate 
 
 Current high-impact open areas include:
 
-- Final public naming style: `L&T Consulting and Design` vs `L&T Consulting & Design`.
 - Long-term pricing after founding clients.
 - Whether AI automations become standalone packages or mostly website add-ons.
 - Which industries to target after no-website Randolph leads.
-- Final booking link name and outreach email domain.
+- Final booking link name.

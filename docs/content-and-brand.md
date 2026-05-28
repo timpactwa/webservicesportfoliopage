@@ -2,7 +2,7 @@
 
 ## Positioning
 
-L&T Consulting and Design is a local web design, AI automation, and on-site SEO business founded by Luke Wilkins and Tim Pactwa.
+Render is a local web design, AI automation, and on-site SEO business founded by Luke Wilkins and Tim Pactwa.
 
 The voice should be:
 
@@ -54,11 +54,16 @@ Avoid:
 
 These should be replaced when real details are available:
 
-- `STUDIO`
+- Old studio or placeholder naming
 - Any old student-run copy that weakens credibility
-- `hello@studio.com`
+- Placeholder email addresses
 - Coming-soon project examples
 - Any pricing that does not match the current offer
+
+Current public contact details:
+
+- Website: `renderlocalwebsites.com`
+- Email: `renderlocalwebsites@gmail.com`
 
 ## Services
 
@@ -72,7 +77,7 @@ Secondary service:
 
 Included support service:
 
-- On-site SEO for websites L&T builds
+- On-site SEO for websites Render builds
 
 The AI offer should stay practical. Good examples include:
 
