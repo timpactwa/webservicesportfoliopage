@@ -15,7 +15,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://renderagency.dev'
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Render | Web Design & AI Consulting — Morris County, NJ',
+    default: 'Render | Web Design & AI Consulting, Morris County, NJ',
     template: '%s | Render',
   },
   description:
@@ -25,13 +25,13 @@ export const metadata: Metadata = {
     siteName: 'Render',
     locale: 'en_US',
     url: SITE_URL,
-    title: 'Render | Web Design & AI Consulting — Morris County, NJ',
+    title: 'Render | Web Design & AI Consulting, Morris County, NJ',
     description:
       'Render builds fast, modern websites and AI solutions for local businesses in Morris County, NJ. Student-run. Agency quality. Honest pricing.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Render | Web Design & AI Consulting — Morris County, NJ',
+    title: 'Render | Web Design & AI Consulting, Morris County, NJ',
     description:
       'Render builds fast, modern websites and AI solutions for local businesses in Morris County, NJ. Student-run. Agency quality. Honest pricing.',
   },

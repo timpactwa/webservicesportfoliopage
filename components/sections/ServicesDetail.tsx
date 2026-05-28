@@ -123,7 +123,7 @@ export default function ServicesDetail() {
             </ScanlineHeading>
             <div className="space-y-5 mb-10 text-neutral-300 leading-relaxed text-lg">
               <p>
-                We help small businesses identify where AI can save time and money — without
+                We help small businesses identify where AI can save time and money, without
                 overpromising or overcomplicating.
               </p>
               <p>
@@ -131,7 +131,7 @@ export default function ServicesDetail() {
                 content scheduling tools, internal process documentation.
               </p>
               <p>
-                We believe in honest expectations. We&apos;ll tell you when AI isn&apos;t the right tool —
+                We believe in honest expectations. We&apos;ll tell you when AI isn&apos;t the right tool,
                 and what is.
               </p>
             </div>

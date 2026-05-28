@@ -84,7 +84,7 @@ export const PROJECTS = [
   {
     projectName: 'Fuego Street Tacos',
     category: 'Web Design + Online Ordering',
-    description: 'Full restaurant demo — animated menu, cart, and a simulated Stripe checkout with pickup & delivery.',
+    description: 'Full restaurant demo: animated menu, cart, and a simulated Stripe checkout with pickup and delivery.',
     gradientFrom: 'from-orange-500',
     gradientTo: 'to-red-600',
     isComingSoon: false,
@@ -122,7 +122,7 @@ export const WHY_US_ITEMS = [
   {
     number: '02',
     title: 'Modern Tech Stack',
-    description: "Fast, modern websites built for performance — not outdated templates that slow you down.",
+    description: "Fast, modern websites built for performance, not outdated templates that slow you down.",
   },
   {
     number: '03',

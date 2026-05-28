@@ -70,7 +70,7 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 1.85, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="text-sm text-accent font-semibold"
             >
-              Currently booking founding clients — limited spots available.
+              Currently booking founding clients. Limited spots available.
             </motion.p>
           </div>
 

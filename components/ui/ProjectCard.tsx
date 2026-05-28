@@ -21,7 +21,7 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   if (demoUrl && onOpenDemo) {
     return (
-      <div className="group cursor-pointer" onClick={onOpenDemo}>
+      <div className="group cursor-pointer h-full" onClick={onOpenDemo}>
         <div className="relative aspect-[4/3] overflow-hidden bg-[#1B1B2E]">
           <iframe
             src={demoUrl}
@@ -50,7 +50,7 @@ export default function ProjectCard({
             </span>
           </div>
         </div>
-        <div className="pt-4">
+        <div className="px-4 pt-4 pb-5">
           <p className="text-accent font-bold text-xs uppercase tracking-widest mb-1">{category}</p>
           <h3 className="text-lg font-black text-[#0F0F0F] mb-1">{projectName}</h3>
           {description && (
@@ -62,7 +62,7 @@ export default function ProjectCard({
   }
 
   return (
-    <div className="group">
+    <div className="group h-full">
       <div className={`relative aspect-[4/3] bg-gradient-to-br ${gradientFrom} ${gradientTo} overflow-hidden`}>
         <svg
           className="absolute inset-0 w-full h-full opacity-10"
@@ -82,7 +82,7 @@ export default function ProjectCard({
           </div>
         )}
       </div>
-      <div className="pt-4">
+      <div className="px-4 pt-4 pb-5">
         <p className="text-accent font-bold text-xs uppercase tracking-widest mb-1">{category}</p>
         <h3 className="text-lg font-black text-[#0F0F0F]">{projectName}</h3>
       </div>

@@ -6,10 +6,10 @@ import PortfolioTeaser from '@/components/sections/PortfolioTeaser'
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Render | Web Design & AI Consulting — Morris County, NJ',
+    absolute: 'Render | Web Design & AI Consulting, Morris County, NJ',
   },
   openGraph: {
-    title: 'Render | Web Design & AI Consulting — Morris County, NJ',
+    title: 'Render | Web Design & AI Consulting, Morris County, NJ',
   },
 }
 

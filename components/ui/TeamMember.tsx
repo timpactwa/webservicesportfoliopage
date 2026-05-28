@@ -49,7 +49,7 @@ export default function TeamMember({ name, role, school, focus, bio, initials, g
       <h3 className="text-3xl md:text-4xl font-black text-charcoal mb-1">{name}</h3>
       <p className="text-accent font-bold text-sm uppercase tracking-widest mb-1">{role}</p>
       <p className="text-neutral-500 text-sm mb-4">
-        {school} — {focus}
+        {school} · {focus}
       </p>
       <p className="text-neutral-600 leading-relaxed mb-5">{bio}</p>
       {(github || linkedin) && (

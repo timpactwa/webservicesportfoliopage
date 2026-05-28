@@ -22,7 +22,7 @@ export default function WorkGrid() {
 
   return (
     <>
-      <section className="py-20 md:py-32 bg-white">
+      <section className="py-20 md:py-32 bg-[#f4f4f2]">
         <div className="container-studio">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -34,7 +34,7 @@ export default function WorkGrid() {
             <h1 className="text-display-2xl font-black text-charcoal mb-6">Our Work.</h1>
             <div className="bg-blue-50 border border-accent/20 p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <p className="text-neutral-700 font-medium">
-                We&apos;re currently booking our first clients — reach out to be featured here.
+                We&apos;re currently booking our first clients. Reach out to be featured here.
               </p>
               <Button variant="primary" href="/contact" size="sm">
                 Get in Touch
@@ -50,7 +50,19 @@ export default function WorkGrid() {
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {PROJECTS.map((project) => (
-              <motion.div key={project.projectName} variants={itemVariants}>
+              <motion.div
+                key={project.projectName}
+                variants={itemVariants}
+                whileHover={{
+                  y: -5,
+                  transition: { type: 'spring', stiffness: 400, damping: 28 },
+                }}
+                className={`bg-white overflow-hidden shadow-card hover:shadow-card-hover transition-shadow duration-300 ${
+                  project.demoUrl
+                    ? 'border border-accent/25 hover:border-accent/50'
+                    : 'border border-neutral-200 hover:border-neutral-300'
+                }`}
+              >
                 <ProjectCard
                   {...project}
                   onOpenDemo={

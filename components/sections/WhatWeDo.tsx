@@ -73,7 +73,7 @@ export default function WhatWeDo() {
               <ServiceCard
                 icon={<AIIcon />}
                 title="AI Consulting & Automation"
-                description="Practical AI tools for real business problems. No hype, no black boxes — just results you can use."
+                description="Practical AI tools for real business problems. No hype, no black boxes. Just results you can use."
                 href="/services#ai"
               />
             </motion.div>
