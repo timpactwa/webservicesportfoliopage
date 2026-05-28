@@ -5,7 +5,12 @@ import WhyUs from '@/components/sections/WhyUs'
 import PortfolioTeaser from '@/components/sections/PortfolioTeaser'
 
 export const metadata: Metadata = {
-  title: 'Render | Web Design & AI Consulting for Local Business',
+  title: {
+    absolute: 'Render | Web Design & AI Consulting — Morris County, NJ',
+  },
+  openGraph: {
+    title: 'Render | Web Design & AI Consulting — Morris County, NJ',
+  },
 }
 
 export default function HomePage() {
