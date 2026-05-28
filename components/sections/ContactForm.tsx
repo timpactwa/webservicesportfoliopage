@@ -1,22 +1,6 @@
-'use client'
-
-import { useEffect } from 'react'
-
 const calendlyUrl = 'https://calendly.com/wilkinsluke12/45min?hide_event_type_details=1&hide_gdpr_banner=1'
-const calendlyScriptSrc = 'https://assets.calendly.com/assets/external/widget.js'
 
 export default function ContactForm() {
-  useEffect(() => {
-    const script = document.createElement('script')
-    script.src = calendlyScriptSrc
-    script.async = true
-    document.body.appendChild(script)
-
-    return () => {
-      document.body.removeChild(script)
-    }
-  }, [])
-
   return (
     <section className="pt-10 pb-20 md:pt-16 md:pb-32 bg-white">
       <div className="container-studio">
@@ -54,11 +38,12 @@ export default function ContactForm() {
         </div>
 
         <div className="mx-auto mt-16 w-full max-w-[58rem]">
-          <div
-            className="calendly-inline-widget block w-full min-h-[700px]"
-            data-url={calendlyUrl}
-            data-resize="true"
-            style={{ minWidth: '320px' }}
+          <iframe
+            src={calendlyUrl}
+            width="100%"
+            height="700"
+            style={{ minWidth: '320px', border: 'none' }}
+            title="Schedule a free consultation with Render"
           />
         </div>
       </div>
