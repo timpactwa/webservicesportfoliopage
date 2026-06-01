@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
+import { EASE } from '@/lib/motion'
 
 type HeadingTag = 'h1' | 'h2' | 'h3' | 'h4'
 
@@ -32,7 +33,7 @@ export default function ScanlineHeading({
           style={{ zIndex: 15 }}
           initial={{ left: '-3px' }}
           animate={isInView ? { left: '105%' } : { left: '-3px' }}
-          transition={{ left: { duration: 0.5, delay, ease: 'easeInOut' } }}
+          transition={{ left: { duration: 0.5, delay, ease: EASE } }}
         />
       )}
       {/* Heading fades in as scan line passes */}
