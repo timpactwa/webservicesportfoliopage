@@ -3,6 +3,7 @@
 import { useRef, useCallback, useEffect } from 'react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
+import { useMagnetic } from '@/hooks/useMagnetic'
 
 interface ButtonProps {
   children: React.ReactNode
@@ -46,6 +47,8 @@ export default function Button({
   fullWidth,
 }: ButtonProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const isMagnetic = variant === 'primary' && !disabled
+  const magnetic = useMagnetic<HTMLAnchorElement & HTMLButtonElement>({ strength: 0.25, max: 5 })
   const frameRef = useRef<number | null>(null)
 
   // Cancel any in-flight animation frame on unmount
@@ -150,10 +153,15 @@ export default function Button({
     return (
       <Link
         href={href}
+        ref={isMagnetic ? magnetic.ref : undefined}
         className={baseClass}
         onClick={onClick}
         onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        onMouseMove={isMagnetic ? magnetic.onMouseMove : undefined}
+        onMouseLeave={() => {
+          handleMouseLeave()
+          if (isMagnetic) magnetic.onMouseLeave()
+        }}
       >
         {canvasEl}
         {children}
@@ -164,11 +172,16 @@ export default function Button({
   return (
     <button
       type={type}
+      ref={isMagnetic ? magnetic.ref : undefined}
       onClick={onClick}
       disabled={disabled}
       className={baseClass}
       onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onMouseMove={isMagnetic ? magnetic.onMouseMove : undefined}
+      onMouseLeave={() => {
+        handleMouseLeave()
+        if (isMagnetic) magnetic.onMouseLeave()
+      }}
     >
       {canvasEl}
       {children}
