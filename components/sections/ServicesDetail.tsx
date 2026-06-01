@@ -102,6 +102,44 @@ export default function ServicesDetail() {
         </div>
       </section>
 
+      <section className="py-20 md:py-32 bg-neutral-50">
+        <div className="container-studio">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.55 }}
+            className="max-w-3xl"
+          >
+            <p className="text-accent font-bold text-sm uppercase tracking-widest mb-4">
+              How We Start
+            </p>
+            <ScanlineHeading
+              as="h2"
+              className="text-display-xl font-black text-charcoal mb-6"
+              delay={0}
+            >
+              Bring whatever you have. We take it from there.
+            </ScanlineHeading>
+            <p className="text-lg text-neutral-600 leading-relaxed mb-8">
+              You don&apos;t need a finished plan to work with us. Whether you have a folder of
+              photos, a rough wireframe, a design concept, or just an idea in your head, we meet you
+              where you are and guide you through every stage from first concept to launch.
+            </p>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl">
+              {['Photos and images', 'Wireframes and sketches', 'Design concepts or examples', 'Just an idea, nothing else needed'].map((item) => (
+                <li key={item} className="flex items-center gap-3 text-neutral-700">
+                  <svg className="w-5 h-5 text-accent flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        </div>
+      </section>
+
       <section id="ai" className="py-20 md:py-32 bg-charcoal text-white">
         <div className="container-studio">
           <motion.div

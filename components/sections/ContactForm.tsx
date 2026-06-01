@@ -37,6 +37,25 @@ export default function ContactForm() {
           </div>
         </div>
 
+        <div className="mt-12 max-w-3xl rounded-xl border border-neutral-200 bg-neutral-50 p-6 md:p-8">
+          <h2 className="text-xl font-black text-charcoal mb-3">Not sure what you have ready?</h2>
+          <p className="text-neutral-600 leading-relaxed mb-5">
+            Bring whatever you&apos;ve got. A folder of photos, a rough sketch, a design you like, or
+            just an idea in your head. We work from any starting point and help you through every
+            stage, from first concept to launch.
+          </p>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {['Photos and images', 'Wireframes and sketches', 'Design concepts or examples', 'Just an idea works too'].map((item) => (
+              <li key={item} className="flex items-center gap-3 text-neutral-700">
+                <svg className="w-5 h-5 text-accent flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
         <div className="mx-auto mt-16 w-full max-w-[58rem]">
           <iframe
             src={calendlyUrl}

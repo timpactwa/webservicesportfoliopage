@@ -56,7 +56,7 @@ const jsonLd = {
   description:
     'Web design, local SEO, and AI automation for small businesses in Morris County, NJ.',
   url: SITE_URL,
-  email: 'hello@render.com',
+  email: 'renderlocalwebsites@gmail.com',
   areaServed: {
     '@type': 'AdministrativeArea',
     name: 'Morris County, NJ',
