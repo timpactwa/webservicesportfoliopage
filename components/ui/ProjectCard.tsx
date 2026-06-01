@@ -1,3 +1,7 @@
+'use client'
+
+import { useTilt } from '@/hooks/useTilt'
+
 interface ProjectCardProps {
   projectName: string
   category: string
@@ -19,9 +23,18 @@ export default function ProjectCard({
   demoUrl,
   onOpenDemo,
 }: ProjectCardProps) {
+  const tilt = useTilt<HTMLDivElement>({ max: 5 })
+
+  const tiltProps = {
+    ref: tilt.ref,
+    onMouseMove: tilt.onMouseMove,
+    onMouseLeave: tilt.onMouseLeave,
+    style: { transition: 'transform 150ms ease-out', willChange: 'transform' as const },
+  }
+
   if (demoUrl && onOpenDemo) {
     return (
-      <div className="group cursor-pointer h-full" onClick={onOpenDemo}>
+      <div {...tiltProps} className="group cursor-pointer h-full" onClick={onOpenDemo}>
         <div className="relative aspect-[4/3] overflow-hidden bg-[#1B1B2E]">
           <iframe
             src={demoUrl}
@@ -62,7 +75,7 @@ export default function ProjectCard({
   }
 
   return (
-    <div className="group h-full">
+    <div {...tiltProps} className="group h-full">
       <div className={`relative aspect-[4/3] bg-gradient-to-br ${gradientFrom} ${gradientTo} overflow-hidden`}>
         <svg
           className="absolute inset-0 w-full h-full opacity-10"
