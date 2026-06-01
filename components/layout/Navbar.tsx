@@ -7,17 +7,30 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { NAV_LINKS } from '@/lib/data'
 import Button from '@/components/ui/Button'
 import Logo from '@/components/ui/Logo'
+import { cn } from '@/lib/utils'
+import { useScrolled } from '@/hooks/useScrolled'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
+  const scrolled = useScrolled(24)
 
   return (
     <header
-      className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-neutral-100"
+      className={cn(
+        'sticky top-0 z-50 backdrop-blur-md border-b transition-all duration-300',
+        scrolled
+          ? 'bg-white/95 border-neutral-200 shadow-sm'
+          : 'bg-white/90 border-neutral-100'
+      )}
     >
       <div className="container-studio">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div
+          className={cn(
+            'flex items-center justify-between transition-all duration-300',
+            scrolled ? 'h-12 md:h-16' : 'h-16 md:h-20'
+          )}
+        >
           <Link href="/" className="block shrink-0" aria-label="Render home">
             <Logo variant="dark" priority className="h-auto w-32 sm:w-36 md:w-40" />
           </Link>
