@@ -44,7 +44,6 @@ export default function ProjectCard({
     ref: tilt.ref,
     onMouseMove: tilt.onMouseMove,
     onMouseLeave: tilt.onMouseLeave,
-    style: { transition: 'transform 150ms ease-out', willChange: 'transform' as const },
   }
 
   if (imageUrl && onOpenCaseStudy) {

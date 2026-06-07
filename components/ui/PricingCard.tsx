@@ -39,7 +39,7 @@ export default function PricingCard({
       ref={tilt.ref}
       onMouseMove={tilt.onMouseMove}
       onMouseLeave={tilt.onMouseLeave}
-      style={{ transition: 'transform 150ms ease-out', willChange: 'transform' }}
+      style={{}}
       className={`p-8 border relative group ${
         isHighlighted
           ? 'bg-charcoal text-white border-charcoal'

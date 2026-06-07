@@ -19,8 +19,7 @@ export default function ServiceCard({ icon, title, description, href }: ServiceC
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
       style={{
-        transition: 'transform 150ms ease-out, box-shadow 300ms ease, border-color 300ms ease',
-        willChange: 'transform',
+        transition: 'box-shadow 300ms ease, border-color 300ms ease',
       }}
       className="relative bg-white border border-neutral-200 p-8 md:p-10 hover:shadow-card-hover hover:border-accent/30 group"
     >

@@ -45,7 +45,6 @@ export function useTilt<T extends HTMLElement = HTMLElement>({
       const rotateX = (0.5 - py) * 2 * max
       if (frame.current !== null) cancelAnimationFrame(frame.current)
       frame.current = requestAnimationFrame(() => {
-        el.style.transform = `perspective(${perspective}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
         el.style.setProperty('--glow-x', `${px * 100}%`)
         el.style.setProperty('--glow-y', `${py * 100}%`)
       })
@@ -57,10 +56,9 @@ export function useTilt<T extends HTMLElement = HTMLElement>({
     const el = ref.current
     if (!el) return
     if (frame.current !== null) cancelAnimationFrame(frame.current)
-    el.style.transform = `perspective(${perspective}px) rotateX(0deg) rotateY(0deg)`
     el.style.removeProperty('--glow-x')
     el.style.removeProperty('--glow-y')
-  }, [perspective])
+  }, [])
 
   return { ref, onMouseMove, onMouseLeave }
 }

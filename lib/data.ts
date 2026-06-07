@@ -77,6 +77,7 @@ export const TEAM_MEMBERS = [
     accentShape: 'circle' as const,
     linkedin: 'https://www.linkedin.com/in/lukewilkins2/',
     image: '/luke.jpg',
+    imageClassName: 'scale-[1.35]',
   },
 ]
 

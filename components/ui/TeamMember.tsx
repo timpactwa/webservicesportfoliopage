@@ -11,6 +11,7 @@ interface TeamMemberProps {
   github?: string
   linkedin?: string
   image?: string
+  imageClassName?: string
 }
 
 function GitHubIcon() {
@@ -29,7 +30,7 @@ function LinkedInIcon() {
   )
 }
 
-export default function TeamMember({ name, role, school, focus, bio, initials, github, linkedin, image }: TeamMemberProps) {
+export default function TeamMember({ name, role, school, focus, bio, initials, github, linkedin, image, imageClassName }: TeamMemberProps) {
   return (
     <div>
       <div className="relative w-56 h-72 md:w-64 md:h-80 mb-6 overflow-hidden rounded-2xl">
@@ -38,7 +39,7 @@ export default function TeamMember({ name, role, school, focus, bio, initials, g
             src={image}
             alt={name}
             fill
-            className="object-cover object-[60%_25%]"
+            className={`object-cover object-[60%_25%]${imageClassName ? ` ${imageClassName}` : ''}`}
           />
         ) : (
           <div className="w-full h-full bg-accent flex items-center justify-center">
