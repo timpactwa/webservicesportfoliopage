@@ -4,11 +4,11 @@ import WorkGrid from '@/components/sections/WorkGrid'
 export const metadata: Metadata = {
   title: 'Our Work',
   description:
-    'See recent web design and AI automation projects by Render, built for local businesses in Morris County, NJ.',
+    'See website demos and consulting proof from Render, including nonprofit strategy, web design, and practical digital work.',
   openGraph: {
     title: 'Our Work | Render',
     description:
-      'See recent web design and AI automation projects by Render, built for local businesses in Morris County, NJ.',
+      'See website demos and consulting proof from Render, including nonprofit strategy, web design, and practical digital work.',
   },
 }
 

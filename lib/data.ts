@@ -80,13 +80,145 @@ export const TEAM_MEMBERS = [
   },
 ]
 
-export const PROJECTS = [
+export type ProjectProofImage = {
+  src: string
+  alt: string
+  label: string
+}
+
+export type ProjectCaseStudy = {
+  eyebrow: string
+  title: string
+  summary: string
+  challenge: string
+  role: string
+  research: string
+  recommendation: string
+  deliverables: string[]
+  proofImages: ProjectProofImage[]
+  stats: {
+    value: string
+    label: string
+    description: string
+  }[]
+}
+
+export type Project = {
+  projectName: string
+  category: string
+  description?: string
+  gradientFrom?: string
+  gradientTo?: string
+  isComingSoon?: boolean
+  demoUrl?: string
+  imageUrl?: string
+  imageAlt?: string
+  detailHeroImageUrl?: string
+  detailHeroImageAlt?: string
+  cardLabel?: string
+  featured?: boolean
+  featuredLabel?: string
+  date?: string
+  role?: string
+  tags?: string[]
+  proofPoints?: string[]
+  caseStudy?: ProjectCaseStudy
+}
+
+export const PROJECTS: Project[] = [
+  {
+    projectName: 'Hope Tree Family Services',
+    category: 'Consulting | Nonprofit Strategy',
+    description:
+      'Foster parent recruitment strategy, KPI tracking, and a practical social media execution kit for a nonprofit client.',
+    imageUrl: '/work/hope-tree-family-services/hope-tree-featured-proof.png',
+    imageAlt:
+      'Clean Hope Tree Family Services consulting proof artwork showing the execution kit cover and three proof points for the launch plan, KPI tracker, and social execution kit.',
+    detailHeroImageUrl: '/work/hope-tree-family-services/hope-tree-detail-hero.png',
+    detailHeroImageAlt:
+      'Detailed Hope Tree consulting proof artwork with the execution kit cover, mock profile concept, KPI tracker, and playbook excerpts framed without cropping.',
+    cardLabel: 'Case Study',
+    featured: true,
+    featuredLabel: 'Consulting Proof',
+    isComingSoon: false,
+    date: 'Spring 2026',
+    role: 'Luke Wilkins, Consultant, 180 Degrees Consulting at Virginia Tech',
+    tags: ['Consulting', 'Nonprofit Strategy', 'KPI Tracking', 'Social Media'],
+    proofPoints: [
+      'Built a foster parent recruitment strategy around clearer social media positioning.',
+      'Created KPI targets, benchmark logic, and a 90-day execution framework.',
+      'Packaged recommendations into staff-ready playbooks and outreach assets.',
+    ],
+    caseStudy: {
+      eyebrow: 'Consulting Proof',
+      title: 'A nonprofit recruitment strategy built to move from research to execution.',
+      summary:
+        'The Hope Tree Family Services project turned foster parent recruitment research into a usable social media execution kit, KPI tracking playbook, and 90-day launch plan.',
+      challenge:
+        'Hope Tree needed a clearer way to recruit therapeutic foster care parents while simplifying a message that can feel confusing or intimidating to prospective families.',
+      role:
+        'Luke Wilkins served as a consultant with 180 Degrees Consulting at Virginia Tech, contributing to research, strategic recommendations, and the final client-facing deliverables.',
+      research:
+        'The team reviewed foster care participation trends, nonprofit social media benchmarks, competitor positioning, audience motivations, and Hope Tree baseline signals.',
+      recommendation:
+        'The final recommendation centered on a dedicated therapeutic foster care social strategy with people-centered content, KPI tracking, local outreach, and a phased launch plan.',
+      deliverables: [
+        'Social Media Execution Kit',
+        'KPI Tracking & Benchmark Playbook',
+        '90-Day Launch Plan',
+        'Hashtag & Keyword Guide',
+        'Church Outreach Email Templates',
+        'Meta Ad Playbook',
+      ],
+      proofImages: [
+        {
+          src: '/work/hope-tree-family-services/execution-kit-cover.png',
+          alt: 'HopeTree TFC Social Media Execution Kit cover.',
+          label: 'Execution Kit',
+        },
+        {
+          src: '/work/hope-tree-family-services/kpi-tracking-benchmarks.png',
+          alt: 'KPI tracking and benchmark table excerpt from the Hope Tree deliverable.',
+          label: 'KPI Tracker',
+        },
+        {
+          src: '/work/hope-tree-family-services/meta-ad-playbook.png',
+          alt: 'Monthly budget and campaign split excerpt from the Meta ad playbook.',
+          label: 'Ad Playbook',
+        },
+        {
+          src: '/work/hope-tree-family-services/hashtag-content-guide.png',
+          alt: 'Hashtag, keyword, tone, and content cadence guide excerpt.',
+          label: 'Content Guide',
+        },
+      ],
+      stats: [
+        {
+          value: '90',
+          label: 'day launch plan',
+          description: 'Phased setup, content cadence, and execution guidance.',
+        },
+        {
+          value: '6',
+          label: 'deliverable areas',
+          description: 'Strategy, KPI tracking, outreach, content, ads, and flyer guidance.',
+        },
+        {
+          value: '3',
+          label: 'KPI categories',
+          description: 'Engagement, reach, and conversion signals for staff to monitor.',
+        },
+      ],
+    },
+  },
   {
     projectName: 'Fuego Street Tacos',
     category: 'Web Design + Online Ordering',
     description: 'Full restaurant demo: animated menu, cart, and a simulated Stripe checkout with pickup and delivery.',
     gradientFrom: 'from-orange-500',
     gradientTo: 'to-red-600',
+    featured: true,
+    featuredLabel: 'Live Website Demo',
     isComingSoon: false,
     demoUrl: 'https://fuego-street-tacos.vercel.app',
   },
