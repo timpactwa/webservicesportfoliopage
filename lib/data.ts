@@ -259,13 +259,6 @@ export const PROJECTS: Project[] = [
     gradientTo: 'to-teal-700',
     isComingSoon: true,
   },
-  {
-    projectName: 'Denville Dental',
-    category: 'AI Automation',
-    gradientFrom: 'from-violet-500',
-    gradientTo: 'to-purple-700',
-    isComingSoon: true,
-  },
 ]
 
 export const TRUST_MARKERS = [
