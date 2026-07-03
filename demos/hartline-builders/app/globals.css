@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #F6F4EE;
+  color: #151C26;
+  font-family: var(--font-barlow), sans-serif;
+}
+
+::selection {
+  background-color: #F5A800;
+  color: #151C26;
+}
+
+/* Dimension-line eyebrow: |——— LABEL ———| */
+.dim-line {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.dim-line::before,
+.dim-line::after {
+  content: '';
+  height: 1px;
+  flex: 1;
+  background: currentColor;
+  opacity: 0.4;
+  position: relative;
+}
+.dim-tick::before,
+.dim-tick::after {
+  content: '';
+  width: 1px;
+  height: 10px;
+  background: currentColor;
+  opacity: 0.4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

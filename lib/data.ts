@@ -128,6 +128,39 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
+    projectName: 'Fuego Street Tacos',
+    category: 'Web Design + Online Ordering',
+    description: 'Full restaurant demo: animated menu, cart, and a simulated Stripe checkout with pickup and delivery.',
+    gradientFrom: 'from-orange-500',
+    gradientTo: 'to-red-600',
+    featured: true,
+    featuredLabel: 'Live Website Demo',
+    isComingSoon: false,
+    demoUrl: 'https://fuego-street-tacos.vercel.app',
+  },
+  {
+    projectName: 'Hartline Builders',
+    category: 'Web Design + Online Booking',
+    description: 'Full contractor demo: animated blueprint hero and a 5-step work order booking flow for estimate requests.',
+    gradientFrom: 'from-amber-500',
+    gradientTo: 'to-blue-900',
+    featured: true,
+    featuredLabel: 'Live Website Demo',
+    isComingSoon: false,
+    demoUrl: 'https://hartline-builders.vercel.app',
+  },
+  {
+    projectName: 'Marlowe Dental Studio',
+    category: 'Web Design + Patient Intake',
+    description: 'Full dental practice demo: boutique brand identity and a 5-step intake flow for new patient appointment requests.',
+    gradientFrom: 'from-teal-500',
+    gradientTo: 'to-emerald-800',
+    featured: true,
+    featuredLabel: 'Live Website Demo',
+    isComingSoon: false,
+    demoUrl: 'https://marlowe-dental.vercel.app',
+  },
+  {
     projectName: 'Hope Tree Family Services',
     category: 'Consulting | Nonprofit Strategy',
     description:
@@ -213,17 +246,6 @@ export const PROJECTS: Project[] = [
     },
   },
   {
-    projectName: 'Fuego Street Tacos',
-    category: 'Web Design + Online Ordering',
-    description: 'Full restaurant demo: animated menu, cart, and a simulated Stripe checkout with pickup and delivery.',
-    gradientFrom: 'from-orange-500',
-    gradientTo: 'to-red-600',
-    featured: true,
-    featuredLabel: 'Live Website Demo',
-    isComingSoon: false,
-    demoUrl: 'https://fuego-street-tacos.vercel.app',
-  },
-  {
     projectName: 'Morristown Bakery Co.',
     category: 'Web Design',
     gradientFrom: 'from-blue-500',
@@ -243,6 +265,63 @@ export const PROJECTS: Project[] = [
     gradientFrom: 'from-violet-500',
     gradientTo: 'to-purple-700',
     isComingSoon: true,
+  },
+]
+
+export const TRUST_MARKERS = [
+  {
+    label: 'Founder-led',
+    description: 'You work directly with the people building your site. No account managers, no markup.',
+  },
+  {
+    label: 'Next.js builds',
+    description: 'Modern, fast-loading sites engineered for performance and search, not slow templates.',
+  },
+  {
+    label: 'SEO included',
+    description: 'On-site local SEO comes standard with every website we build.',
+  },
+  {
+    label: '2–4 week launch',
+    description: 'Typical timeline from kickoff to launch once we have your content and direction.',
+  },
+]
+
+export const FAQ_ITEMS = [
+  {
+    question: 'How much does a website cost?',
+    answer:
+      'Our packages start at $500 for a focused 1–3 page site, with Standard and Premium tiers for larger builds. Every package is a clear, fixed price — see the full breakdown on our Services page.',
+  },
+  {
+    question: 'How long until my site launches?',
+    answer:
+      'Most websites launch in 2–4 weeks after we receive your content and project details. Simple sites can move faster; larger builds with custom features take a bit longer.',
+  },
+  {
+    question: 'Do I own my website?',
+    answer:
+      'Yes. Once your project is complete and paid, the site and its content are yours.',
+  },
+  {
+    question: 'What do I need to have ready?',
+    answer:
+      "Whatever you've got — photos, a rough idea, or examples you like. We work from any starting point and guide you through copy, structure, and design.",
+  },
+  {
+    question: 'Is SEO included?',
+    answer:
+      'Yes. On-site local SEO comes standard with every build: clean metadata, fast load times, mobile-responsive design, and search-friendly page structure.',
+  },
+  {
+    question: 'What does the monthly fee cover?',
+    answer:
+      'Optional maintenance keeps your site updated, secure, and online — hosting support, small content updates, and fixes. You can start without it and add it later.',
+  },
+  {
+    question: 'Do you only work with Morris County businesses?',
+    answer:
+      "We're based in and focused on Morris County, NJ, but we're happy to talk with nearby local businesses too.",
   },
 ]
 
