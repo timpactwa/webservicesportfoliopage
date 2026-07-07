@@ -25,7 +25,7 @@ export default function PortfolioTeaser() {
     <>
       <PixelReveal pixelSize={16}>
         <section className="py-20 md:py-32 bg-[#0F0F0F] relative overflow-hidden">
-          {/* Section divider — glowing accent line separating from WhyUs */}
+          {/* Section divider: glowing accent line separating from WhyUs */}
           <div
             className="absolute top-0 left-0 right-0 h-px pointer-events-none"
             style={{ background: 'linear-gradient(90deg, transparent 0%, #1D4ED8 25%, #3B82F6 50%, #1D4ED8 75%, transparent 100%)' }}
@@ -36,7 +36,7 @@ export default function PortfolioTeaser() {
           <div className="container-studio relative">
             <div className="grid lg:grid-cols-[2fr_3fr] gap-12 lg:gap-20 items-center">
 
-              {/* Left — copy */}
+              {/* Left side: copy */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -94,7 +94,7 @@ export default function PortfolioTeaser() {
                 </div>
               </motion.div>
 
-              {/* Right — preview window */}
+              {/* Right side: preview window */}
               <motion.div
                 initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}

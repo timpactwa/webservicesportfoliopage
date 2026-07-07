@@ -12,7 +12,7 @@ export default function Footer() {
               Dental Studio
             </p>
             <p className="text-sm text-porcelain/70 leading-relaxed max-w-xs">
-              {PRACTICE.tagline} Boutique family dentistry in Denville — unhurried
+              {PRACTICE.tagline} Boutique family dentistry in Denville: unhurried
               visits, honest pricing, and a team that remembers your name.
             </p>
           </div>
@@ -62,7 +62,7 @@ export default function Footer() {
           <p className="text-xs text-porcelain/40">
             © {new Date().getFullYear()} {PRACTICE.name}
           </p>
-          <p className="text-xs text-porcelain/40">Demo site — built by Pactwa Web Services</p>
+          <p className="text-xs text-porcelain/40">Demo site built by Pactwa Web Services</p>
         </div>
       </div>
     </footer>

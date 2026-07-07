@@ -58,7 +58,7 @@ export default function Footer() {
             © {new Date().getFullYear()} {COMPANY.name} · {COMPANY.license}
           </p>
           <p className="font-mono text-[11px] text-paper/40">
-            Demo site — built by Pactwa Web Services
+            Demo site built by Pactwa Web Services
           </p>
         </div>
       </div>

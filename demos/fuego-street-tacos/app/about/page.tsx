@@ -44,7 +44,7 @@ export default function AboutPage() {
               Fuego started in 2021 as a weekend pop-up in the Morristown Green parking lot. Two friends, a borrowed griddle, and 40 pounds of skirt steak. We sold out in 90 minutes.
             </p>
             <p className="font-body text-muted leading-relaxed">
-              Two years later we opened the doors on South Street. Same recipes. Same obsession with getting it right. Just a real kitchen now — and a lot more tortillas.
+              Two years later we opened the doors on South Street. Same recipes. Same obsession with getting it right. Just a real kitchen now, and a lot more tortillas.
             </p>
           </motion.div>
         </div>

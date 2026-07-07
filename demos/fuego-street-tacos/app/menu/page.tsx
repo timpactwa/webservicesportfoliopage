@@ -3,7 +3,7 @@ import { TACOS, PLATES, EXTRAS, DRINKS, DESSERTS } from '@/lib/menu-data'
 
 export const metadata: Metadata = {
   title: 'Menu',
-  description: 'Full menu at Fuego Street Tacos — tacos, plates, drinks, and more in Morristown, NJ.',
+  description: 'Full menu at Fuego Street Tacos: tacos, plates, drinks, and more in Morristown, NJ.',
 }
 
 type Item = { name: string; description: string; price: string }

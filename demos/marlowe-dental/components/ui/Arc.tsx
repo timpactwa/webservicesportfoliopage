@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion'
 
 /**
- * The practice's signature smile arc — a single curved stroke that
+ * The practice's signature smile arc: a single curved stroke that
  * draws itself in. Used under headlines and as a section motif.
  */
 export default function Arc({

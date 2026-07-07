@@ -24,7 +24,7 @@ export default function ServicesPage() {
             Services
           </h1>
           <p className="text-paper/70 max-w-md mx-auto">
-            Every line below is work our own crew performs — licensed, insured,
+            Every line below is work our own crew performs: licensed, insured,
             and covered by a two-year workmanship warranty.
           </p>
         </div>

@@ -6,7 +6,7 @@ import { COMPANY } from '@/lib/data'
 export const metadata: Metadata = {
   title: 'Book a Free Estimate',
   description:
-    'Schedule a free on-site estimate with Hartline Builders. Pick a service, a date, and a time — written estimate within five business days.',
+    'Schedule a free on-site estimate with Hartline Builders. Pick a service, a date, and a time. Written estimate within five business days.',
 }
 
 export default function BookPage() {
@@ -29,7 +29,7 @@ export default function BookPage() {
             >
               {COMPANY.phone}
             </a>{' '}
-            — {COMPANY.hours.toLowerCase()}.
+            ({COMPANY.hours.toLowerCase()}).
           </p>
         </div>
         <Suspense fallback={<div className="h-[560px] bg-white border border-prussian/20 animate-pulse" />}>

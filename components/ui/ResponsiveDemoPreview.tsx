@@ -42,7 +42,7 @@ export default function ResponsiveDemoPreview({
 
   // Only mount the iframe once the card is near the viewport. With several of
   // these on one page, loading every external demo site at once is what made
-  // the grid feel laggy — each one is a full separate app booting up.
+  // the grid feel laggy: each one is a full separate app booting up.
   useEffect(() => {
     const container = containerRef.current
     if (!container) return

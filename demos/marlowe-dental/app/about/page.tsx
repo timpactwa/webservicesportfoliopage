@@ -6,13 +6,13 @@ import { TEAM, PRACTICE } from '@/lib/data'
 export const metadata: Metadata = {
   title: 'About & Team',
   description:
-    'Meet the team at Marlowe Dental Studio — boutique family dentistry in Denville, NJ, built around unhurried visits and honest pricing.',
+    'Meet the team at Marlowe Dental Studio: boutique family dentistry in Denville, NJ, built around unhurried visits and honest pricing.',
 }
 
 const COMFORTS = [
   'Noise-cancelling headphones at every chair',
   'Weighted blankets on request',
-  'Signal-to-pause — raise a hand, we stop',
+  'Signal-to-pause: raise a hand, we stop',
   'Nitrous oxide available for any visit',
   'Prices in writing before treatment',
   'Text updates if we run behind',
@@ -28,7 +28,7 @@ export default function AboutPage() {
         </h1>
         <p className="text-stone max-w-lg mx-auto">
           Three clinicians, one location, and a patient list we keep short
-          enough to know. That&apos;s not a limitation — it&apos;s the product.
+          enough to know. That&apos;s not a limitation. It&apos;s the product.
         </p>
       </div>
 

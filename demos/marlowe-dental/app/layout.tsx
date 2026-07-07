@@ -16,7 +16,7 @@ const figtree = Figtree({
 })
 
 export const metadata: Metadata = {
-  title: { default: 'Marlowe Dental Studio — Denville, NJ', template: '%s | Marlowe Dental Studio' },
+  title: { default: 'Marlowe Dental Studio | Denville, NJ', template: '%s | Marlowe Dental Studio' },
   description:
     'Boutique family dentistry in Denville, NJ. Unhurried visits, honest pricing, and care that starts by listening. Now welcoming new patients.',
 }

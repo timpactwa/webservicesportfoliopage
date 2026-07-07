@@ -21,7 +21,7 @@ const PROMISES = [
   },
   {
     title: 'Your pace, not ours',
-    desc: 'Raise a hand and we stop. Nervous patients get longer visits at no charge — gentle is a schedule decision, not a slogan.',
+    desc: 'Raise a hand and we stop. Nervous patients get longer visits at no charge. Gentle is a schedule decision, not a slogan.',
   },
   {
     title: 'We run on time',
@@ -165,7 +165,7 @@ export default function Home() {
               Care for every kind of visit
             </h2>
             <p className="text-stone">
-              From six-month cleanings to the toothache that can&apos;t wait —
+              From six-month cleanings to the toothache that can&apos;t wait, all
               handled in one calm place.
             </p>
           </motion.div>
@@ -251,7 +251,7 @@ export default function Home() {
             <p className="text-stone leading-relaxed mb-4">
               I was a nervous dental patient long before I was a dentist. The
               rushed visits, the mystery bills, the feeling of being a mouth on
-              a schedule instead of a person — I remember all of it.
+              a schedule instead of a person. I remember all of it.
             </p>
             <p className="text-stone leading-relaxed mb-8">
               Marlowe Dental Studio is the fix I couldn&apos;t find: longer

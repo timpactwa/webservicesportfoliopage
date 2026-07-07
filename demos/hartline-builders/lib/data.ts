@@ -11,7 +11,7 @@ export const SERVICES: Service[] = [
   {
     slug: 'kitchen',
     name: 'Kitchen Remodels',
-    blurb: 'Full gut renovations and refreshes — cabinetry, counters, lighting, and layout changes that make the room work.',
+    blurb: 'Full gut renovations and refreshes: cabinetry, counters, lighting, and layout changes that make the room work.',
     scope: ['Custom cabinetry', 'Stone & quartz counters', 'Electrical & lighting plans', 'Appliance installation'],
     timeline: '4–8 weeks',
     startingAt: '$28,000',
@@ -19,7 +19,7 @@ export const SERVICES: Service[] = [
   {
     slug: 'bath',
     name: 'Bathroom Renovations',
-    blurb: 'Waterproofed, code-compliant baths built to last — from powder rooms to full primary suites.',
+    blurb: 'Waterproofed, code-compliant baths built to last, from powder rooms to full primary suites.',
     scope: ['Tile & waterproofing', 'Custom glass & vanities', 'Plumbing relocation', 'Heated floors'],
     timeline: '3–5 weeks',
     startingAt: '$14,500',
@@ -35,7 +35,7 @@ export const SERVICES: Service[] = [
   {
     slug: 'basement',
     name: 'Basement Finishing',
-    blurb: 'Dry, warm, fully permitted living space — media rooms, offices, gyms, and in-law suites.',
+    blurb: 'Dry, warm, fully permitted living space: media rooms, offices, gyms, and in-law suites.',
     scope: ['Moisture control', 'Framing & insulation', 'Egress windows', 'Full electrical & HVAC'],
     timeline: '5–9 weeks',
     startingAt: '$32,000',
@@ -43,7 +43,7 @@ export const SERVICES: Service[] = [
   {
     slug: 'addition',
     name: 'Additions & Structural',
-    blurb: 'Second stories, bump-outs, and garage conversions — architect-coordinated from footing to ridge.',
+    blurb: 'Second stories, bump-outs, and garage conversions, architect-coordinated from footing to ridge.',
     scope: ['Architectural coordination', 'Foundation & framing', 'Roofing & siding tie-in', 'Township approvals'],
     timeline: '10–16 weeks',
     startingAt: '$85,000',
@@ -51,7 +51,7 @@ export const SERVICES: Service[] = [
   {
     slug: 'repair',
     name: 'Repairs & Punch Lists',
-    blurb: 'The small stuff done right — rot repair, drywall, doors, trim, and the list that never gets shorter.',
+    blurb: 'The small stuff done right: rot repair, drywall, doors, trim, and the list that never gets shorter.',
     scope: ['Rot & water damage', 'Drywall & paint', 'Door & trim work', 'Half-day minimum'],
     timeline: '1–3 days',
     startingAt: '$450',
@@ -111,7 +111,7 @@ export const PROJECTS: Project[] = [
     type: 'Addition',
     duration: '14 weeks',
     year: '2024',
-    summary: 'Two-story rear addition on an 1890s farmhouse — great room below, primary suite above, siding matched to the original.',
+    summary: 'Two-story rear addition on an 1890s farmhouse: great room below, primary suite above, siding matched to the original.',
     details: ['New foundation', 'Matched cedar siding', 'Standing-seam roof tie-in', 'Historic trim replication'],
   },
   {
@@ -129,7 +129,7 @@ export const PROCESS = [
   {
     step: '01',
     name: 'Site Visit',
-    desc: 'We walk the project with you, take measurements, and talk through what you actually want — no sales pitch.',
+    desc: 'We walk the project with you, take measurements, and talk through what you actually want. No sales pitch.',
   },
   {
     step: '02',

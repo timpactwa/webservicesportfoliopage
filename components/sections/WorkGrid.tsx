@@ -94,7 +94,7 @@ export default function WorkGrid() {
             <p className="text-lg text-neutral-600 leading-relaxed mb-8">
               Every project below is a fully built site or completed deliverable, not a mockup.
               Click through the live demos yourself to see how we turn a messy business need into
-              something a customer can actually use — the same process we bring to Morris County, NJ
+              something a customer can actually use, the same process we bring to Morris County, NJ
               businesses.
             </p>
 

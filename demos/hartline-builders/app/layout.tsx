@@ -23,9 +23,9 @@ const plexMono = IBM_Plex_Mono({
 })
 
 export const metadata: Metadata = {
-  title: { default: 'Hartline Builders — Randolph, NJ', template: '%s | Hartline Builders' },
+  title: { default: 'Hartline Builders | Randolph, NJ', template: '%s | Hartline Builders' },
   description:
-    'General contractor in Randolph, NJ. Kitchens, baths, decks, basements, and additions — fixed estimates, our own crew, two-year warranty.',
+    'General contractor in Randolph, NJ. Kitchens, baths, decks, basements, and additions. Fixed estimates, our own crew, two-year warranty.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

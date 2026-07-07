@@ -301,11 +301,11 @@ export default function IntakeWizard() {
           <ul className="space-y-2 text-sm text-petrol">
             <li className="flex gap-2.5">
               <CheckIcon className="w-4 h-4 text-sage shrink-0 mt-0.5" />
-              Bring your insurance card — we file everything for you
+              Bring your insurance card. We file everything for you
             </li>
             <li className="flex gap-2.5">
               <CheckIcon className="w-4 h-4 text-sage shrink-0 mt-0.5" />
-              Arrive as you are — your paperwork is already done
+              Arrive as you are. Your paperwork is already done
             </li>
             <li className="flex gap-2.5">
               <CheckIcon className="w-4 h-4 text-sage shrink-0 mt-0.5" />
@@ -359,7 +359,7 @@ export default function IntakeWizard() {
               <div>
                 <h2 className="font-display text-3xl text-petrol mb-2">A little history.</h2>
                 <p className="text-stone text-sm">
-                  No judgment on any answer here — we promise we&apos;ve heard it all.
+                  No judgment on any answer here. We promise we&apos;ve heard it all.
                 </p>
               </div>
               <Pills legend="When was your last dental visit?" options={LAST_VISIT} value={form.lastVisit} onChange={(v) => set('lastVisit', v)} />
@@ -425,7 +425,7 @@ export default function IntakeWizard() {
               </div>
               {form.email !== '' && !emailValid && (
                 <p className="mt-4 text-sm text-red-700" role="alert">
-                  That email doesn&apos;t look right — check for typos.
+                  That email doesn&apos;t look right. Check for typos.
                 </p>
               )}
               {form.phone !== '' && !phoneValid && (
@@ -441,7 +441,7 @@ export default function IntakeWizard() {
             <motion.div key="review" variants={slide} initial="enter" animate="center" exit="exit">
               <h2 className="font-display text-3xl text-petrol mb-2">One last look.</h2>
               <p className="text-stone text-sm mb-7">
-                Use Back to change anything — nothing is sent until you submit.
+                Use Back to change anything. Nothing is sent until you submit.
               </p>
               <dl className="bg-powder/30 rounded-2xl divide-y divide-petrol/10">
                 {[
@@ -463,7 +463,7 @@ export default function IntakeWizard() {
                 ))}
               </dl>
               <p className="text-xs text-stone mt-5">
-                Submitting requests an appointment — the front desk confirms the
+                Submitting requests an appointment. The front desk confirms the
                 exact time with you by phone before anything is booked.
               </p>
             </motion.div>

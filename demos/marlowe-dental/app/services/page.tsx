@@ -6,7 +6,7 @@ import { SERVICES, PRACTICE } from '@/lib/data'
 export const metadata: Metadata = {
   title: 'Services',
   description:
-    'Preventive, restorative, cosmetic, family, and emergency dentistry in Denville, NJ — with pricing in writing before treatment begins.',
+    'Preventive, restorative, cosmetic, family, and emergency dentistry in Denville, NJ, with pricing in writing before treatment begins.',
 }
 
 export default function ServicesPage() {
@@ -77,7 +77,7 @@ export default function ServicesPage() {
           >
             {PRACTICE.phone}
           </a>{' '}
-          and describe what&apos;s going on — the front desk can usually tell you
+          and describe what&apos;s going on. The front desk can usually tell you
           what kind of visit to book in under a minute.
         </p>
       </div>

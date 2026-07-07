@@ -326,7 +326,7 @@ export default function Home() {
             </h2>
             <p className="text-graphite max-w-md mx-auto mb-10">
               Pick a time online and we&apos;ll walk the project with you. Written
-              estimate within five business days — the number that holds.
+              estimate within five business days, the number that holds.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link

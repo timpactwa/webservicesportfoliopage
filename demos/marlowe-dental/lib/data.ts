@@ -11,7 +11,7 @@ export const SERVICES: Service[] = [
     slug: 'preventive',
     name: 'Preventive Care',
     tag: 'Every 6 months',
-    blurb: 'Cleanings, digital X-rays, and exams that catch small problems while they are still small — and painless to fix.',
+    blurb: 'Cleanings, digital X-rays, and exams that catch small problems while they are still small, and painless to fix.',
     includes: ['Gentle hygiene cleanings', 'Low-dose digital X-rays', 'Oral cancer screening', 'Custom nightguards'],
   },
   {
@@ -25,7 +25,7 @@ export const SERVICES: Service[] = [
     slug: 'cosmetic',
     name: 'Cosmetic Dentistry',
     tag: 'Free consultations',
-    blurb: 'Whitening, veneers, and bonding planned around your face and your goals — never a one-size-fits-all smile.',
+    blurb: 'Whitening, veneers, and bonding planned around your face and your goals, never a one-size-fits-all smile.',
     includes: ['Professional whitening', 'Porcelain veneers', 'Cosmetic bonding', 'Digital smile preview'],
   },
   {
@@ -67,7 +67,7 @@ export const TEAM = [
   {
     name: 'Maria Reyes, RDH',
     role: 'Lead Hygienist',
-    bio: 'Twelve years with the practice. Patients book six months out to keep their spot with her — gentle is not a marketing word here.',
+    bio: 'Twelve years with the practice. Patients book six months out to keep their spot with her. Gentle is not a marketing word here.',
     credentials: ['Bergen CC Dental Hygiene', 'Laser hygiene certified', 'Local anesthesia licensed'],
   },
 ]
@@ -75,7 +75,7 @@ export const TEAM = [
 export const TESTIMONIALS = [
   {
     quote:
-      'I avoided dentists for nine years. Dr. Marlowe never once made me feel bad about it — we made a plan, spread it over months, and I just had a visit with zero work needed.',
+      'I avoided dentists for nine years. Dr. Marlowe never once made me feel bad about it. We made a plan, spread it over months, and I just had a visit with zero work needed.',
     name: 'Rachel B.',
     detail: 'Patient since 2022',
   },

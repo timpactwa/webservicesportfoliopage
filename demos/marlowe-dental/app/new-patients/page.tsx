@@ -6,7 +6,7 @@ import { PRACTICE } from '@/lib/data'
 export const metadata: Metadata = {
   title: 'New Patients',
   description:
-    'Request an appointment at Marlowe Dental Studio in Denville, NJ. Five quick questions — the front desk calls with times within one business day.',
+    'Request an appointment at Marlowe Dental Studio in Denville, NJ. Five quick questions, then the front desk calls with times within one business day.',
 }
 
 export default function NewPatientsPage() {

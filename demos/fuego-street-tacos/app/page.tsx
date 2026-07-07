@@ -215,7 +215,7 @@ export default function Home() {
               </motion.h2>
             </div>
             <motion.p variants={fadeUp} custom={2} className="font-body text-muted max-w-sm">
-              Start here. These three define what we do — and they&apos;re under $6.
+              Start here. These three define what we do, and they&apos;re under $6.
             </motion.p>
           </motion.div>
 

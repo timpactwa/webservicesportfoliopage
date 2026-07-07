@@ -241,7 +241,7 @@ export default function BookingWizard() {
           <ol className="space-y-2 text-sm text-ink">
             <li className="flex gap-3"><span className="font-mono text-prussian">1.</span> We walk the project with you (30–45 min)</li>
             <li className="flex gap-3"><span className="font-mono text-prussian">2.</span> Written line-item estimate within 5 business days</li>
-            <li className="flex gap-3"><span className="font-mono text-prussian">3.</span> You decide — no follow-up pressure calls</li>
+            <li className="flex gap-3"><span className="font-mono text-prussian">3.</span> You decide, with no follow-up pressure calls</li>
           </ol>
         </div>
         <p className="font-mono text-xs text-graphite">
@@ -298,7 +298,7 @@ export default function BookingWizard() {
                 What are we building?
               </h2>
               <p className="text-graphite text-sm mb-7">
-                Pick the closest fit — we&apos;ll get the specifics in a minute.
+                Pick the closest fit. We&apos;ll get the specifics in a minute.
               </p>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3" role="group" aria-label="Service type">
                 {SERVICES.map((svc) => {
@@ -336,7 +336,7 @@ export default function BookingWizard() {
                   Tell us about the project.
                 </h2>
                 <p className="text-graphite text-sm">
-                  Rough answers are fine — this just helps us send the right person.
+                  Rough answers are fine. This just helps us send the right person.
                 </p>
               </div>
               <ChipGroup legend="Property type" options={PROPERTY_TYPES} value={form.propertyType} onChange={(v) => set('propertyType', v)} />
@@ -401,7 +401,7 @@ export default function BookingWizard() {
               )}
 
               <p className="font-mono text-xs uppercase tracking-widest text-graphite mb-3">
-                Time {form.date === '' && <span className="text-graphite/60 normal-case tracking-normal">— pick a date first</span>}
+                Time {form.date === '' && <span className="text-graphite/60 normal-case tracking-normal">(pick a date first)</span>}
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3" role="group" aria-label="Visit time">
                 {TIME_SLOTS.map((slot) => {
@@ -439,7 +439,7 @@ export default function BookingWizard() {
                 Where do we show up?
               </h2>
               <p className="text-graphite text-sm mb-7">
-                We&apos;ll only use this to confirm the visit — no mailing lists.
+                We&apos;ll only use this to confirm the visit. No mailing lists.
               </p>
               <div className="grid sm:grid-cols-2 gap-5">
                 <TextField id="name" label="Full name" value={form.name} onChange={(v) => set('name', v)} placeholder="Sam Rivera" autoComplete="name" />
@@ -449,7 +449,7 @@ export default function BookingWizard() {
               </div>
               {form.email !== '' && !emailValid && (
                 <p className="mt-4 text-sm text-red-700" role="alert">
-                  That email doesn&apos;t look right — check for typos.
+                  That email doesn&apos;t look right. Check for typos.
                 </p>
               )}
               {form.phone !== '' && !phoneValid && (
@@ -488,7 +488,7 @@ export default function BookingWizard() {
                 ))}
               </dl>
               <p className="font-mono text-[11px] text-graphite mt-5">
-                Submitting requests a visit — it doesn&apos;t commit you to anything.
+                Submitting requests a visit. It doesn&apos;t commit you to anything.
               </p>
             </motion.div>
           )}

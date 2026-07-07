@@ -31,7 +31,7 @@ export default function ScanlineHeading({
 
   return (
     <div ref={ref} className="relative overflow-hidden pb-2">
-      {/* Scan line sweeps left to right — skipped for reduced-motion users */}
+      {/* Scan line sweeps left to right (skipped for reduced-motion users) */}
       {!prefersReducedMotion && (
         <motion.div
           aria-hidden="true"
