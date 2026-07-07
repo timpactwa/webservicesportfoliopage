@@ -270,7 +270,7 @@ export const FAQ_ITEMS = [
   {
     question: 'How much does a website cost?',
     answer:
-      'Our packages start at $500 for a focused 1–3 page site, with Standard and Premium tiers for larger builds. Every package is a clear, fixed price — see the full breakdown on our Services page.',
+      'Our packages start at $500 for a focused 1–3 page site, with Standard and Premium tiers for larger builds. Every package is a clear, fixed price. See the full breakdown on our Services page.',
   },
   {
     question: 'How long until my site launches?',
@@ -285,7 +285,7 @@ export const FAQ_ITEMS = [
   {
     question: 'What do I need to have ready?',
     answer:
-      "Whatever you've got — photos, a rough idea, or examples you like. We work from any starting point and guide you through copy, structure, and design.",
+      "Whatever you've got: photos, a rough idea, or examples you like. We work from any starting point and guide you through copy, structure, and design.",
   },
   {
     question: 'Is SEO included?',
@@ -295,7 +295,12 @@ export const FAQ_ITEMS = [
   {
     question: 'What does the monthly fee cover?',
     answer:
-      'Optional maintenance keeps your site updated, secure, and online — hosting support, small content updates, and fixes. You can start without it and add it later.',
+      'Optional maintenance keeps your site updated, secure, and online: hosting support, small content updates, and fixes. You can start without it and add it later.',
+  },
+  {
+    question: 'I get my customers from Facebook and word of mouth. Why add a website?',
+    answer:
+      "Those referrals still look you up before they call, and what they find is whatever Google and Yelp say about you. A website is the one place online you fully control: it shows up when locals search for what you do, works for the two-thirds of people who aren't on Facebook, and never puts a competitor's ad next to your name.",
   },
   {
     question: 'Do you only work with Morris County businesses?',

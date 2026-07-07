@@ -1,3 +1,5 @@
+import CalendlyEmbed from '@/components/ui/CalendlyEmbed'
+
 const calendlyUrl = 'https://calendly.com/wilkinsluke12/45min?hide_event_type_details=1&hide_gdpr_banner=1'
 
 export default function ContactForm() {
@@ -57,14 +59,7 @@ export default function ContactForm() {
         </div>
 
         <div className="mx-auto mt-16 w-full max-w-[58rem]">
-          <iframe
-            src={calendlyUrl}
-            width="100%"
-            height="700"
-            loading="lazy"
-            style={{ minWidth: '320px', border: 'none' }}
-            title="Schedule a free consultation with Render"
-          />
+          <CalendlyEmbed url={calendlyUrl} />
           <p className="mt-3 text-center text-sm text-neutral-500">
             Prefer to book directly?{' '}
             <a

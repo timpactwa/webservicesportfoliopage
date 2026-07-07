@@ -11,7 +11,8 @@ export default function Hero() {
   const reduceMotion = useReducedMotion()
 
   // Reduced-motion users get the content immediately (no opacity:0 hold, no delay).
-  // Everyone else keeps the staggered scan-print intro that plays after PixelCanvas.
+  // Everyone else gets a quick stagger that starts almost immediately: the headline
+  // is the LCP element, so it must not wait for the PixelCanvas intro to finish.
   const reveal = (delay: number, y = 30, duration = 0.7) =>
     reduceMotion
       ? { initial: { opacity: 1 }, animate: { opacity: 1 }, transition: { duration: 0 } }
@@ -35,12 +36,12 @@ export default function Hero() {
 
           {/* Text column */}
           <div className="flex-1 min-w-0">
-            <motion.div {...reveal(1.25, 18, 0.6)} className="mb-8">
+            <motion.div {...reveal(0.15, 18, 0.6)} className="mb-8">
               <Logo variant="icon" priority className="h-14 w-14" />
             </motion.div>
 
             <motion.h1
-              {...reveal(1.4)}
+              {...reveal(0.25)}
               className="text-display-lg md:text-display-2xl font-black text-white mb-6"
             >
               We Build the Web
@@ -49,15 +50,15 @@ export default function Hero() {
             </motion.h1>
 
             <motion.p
-              {...reveal(1.55)}
+              {...reveal(0.38)}
               className="text-lg md:text-xl text-neutral-400 max-w-lg mb-10 leading-relaxed"
             >
               Render is a founder-led studio building fast, modern websites and practical AI tools
-              for Morris County, NJ businesses — at honest, transparent prices.
+              for Morris County, NJ businesses at honest, transparent prices.
             </motion.p>
 
             <motion.div
-              {...reveal(1.7)}
+              {...reveal(0.5)}
               className="flex flex-col sm:flex-row gap-4 mb-8"
             >
               <Button variant="primary" size="lg" href="/contact">
@@ -69,10 +70,10 @@ export default function Hero() {
             </motion.div>
 
             <motion.p
-              {...reveal(1.85)}
+              {...reveal(0.62)}
               className="text-sm text-accent font-semibold"
             >
-              Currently booking founding clients. Limited spots available.
+              Currently booking founding clients. Fixed pricing from $500, limited spots available.
             </motion.p>
           </div>
 
@@ -83,7 +84,7 @@ export default function Hero() {
               : {
                   initial: { opacity: 0, x: 48 },
                   animate: { opacity: 1, x: 0 },
-                  transition: { duration: 1.4, delay: 1.6, ease: EASE },
+                  transition: { duration: 1.4, delay: 0.45, ease: EASE },
                 })}
             className="hidden lg:flex items-center justify-center flex-shrink-0"
           >

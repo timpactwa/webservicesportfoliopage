@@ -112,7 +112,7 @@ function ChipGroup({
               type="button"
               onClick={() => onChange(opt)}
               aria-pressed={active}
-              className={`px-4 py-2.5 text-sm font-semibold border transition-colors cursor-pointer ${
+              className={`min-h-[44px] px-4 py-2.5 text-sm font-semibold border transition-colors cursor-pointer ${
                 active
                   ? 'bg-prussian text-paper border-prussian'
                   : 'bg-white text-ink border-prussian/25 hover:border-prussian/60'

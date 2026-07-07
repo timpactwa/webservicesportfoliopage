@@ -102,6 +102,21 @@ export default function ServicesDetail() {
                 </motion.div>
               ))}
             </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.55 }}
+              className="mt-12 flex flex-col items-center gap-4 rounded-xl border border-neutral-200 bg-neutral-50 p-8 text-center sm:flex-row sm:justify-between sm:text-left"
+            >
+              <p className="text-lg font-semibold text-charcoal">
+                Not sure which package fits? Book a free call and we&apos;ll tell you straight.
+              </p>
+              <Button variant="primary" size="md" href="/contact" className="flex-shrink-0">
+                Book a Call
+              </Button>
+            </motion.div>
           </div>
         </div>
       </section>
