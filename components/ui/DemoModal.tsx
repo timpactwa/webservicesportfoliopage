@@ -1,7 +1,7 @@
 'use client'
 
 import { AnimatePresence, motion } from 'framer-motion'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
 interface DemoModalProps {
   url: string
@@ -11,11 +11,46 @@ interface DemoModalProps {
 }
 
 export default function DemoModal({ url, title, isOpen, onClose }: DemoModalProps) {
+  const dialogRef = useRef<HTMLDivElement>(null)
+  const closeButtonRef = useRef<HTMLButtonElement>(null)
+  const previouslyFocusedRef = useRef<HTMLElement | null>(null)
+
   useEffect(() => {
     if (!isOpen) return
-    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
+
+    previouslyFocusedRef.current = document.activeElement as HTMLElement
+    closeButtonRef.current?.focus()
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose()
+        return
+      }
+      if (e.key === 'Tab') {
+        const focusable = dialogRef.current?.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+        if (!focusable || focusable.length === 0) return
+        const first = focusable[0]
+        const last = focusable[focusable.length - 1]
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault()
+          last.focus()
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault()
+          first.focus()
+        }
+      }
+    }
     window.addEventListener('keydown', handler)
-    return () => window.removeEventListener('keydown', handler)
+    return () => {
+      window.removeEventListener('keydown', handler)
+      document.body.style.overflow = previousOverflow
+      previouslyFocusedRef.current?.focus()
+    }
   }, [isOpen, onClose])
 
   const displayUrl = url.replace(/^https?:\/\//, '')
@@ -24,6 +59,10 @@ export default function DemoModal({ url, title, isOpen, onClose }: DemoModalProp
     <AnimatePresence>
       {isOpen && (
         <motion.div
+          ref={dialogRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label={title}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -70,6 +109,7 @@ export default function DemoModal({ url, title, isOpen, onClose }: DemoModalProp
                 <span className="hidden sm:inline">Open</span>
               </a>
               <button
+                ref={closeButtonRef}
                 onClick={onClose}
                 className="flex items-center justify-center w-7 h-7 text-neutral-400 hover:text-white hover:bg-white/10 rounded transition-colors"
                 aria-label="Close preview"

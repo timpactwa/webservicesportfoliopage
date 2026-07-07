@@ -23,7 +23,7 @@ export default function PortfolioTeaser() {
 
   return (
     <>
-      <PixelReveal>
+      <PixelReveal pixelSize={16}>
         <section className="py-20 md:py-32 bg-[#0F0F0F] relative overflow-hidden">
           {/* Section divider — glowing accent line separating from WhyUs */}
           <div
@@ -80,6 +80,7 @@ export default function PortfolioTeaser() {
                 <div className="flex flex-wrap gap-4">
                   <button
                     onClick={openDemo}
+                    aria-haspopup="dialog"
                     className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white font-bold text-sm px-6 py-3 transition-colors"
                   >
                     Preview Demo
@@ -104,12 +105,18 @@ export default function PortfolioTeaser() {
                   role="button"
                   tabIndex={0}
                   aria-label={`Open ${featured.projectName} preview`}
+                  aria-haspopup="dialog"
                   className="group cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-[#0F0F0F]"
                   style={{
                     boxShadow: '0 40px 100px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.07)',
                   }}
                   onClick={openDemo}
-                  onKeyDown={e => e.key === 'Enter' && openDemo()}
+                  onKeyDown={e => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      openDemo()
+                    }
+                  }}
                 >
                   {/* Browser chrome */}
                   <div className="flex items-center gap-3 px-4 py-2.5 bg-[#1c1c1c] border-b border-white/10">
@@ -135,6 +142,7 @@ export default function PortfolioTeaser() {
                   >
                     <iframe
                       src={featured.demoUrl}
+                      loading="lazy"
                       className="absolute top-0 left-0 border-0 pointer-events-none select-none"
                       style={{
                         width: '1280px',

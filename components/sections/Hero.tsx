@@ -1,11 +1,26 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import Button from '@/components/ui/Button'
 import Logo from '@/components/ui/Logo'
 import PixelCanvas from '@/components/sections/PixelCanvas'
 
+const EASE = [0.25, 0.46, 0.45, 0.94] as [number, number, number, number]
+
 export default function Hero() {
+  const reduceMotion = useReducedMotion()
+
+  // Reduced-motion users get the content immediately (no opacity:0 hold, no delay).
+  // Everyone else keeps the staggered scan-print intro that plays after PixelCanvas.
+  const reveal = (delay: number, y = 30, duration = 0.7) =>
+    reduceMotion
+      ? { initial: { opacity: 1 }, animate: { opacity: 1 }, transition: { duration: 0 } }
+      : {
+          initial: { opacity: 0, y },
+          animate: { opacity: 1, y: 0 },
+          transition: { duration, delay, ease: EASE },
+        }
+
   return (
     <section className="relative min-h-screen flex items-center bg-charcoal overflow-hidden">
       <PixelCanvas />
@@ -20,19 +35,12 @@ export default function Hero() {
 
           {/* Text column */}
           <div className="flex-1 min-w-0">
-            <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.25, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="mb-8"
-            >
+            <motion.div {...reveal(1.25, 18, 0.6)} className="mb-8">
               <Logo variant="icon" priority className="h-14 w-14" />
             </motion.div>
 
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 1.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+              {...reveal(1.4)}
               className="text-display-lg md:text-display-2xl font-black text-white mb-6"
             >
               We Build the Web
@@ -41,19 +49,15 @@ export default function Hero() {
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 1.55, ease: [0.25, 0.46, 0.45, 0.94] }}
+              {...reveal(1.55)}
               className="text-lg md:text-xl text-neutral-400 max-w-lg mb-10 leading-relaxed"
             >
-              Render is a founder-led web design and AI consulting agency serving Morris County, NJ.
-              Modern sites and practical AI tools at honest prices.
+              Render is a founder-led studio building fast, modern websites and practical AI tools
+              for Morris County, NJ businesses — at honest, transparent prices.
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 1.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+              {...reveal(1.7)}
               className="flex flex-col sm:flex-row gap-4 mb-8"
             >
               <Button variant="primary" size="lg" href="/contact">
@@ -65,9 +69,7 @@ export default function Hero() {
             </motion.div>
 
             <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 1.85, ease: [0.25, 0.46, 0.45, 0.94] }}
+              {...reveal(1.85)}
               className="text-sm text-accent font-semibold"
             >
               Currently booking founding clients. Limited spots available.
@@ -76,9 +78,13 @@ export default function Hero() {
 
           {/* Sigil column */}
           <motion.div
-            initial={{ opacity: 0, x: 48 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.4, delay: 1.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+            {...(reduceMotion
+              ? { initial: { opacity: 1 }, animate: { opacity: 1 }, transition: { duration: 0 } }
+              : {
+                  initial: { opacity: 0, x: 48 },
+                  animate: { opacity: 1, x: 0 },
+                  transition: { duration: 1.4, delay: 1.6, ease: EASE },
+                })}
             className="hidden lg:flex items-center justify-center flex-shrink-0"
           >
             <svg
@@ -86,6 +92,7 @@ export default function Hero() {
               height="300"
               viewBox="0 0 440 300"
               fill="none"
+              aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
             >
               <defs>

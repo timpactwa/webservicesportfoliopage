@@ -10,7 +10,7 @@ export default function Footer() {
           <div>
             <Logo variant="light" className="mb-3 h-auto w-40" />
             <p className="text-neutral-400 text-sm max-w-xs leading-relaxed">
-              Honest agency work. Student driven. Morris County made.
+              Honest agency work. Founder-led. Morris County made.
             </p>
           </div>
           <nav className="flex flex-wrap gap-x-8 gap-y-3">

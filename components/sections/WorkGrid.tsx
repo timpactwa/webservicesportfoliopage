@@ -3,8 +3,7 @@
 import Image from 'next/image'
 import { type RefObject, useEffect, useRef, useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
-import { PROJECTS, type Project } from '@/lib/data'
-import ProjectCard from '@/components/ui/ProjectCard'
+import { PROJECTS, TRUST_MARKERS, type Project } from '@/lib/data'
 import DemoModal from '@/components/ui/DemoModal'
 import Button from '@/components/ui/Button'
 import ResponsiveDemoPreview from '@/components/ui/ResponsiveDemoPreview'
@@ -65,7 +64,6 @@ export default function WorkGrid() {
   const caseStudyRef = useRef<HTMLDivElement>(null)
   const safeRevealProps = useSafeRevealProps()
   const featuredProjects = PROJECTS.filter((project) => project.featured)
-  const moreProjects = PROJECTS.filter((project) => !project.featured)
   const activeCaseStudy = featuredProjects.find((project) => project.projectName === activeCaseStudyName)
 
   const openCaseStudy = (project: Project) => {
@@ -87,17 +85,32 @@ export default function WorkGrid() {
           <motion.div
             variants={sectionVariants}
             {...safeRevealProps}
-            className="mb-10"
+            className="mb-14 md:mb-20 max-w-3xl"
           >
+            <p className="text-accent font-bold text-xs uppercase tracking-widest mb-4">
+              Portfolio
+            </p>
             <h1 className="text-display-2xl font-black text-charcoal mb-6">Our Work.</h1>
-            <div className="bg-blue-50 border border-accent/20 p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <p className="text-neutral-700 font-medium max-w-3xl">
-                A mix of live builds, consulting proof, and selected demos that show how we turn
-                messy business needs into practical digital work.
-              </p>
-              <Button variant="primary" href="/contact" size="sm">
+            <p className="text-lg text-neutral-600 leading-relaxed mb-8">
+              Every project below is a fully built site or completed deliverable, not a mockup.
+              Click through the live demos yourself to see how we turn a messy business need into
+              something a customer can actually use — the same process we bring to Morris County, NJ
+              businesses.
+            </p>
+
+            <div className="flex flex-col sm:flex-row sm:items-center gap-6 mb-10">
+              <Button variant="primary" href="/contact">
                 Start a Project
               </Button>
+            </div>
+
+            <div className="flex flex-wrap gap-x-8 gap-y-3 pt-6 border-t border-neutral-200">
+              {TRUST_MARKERS.map((item) => (
+                <div key={item.label} className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 shrink-0 bg-accent" />
+                  <span className="text-sm font-bold text-neutral-700">{item.label}</span>
+                </div>
+              ))}
             </div>
           </motion.div>
 
@@ -149,51 +162,6 @@ export default function WorkGrid() {
               <CaseStudySection project={activeCaseStudy} sectionRef={caseStudyRef} />
             )}
           </section>
-
-          {moreProjects.length > 0 && (
-            <section>
-              <motion.div
-                variants={sectionVariants}
-                {...safeRevealProps}
-                className="mb-6"
-              >
-                <p className="text-accent font-bold text-xs uppercase tracking-widest mb-2">
-                  More Work
-                </p>
-                <h2 className="text-display-md font-black text-charcoal">More examples in progress.</h2>
-              </motion.div>
-
-              <motion.div
-                variants={containerVariants}
-                {...safeRevealProps}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-              >
-                {moreProjects.map((project) => (
-                  <motion.div
-                    key={project.projectName}
-                    variants={itemVariants}
-                    whileHover={{
-                      y: -5,
-                      transition: { type: 'spring', stiffness: 400, damping: 28 },
-                    }}
-                    className="bg-white overflow-hidden shadow-card hover:shadow-card-hover border border-neutral-200 hover:border-neutral-300 transition-shadow duration-300"
-                  >
-                    <ProjectCard
-                      {...project}
-                      onOpenCaseStudy={
-                        project.caseStudy ? () => openCaseStudy(project) : undefined
-                      }
-                      onOpenDemo={
-                        project.demoUrl
-                          ? () => setActiveDemo({ url: project.demoUrl!, title: project.projectName })
-                          : undefined
-                      }
-                    />
-                  </motion.div>
-                ))}
-              </motion.div>
-            </section>
-          )}
         </div>
       </section>
 
@@ -304,6 +272,7 @@ function FeaturedProjectCard({
             <button
               type="button"
               onClick={onOpenDemo}
+              aria-haspopup="dialog"
               className="inline-flex items-center justify-center bg-accent hover:bg-accent-dark text-white font-bold px-5 py-3 transition-colors"
             >
               Preview Demo

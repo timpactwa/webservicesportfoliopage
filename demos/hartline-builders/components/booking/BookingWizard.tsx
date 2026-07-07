@@ -270,13 +270,14 @@ export default function BookingWizard() {
           {STEPS.map((label, i) => (
             <li key={label} className="flex-1">
               <div
+                aria-hidden="true"
                 className={`h-1 mb-2 transition-colors duration-300 ${
                   i < step ? 'bg-prussian' : i === step ? 'bg-hivis' : 'bg-prussian/15'
                 }`}
               />
               <span
-                className={`hidden sm:block font-mono text-[10px] uppercase tracking-widest pb-3 ${
-                  i === step ? 'text-ink' : 'text-graphite/70'
+                className={`font-mono text-[10px] uppercase tracking-widest pb-3 ${
+                  i === step ? 'block text-ink' : 'hidden sm:block text-graphite'
                 }`}
                 aria-current={i === step ? 'step' : undefined}
               >
@@ -299,7 +300,7 @@ export default function BookingWizard() {
               <p className="text-graphite text-sm mb-7">
                 Pick the closest fit — we&apos;ll get the specifics in a minute.
               </p>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3" role="radiogroup" aria-label="Service type">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3" role="group" aria-label="Service type">
                 {SERVICES.map((svc) => {
                   const Icon = SERVICE_ICONS[svc.slug]
                   const active = form.service === svc.slug
@@ -307,8 +308,7 @@ export default function BookingWizard() {
                     <button
                       key={svc.slug}
                       type="button"
-                      role="radio"
-                      aria-checked={active}
+                      aria-pressed={active}
                       onClick={() => set('service', svc.slug)}
                       className={`text-left p-5 border transition-all duration-200 cursor-pointer ${
                         active
@@ -372,15 +372,14 @@ export default function BookingWizard() {
               {days.length === 0 ? (
                 <div className="h-[76px] mb-8 bg-paper animate-pulse" aria-hidden="true" />
               ) : (
-                <div className="flex gap-2 overflow-x-auto pb-2 mb-8" role="radiogroup" aria-label="Visit date">
+                <div className="flex gap-2 overflow-x-auto pb-2 mb-8" role="group" aria-label="Visit date">
                   {days.map((d) => {
                     const active = form.date === d.iso
                     return (
                       <button
                         key={d.iso}
                         type="button"
-                        role="radio"
-                        aria-checked={active}
+                        aria-pressed={active}
                         onClick={() => {
                           set('date', d.iso)
                           set('slot', '')
@@ -404,7 +403,7 @@ export default function BookingWizard() {
               <p className="font-mono text-xs uppercase tracking-widest text-graphite mb-3">
                 Time {form.date === '' && <span className="text-graphite/60 normal-case tracking-normal">— pick a date first</span>}
               </p>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3" role="radiogroup" aria-label="Visit time">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3" role="group" aria-label="Visit time">
                 {TIME_SLOTS.map((slot) => {
                   const taken = form.date !== '' && slotTaken(form.date, slot)
                   const active = form.slot === slot
@@ -412,8 +411,7 @@ export default function BookingWizard() {
                     <button
                       key={slot}
                       type="button"
-                      role="radio"
-                      aria-checked={active}
+                      aria-pressed={active}
                       disabled={form.date === '' || taken}
                       onClick={() => set('slot', slot)}
                       className={`py-3.5 border font-semibold text-sm transition-colors ${

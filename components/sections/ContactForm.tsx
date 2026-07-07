@@ -61,9 +61,21 @@ export default function ContactForm() {
             src={calendlyUrl}
             width="100%"
             height="700"
+            loading="lazy"
             style={{ minWidth: '320px', border: 'none' }}
             title="Schedule a free consultation with Render"
           />
+          <p className="mt-3 text-center text-sm text-neutral-500">
+            Prefer to book directly?{' '}
+            <a
+              href={calendlyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-accent hover:text-accent-dark transition-colors"
+            >
+              Open Calendly ↗
+            </a>
+          </p>
         </div>
       </div>
     </section>

@@ -245,20 +245,6 @@ export const PROJECTS: Project[] = [
       ],
     },
   },
-  {
-    projectName: 'Morristown Bakery Co.',
-    category: 'Web Design',
-    gradientFrom: 'from-blue-500',
-    gradientTo: 'to-indigo-700',
-    isComingSoon: true,
-  },
-  {
-    projectName: 'Peak Landscaping',
-    category: 'Web Design & SEO',
-    gradientFrom: 'from-emerald-500',
-    gradientTo: 'to-teal-700',
-    isComingSoon: true,
-  },
 ]
 
 export const TRUST_MARKERS = [

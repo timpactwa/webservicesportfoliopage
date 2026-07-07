@@ -67,6 +67,10 @@ export default function ServicesDetail() {
               >
                 Modern websites for businesses that mean business.
               </ScanlineHeading>
+              <p className="text-lg text-neutral-600 leading-relaxed mb-6 max-w-2xl">
+                We build and launch sites for local businesses across Morris County, NJ, with a
+                process that gets you live in 2–4 weeks.
+              </p>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl">
                 {featureItems.map((item) => (
                   <li key={item} className="flex items-center gap-3 text-neutral-700">

@@ -35,6 +35,7 @@ export default function PixelCanvas() {
     let animationId: number
     let pixels: Pixel[] = []
     let startTime: number | null = null
+    let dirty = true
     const mouse = { x: -9999, y: -9999, active: false }
 
     function sizeCanvas() {
@@ -104,7 +105,10 @@ export default function PixelCanvas() {
         return
       }
       if (interactive) {
-        drawAmbient()
+        if (dirty) {
+          drawAmbient()
+          dirty = false
+        }
         animationId = requestAnimationFrame(animate)
       } else {
         // Non-interactive: fade the whole canvas out, matching the original behavior.
@@ -116,6 +120,7 @@ export default function PixelCanvas() {
     function handleResize() {
       sizeCanvas()
       buildGrid()
+      dirty = true
     }
 
     function handlePointerMove(e: PointerEvent) {
@@ -123,10 +128,21 @@ export default function PixelCanvas() {
       mouse.x = e.clientX - rect.left
       mouse.y = e.clientY - rect.top
       mouse.active = true
+      dirty = true
     }
 
     function handlePointerLeave() {
       mouse.active = false
+      dirty = true
+    }
+
+    function handleVisibilityChange() {
+      if (document.hidden) {
+        cancelAnimationFrame(animationId)
+      } else {
+        dirty = true
+        animationId = requestAnimationFrame(animate)
+      }
     }
 
     sizeCanvas()
@@ -138,11 +154,13 @@ export default function PixelCanvas() {
       const parent = canvas.parentElement
       parent?.addEventListener('pointermove', handlePointerMove)
       parent?.addEventListener('pointerleave', handlePointerLeave)
+      document.addEventListener('visibilitychange', handleVisibilityChange)
       return () => {
         cancelAnimationFrame(animationId)
         window.removeEventListener('resize', handleResize)
         parent?.removeEventListener('pointermove', handlePointerMove)
         parent?.removeEventListener('pointerleave', handlePointerLeave)
+        document.removeEventListener('visibilitychange', handleVisibilityChange)
       }
     }
 

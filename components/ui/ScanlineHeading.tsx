@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { EASE } from '@/lib/motion'
 
@@ -22,6 +22,12 @@ export default function ScanlineHeading({
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: '-30px 0px' })
   const prefersReducedMotion = useReducedMotion()
+  const [travel, setTravel] = useState(0)
+
+  // Measure before paint so the transform target is correct on the very first animation frame.
+  useLayoutEffect(() => {
+    if (ref.current) setTravel(ref.current.offsetWidth + 6)
+  }, [])
 
   return (
     <div ref={ref} className="relative overflow-hidden pb-2">
@@ -29,11 +35,11 @@ export default function ScanlineHeading({
       {!prefersReducedMotion && (
         <motion.div
           aria-hidden="true"
-          className="absolute top-0 bottom-0 w-[3px] bg-accent pointer-events-none"
+          className="absolute top-0 bottom-0 left-0 w-[3px] bg-accent pointer-events-none"
           style={{ zIndex: 15 }}
-          initial={{ left: '-3px' }}
-          animate={isInView ? { left: '105%' } : { left: '-3px' }}
-          transition={{ left: { duration: 0.5, delay, ease: EASE } }}
+          initial={{ x: -3 }}
+          animate={isInView ? { x: travel } : { x: -3 }}
+          transition={{ duration: 0.5, delay, ease: EASE }}
         />
       )}
       {/* Heading fades in as scan line passes */}

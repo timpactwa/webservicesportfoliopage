@@ -18,7 +18,7 @@ const itemVariants = {
 
 export default function WhyUs() {
   return (
-    <PixelReveal>
+    <PixelReveal pixelSize={16}>
       <section className="py-20 md:py-32 bg-charcoal text-white">
         <div className="container-studio">
           <div className="mb-14">

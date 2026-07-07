@@ -94,7 +94,7 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <Button variant="primary" size="sm" href="/contact" onClick={() => setIsOpen(false)}>
+              <Button variant="primary" size="md" href="/contact" onClick={() => setIsOpen(false)}>
                 Book a Call
               </Button>
             </div>

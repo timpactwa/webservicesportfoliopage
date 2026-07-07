@@ -10,7 +10,7 @@ const inter = Inter({
   display: 'swap',
 })
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://renderagency.dev'
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://renderlocalwebsites.com'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: '%s | Render',
   },
   description:
-    'Render builds fast, modern websites and AI solutions for local businesses in Morris County, NJ. Student-run. Agency quality. Honest pricing.',
+    'Render builds fast, modern websites and practical AI tools for local businesses in Morris County, NJ. Founder-led. Agency quality. Honest pricing.',
   openGraph: {
     type: 'website',
     siteName: 'Render',
@@ -27,13 +27,13 @@ export const metadata: Metadata = {
     url: SITE_URL,
     title: 'Render | Web Design & AI Consulting, Morris County, NJ',
     description:
-      'Render builds fast, modern websites and AI solutions for local businesses in Morris County, NJ. Student-run. Agency quality. Honest pricing.',
+      'Render builds fast, modern websites and practical AI tools for local businesses in Morris County, NJ. Founder-led. Agency quality. Honest pricing.',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Render | Web Design & AI Consulting, Morris County, NJ',
     description:
-      'Render builds fast, modern websites and AI solutions for local businesses in Morris County, NJ. Student-run. Agency quality. Honest pricing.',
+      'Render builds fast, modern websites and practical AI tools for local businesses in Morris County, NJ. Founder-led. Agency quality. Honest pricing.',
   },
   icons: {
     icon: [
@@ -61,12 +61,17 @@ const jsonLd = {
     '@type': 'AdministrativeArea',
     name: 'Morris County, NJ',
   },
+  address: {
+    '@type': 'PostalAddress',
+    addressRegion: 'NJ',
+  },
   serviceType: ['Web Design', 'Search Engine Optimization', 'AI Automation'],
   priceRange: '$$',
   founder: [
     { '@type': 'Person', name: 'Tim Pactwa' },
     { '@type': 'Person', name: 'Luke Wilkins' },
   ],
+  sameAs: ['https://linkedin.com/in/timpactwa', 'https://www.linkedin.com/in/lukewilkins2/'],
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -79,7 +84,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          // Escape < so a "</script>" sequence in the data can never close the tag
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
         />
         <Navbar />
         <main>{children}</main>

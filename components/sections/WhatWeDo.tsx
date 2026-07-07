@@ -30,7 +30,7 @@ const AIIcon = () => (
 
 export default function WhatWeDo() {
   return (
-    <PixelReveal>
+    <PixelReveal pixelSize={16}>
       <section className="py-20 md:py-32 bg-white">
         <div className="container-studio">
           <div className="mb-14">
@@ -65,7 +65,7 @@ export default function WhatWeDo() {
               <ServiceCard
                 icon={<WebIcon />}
                 title="Web Design & Development"
-                description="Custom Next.js sites that load fast, rank well, and look like you actually care about your brand."
+                description="Custom Next.js sites that load fast, rank in local search, and turn visitors into customers."
                 href="/services#web"
               />
             </motion.div>
@@ -73,7 +73,7 @@ export default function WhatWeDo() {
               <ServiceCard
                 icon={<AIIcon />}
                 title="AI Consulting & Automation"
-                description="Practical AI tools for real business problems. No hype, no black boxes. Just results you can use."
+                description="Practical AI tools for real business tasks — lead follow-up, intake, and busywork handled. No hype."
                 href="/services#ai"
               />
             </motion.div>
