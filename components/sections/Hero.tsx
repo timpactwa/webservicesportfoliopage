@@ -54,7 +54,7 @@ export default function Hero() {
               className="text-lg md:text-xl text-neutral-400 max-w-lg mb-10 leading-relaxed"
             >
               Render is a founder-led studio building fast, modern websites and practical AI tools
-              for Morris County, NJ businesses at honest, transparent prices.
+              for local businesses across Morris County, NJ.
             </motion.p>
 
             <motion.div
@@ -73,7 +73,7 @@ export default function Hero() {
               {...reveal(0.62)}
               className="text-sm text-accent font-semibold"
             >
-              Currently booking founding clients. Fixed pricing from $500, limited spots available.
+              Fixed, published pricing. Clear scope. You see the number before you ever book a call.
             </motion.p>
           </div>
 

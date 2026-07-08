@@ -4,11 +4,11 @@ import AboutContent from '@/components/sections/AboutContent'
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Meet the Render team: two Virginia Tech students building modern websites and AI solutions for local businesses in Morris County, NJ.',
+    'Meet the founders behind Render: a lean, founder-led team building modern websites and AI solutions for local businesses in Morris County, NJ.',
   openGraph: {
     title: 'About | Render',
     description:
-      'Meet the Render team: two Virginia Tech students building modern websites and AI solutions for local businesses in Morris County, NJ.',
+      'Meet the founders behind Render: a lean, founder-led team building modern websites and AI solutions for local businesses in Morris County, NJ.',
   },
 }
 

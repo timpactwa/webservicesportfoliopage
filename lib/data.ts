@@ -266,11 +266,32 @@ export const TRUST_MARKERS = [
   },
 ]
 
+export const PROOF_MARKERS = [
+  {
+    label: 'Pricing on the page',
+    description:
+      'Every package price is published right here. No "contact us for a quote," no sales call before you see a number.',
+    href: '/services',
+  },
+  {
+    label: 'Two real founders',
+    description:
+      'Tim and Luke, Virginia Tech, based in Morris County. Named, reachable, and on every project.',
+    href: '/about',
+  },
+  {
+    label: 'Live demo sites',
+    description:
+      'The work above is clickable, not a screenshot. Open any demo and use it the way a customer would.',
+    href: '/work',
+  },
+]
+
 export const FAQ_ITEMS = [
   {
     question: 'How much does a website cost?',
     answer:
-      'Our packages start at $500 for a focused 1–3 page site, with Standard and Premium tiers for larger builds. Every package is a clear, fixed price. See the full breakdown on our Services page.',
+      'Every package is a clear, fixed price, so you know the number before you commit. Starter begins at $500 for a focused 1–3 page site, with Standard and Premium tiers for larger builds. See the full breakdown on our Services page.',
   },
   {
     question: 'How long until my site launches?',
@@ -312,8 +333,8 @@ export const FAQ_ITEMS = [
 export const WHY_US_ITEMS = [
   {
     number: '01',
-    title: 'No Agency Markup',
-    description: "We have no office, no account managers, no overhead. You pay for the work.",
+    title: 'You Pay For The Work',
+    description: "No account managers, no agency markup, no layers between you and the people building your site.",
   },
   {
     number: '02',

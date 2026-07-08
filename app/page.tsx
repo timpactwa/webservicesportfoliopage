@@ -4,6 +4,7 @@ import TrustStrip from '@/components/sections/TrustStrip'
 import WhatWeDo from '@/components/sections/WhatWeDo'
 import WhyUs from '@/components/sections/WhyUs'
 import PortfolioTeaser from '@/components/sections/PortfolioTeaser'
+import ProofBar from '@/components/sections/ProofBar'
 import Faq from '@/components/sections/Faq'
 import { FAQ_ITEMS } from '@/lib/data'
 
@@ -39,8 +40,9 @@ export default function HomePage() {
       <Hero />
       <TrustStrip />
       <WhatWeDo />
-      <WhyUs />
       <PortfolioTeaser />
+      <ProofBar />
+      <WhyUs />
       <Faq />
     </>
   )

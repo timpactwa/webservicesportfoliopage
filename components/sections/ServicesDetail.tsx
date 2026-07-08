@@ -25,6 +25,13 @@ const featureItems = [
   'Performance-optimized (Core Web Vitals)',
 ]
 
+const aiUseCases = [
+  'After-hours questions triaged overnight with a draft reply waiting for you',
+  'Website leads routed straight into your spreadsheet or CRM, already organized',
+  'Review requests that send themselves the moment a job or visit is done',
+  'SOPs and internal docs that stay current on their own',
+]
+
 export default function ServicesDetail() {
   return (
     <div>
@@ -176,22 +183,35 @@ export default function ServicesDetail() {
               className="text-display-xl font-black text-white mb-8"
               delay={0}
             >
-              AI for your actual business, not a pitch deck.
+              Quiet automation for the work you shouldn&apos;t be doing by hand.
             </ScanlineHeading>
-            <div className="space-y-5 mb-10 text-neutral-300 leading-relaxed text-lg">
+            <div className="space-y-5 mb-8 text-neutral-300 leading-relaxed text-lg">
               <p>
-                We help small businesses identify where AI can save time and money, without
-                overpromising or overcomplicating.
-              </p>
-              <p>
-                Common projects: AI-assisted customer service drafts, automated data entry workflows,
-                content scheduling tools, internal process documentation.
-              </p>
-              <p>
-                We believe in honest expectations. We&apos;ll tell you when AI isn&apos;t the right tool,
-                and what is.
+                We build small, reliable systems around the busywork that slows you down. No
+                dashboards to learn, no science project. It runs in the background and you get
+                your time back.
               </p>
             </div>
+            <ul className="space-y-3 mb-8 max-w-2xl">
+              {aiUseCases.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-neutral-300">
+                  <svg
+                    className="w-5 h-5 text-accent flex-shrink-0 mt-0.5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={3}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p className="text-neutral-300 leading-relaxed text-lg mb-10">
+              Bring us the task you dread. We&apos;ll tell you whether it&apos;s worth automating,
+              and build it if it is.
+            </p>
             <Button variant="primary" href="/contact" size="lg">
               Talk to Us About AI
             </Button>

@@ -8,7 +8,7 @@ import ScanlineHeading from '@/components/ui/ScanlineHeading'
 const values = [
   { title: 'Quality over quantity', description: 'We take on fewer clients so we can do better work.' },
   { title: 'Transparency always', description: 'No hidden costs, no scope surprises, no fluff.' },
-  { title: 'Mutual benefit', description: 'You get a great site. We get real experience. Win-win.' },
+  { title: 'Skin in the game', description: "We're not padding a resume. Every site has to perform, because it's the proof the next client sees." },
 ]
 
 const cardVariants: Variants = {
@@ -33,11 +33,11 @@ export default function AboutContent() {
               className="text-display-xl font-black text-charcoal mb-8 max-w-3xl"
               delay={0}
             >
-              Built for local.<br />Priced for real.
+              Built for local.<br />Priced in the open.
             </ScanlineHeading>
             <p className="text-accent font-bold text-sm uppercase tracking-widest mb-4">Our Mission</p>
             <p className="text-2xl text-neutral-600 leading-relaxed max-w-2xl">
-              Tim brings the software. Luke brings the strategy. Together we help local businesses get modern websites and practical digital tools at a fraction of what a traditional agency charges. No overhead, no middlemen, just two people who care about the work.
+              Tim brings the software. Luke brings the strategy. Together we help local businesses get modern websites and practical digital tools without the retainer, the markup, or the six-week sales process. No overhead, no middlemen, just two people who care about the work.
             </p>
           </motion.div>
 
