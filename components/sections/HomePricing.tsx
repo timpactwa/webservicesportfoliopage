@@ -7,14 +7,13 @@ import { track } from '@/lib/analytics'
 import { cn } from '@/lib/utils'
 
 /**
- * One-line feature summary for the compact table, derived from each tier's own
- * `features` array (its first two entries) rather than any new copy, per the
- * design handoff. `truncate` keeps it to one line even where the joined text
- * runs long in the narrowest desktop column.
+ * One-line feature summary for the compact table, taken from each tier's own
+ * `features` array rather than any new copy, per the design handoff. Only the
+ * first entry is used: joining two ran past the narrowest desktop column and
+ * ellipsized mid-word.
  */
 function summaryLine(tier: PricingTier) {
-  const [first, second] = tier.features
-  return `${first}, ${second.charAt(0).toLowerCase()}${second.slice(1)}`
+  return tier.features[0]
 }
 
 export default function HomePricing() {
