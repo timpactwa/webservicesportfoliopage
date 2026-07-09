@@ -6,9 +6,8 @@ import HomeServices from '@/components/sections/HomeServices'
 import HomeWork from '@/components/sections/HomeWork'
 import HomePricing from '@/components/sections/HomePricing'
 import WhyUs from '@/components/sections/WhyUs'
-import Faq from '@/components/sections/Faq'
+import Faq, { featuredFaqItems } from '@/components/sections/Faq'
 import HomeContact from '@/components/sections/HomeContact'
-import { FAQ_ITEMS } from '@/lib/data'
 
 export const metadata: Metadata = {
   title: {
@@ -25,7 +24,7 @@ export const metadata: Metadata = {
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: FAQ_ITEMS.map((item) => ({
+  mainEntity: featuredFaqItems.map((item) => ({
     '@type': 'Question',
     name: item.question,
     acceptedAnswer: { '@type': 'Answer', text: item.answer },

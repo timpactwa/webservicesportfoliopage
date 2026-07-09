@@ -16,7 +16,9 @@ const FEATURED_FAQ_QUESTIONS = [
   'What does the monthly fee cover?',
 ]
 
-const featuredFaqItems = FEATURED_FAQ_QUESTIONS.map((question) => {
+// Exported so app/page.tsx builds its FAQPage JSON-LD from the same subset. Google
+// requires structured data to match content visible on the page.
+export const featuredFaqItems = FEATURED_FAQ_QUESTIONS.map((question) => {
   const item = FAQ_ITEMS.find((faq) => faq.question === question)
   if (!item) throw new Error(`Faq is out of sync with FAQ_ITEMS: "${question}"`)
   return item
