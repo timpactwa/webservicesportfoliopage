@@ -465,6 +465,38 @@ export const WHY_US_ITEMS = [
   },
 ]
 
+export type Differentiator = { title: string; description: string }
+
+// The homepage "Why Render" row. Deliberately conservative claims: every line is
+// literally true of this two-founder business today, no invented metrics or scope.
+export const DIFFERENTIATORS: Differentiator[] = [
+  {
+    title: 'Built to convert',
+    description:
+      'Engineered to turn visitors into booked customers, not just a digital brochure.',
+  },
+  {
+    title: 'Hours back every week',
+    description:
+      'AI automation handles the missed calls, reviews, and follow-ups you do not have time for.',
+  },
+  {
+    title: 'Priced in the open',
+    description:
+      'Fixed prices, published right on this page. You see the number before you ever book a call.',
+  },
+  {
+    title: 'SEO-first build',
+    description:
+      'Structured and optimized to show up when locals search for what you do.',
+  },
+  {
+    title: 'You work with the founders',
+    description:
+      'Tim and Luke build the site and answer for it themselves. No account managers, no agency markup.',
+  },
+]
+
 export type AIUseCase = {
   title: string
   description: string

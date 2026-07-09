@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 import RequestCallForm from '@/components/ui/RequestCallForm'
 import Reveal from '@/components/ui/Reveal'
-import { GUARANTEE } from '@/lib/data'
+import { GUARANTEE, LAUNCH_TIMELINE } from '@/lib/data'
 
 const steps = [
   'You send a couple of times that work for you.',
@@ -35,6 +35,37 @@ export default function HomeContact() {
                     <p className="text-graphite-soft leading-relaxed pt-0.5">{step}</p>
                   </li>
                 ))}
+              </ol>
+            </div>
+
+            {/* Launch timeline, moved here from WhyUs: the schedule someone reaching
+                out actually wants. Distinct from the booking steps above (that list
+                is how to get a call; this is what the build looks like once we start). */}
+            <div className="mt-10 space-y-4">
+              <h3 className="eyebrow text-xs text-accent-dark">Your launch timeline</h3>
+              <ol className="relative space-y-5">
+                {LAUNCH_TIMELINE.map((step, index) => {
+                  const isLast = index === LAUNCH_TIMELINE.length - 1
+                  return (
+                    <li key={step.week} className="relative pl-6">
+                      <span
+                        aria-hidden="true"
+                        className="absolute left-0 top-1.5 h-2.5 w-2.5 rounded-full bg-accent"
+                      />
+                      {!isLast && (
+                        <span
+                          aria-hidden="true"
+                          className="absolute left-[4.5px] top-4 -bottom-5 w-px bg-hairline"
+                        />
+                      )}
+                      <p className="eyebrow text-[11px] text-accent-dark">{step.week}</p>
+                      <h4 className="mt-1 text-[14px] font-semibold text-graphite">{step.title}</h4>
+                      <p className="mt-1 text-[12.5px] leading-relaxed text-graphite-soft">
+                        {step.description}
+                      </p>
+                    </li>
+                  )
+                })}
               </ol>
             </div>
 
