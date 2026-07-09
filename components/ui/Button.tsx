@@ -13,6 +13,12 @@ interface ButtonProps {
   disabled?: boolean
   className?: string
   fullWidth?: boolean
+  /**
+   * Accessible name, when the visible label is not descriptive on its own.
+   * Two "Learn more" buttons on one page read identically out of context, which
+   * fails Lighthouse's link-text audit and tells a screen reader user nothing.
+   */
+  ariaLabel?: string
 }
 
 const variants = {
@@ -38,6 +44,7 @@ export default function Button({
   disabled,
   className,
   fullWidth,
+  ariaLabel,
 }: ButtonProps) {
   const baseClass = cn(
     'relative inline-flex items-center justify-center rounded-full font-semibold',
@@ -52,14 +59,20 @@ export default function Button({
 
   if (href) {
     return (
-      <Link href={href} className={baseClass} onClick={onClick}>
+      <Link href={href} className={baseClass} onClick={onClick} aria-label={ariaLabel}>
         {children}
       </Link>
     )
   }
 
   return (
-    <button type={type} onClick={onClick} disabled={disabled} className={baseClass}>
+    <button
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+      className={baseClass}
+      aria-label={ariaLabel}
+    >
       {children}
     </button>
   )

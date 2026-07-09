@@ -46,7 +46,10 @@ export default function MobileCtaBar() {
         </Link>
         <Link
           href="/contact"
-          className="flex-1 rounded-full bg-accent px-4 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-accent-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+          // accent-dark at rest, accent on hover. Matches Button's primary variant.
+          // White on accent (#009891) is 3.57:1, under the 4.5:1 WCAG AA floor for
+          // 14px text; accent-dark (#006F6A) is 6.06:1. These two were inverted.
+          className="flex-1 rounded-full bg-accent-dark px-4 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
         >
           Request a Call
         </Link>

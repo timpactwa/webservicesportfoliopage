@@ -26,6 +26,6 @@ Notes:
 - Typical launch: 2 to 4 weeks once content and direction are in.
 - AI automation is scoped separately with a fixed number before you commit.
 
-Full details: https://renderlocalwebsites.com/services/web-design
-Instant estimate (no email required): https://renderlocalwebsites.com/estimate
-Contact: support@renderlocalwebsites.com
+- [Full details](https://www.renderlocalwebsites.com/services/web-design)
+- [Instant estimate, no email required](https://www.renderlocalwebsites.com/estimate)
+- Contact: support@renderlocalwebsites.com

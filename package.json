@@ -23,5 +23,14 @@
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
-  }
+  },
+  "//browserslist": "Every colour token in globals.css is oklch(), which needs Chrome 111, Safari 15.4 and Firefox 113. Older browsers cannot render this site correctly at all, so shipping polyfills for them is dead weight. Without this field Next transpiles and polyfills Array.prototype.at/flat/flatMap, Object.fromEntries/hasOwn and String trimStart/trimEnd: 11.9 KB of unused JavaScript.",
+  "browserslist": [
+    "chrome >= 111",
+    "edge >= 111",
+    "firefox >= 113",
+    "safari >= 15.4",
+    "ios_saf >= 15.4",
+    "not dead"
+  ]
 }

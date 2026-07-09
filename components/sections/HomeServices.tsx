@@ -37,7 +37,12 @@ export default function HomeServices() {
               description="Custom-built websites that load fast, rank in local search, and turn visitors into customers."
               href="/services/web-design"
               cta={
-                <Button href="/services/web-design" variant="secondary" size="sm">
+                <Button
+                  href="/services/web-design"
+                  variant="secondary"
+                  size="sm"
+                  ariaLabel="Learn more about web design and development"
+                >
                   Learn more
                 </Button>
               }
@@ -50,7 +55,12 @@ export default function HomeServices() {
               description="The follow-ups, intake forms, and after-hours questions you don't have time for, answered automatically."
               href="/services/ai-automation"
               cta={
-                <Button href="/services/ai-automation" variant="primary" size="sm">
+                <Button
+                  href="/services/ai-automation"
+                  variant="primary"
+                  size="sm"
+                  ariaLabel="Learn more about AI consulting and automation"
+                >
                   Learn more
                 </Button>
               }

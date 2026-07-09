@@ -6,42 +6,47 @@
 > Virginia Tech) and Luke Wilkins (Finance, Virginia Tech), serving Morris
 > County, New Jersey.
 
+Every price is published on the site. No sales call is required to see a number.
+Last updated July 2026.
+
 ## Services
 
-- Web Design & Development: custom-built, mobile-first websites, live in 2 to 4
-  weeks. https://renderlocalwebsites.com/services/web-design
-- Local SEO: on-site local SEO standard with every build, plus Google Business
-  Profile setup and optimization. https://renderlocalwebsites.com/services/local-seo
-- AI Consulting & Automation: after-hours replies, lead routing, review
-  requests that send themselves. https://renderlocalwebsites.com/services/ai-automation
-- Care Plan: optional monthly maintenance (hosting support, updates, fixes),
-  month to month, cancel anytime.
+- [Web Design & Development](https://www.renderlocalwebsites.com/services/web-design): custom-built, mobile-first websites, live in 2 to 4 weeks.
+- [Local SEO](https://www.renderlocalwebsites.com/services/local-seo): on-site local SEO standard with every build, plus Google Business Profile setup and optimization.
+- [AI Consulting & Automation](https://www.renderlocalwebsites.com/services/ai-automation): after-hours replies, lead routing, review requests that send themselves.
+- [Care Plan](https://www.renderlocalwebsites.com/services/web-design): optional monthly maintenance covering hosting support, updates and fixes. Month to month, cancel anytime.
 
 ## Pricing (published, USD)
 
-- Starter: $500 build + optional $99/mo Care Plan. 1-3 page website. Regular price $1,500.
-- Standard: $750 build + optional $149/mo Care Plan. 4-6 pages with local SEO. Most chosen. Regular price $2,900.
-- Premium: $2,000 build + optional $199/mo Care Plan. 7+ pages with booking or lead workflow. Regular price $4,900.
-- Custom: scoped per project with a fixed number before commitment (multi-location, e-commerce, AI automation).
-- Founding client pricing: the build prices above are discounted rates for Render's first 5 clients. They rise to the regular prices listed once those slots are filled. Care Plan prices are not discounted.
-- Guarantee: the first design direction is free; if it is not right, the client walks away and no deposit is taken.
-- Full pricing: https://renderlocalwebsites.com/pricing.md and https://renderlocalwebsites.com/services/web-design
+- [Starter](https://www.renderlocalwebsites.com/services/web-design): $500 build plus optional $99/mo Care Plan. 1-3 page website. Regular price $1,500.
+- [Standard](https://www.renderlocalwebsites.com/services/web-design): $750 build plus optional $149/mo Care Plan. 4-6 pages with local SEO. Most chosen. Regular price $2,900.
+- [Premium](https://www.renderlocalwebsites.com/services/web-design): $2,000 build plus optional $199/mo Care Plan. 7+ pages with booking or lead workflow. Regular price $4,900.
+- [Custom](https://www.renderlocalwebsites.com/contact?tier=Custom): scoped per project with a fixed number before commitment. Multi-location, e-commerce, or AI automation.
+- [Full price list](https://www.renderlocalwebsites.com/pricing.md): the same tiers in a machine-readable table.
+
+Founding client pricing: the build prices above are discounted rates for Render's
+first 5 clients. They rise to the regular prices listed once those slots are
+filled. Care Plan prices are not discounted.
+
+Guarantee: the first design direction is free. If it is not right, the client
+walks away and no deposit is taken.
 
 ## Service area
 
 Based in Morris County, NJ. Primary towns: Randolph, Denville, Morristown,
 Parsippany, Madison. Nearby Morris County towns welcome.
-https://renderlocalwebsites.com/service-areas
+
+- [Service areas](https://www.renderlocalwebsites.com/service-areas): the towns Render serves and what local search looks like in each.
 
 ## Key pages
 
-- Instant cost estimate (no email required): https://renderlocalwebsites.com/estimate
-- Live demo sites (clickable, labeled as demo templates, not client work): https://renderlocalwebsites.com/work
-- How to choose a web designer in Morris County: https://renderlocalwebsites.com/guides/choosing-a-web-designer-morris-county
-- Local SEO checklist: https://renderlocalwebsites.com/guides/local-seo-checklist
-- Founders: https://renderlocalwebsites.com/about
-- Contact (request a call, time confirmed by email): https://renderlocalwebsites.com/contact
+- [Instant cost estimate](https://www.renderlocalwebsites.com/estimate): four questions, a tier and a price, no email required.
+- [Live demo sites](https://www.renderlocalwebsites.com/work): clickable demo templates, labeled as samples rather than client work.
+- [How to choose a web designer in Morris County](https://www.renderlocalwebsites.com/guides/choosing-a-web-designer-morris-county): seven questions to ask any designer, plus when Render is the wrong choice.
+- [Local SEO checklist](https://www.renderlocalwebsites.com/guides/local-seo-checklist): what a local business should have in place to rank.
+- [Founders](https://www.renderlocalwebsites.com/about): Tim Pactwa and Luke Wilkins, with links to verify their work.
+- [Contact](https://www.renderlocalwebsites.com/contact): request a call, time confirmed by email.
 
 ## Contact
 
-Email: support@renderlocalwebsites.com
+- Email: support@renderlocalwebsites.com

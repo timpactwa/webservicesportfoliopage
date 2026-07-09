@@ -97,6 +97,7 @@ export default function ServicesHub() {
                   <div className="mt-auto">
                     <Link
                       href={service.href}
+                      aria-label={`Learn more about ${service.eyebrow}`}
                       className="inline-flex items-center gap-1 text-sm font-semibold text-accent transition-all duration-200 hover:gap-2"
                     >
                       Learn more <span aria-hidden="true">→</span>

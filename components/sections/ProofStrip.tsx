@@ -31,6 +31,10 @@ export default function ProofStrip() {
           <p className="eyebrow text-xs text-accent-dark">Proof you can check</p>
         </Reveal>
 
+        {/* HTML permits exactly one div between a dl and its dt/dd pairs, and Reveal
+            renders that div. The icon therefore lives inside the dt: an extra flex
+            wrapper around it put dt two levels down, which fails axe's definition-list
+            and dlitem rules and drags down Lighthouse's agent-accessibility-tree audit. */}
         <dl className="grid grid-cols-1 divide-y divide-hairline sm:grid-cols-3 sm:divide-y-0 sm:divide-x">
           {PROOF_MARKERS.map((marker, index) => (
             <Reveal
@@ -38,12 +42,12 @@ export default function ProofStrip() {
               index={index}
               className="py-6 first:pt-0 last:pb-0 sm:px-8 sm:py-0 sm:first:pl-0 sm:last:pr-0"
             >
-              <div className="mb-2 flex items-center gap-2">
+              <dt className="mb-2 flex items-center gap-2 font-display text-base font-semibold text-graphite">
                 <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-accent-soft text-accent-dark">
                   <CheckIcon />
                 </span>
-                <dt className="font-display text-base font-semibold text-graphite">{marker.label}</dt>
-              </div>
+                {marker.label}
+              </dt>
               <dd>
                 <p className="mb-3 text-sm leading-relaxed text-graphite-soft">{marker.description}</p>
                 <Link
