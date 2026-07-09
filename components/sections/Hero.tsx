@@ -6,6 +6,7 @@ import Button from '@/components/ui/Button'
 import ResolveText from '@/components/ui/ResolveText'
 import TriangleReveal from '@/components/ui/TriangleReveal'
 import { track } from '@/lib/analytics'
+import { GUARANTEE, SERVICE_TOWNS } from '@/lib/data'
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number]
 
@@ -83,7 +84,7 @@ export default function Hero() {
         delay={0.35}
         stagger={0.12}
         className="relative max-w-4xl text-display-xl md:text-display-2xl"
-        lines={['Websites That Win', 'Local Customers.']}
+        lines={['A Website That Actually', 'Brings You Customers']}
         lineClassName={(i) => (i === 1 ? 'text-accent-dark' : undefined)}
       />
 
@@ -91,8 +92,12 @@ export default function Hero() {
         {...resolve(1.15)}
         className="relative mt-7 max-w-xl text-lg leading-relaxed text-graphite-soft"
       >
-        Render builds fast, modern websites and on-site SEO that put Morris County businesses
-        in front of the customers already searching for them.
+        Fixed, published prices. Live demos you can click right now. Built by two founders in
+        Morris County, NJ.
+      </motion.p>
+
+      <motion.p {...resolve(1.3)} className="relative mt-4 text-sm font-medium text-accent-dark">
+        Serving {SERVICE_TOWNS.join(' · ')}
       </motion.p>
 
       <motion.div {...resolve(1.4)} className="relative mt-9 flex flex-col gap-4 sm:flex-row">
@@ -110,7 +115,7 @@ export default function Hero() {
       </motion.div>
 
       <motion.p {...resolve(1.6)} className="relative mt-8 text-sm font-medium text-accent-dark">
-        Fixed, published pricing. Clear scope. You see the number before you ever book a call.
+        {GUARANTEE.short}
       </motion.p>
     </section>
   )
