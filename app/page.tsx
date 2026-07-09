@@ -7,6 +7,7 @@ import WhyUs from '@/components/sections/WhyUs'
 import HomePricing from '@/components/sections/HomePricing'
 import Faq, { featuredFaqItems } from '@/components/sections/Faq'
 import HomeServices from '@/components/sections/HomeServices'
+import RenderPromise from '@/components/sections/RenderPromise'
 import HomeContact from '@/components/sections/HomeContact'
 
 export const metadata: Metadata = {
@@ -56,6 +57,8 @@ export default function HomePage() {
       <HomePricing />
       <Faq />
       <HomeServices />
+      {/* The closer, after the demos, the price, and the objections. */}
+      <RenderPromise />
       <HomeContact />
     </>
   )

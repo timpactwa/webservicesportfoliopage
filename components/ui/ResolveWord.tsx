@@ -37,7 +37,12 @@ export default function ResolveWord({
 }: ResolveWordProps) {
   const reduce = useReducedMotion()
   const ref = useRef<HTMLSpanElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-10% 0px' })
+  // Fires before the slot reaches the fold, which it must. Until the sequence
+  // starts, every stacked word is hidden, so a slot that is on screen but not
+  // yet triggered reads as "We render" followed by nothing. Reveal starts its
+  // fade 60px into view while the slot sits a line lower, so a trigger measured
+  // at the slot itself arrives ~58px of scroll too late.
+  const inView = useInView(ref, { once: true, margin: '0px 0px 20% 0px' })
   const last = words.length - 1
 
   const [armed, setArmed] = useState(false)

@@ -621,3 +621,20 @@ export const LAUNCH_TIMELINE: LaunchTimelineStep[] = [
       'Your site goes live and you own it, no strings attached. The optional Care Plan keeps it updated and running from there, month to month with no contract.',
   },
 ]
+
+/**
+ * The render-verb closer on the homepage. The trailing period lives inside each
+ * word: a period placed after the slot would sit at the right edge of a box
+ * sized for "customers." and float away from the shorter words.
+ *
+ * "customers." is both the longest entry and the resting one, which is what
+ * makes the slot's resting width its natural width and its layout shift zero.
+ * Reordering so it rests on a shorter word breaks that guarantee.
+ */
+export const RENDER_PROMISE = {
+  lead: "We don't just render websites.",
+  verb: 'We render',
+  words: ['leads.', 'bookings.', 'customers.'],
+  /** Seconds each non-final word holds once sharp. Decelerating. */
+  holds: [0.55, 0.75],
+} as const
