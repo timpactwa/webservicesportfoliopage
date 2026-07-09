@@ -64,7 +64,7 @@ export default function WhatWeDo() {
               icon={<WebIcon />}
               title="Web Design & Development"
               description="Custom-built websites that load fast, rank in local search, and turn visitors into customers."
-              href="/services#web"
+              href="/services/web-design"
             />
           </motion.div>
           <motion.div variants={itemVariants}>
@@ -72,7 +72,7 @@ export default function WhatWeDo() {
               icon={<AIIcon />}
               title="AI Consulting & Automation"
               description="The follow-ups, intake forms, and after-hours questions you don't have time for, answered automatically."
-              href="/services#ai"
+              href="/services/ai-automation"
             />
           </motion.div>
         </motion.div>

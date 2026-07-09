@@ -2,32 +2,88 @@ import Link from 'next/link'
 import { NAV_LINKS, SERVICE_TOWNS } from '@/lib/data'
 import Logo from '@/components/ui/Logo'
 
+const serviceLinks = [
+  { label: 'Web Design', href: '/services/web-design' },
+  { label: 'Local SEO', href: '/services/local-seo' },
+  { label: 'AI Automation', href: '/services/ai-automation' },
+  { label: 'Instant Estimate', href: '/estimate' },
+]
+
+const resourceLinks = [
+  { label: 'Guides', href: '/guides' },
+  { label: 'Service Areas', href: '/service-areas' },
+  { label: 'Our Work', href: '/work' },
+  { label: 'Request a Call', href: '/contact' },
+]
+
 export default function Footer() {
   return (
     <footer className="bg-graphite text-white py-16 md:py-20">
       <div className="container-studio">
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10 mb-12">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr] mb-12">
           <div>
             <Logo variant="light" className="mb-3 text-xl" />
             <p className="text-white/50 text-sm max-w-xs leading-relaxed">
               Honest agency work. Founder-led. Morris County made.
             </p>
             <p className="mt-4 text-white/40 text-sm max-w-xs leading-relaxed">
-              Serving {SERVICE_TOWNS.join(', ')}, and the rest of Morris County, NJ.
+              Serving{' '}
+              <Link href="/service-areas" className="underline decoration-white/20 underline-offset-2 hover:text-white/70 transition-colors">
+                {SERVICE_TOWNS.join(', ')}
+              </Link>
+              , and the rest of Morris County, NJ.
             </p>
           </div>
-          <nav className="flex flex-wrap gap-x-8 gap-y-3">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm text-white/60 hover:text-white transition-colors duration-150 font-medium"
-              >
-                {link.label}
-              </Link>
-            ))}
+
+          <nav aria-label="Site">
+            <p className="eyebrow mb-4 text-[10px] text-white/40">Site</p>
+            <ul className="space-y-3">
+              {NAV_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-white/60 hover:text-white transition-colors duration-150 font-medium"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <nav aria-label="Services">
+            <p className="eyebrow mb-4 text-[10px] text-white/40">Services</p>
+            <ul className="space-y-3">
+              {serviceLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-white/60 hover:text-white transition-colors duration-150 font-medium"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <nav aria-label="Resources">
+            <p className="eyebrow mb-4 text-[10px] text-white/40">Resources</p>
+            <ul className="space-y-3">
+              {resourceLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-white/60 hover:text-white transition-colors duration-150 font-medium"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </nav>
         </div>
+
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <p className="text-white/45 text-sm">© 2026 Render. Morris County, NJ.</p>
           <a
