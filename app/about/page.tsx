@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     description:
       'Meet the founders behind Render: a lean, founder-led team building modern websites and AI solutions for local businesses in Morris County, NJ.',
   },
+  alternates: { canonical: '/about' },
 }
 
 export default function AboutPage() {

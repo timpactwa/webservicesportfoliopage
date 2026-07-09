@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { track } from '@/lib/analytics'
 
 /**
  * Persistent mobile conversion path. Most local-search traffic is mobile, and the
@@ -18,6 +19,7 @@ export default function MobileCtaBar() {
       <div className="flex items-center gap-3 px-4 py-3">
         <Link
           href="/contact?intent=mockup"
+          onClick={() => track('mockup_request', { source: 'mobile-bar' })}
           className="flex-1 rounded-full border-[1.5px] border-graphite px-4 py-3 text-center text-sm font-semibold text-graphite transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
         >
           Free Mockup

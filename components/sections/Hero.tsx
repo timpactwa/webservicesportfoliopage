@@ -5,6 +5,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import Button from '@/components/ui/Button'
 import ResolveText from '@/components/ui/ResolveText'
 import TriangleReveal from '@/components/ui/TriangleReveal'
+import { track } from '@/lib/analytics'
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number]
 
@@ -98,7 +99,12 @@ export default function Hero() {
         <Button variant="primary" size="lg" href="/contact">
           Request a Call
         </Button>
-        <Button variant="secondary" size="lg" href="/contact?intent=mockup">
+        <Button
+          variant="secondary"
+          size="lg"
+          href="/contact?intent=mockup"
+          onClick={() => track('mockup_request', { source: 'hero' })}
+        >
           Get a Free Mockup
         </Button>
       </motion.div>

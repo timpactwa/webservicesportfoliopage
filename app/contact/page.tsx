@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     title: 'Contact Render: Request a Free Consultation',
     description,
   },
+  alternates: { canonical: '/contact' },
 }
 
 export default function ContactPage() {

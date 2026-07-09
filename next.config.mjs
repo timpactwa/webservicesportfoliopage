@@ -4,11 +4,12 @@ const isDev = process.env.NODE_ENV === 'development'
 // Dev mode additionally needs 'unsafe-eval' (source maps) and ws: (hot reload).
 const contentSecurityPolicy = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''}`,
+  `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com${isDev ? " 'unsafe-eval'" : ''}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data:", // data: covers the bg-grid-pattern SVG token
   "font-src 'self'",
-  `connect-src 'self' https://api.web3forms.com${isDev ? ' ws:' : ''}`, // contact form submissions
+  // contact form submissions + GA4 collection endpoints
+  `connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com${isDev ? ' ws:' : ''}`,
   'frame-src https://*.vercel.app', // live demo previews
   "object-src 'none'",
   "base-uri 'self'",

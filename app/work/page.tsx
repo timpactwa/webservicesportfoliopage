@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     description:
       'See live website demos and consulting proof from Render: web design, online booking, and nonprofit strategy work for Morris County, NJ businesses.',
   },
+  alternates: { canonical: '/work' },
 }
 
 export default function WorkPage() {

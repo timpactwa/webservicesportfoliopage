@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   title: {
     absolute: 'Render | Web Design & AI Consulting, Morris County, NJ',
   },
+  alternates: { canonical: '/' },
   openGraph: {
     title: 'Render | Web Design & AI Consulting, Morris County, NJ',
     description:

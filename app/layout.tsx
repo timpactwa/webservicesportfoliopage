@@ -4,6 +4,8 @@ import './globals.css'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import MobileCtaBar from '@/components/layout/MobileCtaBar'
+import Analytics from '@/components/Analytics'
+import MockupSlideIn from '@/components/ui/MockupSlideIn'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -53,9 +55,8 @@ export const metadata: Metadata = {
     ],
     shortcut: '/brand/render-icon.svg',
   },
-  alternates: {
-    canonical: SITE_URL,
-  },
+  // No root-level canonical: it would cascade to every child page and mark them
+  // all as duplicates of the homepage. Each page sets its own relative canonical.
 }
 
 const jsonLd = {
@@ -66,10 +67,38 @@ const jsonLd = {
     'Web design, local SEO, and AI automation for small businesses in Morris County, NJ.',
   url: SITE_URL,
   email: 'renderlocalwebsites@gmail.com',
-  areaServed: {
-    '@type': 'AdministrativeArea',
-    name: 'Morris County, NJ',
-  },
+  areaServed: [
+    { '@type': 'City', name: 'Randolph, NJ' },
+    { '@type': 'City', name: 'Denville, NJ' },
+    { '@type': 'City', name: 'Morristown, NJ' },
+    { '@type': 'City', name: 'Parsippany, NJ' },
+    { '@type': 'City', name: 'Madison, NJ' },
+    { '@type': 'AdministrativeArea', name: 'Morris County, NJ' },
+  ],
+  makesOffer: [
+    {
+      '@type': 'Offer',
+      name: 'Starter website',
+      price: '500',
+      priceCurrency: 'USD',
+      description: '1-3 page website, $500 build plus optional $50/mo Care Plan.',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Standard website',
+      price: '750',
+      priceCurrency: 'USD',
+      description: '4-6 page website with local SEO, $750 build plus optional $75/mo Care Plan.',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Premium website',
+      price: '2000',
+      priceCurrency: 'USD',
+      description:
+        '7+ page website with booking or lead workflow, $2,000 build plus optional $125/mo Care Plan.',
+    },
+  ],
   address: {
     '@type': 'PostalAddress',
     addressRegion: 'NJ',
@@ -102,6 +131,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             Matches the footer background so it reads as part of it. */}
         <div aria-hidden className="h-[72px] bg-graphite md:hidden" />
         <MobileCtaBar />
+        <MockupSlideIn />
+        <Analytics />
       </body>
     </html>
   )

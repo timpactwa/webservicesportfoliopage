@@ -25,7 +25,8 @@ The business is starting in Morris County, NJ, with Randolph as the first focuse
 | Future market | Broader NJ and nearby local-service markets |
 | Services | Websites, practical AI automations, and on-site SEO for websites we build |
 | Positioning | Lead with business outcomes; use the founder-led/student story as supporting context |
-| Primary CTA | Book a Call |
+| Primary CTA | Request a Call (secondary: free homepage mockup, instant estimate at /estimate) |
+| Guarantee | First design direction is free; client can walk away before any deposit |
 | First lead source | https://randolphlocal.com/directory/ |
 | First lead segment | Businesses with no website listed, manually verified before outreach |
 | Outreach motion | Personalized email, then call follow-up |
@@ -87,6 +88,7 @@ Lead generation
 -> Request a call (on-site form)
 -> Google Meet consultation
 -> Project summary
+-> First design direction (free; published guarantee, before any deposit)
 -> Stripe deposit link
 -> Google Forms intake
 -> Build

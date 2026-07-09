@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useReducedMotion } from 'framer-motion'
 import Button from './Button'
+import { track } from '@/lib/analytics'
 import { useCountUp } from '@/hooks/useCountUp'
 import { useTilt } from '@/hooks/useTilt'
 import { cn } from '@/lib/utils'
@@ -111,7 +112,12 @@ export default function PricingCard({
         </ul>
 
         <div className="mt-auto">
-          <Button variant={isHighlighted ? 'primary' : 'secondary'} href={ctaHref} fullWidth>
+          <Button
+            variant={isHighlighted ? 'primary' : 'secondary'}
+            href={ctaHref}
+            fullWidth
+            onClick={() => track('tier_cta_click', { tier })}
+          >
             {ctaLabel}
           </Button>
           {note && (
