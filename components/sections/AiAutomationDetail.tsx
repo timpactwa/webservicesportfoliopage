@@ -1,5 +1,6 @@
 import { AI_USE_CASES, GUARANTEE } from '@/lib/data'
 import Button from '@/components/ui/Button'
+import InboxDemo from '@/components/ui/InboxDemo'
 import Reveal from '@/components/ui/Reveal'
 import UseCaseCard from '@/components/ui/UseCaseCard'
 
@@ -15,18 +16,28 @@ export default function AiAutomationDetail() {
     <div>
       <section className="py-20 md:py-28 bg-graphite-light text-white">
         <div className="container-studio">
-          <div className="max-w-3xl">
-            <p className="eyebrow mb-4 text-xs text-accent">AI Consulting & Automation</p>
-            <h1 className="text-display-xl text-white mb-8">
-              The follow-up work costing you customers, automated.
-            </h1>
-            <div className="space-y-5 text-lg leading-relaxed text-white/70">
-              <p>
-                Every missed after-hours message, every lead sitting in an inbox for two days,
-                every review request you meant to send but didn&apos;t. That is a customer choosing
-                whoever answered first. We build small, reliable systems that catch it. No
-                dashboards to learn, no science project.
-              </p>
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            <div className="max-w-xl">
+              <p className="eyebrow mb-4 text-xs text-accent">AI Consulting & Automation</p>
+              <h1 className="text-display-xl text-white mb-8">
+                The follow-up work costing you customers, automated.
+              </h1>
+              <div className="space-y-5 text-lg leading-relaxed text-white/70">
+                <p>
+                  Every missed after-hours message, every lead sitting in an inbox for two days,
+                  every review request you meant to send but didn&apos;t. That is a customer choosing
+                  whoever answered first. We build small, reliable systems that catch it. No
+                  dashboards to learn, no science project.
+                </p>
+              </div>
+              <div className="mt-8">
+                <Button variant="primary" size="lg" href="/contact?intent=ai">
+                  Talk to Us About AI
+                </Button>
+              </div>
+            </div>
+            <div className="flex justify-center lg:justify-end">
+              <InboxDemo />
             </div>
           </div>
         </div>
