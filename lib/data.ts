@@ -202,6 +202,8 @@ export type Project = {
   imageAlt?: string
   detailHeroImageUrl?: string
   detailHeroImageAlt?: string
+  posterUrl?: string
+  posterAlt?: string
   cardLabel?: string
   featured?: boolean
   featuredLabel?: string
@@ -454,5 +456,81 @@ export const WHY_US_ITEMS = [
     number: '04',
     title: 'Invested Partners',
     description: "Your site is our portfolio. We care about your results because they're our reputation.",
+  },
+]
+
+export type AIUseCase = {
+  title: string
+  description: string
+}
+
+// Practical AI automation examples, kept concrete and free of invented outcomes.
+// Every description stays to two sentences and reports what the system does,
+// never a made-up hours-saved or dollars-saved figure.
+export const AI_USE_CASES: AIUseCase[] = [
+  {
+    title: 'Missed-call text-back',
+    description:
+      "A call you can't pick up gets an instant text back, so the person doesn't just hang up and call the next name on Google. It works whether you're on a job, driving, or already on the phone.",
+  },
+  {
+    title: 'Review requests on autopilot',
+    description:
+      'Once a job wraps, the customer gets a text or email with a direct link to leave a review. Nobody on your team has to remember to send it.',
+  },
+  {
+    title: 'Appointment and quote follow-up',
+    description:
+      'A quote that never got an answer gets a friendly nudge instead of sitting in your inbox. Upcoming appointments get a reminder, so fewer people forget to show.',
+  },
+  {
+    title: 'After-hours FAQ answering',
+    description:
+      'Your site answers the questions people ask at 9pm: your hours, your pricing range, and what services you offer. You get fewer basic questions and more inquiries worth calling back.',
+  },
+  {
+    title: 'Lead routing and triage',
+    description:
+      "New inquiries land already sorted by what they're asking for, with urgent ones flagged. You see what needs a callback today instead of digging through one shared inbox.",
+  },
+  {
+    title: 'Self-updating SOPs',
+    description:
+      "The checklist your crew uses stays current on its own as your process changes, instead of living in someone's head or a stale printout. New hires get the same answer every time.",
+  },
+]
+
+export type LaunchTimelineStep = {
+  week: string
+  title: string
+  description: string
+}
+
+// Mirrors the real four-step process in WebDesignDetail.tsx, mapped onto the
+// 2-4 week launch window we already promise elsewhere on the site.
+export const LAUNCH_TIMELINE: LaunchTimelineStep[] = [
+  {
+    week: 'Week 1',
+    title: 'Call and first design direction',
+    description:
+      "We start with a free call to scope what you need, then show you a real design direction before any deposit changes hands. If it isn't right, you walk away and owe nothing.",
+  },
+  {
+    week: 'Week 1-2',
+    title: 'Deposit and content collection',
+    description:
+      "Once you approve the direction, your deposit starts the build and we collect your content and details. We tell you exactly what we're waiting on at every step, so nothing stalls in silence.",
+  },
+  {
+    week: 'Week 2-3',
+    title: 'The build',
+    description:
+      "Your site gets built from scratch and tested against Google's speed benchmarks, not assembled from a slow theme. This is the longest stretch of the timeline, typically 2 to 4 weeks once we have your content.",
+  },
+  {
+    week: 'Week 3-4',
+    title: 'Launch and the Care Plan',
+    description:
+      'Your site goes live and you own it, no strings attached. The optional Care Plan keeps it updated and running from there, month to month with no contract.',
   },
 ]
