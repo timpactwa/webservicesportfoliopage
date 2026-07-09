@@ -136,7 +136,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         {/* Reserves scroll space so the fixed mobile bar never covers the footer.
             Matches the footer background so it reads as part of it. */}
-        <div aria-hidden className="h-[72px] bg-graphite md:hidden" />
+        <div aria-hidden className="h-[72px] bg-graphite-light md:hidden" />
         <MobileCtaBar />
         <MockupSlideIn />
         <Analytics />

@@ -9,11 +9,29 @@ import Button from '@/components/ui/Button'
 import Logo from '@/components/ui/Logo'
 import { cn } from '@/lib/utils'
 import { useScrolled } from '@/hooks/useScrolled'
+import { useActiveSection } from '@/hooks/useActiveSection'
+
+// Homepage section ids in document order (mirrors app/page.tsx). Module-level so
+// the reference stays stable across renders and the observer isn't rebuilt.
+const SECTION_IDS = ['services', 'work', 'pricing', 'why', 'faq', 'contact']
+
+/**
+ * Whether a nav link should read as active. Anchor links only light up on the
+ * homepage while their section is in view; Home lights up above the first
+ * section (activeId === null). Nothing is active on other routes.
+ */
+function isLinkActive(href: string, pathname: string, activeId: string | null): boolean {
+  if (pathname !== '/') return false
+  if (href === '/') return activeId === null
+  if (href.startsWith('/#')) return activeId === href.slice(2)
+  return false
+}
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
   const scrolled = useScrolled(40)
+  const activeId = useActiveSection(SECTION_IDS)
 
   return (
     <header
@@ -42,7 +60,9 @@ export default function Navbar() {
                 href={link.href}
                 className={cn(
                   'text-sm font-medium transition-colors duration-150',
-                  pathname === link.href ? 'text-accent' : 'text-graphite-soft hover:text-graphite'
+                  isLinkActive(link.href, pathname, activeId)
+                    ? 'text-accent-dark'
+                    : 'text-graphite-soft hover:text-graphite'
                 )}
               >
                 {link.label}
@@ -90,7 +110,7 @@ export default function Navbar() {
                   onClick={() => setIsOpen(false)}
                   className={cn(
                     'text-base font-medium py-1',
-                    pathname === link.href ? 'text-accent' : 'text-graphite'
+                    isLinkActive(link.href, pathname, activeId) ? 'text-accent-dark' : 'text-graphite'
                   )}
                 >
                   {link.label}
