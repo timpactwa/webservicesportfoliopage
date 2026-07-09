@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Button from './Button'
+import { track } from '@/lib/analytics'
+import { submitToWeb3Forms, Web3FormsNotConfiguredError } from '@/lib/web3forms'
 
 const NEEDS = [
   'New website',
@@ -11,8 +13,6 @@ const NEEDS = [
   'Free homepage mockup',
   'Not sure yet',
 ] as const
-
-const ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY
 
 // Map the deep links (hero "Get a Free Mockup", pricing card CTAs, the AI section
 // CTA) onto a preselected need so the visitor never re-states what they just clicked.
@@ -45,42 +45,29 @@ export default function RequestCallForm() {
     setStatus('submitting')
     setError(null)
 
-    if (!ACCESS_KEY) {
-      setStatus('error')
-      setError(
-        'This form is not connected yet. Email us at renderlocalwebsites@gmail.com and we will get right back to you.'
-      )
-      return
-    }
-
     const form = event.currentTarget
     const data = Object.fromEntries(new FormData(form).entries())
 
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          access_key: ACCESS_KEY,
-          subject: `New Render inquiry: ${data.need || 'Unspecified'}${tier ? ` (${tier} tier)` : ''}`,
-          from_name: 'Render website',
-          ...data,
-          ...(tier ? { pricing_tier_clicked: tier } : {}),
-        }),
+      await submitToWeb3Forms({
+        subject: `New Render inquiry: ${data.need || 'Unspecified'}${tier ? ` (${tier} tier)` : ''}`,
+        from_name: 'Render website',
+        ...data,
+        ...(tier ? { pricing_tier_clicked: tier } : {}),
       })
 
-      const result = await response.json()
-
-      if (!response.ok || !result.success) {
-        throw new Error(result.message || 'Submission failed')
-      }
-
+      track('request_call_submit', {
+        need: String(data.need || ''),
+        ...(tier ? { tier } : {}),
+      })
       setStatus('success')
       form.reset()
-    } catch {
+    } catch (err) {
       setStatus('error')
       setError(
-        'Something went wrong sending that. Email us at renderlocalwebsites@gmail.com and we will pick it up from there.'
+        err instanceof Web3FormsNotConfiguredError
+          ? 'This form is not connected yet. Email us at renderlocalwebsites@gmail.com and we will get right back to you.'
+          : 'Something went wrong sending that. Email us at renderlocalwebsites@gmail.com and we will pick it up from there.'
       )
     }
   }
