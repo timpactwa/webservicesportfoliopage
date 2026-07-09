@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Button from '@/components/ui/Button'
 import Reveal from '@/components/ui/Reveal'
+import ServiceCard from '@/components/ui/ServiceCard'
 import { AiUseCasesInteractive } from '@/components/ui/UseCaseDemo'
 import { AI_USE_CASES } from '@/lib/data'
 
@@ -17,46 +18,6 @@ const AIIcon = () => (
   </svg>
 )
 
-// Local service card. Mirrors components/ui/ServiceCard.tsx (icon, title, copy,
-// hover glow) but ends in a pill CTA instead of the old inline "Learn more" text
-// link, per the homepage refresh (option 9a). ServiceCard.tsx is left untouched
-// because the design-sync previews still reference it.
-function ServiceItem({
-  icon,
-  title,
-  description,
-  cta,
-}: {
-  icon: React.ReactNode
-  title: string
-  description: string
-  cta: React.ReactNode
-}) {
-  return (
-    <div
-      style={{ transition: 'box-shadow 300ms ease, border-color 300ms ease' }}
-      className="group relative h-full rounded-card border border-hairline bg-surface p-8 md:p-10 hover:shadow-card-hover hover:border-accent/30"
-    >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 rounded-card opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        style={{
-          background:
-            'radial-gradient(400px circle at var(--glow-x, 50%) var(--glow-y, 50%), oklch(0.60 0.13 190 / 0.12), transparent 60%)',
-        }}
-      />
-      <div className="relative flex h-full flex-col items-start">
-        <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-accent-soft text-accent-dark">
-          {icon}
-        </div>
-        <h3 className="mb-3 text-2xl font-semibold text-graphite">{title}</h3>
-        <p className="mb-6 text-base leading-relaxed text-graphite-soft">{description}</p>
-        <div className="mt-auto">{cta}</div>
-      </div>
-    </div>
-  )
-}
-
 export default function HomeServices() {
   return (
     <section id="services" className="scroll-mt-24 py-20 md:py-32 bg-bg">
@@ -70,10 +31,11 @@ export default function HomeServices() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Reveal index={0} className="h-full">
-            <ServiceItem
+            <ServiceCard
               icon={<WebIcon />}
               title="Web Design & Development"
               description="Custom-built websites that load fast, rank in local search, and turn visitors into customers."
+              href="/services/web-design"
               cta={
                 <Button href="/services/web-design" variant="secondary" size="sm">
                   Learn more
@@ -82,10 +44,11 @@ export default function HomeServices() {
             />
           </Reveal>
           <Reveal index={1} className="h-full">
-            <ServiceItem
+            <ServiceCard
               icon={<AIIcon />}
               title="AI Consulting & Automation"
               description="The follow-ups, intake forms, and after-hours questions you don't have time for, answered automatically."
+              href="/services/ai-automation"
               cta={
                 <Button href="/services/ai-automation" variant="primary" size="sm">
                   Learn more
