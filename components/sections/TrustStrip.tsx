@@ -2,13 +2,14 @@ import { TRUST_MARKERS } from '@/lib/data'
 
 export default function TrustStrip() {
   return (
-    <section className="bg-surface border-b border-hairline" aria-label="Why businesses choose Render">
+    <section className="bg-bg" aria-label="Why businesses choose Render">
       <div className="container-studio">
-        <dl className="grid grid-cols-2 lg:grid-cols-4 divide-y divide-hairline lg:divide-y-0 lg:divide-x">
+        <dl className="grid grid-cols-1 gap-x-8 gap-y-10 py-11 sm:grid-cols-2 md:grid-cols-4">
           {TRUST_MARKERS.map((marker) => (
-            <div key={marker.label} className="py-7 lg:py-8 lg:px-8 first:lg:pl-0 last:lg:pr-0">
-              <dt className="text-base font-semibold text-graphite mb-1.5">{marker.label}</dt>
-              <dd className="text-sm text-graphite-soft leading-relaxed">{marker.description}</dd>
+            <div key={marker.label}>
+              <span aria-hidden="true" className="mb-3.5 block h-2 w-2 rounded-full bg-accent" />
+              <dt className="font-display text-[17px] font-semibold text-graphite">{marker.label}</dt>
+              <dd className="mt-2 text-[13.5px] leading-[1.6] text-graphite-soft">{marker.description}</dd>
             </div>
           ))}
         </dl>
