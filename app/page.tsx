@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Render | Web Design & AI Consulting, Morris County, NJ',
     description:
-      'Render builds fast, modern websites and practical AI tools for local businesses in Morris County, NJ. Founder-led. Agency quality. Honest pricing.',
+      'Fixed, published prices. Live demo sites you can click right now. Built by two founders in Morris County, NJ.',
   },
 }
 

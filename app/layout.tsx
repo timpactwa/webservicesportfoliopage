@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     template: '%s | Render',
   },
   description:
-    'Render builds fast, modern websites and practical AI tools for local businesses in Morris County, NJ. Founder-led. Agency quality. Honest pricing.',
+    'Fixed, published prices. Live demo sites you can click right now. Built by two founders in Morris County, NJ.',
   openGraph: {
     type: 'website',
     siteName: 'Render',
@@ -45,13 +45,13 @@ export const metadata: Metadata = {
     url: SITE_URL,
     title: 'Render | Web Design & AI Consulting, Morris County, NJ',
     description:
-      'Render builds fast, modern websites and practical AI tools for local businesses in Morris County, NJ. Founder-led. Agency quality. Honest pricing.',
+      'Fixed, published prices. Live demo sites you can click right now. Built by two founders in Morris County, NJ.',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Render | Web Design & AI Consulting, Morris County, NJ',
     description:
-      'Render builds fast, modern websites and practical AI tools for local businesses in Morris County, NJ. Founder-led. Agency quality. Honest pricing.',
+      'Fixed, published prices. Live demo sites you can click right now. Built by two founders in Morris County, NJ.',
   },
   icons: {
     icon: [

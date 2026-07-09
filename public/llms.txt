@@ -1,10 +1,10 @@
 # Render
 
-> Render builds fast, modern websites with on-site local SEO, plus practical AI
-> automation, for small businesses in Morris County, New Jersey. Founder-led by
-> Tim Pactwa (Computer Science, Virginia Tech) and Luke Wilkins (Finance,
-> Virginia Tech). All pricing is published openly; no sales call is required to
-> see a number.
+> Render builds websites that actually bring local businesses more customers.
+> Fixed, published prices, live demo sites you can click right now, and on-site
+> local SEO with every build. Founder-led by Tim Pactwa (Computer Science,
+> Virginia Tech) and Luke Wilkins (Finance, Virginia Tech), serving Morris
+> County, New Jersey.
 
 ## Services
 

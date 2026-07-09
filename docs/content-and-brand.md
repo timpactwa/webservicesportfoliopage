@@ -17,6 +17,16 @@ Avoid sounding like a generic agency template. The strongest angle is not "we ar
 
 The student/founder story can still be useful, but it should usually appear after the visitor already understands the offer.
 
+## Homepage Copy Anchors
+
+These are the canonical current strings for the homepage hero and the meta descriptions that echo it (`app/layout.tsx`, `app/page.tsx`, `public/llms.txt`). Update this section whenever the hero copy changes so the meta/AI-citation copy doesn't drift from what's actually on the page.
+
+- **H1:** "A Website That Actually Brings You Customers"
+- **Subhead:** "Fixed, published prices. Live demos you can click right now. Built by two founders in Morris County, NJ."
+- **Towns line:** "Serving Randolph · Denville · Morristown · Parsippany · Madison"
+
+Outcome-led, not agency-led: the headline names what the customer gets, not what we build. Keep this the same shape if it's revised, lead with the customer's result, then earn the founder-led/honest-pricing story after.
+
 ## Main Messages
 
 Use these ideas consistently:
