@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion'
 import ServiceCard from '@/components/ui/ServiceCard'
-import TriangleHeading from '@/components/ui/TriangleHeading'
 
 const containerVariants = {
   hidden: {},
@@ -41,15 +40,13 @@ export default function WhatWeDo() {
           >
             What We Do
           </motion.p>
-          <TriangleHeading
-            as="h2"
+          <h2
             className="text-display-xl text-graphite"
-            delay={0.1}
           >
             Two services.
             <br />
             Both built to get you more customers.
-          </TriangleHeading>
+          </h2>
         </div>
 
         <motion.div

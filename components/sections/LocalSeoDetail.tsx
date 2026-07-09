@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { FAQ_ITEMS, SERVICE_TOWNS } from '@/lib/data'
 import Button from '@/components/ui/Button'
 import Reveal from '@/components/ui/Reveal'
-import TriangleHeading from '@/components/ui/TriangleHeading'
 
 const included = [
   'Page titles and metadata written around your town and service',
@@ -34,9 +33,9 @@ export default function LocalSeoDetail() {
         <div className="container-studio">
           <div className="mb-16 max-w-3xl">
             <p className="eyebrow mb-4 text-xs text-accent-dark">Local SEO</p>
-            <TriangleHeading as="h1" className="text-display-xl text-graphite mb-6" delay={0}>
+            <h1 className="text-display-xl text-graphite mb-6">
               Show up when your town is searching.
-            </TriangleHeading>
+            </h1>
             <p className="text-lg leading-relaxed text-graphite-soft">
               When someone in {SERVICE_TOWNS[0]} searches for what you do, the results they see
               decide who gets the call. On-site local SEO comes standard with every website we

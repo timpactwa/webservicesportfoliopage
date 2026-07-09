@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { useReducedMotion } from 'framer-motion'
 import { FAQ_ITEMS } from '@/lib/data'
-import TriangleHeading from '@/components/ui/TriangleHeading'
 
 export default function Faq() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
@@ -16,9 +15,9 @@ export default function Faq() {
           <p className="eyebrow mb-4 text-xs text-accent-dark">
             FAQ
           </p>
-          <TriangleHeading as="h2" className="text-display-xl text-graphite" delay={0.1}>
+          <h2 className="text-display-xl text-graphite">
             Questions, answered.
-          </TriangleHeading>
+          </h2>
         </div>
 
         <div className="max-w-3xl border-t border-hairline">

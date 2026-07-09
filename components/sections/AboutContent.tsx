@@ -3,7 +3,6 @@
 import { motion, type Variants } from 'framer-motion'
 import { TEAM_MEMBERS } from '@/lib/data'
 import TeamMember from '@/components/ui/TeamMember'
-import TriangleHeading from '@/components/ui/TriangleHeading'
 import Button from '@/components/ui/Button'
 
 const values = [
@@ -29,13 +28,11 @@ export default function AboutContent() {
             transition={{ duration: 0.55 }}
             className="mb-20"
           >
-            <TriangleHeading
-              as="h1"
+            <h1
               className="text-display-xl text-graphite mb-8 max-w-3xl"
-              delay={0}
             >
               Built for local.<br />Priced in the open.
-            </TriangleHeading>
+            </h1>
             <p className="eyebrow mb-4 text-xs text-accent-dark">Our Mission</p>
             <p className="text-2xl text-graphite-soft leading-relaxed max-w-2xl">
               Tim brings the software. Luke brings the strategy. Together we help local businesses get modern websites and practical digital tools without the retainer, the markup, or the six-week sales process. No overhead, no middlemen. You hire the two people actually doing the work.

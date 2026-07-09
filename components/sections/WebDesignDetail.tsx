@@ -2,7 +2,6 @@ import { FAQ_ITEMS, GUARANTEE, PRICING_TIERS, SERVICE_TOWNS } from '@/lib/data'
 import PricingCard from '@/components/ui/PricingCard'
 import Button from '@/components/ui/Button'
 import Reveal from '@/components/ui/Reveal'
-import TriangleHeading from '@/components/ui/TriangleHeading'
 
 const featureItems = [
   'Custom-built, mobile-ready websites',
@@ -52,9 +51,9 @@ export default function WebDesignDetail() {
         <div className="container-studio">
           <div className="mb-16 max-w-3xl">
             <p className="eyebrow mb-4 text-xs text-accent-dark">Web Design & Development</p>
-            <TriangleHeading as="h1" className="text-display-xl text-graphite mb-6" delay={0}>
+            <h1 className="text-display-xl text-graphite mb-6">
               Websites built to get you more customers.
-            </TriangleHeading>
+            </h1>
             <p className="mb-6 text-lg leading-relaxed text-graphite-soft">
               Most local business sites are slow, outdated, or invisible on Google. We build yours
               from scratch for businesses in {SERVICE_TOWNS.slice(0, -1).join(', ')}, and{' '}
@@ -116,9 +115,9 @@ export default function WebDesignDetail() {
         <div className="container-studio">
           <Reveal>
             <p className="eyebrow mb-4 text-xs text-accent-dark">How it works</p>
-            <TriangleHeading as="h2" className="text-display-lg text-graphite mb-12" delay={0}>
+            <h2 className="text-display-lg text-graphite mb-12">
               Four steps. No surprises at any of them.
-            </TriangleHeading>
+            </h2>
           </Reveal>
           <ol className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {processSteps.map((step, index) => (
@@ -178,9 +177,9 @@ export default function WebDesignDetail() {
             <Reveal>
               <div>
                 <p className="eyebrow mb-4 text-xs text-accent-dark">How We Start</p>
-                <TriangleHeading as="h2" className="text-display-lg text-graphite mb-6" delay={0}>
+                <h2 className="text-display-lg text-graphite mb-6">
                   Bring whatever you have. We take it from there.
-                </TriangleHeading>
+                </h2>
                 <p className="mb-8 text-lg leading-relaxed text-graphite-soft">
                   You don&apos;t need a finished plan to work with us. Whether you have a folder of
                   photos, a rough wireframe, a design concept, or just an idea in your head, we meet

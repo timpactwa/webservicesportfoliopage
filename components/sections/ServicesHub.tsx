@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { FAQ_ITEMS, GUARANTEE, PRICING_TIERS } from '@/lib/data'
 import Button from '@/components/ui/Button'
 import Reveal from '@/components/ui/Reveal'
-import TriangleHeading from '@/components/ui/TriangleHeading'
 
 const services = [
   {
@@ -60,11 +59,11 @@ export default function ServicesHub() {
       <section className="py-20 md:py-28 bg-bg">
         <div className="container-studio">
           <div className="mb-16">
-            <TriangleHeading as="h1" className="text-display-2xl text-graphite mb-4" delay={0}>
+            <h1 className="text-display-2xl text-graphite mb-4">
               What we do,
               <br />
               and what it costs.
-            </TriangleHeading>
+            </h1>
             <p className="text-xl text-graphite-soft">Clear scope. Clear pricing. No surprises.</p>
           </div>
 
