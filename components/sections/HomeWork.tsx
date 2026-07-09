@@ -26,7 +26,7 @@ export default function HomeWork() {
         <div className="container-studio">
           <Reveal className="mb-14 max-w-3xl">
             <p className="eyebrow mb-4 text-xs text-accent-dark">Our work</p>
-            <h2 className="text-display-xl text-graphite">Click around. They&apos;re real.</h2>
+            <h2 className="text-display-xl text-graphite">Real sites, invented brands.</h2>
             <p className="mt-5 text-lg text-graphite-soft leading-relaxed">
               {DEMO_DISCLAIMER.short}
             </p>
