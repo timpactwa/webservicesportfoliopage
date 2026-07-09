@@ -79,10 +79,21 @@ Props:
 
 Behavior:
 
-- Fires once via Framer's `useInView(ref, { once: true, margin: '-10% 0px' })`,
-  the same trigger `ResolveText` uses. One observer for one element is fine; the
-  shared-observer optimization in `Reveal.tsx` exists because the homepage mounts
-  two dozen `Reveal`s, not because a single observer is expensive.
+- Fires once via Framer's `useInView(ref, { once: true, margin: '0px 0px 20% 0px' })`.
+  One observer for one element is fine; the shared-observer optimization in
+  `Reveal.tsx` exists because the homepage mounts two dozen `Reveal`s, not
+  because a single observer is expensive.
+
+  **The trigger must fire before the slot reaches the fold.** Until the sequence
+  starts, every stacked word is hidden, so a slot that is on screen but not yet
+  triggered renders as `We render` followed by nothing. `ResolveText`'s
+  `margin: '-10% 0px'` measures the slot itself, and the slot sits one line below
+  the top of the `Reveal` that wraps it. `Reveal` begins its 0.8s fade 60px into
+  view, so a slot-measured trigger arrives about 58px of scroll later (measured
+  in the DOM: the slot's top is 54px below the wrapper's). That is a real window
+  in which the band is visibly fading in with an empty slot. Expanding the
+  observer's bottom root margin by 20% of the viewport makes the word start
+  resolving before the band appears, and the blank state becomes unreachable.
 - Each word animates from `{ opacity: 0, y: 6, filter: blur(8px) }` to
   `{ opacity: 1, y: 0, filter: blur(0px) }` over `duration` on `EASE`.
 - Holds decelerate: `leads` for ~0.55s, `bookings` for ~0.75s, then `customers`
@@ -122,6 +133,13 @@ Consequences, all of them the ones we want:
 
 - SSR HTML reads `We don't just render websites. We render customers.` That, and
   only that, is what Googlebot indexes and what a no-JS visitor sees.
+
+  One caveat, confirmed against the built HTML: `leads.` and `bookings.` *do*
+  appear once in the RSC flight payload, because Next serializes a client
+  component's props into the `self.__next_f.push(...)` script. They appear
+  nowhere in the rendered markup. Script contents are not extracted as page
+  text and are invisible without JS, so the guarantee holds. Verify by
+  stripping `<script>` blocks before grepping, not on the raw HTML.
 - The initial client render matches the server render exactly, so there is no
   hydration mismatch. The extra words enter via state set in an effect, never
   during the first render pass.
@@ -242,9 +260,10 @@ No test suite is configured, so verification is:
 1. `npm run build` passes. Not a dev-server check. Stop `next dev` first: the two
    share `.next` and corrupt each other's chunks.
 2. **View source** (not the inspector, which shows the hydrated DOM) on the built
-   `/`. The HTML must contain `customers` exactly once in the band, and must not
-   contain `leads` or `bookings` anywhere in it. Confirm the `aria-label` reads
-   `We don't just render websites. We render customers.`
+   `/`. Strip `<script>` blocks first, then confirm the band's markup holds
+   `customers.` exactly once and no `leads.` or `bookings.` The unstripped HTML
+   carries all three inside the RSC flight payload; that is expected and is not
+   a failure. See "The server renders only the settled word" above.
 3. Disable JS, reload, confirm the band reads as a complete static sentence.
 4. DevTools, emulate `prefers-reduced-motion: reduce`, reload, confirm
    `customers` is sharp on the first frame and no sequence runs.

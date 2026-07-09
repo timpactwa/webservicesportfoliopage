@@ -109,7 +109,12 @@ export default function ResolveWord({
 }: ResolveWordProps) {
   const reduce = useReducedMotion()
   const ref = useRef<HTMLSpanElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-10% 0px' })
+  // Fires before the slot reaches the fold, which it must. Until the sequence
+  // starts, every stacked word is hidden, so a slot that is on screen but not
+  // yet triggered reads as "We render" followed by nothing. Reveal starts its
+  // fade 60px into view while the slot sits a line lower, so a trigger measured
+  // at the slot itself arrives ~58px of scroll too late.
+  const inView = useInView(ref, { once: true, margin: '0px 0px 20% 0px' })
   const last = words.length - 1
 
   const [armed, setArmed] = useState(false)
@@ -309,17 +314,30 @@ curl -s http://localhost:3000/ | grep -o 'col-start-1 row-start-1' | wc -l
 
 Expected: `1`
 
+The words must not appear in the **rendered markup**. They *do* appear once in the
+RSC flight payload, because Next serializes a client component's props into a
+`self.__next_f.push(...)` script tag. That is expected. So strip `<script>` blocks
+before grepping, rather than grepping the raw HTML:
+
 ```bash
-curl -s http://localhost:3000/ | grep -c 'bookings\.'
+curl -s http://localhost:3000/ -o /tmp/home.html
+node -e '
+const html = require("fs").readFileSync("/tmp/home.html","utf8");
+const noScript = html.replace(/<script[\s\S]*?<\/script>/g, "");
+const c = (s) => (noScript.match(new RegExp(s.replace(/\./g,"\\."),"g")) || []).length;
+console.log("leads.", c("leads."), "bookings.", c("bookings."),
+            "cells", (noScript.match(/col-start-1 row-start-1/g)||[]).length);
+'
 ```
 
-Expected: `0`. The word `bookings.` must not appear anywhere in the server HTML. (Grep for `bookings.` rather than `leads`, because "leads" already appears in unrelated pricing copy on this page.)
+Expected: `leads. 0 bookings. 0 cells 1`
 
 ```bash
-curl -s http://localhost:3000/ | grep -o "We don't just render websites\."
+curl -s http://localhost:3000/ | grep -o "We don&#x27;t just render websites\."
 ```
 
-Expected: one match. The finished sentence ships.
+Expected: one match. The finished sentence ships. (The apostrophe is HTML-escaped
+in the rendered markup; the unescaped form you will also see is the flight payload.)
 
 - [ ] **Step 5: Verify hydration, the stack, and the lock in a browser**
 
