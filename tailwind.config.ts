@@ -33,12 +33,13 @@ const config: Config = {
         graphite: {
           DEFAULT: 'oklch(var(--graphite) / <alpha-value>)',
           soft: 'oklch(var(--graphite-soft) / <alpha-value>)',
+          light: 'oklch(var(--graphite-light) / <alpha-value>)',
         },
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
         display: ['var(--font-inter-tight)', 'Inter Tight', 'system-ui', 'sans-serif'],
-        mono: ['ui-monospace', 'SFMono-Regular', 'SF Mono', 'Menlo', 'monospace'],
+        mono: ['var(--font-mono)', 'ui-monospace', 'SFMono-Regular', 'SF Mono', 'Menlo', 'monospace'],
       },
       fontSize: {
         'display-2xl': ['clamp(2.75rem, 7vw, 5rem)', { lineHeight: '1.05', letterSpacing: '-0.03em' }],

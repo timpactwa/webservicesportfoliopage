@@ -10,6 +10,8 @@
     --surface: 0.95 0.009 85;
     --graphite: 0.24 0.012 80;
     --graphite-soft: 0.48 0.012 80;
+    /* Section-fill tone, lighter than --graphite so dark bands read softer. */
+    --graphite-light: 0.32 0.014 80;
     --accent: 0.6 0.13 190;
     --accent-dark: 0.47 0.12 190;
     --accent-soft: 0.93 0.035 190;
@@ -18,8 +20,13 @@
   }
 
   html {
-    scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 
   body {

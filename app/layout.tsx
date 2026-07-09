@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Inter_Tight } from 'next/font/google'
+import { Inter, Inter_Tight, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
@@ -19,6 +19,13 @@ const interTight = Inter_Tight({
   weight: ['500', '600', '700'],
   display: 'swap',
   variable: '--font-inter-tight',
+})
+
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  display: 'swap',
+  variable: '--font-mono',
 })
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://renderlocalwebsites.com'
@@ -114,7 +121,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${interTight.variable}`}>
+    <html lang="en" className={`${inter.variable} ${interTight.variable} ${jetBrainsMono.variable}`}>
       <head>
         <link rel="dns-prefetch" href="https://api.web3forms.com" />
       </head>
