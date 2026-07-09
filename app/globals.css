@@ -63,9 +63,12 @@
     }
   }
 
-  /* Monospace eyebrow / small-label treatment (uppercase, wide tracking). */
+  /* Eyebrow / small-label treatment (uppercase, wide tracking). Shares the
+     display family with the headings it sits above, so a card reads as one
+     typographic voice. Inter Tight loads a real 600 face; the previous mono
+     stack did not, so 600 was synthesized into a smeared faux-bold. */
   .eyebrow {
-    font-family: var(--font-mono, ui-monospace), 'SF Mono', monospace;
+    font-family: var(--font-inter-tight), 'Inter Tight', system-ui, sans-serif;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.12em;

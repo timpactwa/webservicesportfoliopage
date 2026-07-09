@@ -115,7 +115,7 @@ export default function InboxDemo() {
       `}</style>
 
       <div className="mb-4 flex items-center justify-between">
-        <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-accent-dark">
+        <p className="eyebrow text-[10px] text-accent-dark">
           After-hours inquiry · live example
         </p>
         <span className="flex items-center gap-1.5 font-display text-[10px] font-semibold text-graphite-soft">
