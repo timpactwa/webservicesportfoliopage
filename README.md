@@ -32,7 +32,7 @@ The business is starting in Morris County, NJ, with Randolph as the first focuse
 | Outreach motion | Personalized email, then call follow-up |
 | Booking stack | On-site "request a time" form (Web3Forms -> email). We confirm the time by reply. |
 | Website domain | renderlocalwebsites.com |
-| Public email | renderlocalwebsites@gmail.com |
+| Public email | support@renderlocalwebsites.com |
 | Public lead form | Removed for now to keep booking low-friction |
 | Intake stack | Google Forms first; Typeform later only if polish becomes worth the cost |
 | Payment stack | Stripe Payment Links after the call |

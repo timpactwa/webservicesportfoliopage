@@ -183,8 +183,8 @@ export default function Estimator() {
       setEmailStatus('error')
       setEmailError(
         err instanceof Web3FormsNotConfiguredError
-          ? 'This form is not connected yet. Email us at renderlocalwebsites@gmail.com and we will get right back to you.'
-          : 'Something went wrong sending that. Email us at renderlocalwebsites@gmail.com and we will pick it up from there.'
+          ? 'This form is not connected yet. Email us at support@renderlocalwebsites.com and we will get right back to you.'
+          : 'Something went wrong sending that. Email us at support@renderlocalwebsites.com and we will pick it up from there.'
       )
     }
   }

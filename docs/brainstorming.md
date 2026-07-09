@@ -25,7 +25,7 @@ This file holds rough ideas, open questions, and decisions that are not fully se
 - Booking stack: Calendly embedded on the contact page
 - Starting maintenance price: `$50/mo`
 - Website domain: `renderlocalwebsites.com`
-- Public email: `renderlocalwebsites@gmail.com`
+- Public email: `support@renderlocalwebsites.com`
 
 ## Open Questions
 
@@ -34,7 +34,7 @@ This file holds rough ideas, open questions, and decisions that are not fully se
 - How should the Render name and visual identity be applied across outreach, proposals, invoices, and client handoff materials?
 - Should the tone be more premium, more local, or more direct and scrappy?
 - Should the student/founder story be mentioned only on the About page or also lightly on the homepage?
-- Should outreach continue from `renderlocalwebsites@gmail.com`, or should Render later move to domain-based inboxes like `hello@renderlocalwebsites.com`?
+- ~~Should outreach continue from `renderlocalwebsites@gmail.com`, or should Render later move to domain-based inboxes like `hello@renderlocalwebsites.com`?~~ Settled: the public address is now `support@renderlocalwebsites.com`.
 
 ### Services
 

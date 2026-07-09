@@ -38,7 +38,7 @@ export function serviceJsonLd(options: {
       '@type': 'ProfessionalService',
       name: 'Render',
       url: SITE_URL,
-      email: 'renderlocalwebsites@gmail.com',
+      email: 'support@renderlocalwebsites.com',
     },
     areaServed: [
       { '@type': 'City', name: 'Randolph, NJ' },

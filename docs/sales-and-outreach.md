@@ -6,7 +6,7 @@ This is the working playbook for finding local clients and the paste-ready copy 
 
 There is no Calendly, no Stripe payment link, and no Google Forms. The flow is simple and manual on purpose:
 
-1. A prospect finds us, or we reach out, and they submit the on-site "Request a Call" form at `/contact`. The free homepage mockup request lives at `/contact?intent=mockup`. Both send an email to `renderlocalwebsites@gmail.com`.
+1. A prospect finds us, or we reach out, and they submit the on-site "Request a Call" form at `/contact`. The free homepage mockup request lives at `/contact?intent=mockup`. Both send an email to `support@renderlocalwebsites.com`.
 2. One of us replies the same day to set up a short call. We schedule by email, not a booking widget.
 3. On the call we scope what they need. Then we show a first design direction before any deposit is taken. If it is not right, they walk away and owe nothing.
 4. If they approve the direction, we send a short project summary and invoice the deposit directly. The paid deposit starts the build.
@@ -260,7 +260,7 @@ Tim
 
 ## 3. Post-inquiry sequence (they submitted the form)
 
-They filled out the request-a-call or mockup form, so the email landed at `renderlocalwebsites@gmail.com`. Reply fast. Speed matters more than polish here.
+They filled out the request-a-call or mockup form, so the email landed at `support@renderlocalwebsites.com`. Reply fast. Speed matters more than polish here.
 
 Email A, reply the same day, ideally within the hour:
 
@@ -397,7 +397,7 @@ NAP consistency (name, address, phone must match the site footer and every other
 - Address: no public street address. We are a service-area business, so the location stays "Morris County, NJ" to match the footer. Do not invent a street address to fill the field.
 - Phone: use one real number we can actually answer, and use that same number on every listing from here on. The footer currently lists no phone, so decide on the number first, then add it to the footer and GBP together so they match.
 - Website: `renderlocalwebsites.com`.
-- Email: `renderlocalwebsites@gmail.com` (kept consistent even though GBP does not display it publicly).
+- Email: `support@renderlocalwebsites.com` (kept consistent even though GBP does not display it publicly).
 
 Any mismatch across listings weakens local ranking, so pick the exact name, number, and service area once and reuse them everywhere.
 

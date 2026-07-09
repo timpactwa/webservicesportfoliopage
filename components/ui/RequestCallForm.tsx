@@ -66,8 +66,8 @@ export default function RequestCallForm() {
       setStatus('error')
       setError(
         err instanceof Web3FormsNotConfiguredError
-          ? 'This form is not connected yet. Email us at renderlocalwebsites@gmail.com and we will get right back to you.'
-          : 'Something went wrong sending that. Email us at renderlocalwebsites@gmail.com and we will pick it up from there.'
+          ? 'This form is not connected yet. Email us at support@renderlocalwebsites.com and we will get right back to you.'
+          : 'Something went wrong sending that. Email us at support@renderlocalwebsites.com and we will pick it up from there.'
       )
     }
   }
@@ -88,10 +88,10 @@ export default function RequestCallForm() {
           Tim or Luke will email you within one business day to confirm a time that works. If it is
           urgent, reach us directly at{' '}
           <a
-            href="mailto:renderlocalwebsites@gmail.com"
+            href="mailto:support@renderlocalwebsites.com"
             className="font-medium text-accent hover:text-accent-dark"
           >
-            renderlocalwebsites@gmail.com
+            support@renderlocalwebsites.com
           </a>
           .
         </p>

@@ -73,7 +73,7 @@ These should be replaced when real details are available:
 Current public contact details:
 
 - Website: `renderlocalwebsites.com`
-- Email: `renderlocalwebsites@gmail.com`
+- Email: `support@renderlocalwebsites.com`
 
 ## Services
 

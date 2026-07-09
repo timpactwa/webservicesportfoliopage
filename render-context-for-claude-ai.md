@@ -10,7 +10,7 @@
 
 - **Market**: Morris County, NJ local small businesses (expansion to broader NJ / other local-service regions later)
 - **Domain**: `renderlocalwebsites.com`
-- **Contact**: `renderlocalwebsites@gmail.com`
+- **Contact**: `support@renderlocalwebsites.com`
 - **Services**: web design/development (primary), AI consulting and automation (secondary), on-site SEO (bundled into every website build, not sold standalone yet)
 
 ### Positioning

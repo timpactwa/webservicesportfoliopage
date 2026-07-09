@@ -95,7 +95,7 @@ Those can come later if the business needs them.
 - First outreach segment: businesses with no website listed, then manually verify whether they truly have no website.
 - Primary website CTA: `Book a Call`.
 - Website domain: `renderlocalwebsites.com`.
-- Public email: `renderlocalwebsites@gmail.com`.
+- Public email: `support@renderlocalwebsites.com`.
 - Founding-client minimum: `$500` when the project creates useful proof or a strong first case study.
 - Maintenance: optional for now, may become packaged or required later.
 - Maintenance scope: hosting support, small edits, basic reports, and on-site tweaks, priced affordably at first.

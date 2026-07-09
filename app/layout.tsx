@@ -73,7 +73,7 @@ const jsonLd = {
   description:
     'Web design, local SEO, and AI automation for small businesses in Morris County, NJ.',
   url: SITE_URL,
-  email: 'renderlocalwebsites@gmail.com',
+  email: 'support@renderlocalwebsites.com',
   areaServed: [
     { '@type': 'City', name: 'Randolph, NJ' },
     { '@type': 'City', name: 'Denville, NJ' },
