@@ -181,12 +181,12 @@ The site should feel polished, modern, and focused.
 
 Current visual language:
 
-- White backgrounds
-- Charcoal text
-- Blue accent
+- Warm cream backgrounds
+- Warm graphite text
+- Teal accent
 - Strong typography
 - Clean spacing
 - Minimal decorative elements
 - Subtle motion
 
-Avoid making the site feel too playful, cluttered, or like a SaaS landing page unrelated to local services.
+Dark section bands use a softer graphite tone for breathing room. Avoid making the site feel too playful, cluttered, or like a SaaS landing page unrelated to local services.
