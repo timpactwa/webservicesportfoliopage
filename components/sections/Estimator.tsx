@@ -167,10 +167,17 @@ export default function Estimator() {
     setEmailStatus('submitting')
     setEmailError(null)
 
+    // An unchecked checkbox is absent from FormData, so a present `botcheck` means
+    // something filled a field no human can see. Web3Forms rejects the submission.
+    // This payload is built from state rather than the form, so unlike
+    // RequestCallForm the field has to be read across explicitly.
+    const botcheck = new FormData(event.currentTarget).get('botcheck')
+
     try {
       await submitToWeb3Forms({
         subject: `Estimate request: ${result.tier}`,
         from_name: 'Render website',
+        ...(botcheck ? { botcheck } : {}),
         email,
         estimated_tier: result.tier,
         pages: answers.pages,
@@ -337,6 +344,16 @@ export default function Estimator() {
                     </p>
                   ) : (
                     <form onSubmit={handleEmailSubmit} className="space-y-3">
+                      {/* Web3Forms honeypot. Real people never see or check this. */}
+                      <input
+                        type="checkbox"
+                        name="botcheck"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        className="hidden"
+                        aria-hidden="true"
+                      />
+
                       <label htmlFor="estimate-email" className="block text-sm font-semibold text-graphite">
                         Want this in your inbox? <span className="font-normal text-graphite-soft">(optional)</span>
                       </label>
