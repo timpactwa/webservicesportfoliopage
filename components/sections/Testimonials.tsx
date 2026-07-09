@@ -1,13 +1,19 @@
 import { TESTIMONIALS } from '@/lib/data'
 
+/**
+ * Flip to true to preview the empty-state layout locally. It is off because a
+ * placeholder quote in a live section reads as a real one at a glance, and the
+ * homepage should not imply a client testimonial exists before one does.
+ */
+const PREVIEW_PLACEHOLDER = false
+
 const PLACEHOLDER_QUOTE = 'Placeholder testimonial copy sits here until a real client quote exists.'
 const PLACEHOLDER_NAME = 'Client name'
 const PLACEHOLDER_TOWN = 'Town, NJ'
 
 /**
- * Large feature-quote layout (design option 1c), shared by the real-quote
- * state and the placeholder empty state below, so dropping in the first real
- * client testimonial in lib/data.ts is a one-line change, not a redesign.
+ * Large feature-quote layout (design option 1c), kept ready for the first real
+ * client testimonial so dropping one into lib/data.ts is a one-line change.
  */
 function QuoteCard({ quote, name, subtitle }: { quote: string; name: string; subtitle: string }) {
   return (
@@ -35,17 +41,18 @@ function QuoteCard({ quote, name, subtitle }: { quote: string; name: string; sub
 }
 
 /**
- * TESTIMONIALS starts empty in lib/data.ts: no client has given us a quote
- * yet. Rather than render nothing, this shows an explicitly placeholder-
- * labeled empty state in the same layout a real quote will use, so the
- * section slot is visible and honest instead of a fabricated testimonial.
- * Once TESTIMONIALS has an entry, that real quote renders here instead.
+ * TESTIMONIALS starts empty in lib/data.ts: no client has given us a quote yet,
+ * so the section renders nothing at all. Adding the first real entry there
+ * turns this section on in the QuoteCard layout above, no redesign needed.
  */
 export default function Testimonials() {
+  const hasTestimonials = TESTIMONIALS.length > 0
+  if (!hasTestimonials && !PREVIEW_PLACEHOLDER) return null
+
   return (
     <section className="bg-bg" aria-label="What our clients say">
       <div className="container-studio py-20 md:py-32">
-        {TESTIMONIALS.length > 0 ? (
+        {hasTestimonials ? (
           <div className="space-y-10 md:space-y-14">
             {TESTIMONIALS.map((testimonial) => (
               <QuoteCard
