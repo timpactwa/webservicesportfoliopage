@@ -2,11 +2,12 @@ import type { Metadata } from 'next'
 import Hero from '@/components/sections/Hero'
 import Testimonials from '@/components/sections/Testimonials'
 import TrustStrip from '@/components/sections/TrustStrip'
-import WhatWeDo from '@/components/sections/WhatWeDo'
+import HomeServices from '@/components/sections/HomeServices'
+import HomeWork from '@/components/sections/HomeWork'
+import HomePricing from '@/components/sections/HomePricing'
 import WhyUs from '@/components/sections/WhyUs'
-import PortfolioTeaser from '@/components/sections/PortfolioTeaser'
-import ProofBar from '@/components/sections/ProofBar'
 import Faq from '@/components/sections/Faq'
+import HomeContact from '@/components/sections/HomeContact'
 import { FAQ_ITEMS } from '@/lib/data'
 
 export const metadata: Metadata = {
@@ -43,11 +44,12 @@ export default function HomePage() {
       {/* Renders nothing until a real client testimonial exists. */}
       <Testimonials />
       <TrustStrip />
-      <WhatWeDo />
-      <PortfolioTeaser />
-      <ProofBar />
+      <HomeServices />
+      <HomeWork />
+      <HomePricing />
       <WhyUs />
       <Faq />
+      <HomeContact />
     </>
   )
 }

@@ -9,7 +9,7 @@ export default function Faq() {
   const reduceMotion = useReducedMotion()
 
   return (
-    <section className="py-20 md:py-32 bg-bg">
+    <section id="faq" className="scroll-mt-24 py-20 md:py-32 bg-bg">
       <div className="container-studio">
         <div className="mb-12 md:mb-14">
           <p className="eyebrow mb-4 text-xs text-accent-dark">
