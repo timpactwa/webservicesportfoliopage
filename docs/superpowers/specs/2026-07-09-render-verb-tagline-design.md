@@ -92,6 +92,13 @@ Behavior:
   on the first frame and the sequence never runs. `Reveal.tsx` sets the
   precedent: check `matchMedia` and skip the observer entirely.
 
+  **The reduced-motion guard must sit at render, not only in the arming effect.**
+  Framer's `useReducedMotion` returns `false` on the first client render so that
+  hydration matches the server, then flips to `true` in an effect. A component
+  that only checks it inside the arming effect will already have armed on that
+  first pass. It then renders the full stack with every word hidden and never
+  starts the sequence, leaving a reduced-motion visitor staring at an empty slot.
+
 ### `components/sections/RenderPromise.tsx` (server component)
 
 Wraps `ResolveWord` in the band. Server component; `ResolveWord` is the only
@@ -126,21 +133,45 @@ indexed text would have been `We render leads bookings customers`.
 
 ### The accessible name
 
-The band's entire text content is `aria-hidden="true"`, and the parent `<p>`
-carries the sole accessible name:
+Only the slot needs handling; the lead line is ordinary visible text and is read
+normally.
 
+Before the component arms (server render, no-JS, and reduced motion), the slot is
+a single plain `<span>` holding `customers.`, with no ARIA at all. The sentence
+is simply true as written.
+
+Once armed on the client, the slot renders an `sr-only` span with the settled
+word plus the animated stack marked `aria-hidden="true"`:
+
+```html
+<span class="inline-grid">
+  <span class="sr-only">customers.</span>
+  <span aria-hidden="true">leads.</span>      <!-- stacked, opacity animated -->
+  <span aria-hidden="true">bookings.</span>
+  <span aria-hidden="true">customers.</span>
+</span>
 ```
-aria-label="We don't just render websites. We render customers."
-```
 
-Note this covers the static lead line too, not just the animated slot. An
-`aria-label` on an element replaces its whole subtree for assistive tech, so the
-label must contain the full sentence. This is exactly the pattern
-`ResolveText.tsx` uses at line 55, where the parent takes
-`aria-label={lines.join(' ')}` and every child span is `aria-hidden`.
+A screen reader therefore hears `We don't just render websites. We render
+customers.` and never the intermediate words. Because the `sr-only` span only
+exists after arming, the SSR HTML contains `customers.` exactly once, with no
+duplication for a text extractor.
 
-Do not instead put `aria-label` on the slot `<span>` alone. A bare labelled span
-has no role and is not reliably announced.
+`.sr-only` is `position: absolute`, so it does not participate in grid sizing and
+cannot widen the slot.
+
+**Rejected: `aria-label` on the parent `<p>`.** `ResolveText.tsx:55` uses that
+pattern, but it applies it to headings, where `aria-label` is reliably honored.
+On a paragraph, `aria-label` support varies across screen readers. Also rejected:
+`aria-label` on the slot `<span>` alone, which has no role and is not reliably
+announced.
+
+### The period lives inside each word
+
+`words` is `['leads.', 'bookings.', 'customers.']`, punctuation included, not a
+period placed after the slot in the markup. A period outside the slot would sit
+at the right edge of a box sized for `customers.`, so during `leads.` it would
+float several characters away from the word it terminates.
 
 ## Layout shift
 
@@ -187,9 +218,14 @@ content does not live inside components:
 export const RENDER_PROMISE = {
   lead: "We don't just render websites.",
   verb: 'We render',
-  words: ['leads', 'bookings', 'customers'],
+  words: ['leads.', 'bookings.', 'customers.'],
+  /** Seconds each non-final word holds once sharp. Decelerating. */
+  holds: [0.55, 0.75],
 } as const
 ```
+
+`as const` makes `words` and `holds` readonly, so `ResolveWord` types them as
+`readonly string[]` and `readonly number[]`.
 
 ## Styling constraints
 
