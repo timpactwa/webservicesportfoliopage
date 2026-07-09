@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { useTilt } from '@/hooks/useTilt'
 
 interface ServiceCardProps {
   icon: React.ReactNode
@@ -11,16 +10,10 @@ interface ServiceCardProps {
 }
 
 export default function ServiceCard({ icon, title, description, href }: ServiceCardProps) {
-  const { ref, onMouseMove, onMouseLeave } = useTilt<HTMLDivElement>({ max: 8, perspective: 700 })
-
   return (
     <div
-      ref={ref}
-      onMouseMove={onMouseMove}
-      onMouseLeave={onMouseLeave}
       style={{
-        transition: 'transform 150ms ease-out, box-shadow 300ms ease, border-color 300ms ease',
-        transformStyle: 'preserve-3d',
+        transition: 'box-shadow 300ms ease, border-color 300ms ease',
       }}
       className="group relative rounded-card border border-hairline bg-surface p-8 md:p-10 hover:shadow-card-hover hover:border-accent/30"
     >

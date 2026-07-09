@@ -1,11 +1,7 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { useReducedMotion } from 'framer-motion'
 import Button from './Button'
 import { track } from '@/lib/analytics'
-import { useCountUp } from '@/hooks/useCountUp'
-import { useTilt } from '@/hooks/useTilt'
 import { cn } from '@/lib/utils'
 import type { PricingTier } from '@/lib/data'
 
@@ -23,43 +19,17 @@ export default function PricingCard({
   ctaLabel,
   ctaHref,
 }: PricingCardProps) {
-  // Custom tier has no number to count up to ("Let's talk"), so fall back to a
-  // static label. The hook still runs to keep hook order stable across tiers.
+  // Custom tier has no number in its price ("Let's talk"); the monthly-range
+  // copy adapts depending on whether a real number is present.
   const numericPrice = parseInt(priceRange.replace(/[^0-9]/g, ''), 10)
   const hasNumericPrice = Number.isFinite(numericPrice) && numericPrice > 0
 
-  const { count, ref } = useCountUp({
-    to: hasNumericPrice ? numericPrice : 0,
-    duration: 1200,
-    delay: 200,
-  })
-
-  const tilt = useTilt<HTMLDivElement>({ max: 6, perspective: 800 })
-
-  // The count-up starts at 0, so handing it straight to the DOM would ship "$0"
-  // in the server-rendered HTML: what crawlers, AI answer engines, and no-JS
-  // visitors read. Published pricing is the whole differentiator, so render the
-  // real number until the client takes over the animation. Anyone who prefers
-  // reduced motion just keeps the real number.
-  const prefersReducedMotion = useReducedMotion()
-  const [isAnimating, setIsAnimating] = useState(false)
-  useEffect(() => {
-    if (!prefersReducedMotion) setIsAnimating(true)
-  }, [prefersReducedMotion])
-
-  const displayPrice =
-    hasNumericPrice && isAnimating ? `$${count.toLocaleString()}` : priceRange
-
   return (
     <div
-      ref={tilt.ref}
-      onMouseMove={tilt.onMouseMove}
-      onMouseLeave={tilt.onMouseLeave}
-      style={{ transition: 'transform 150ms ease-out', transformStyle: 'preserve-3d' }}
       className={cn(
         'group relative flex h-full flex-col rounded-card border p-8',
         isHighlighted
-          ? 'bg-graphite text-white border-graphite shadow-card-hover'
+          ? 'bg-graphite-light text-white border-graphite shadow-card-hover'
           : 'bg-surface text-graphite border-hairline'
       )}
     >
@@ -80,12 +50,7 @@ export default function PricingCard({
         <p className={cn('eyebrow mb-4 text-xs', isHighlighted ? 'text-accent-soft' : 'text-accent-dark')}>
           {tier}
         </p>
-        <p
-          ref={ref as React.RefObject<HTMLParagraphElement>}
-          className="font-display text-4xl font-semibold mb-1"
-        >
-          {displayPrice}
-        </p>
+        <p className="font-display text-4xl font-semibold mb-1">{priceRange}</p>
         <p className={cn('text-sm', isHighlighted ? 'text-white/55' : 'text-graphite-soft')}>
           {hasNumericPrice ? `+ ${monthlyRange} maintenance` : monthlyRange}
         </p>
