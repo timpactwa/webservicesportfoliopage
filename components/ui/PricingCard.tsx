@@ -29,7 +29,7 @@ export default function PricingCard({
       className={cn(
         'group relative flex h-full flex-col rounded-card border p-8',
         isHighlighted
-          ? 'bg-graphite-light text-white border-graphite shadow-card-hover'
+          ? 'bg-graphite-light text-white border-white/10 shadow-card-hover'
           : 'bg-surface text-graphite border-hairline'
       )}
     >
@@ -86,7 +86,7 @@ export default function PricingCard({
             {ctaLabel}
           </Button>
           {note && (
-            <p className={cn('mt-4 text-center text-xs', isHighlighted ? 'text-white/45' : 'text-graphite-soft')}>
+            <p className={cn('mt-4 text-center text-xs', isHighlighted ? 'text-white/55' : 'text-graphite-soft')}>
               {note}
             </p>
           )}

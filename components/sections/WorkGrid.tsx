@@ -316,7 +316,7 @@ function CaseStudySection({
       initial={prefersReducedMotion ? false : { opacity: 0, y: 28 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="mt-8 scroll-mt-28 rounded-card-lg bg-graphite text-white overflow-hidden"
+      className="mt-8 scroll-mt-28 rounded-card-lg bg-graphite-light text-white overflow-hidden"
     >
       <div className="grid min-w-0 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="min-w-0 p-6 sm:p-8 lg:p-10">
@@ -337,7 +337,7 @@ function CaseStudySection({
                 <p className="eyebrow text-xs text-white mt-1">
                   {stat.label}
                 </p>
-                <p className="text-xs text-white/50 mt-2 leading-relaxed">{stat.description}</p>
+                <p className="text-xs text-white/55 mt-2 leading-relaxed">{stat.description}</p>
               </div>
             ))}
           </div>

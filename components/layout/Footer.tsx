@@ -19,15 +19,15 @@ const resourceLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-graphite text-white py-16 md:py-20">
+    <footer className="bg-graphite-light text-white py-16 md:py-20">
       <div className="container-studio">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr] mb-12">
           <div>
             <Logo variant="light" className="mb-3 text-xl" />
-            <p className="text-white/50 text-sm max-w-xs leading-relaxed">
+            <p className="text-white/55 text-sm max-w-xs leading-relaxed">
               Honest agency work. Founder-led. Morris County made.
             </p>
-            <p className="mt-4 text-white/40 text-sm max-w-xs leading-relaxed">
+            <p className="mt-4 text-white/55 text-sm max-w-xs leading-relaxed">
               Serving{' '}
               <Link href="/service-areas" className="underline decoration-white/20 underline-offset-2 hover:text-white/70 transition-colors">
                 {SERVICE_TOWNS.join(', ')}
@@ -37,7 +37,7 @@ export default function Footer() {
           </div>
 
           <nav aria-label="Site">
-            <p className="eyebrow mb-4 text-[10px] text-white/40">Site</p>
+            <p className="eyebrow mb-4 text-[10px] text-white/55">Site</p>
             <ul className="space-y-3">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
@@ -53,7 +53,7 @@ export default function Footer() {
           </nav>
 
           <nav aria-label="Services">
-            <p className="eyebrow mb-4 text-[10px] text-white/40">Services</p>
+            <p className="eyebrow mb-4 text-[10px] text-white/55">Services</p>
             <ul className="space-y-3">
               {serviceLinks.map((link) => (
                 <li key={link.href}>
@@ -69,7 +69,7 @@ export default function Footer() {
           </nav>
 
           <nav aria-label="Resources">
-            <p className="eyebrow mb-4 text-[10px] text-white/40">Resources</p>
+            <p className="eyebrow mb-4 text-[10px] text-white/55">Resources</p>
             <ul className="space-y-3">
               {resourceLinks.map((link) => (
                 <li key={link.href}>
@@ -86,7 +86,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <p className="text-white/45 text-sm">© 2026 Render. Morris County, NJ.</p>
+          <p className="text-white/55 text-sm">© 2026 Render. Morris County, NJ.</p>
           <a
             href="mailto:renderlocalwebsites@gmail.com"
             className="text-sm text-white/60 hover:text-white transition-colors duration-150"

@@ -58,7 +58,7 @@ export default function AboutContent() {
         </div>
       </section>
 
-      <section className="py-16 md:py-20 bg-graphite text-white">
+      <section className="py-16 md:py-20 bg-graphite-light text-white">
         <div className="container-studio">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
             {values.map((value) => (
