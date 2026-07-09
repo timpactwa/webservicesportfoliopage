@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Reveal from '@/components/ui/Reveal'
 import Button from '@/components/ui/Button'
-import { DIFFERENTIATORS, PROOF_MARKERS, TEAM_MEMBERS } from '@/lib/data'
+import { DIFFERENTIATORS, RISK_REVERSAL, TEAM_MEMBERS } from '@/lib/data'
 
 const ArrowRight = () => (
   <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -9,18 +9,15 @@ const ArrowRight = () => (
   </svg>
 )
 
-const CheckIcon = () => (
-  <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-  </svg>
-)
-
-// Prices now live on the homepage pricing section, so the "pricing" proof marker
-// points at /#pricing instead of the old /services destination.
-const proofHref = (href: string) => (href === '/services' ? '/#pricing' : href)
-
 const founderNames = TEAM_MEMBERS.map((member) => member.name).join(' and ')
 
+/**
+ * Runs after the demos and before the price. The order is the point: a visitor who
+ * has just watched the work prove itself reads these differentiators as a summary
+ * rather than a boast, and the guarantee lands while the number is still unknown.
+ *
+ * The proof markers that used to close this section now open the page in ProofStrip.
+ */
 export default function WhyUs() {
   return (
     <section id="why" className="scroll-mt-24 py-20 md:py-32 bg-graphite-light text-white">
@@ -34,56 +31,32 @@ export default function WhyUs() {
           </p>
         </Reveal>
 
-        {/* Five competitive differentiators: single row on lg, wraps down on smaller screens. */}
-        <ul className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+        {/* Three differentiators, one row on md and up. Trimmed from five: published
+            pricing and the named founders are already claimed in ProofStrip. */}
+        <ul className="grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2 md:grid-cols-3">
           {DIFFERENTIATORS.map((item, index) => (
-            <Reveal
-              as="li"
-              key={item.title}
-              index={index}
-              className="border-t border-white/15 pt-5"
-            >
+            <Reveal as="li" key={item.title} index={index} className="border-t border-white/15 pt-6">
               <p className="eyebrow text-xs text-accent-soft">{String(index + 1).padStart(2, '0')}</p>
-              <h3 className="mt-3 text-[13px] font-semibold text-white">{item.title}</h3>
-              <p className="mt-2 text-[11.5px] leading-[1.5] text-white/70">{item.description}</p>
+              <h3 className="mt-4 font-display text-lg font-semibold text-white">{item.title}</h3>
+              <p className="mt-2.5 leading-relaxed text-white/70">{item.description}</p>
             </Reveal>
           ))}
         </ul>
 
-        {/* Proof folded in from the retired ProofBar: three claims a skeptic can check. */}
-        <div className="mt-20 border-t border-white/10 pt-14">
-          <Reveal className="mb-8">
-            <p className="eyebrow text-xs text-accent-soft">Proof you can check</p>
-          </Reveal>
-          <div className="grid grid-cols-1 divide-y divide-white/10 sm:grid-cols-3 sm:divide-y-0 sm:divide-x sm:divide-white/10">
-            {PROOF_MARKERS.map((marker, index) => (
-              <Reveal
-                key={marker.label}
-                index={index}
-                className="py-6 sm:py-0 sm:px-8 first:sm:pl-0 last:sm:pr-0"
-              >
-                <div className="mb-2 flex items-center gap-2">
-                  <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-white/10 text-accent-soft">
-                    <CheckIcon />
-                  </span>
-                  <h3 className="text-base font-semibold text-white">{marker.label}</h3>
-                </div>
-                <p className="mb-3 text-sm leading-relaxed text-white/70">{marker.description}</p>
-                <Link
-                  href={proofHref(marker.href)}
-                  className="inline-flex items-center gap-1 rounded-sm text-sm font-semibold text-accent-soft transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-soft focus-visible:ring-offset-2 focus-visible:ring-offset-graphite-light"
-                >
-                  See for yourself
-                  <ArrowRight />
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-
-        {/* Named founders (the homepage never named them before) + closing CTA. */}
+        {/* The last thing read before the pricing section. Risk comes off the table
+            before the number goes on it. */}
         <Reveal delay={0.1}>
-          <div className="mt-16 flex flex-col items-start gap-6 border-t border-white/10 pt-10 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-20 rounded-card border border-white/15 bg-white/[0.04] p-8 md:p-12">
+            <p className="eyebrow mb-5 text-xs text-accent-soft">Before you commit</p>
+            <p className="font-display max-w-3xl text-[26px] font-semibold leading-[1.35] tracking-[-0.02em] text-white md:text-[30px]">
+              {RISK_REVERSAL.headline}
+            </p>
+            <p className="mt-5 max-w-2xl leading-relaxed text-white/70">{RISK_REVERSAL.supporting}</p>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.15}>
+          <div className="mt-14 flex flex-col items-start gap-6 border-t border-white/10 pt-10 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-white/70">
               <Link
                 href="/about"

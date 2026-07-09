@@ -32,7 +32,10 @@ export default function HomeWork() {
             </p>
           </Reveal>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {/* Three demos across a single row rather than a 2x2 block. The old grid
+              wrapped to a second row and made this the tallest section on the page,
+              pushing the guarantee and the prices roughly a screen further down. */}
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {demoProjects.map((project, index) => (
               <DemoCard
                 key={project.projectName}
@@ -43,8 +46,13 @@ export default function HomeWork() {
                 }
               />
             ))}
-            {caseStudyProject && <CaseStudyCard project={caseStudyProject} index={demoProjects.length} />}
           </div>
+
+          {caseStudyProject && (
+            <div className="mt-6">
+              <CaseStudyCard project={caseStudyProject} index={demoProjects.length} />
+            </div>
+          )}
 
           <Reveal delay={0.1} className="mt-8">
             <Link
@@ -125,19 +133,21 @@ function DemoCard({
 
 function CaseStudyCard({ project, index }: { project: Project; index: number }) {
   // The one real engagement. Visually distinct (dark panel, no iframe, no demo
-  // badge) so it never blends in with the sample brands above it.
+  // badge) so it never blends in with the sample brands above it. Laid out as a
+  // full-width horizontal band under the demo row: it reads as a different kind of
+  // proof, and it costs far less vertical space than a fourth grid cell did.
   const cover = project.caseStudy?.proofImages[0]
 
   return (
-    <Reveal index={index} className="h-full">
-      <article className="group flex h-full flex-col overflow-hidden rounded-card border border-white/10 bg-graphite text-white shadow-card transition-shadow duration-300 hover:shadow-card-hover">
-        <div className="relative aspect-[16/10] overflow-hidden bg-white">
+    <Reveal index={index}>
+      <article className="group grid grid-cols-1 overflow-hidden rounded-card border border-white/10 bg-graphite text-white shadow-card transition-shadow duration-300 hover:shadow-card-hover sm:grid-cols-[minmax(0,320px)_1fr]">
+        <div className="relative aspect-[16/10] overflow-hidden bg-white sm:aspect-auto sm:min-h-[224px]">
           {cover ? (
             <Image
               src={cover.src}
               alt={cover.alt}
               fill
-              sizes="(min-width: 768px) 50vw, 100vw"
+              sizes="(min-width: 640px) 320px, 100vw"
               className="object-contain"
             />
           ) : (
@@ -150,14 +160,14 @@ function CaseStudyCard({ project, index }: { project: Project; index: number }) 
           </span>
         </div>
 
-        <div className="flex flex-1 flex-col p-5 md:p-6">
+        <div className="flex flex-col justify-center p-6 md:p-8">
           <p className="eyebrow mb-2 text-xs text-[#5FBF72]">{project.category}</p>
           <h3 className="text-xl font-semibold leading-tight text-white">{project.projectName}</h3>
           {project.description && (
-            <p className="mt-3 leading-relaxed text-white/60">{project.description}</p>
+            <p className="mt-3 max-w-2xl leading-relaxed text-white/60">{project.description}</p>
           )}
 
-          <div className="mt-auto pt-5">
+          <div className="pt-5">
             <Link
               href="/work"
               className="inline-flex items-center gap-1 text-sm font-semibold text-[#5FBF72] transition-all duration-200 hover:gap-2"

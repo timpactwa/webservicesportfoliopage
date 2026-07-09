@@ -1,8 +1,11 @@
 export const NAV_LINKS = [
+  // Document order, matching app/page.tsx. The active-link underline is driven by
+  // whichever section is in the reading zone, so a nav ordered differently from the
+  // page would light its tabs up out of sequence on scroll.
   { label: 'Home', href: '/' },
-  { label: 'Services', href: '/#services' },
   { label: 'Work', href: '/#work' },
   { label: 'Pricing', href: '/#pricing' },
+  { label: 'Services', href: '/#services' },
   { label: 'Contact', href: '/#contact' },
 ]
 
@@ -362,12 +365,16 @@ export const TRUST_MARKERS = [
 
 // Every marker here has to be something a skeptical visitor can go and check for
 // themselves in one click. That is the promise the section eyebrow makes.
+//
+// These render in ProofStrip directly under the homepage hero, where they answer
+// "why Render" with three claims a stranger can falsify rather than four claims
+// any agency could also make. Copy therefore points *down* the page, not up.
 export const PROOF_MARKERS = [
   {
     label: 'Pricing on the page',
     description:
       'Every package price is published right here. No "contact us for a quote," no sales call before you see a number.',
-    href: '/services',
+    href: '/#pricing',
   },
   {
     label: 'Tim and Luke, by name',
@@ -378,8 +385,8 @@ export const PROOF_MARKERS = [
   {
     label: 'Live demo sites',
     description:
-      'The work above is clickable, not a screenshot. Open any demo and use it the way a customer would.',
-    href: '/work',
+      'The demos below are clickable, not screenshots. Open any one and use it the way a customer would.',
+    href: '/#work',
   },
 ]
 
@@ -436,39 +443,34 @@ export const FAQ_ITEMS = [
   },
 ]
 
-// Each item has to carry information that appears nowhere else on the page.
-// "Founder-led" already lives in TrustStrip and the named founders live in
-// ProofBar, so neither belongs here.
-export const WHY_US_ITEMS = [
-  {
-    number: '01',
-    title: 'First Direction On Us',
-    description:
-      "You see a real design direction before you pay a deposit. If it isn't right, you walk away and owe nothing.",
-  },
-  {
-    number: '02',
-    title: 'Fixed Price, No Surprises',
-    description:
-      'Every project starts with a fixed-price summary. No change orders unless you ask for something outside the original scope.',
-  },
-  {
-    number: '03',
-    title: 'Founding Client Pricing',
-    description:
-      'Current rates are for our first clients. They go up as our portfolio grows, so early is genuinely cheaper.',
-  },
-  {
-    number: '04',
-    title: 'Invested Partners',
-    description: "Your site is our portfolio. We care about your results because they're our reputation.",
-  },
-]
+/**
+ * The two promises that remove a stranger's risk, rendered at the bottom of WhyUs
+ * so they land immediately before the homepage shows a price. Both are addressed
+ * at the fear that stops a local owner from calling a designer they have never
+ * heard of: that they will be committed before they know what they are getting.
+ *
+ * `headline` reuses GUARANTEE.long rather than restating it, so the guarantee has
+ * exactly one wording across every page that makes it.
+ *
+ * This replaces the old WHY_US_ITEMS array, which nothing ever rendered. Its other
+ * two entries already live elsewhere: founding-client pricing in FOUNDING_CLIENT_NOTE,
+ * and the founders themselves in PROOF_MARKERS and TEAM_MEMBERS.
+ */
+export const RISK_REVERSAL = {
+  headline: GUARANTEE.long,
+  supporting:
+    'Every project starts with a fixed-price summary. No change orders unless you ask for something outside the original scope.',
+}
 
 export type Differentiator = { title: string; description: string }
 
 // The homepage "Why Render" row. Deliberately conservative claims: every line is
 // literally true of this two-founder business today, no invented metrics or scope.
+//
+// Scoped to what the build itself delivers. Published pricing and the named
+// founders were dropped from this list because PROOF_MARKERS already states both
+// at the top of the page, where a visitor can click through and verify them. A
+// claim repeated in three sections reads as filler, not emphasis.
 export const DIFFERENTIATORS: Differentiator[] = [
   {
     title: 'Built to convert',
@@ -481,19 +483,9 @@ export const DIFFERENTIATORS: Differentiator[] = [
       'AI automation handles the missed calls, reviews, and follow-ups you do not have time for.',
   },
   {
-    title: 'Priced in the open',
-    description:
-      'Fixed prices, published right on this page. You see the number before you ever book a call.',
-  },
-  {
     title: 'SEO-first build',
     description:
       'Structured and optimized to show up when locals search for what you do.',
-  },
-  {
-    title: 'You work with the founders',
-    description:
-      'Tim and Luke build the site and answer for it themselves. No account managers, no agency markup.',
   },
 ]
 

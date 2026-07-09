@@ -13,7 +13,9 @@ import { useActiveSection } from '@/hooks/useActiveSection'
 
 // Homepage section ids in document order (mirrors app/page.tsx). Module-level so
 // the reference stays stable across renders and the observer isn't rebuilt.
-const SECTION_IDS = ['services', 'work', 'pricing', 'why', 'faq', 'contact']
+// useActiveSection resolves ties by taking the last intersecting id in this array,
+// so it has to track the real order or the active underline lands on the wrong tab.
+const SECTION_IDS = ['work', 'why', 'pricing', 'faq', 'services', 'contact']
 
 /**
  * Whether a nav link should read as active. Anchor links only light up on the
