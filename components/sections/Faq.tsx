@@ -1,75 +1,45 @@
-'use client'
-
-import { useState } from 'react'
-import { useReducedMotion } from 'framer-motion'
 import { FAQ_ITEMS } from '@/lib/data'
+import Reveal from '@/components/ui/Reveal'
+
+/**
+ * The dense 2-column layout (option 7b) doesn't have room for all 10 FAQ_ITEMS,
+ * so this is the highest-value subset: cost, timeline, ownership, the design
+ * guarantee, SEO inclusion, and the monthly fee. Matched by question text so
+ * the copy itself always stays sourced from lib/data.ts.
+ */
+const FEATURED_FAQ_QUESTIONS = [
+  'How much does a website cost?',
+  'How long until my site launches?',
+  'Do I own my website?',
+  "What if I don't like the design?",
+  'Is SEO included?',
+  'What does the monthly fee cover?',
+]
+
+const featuredFaqItems = FEATURED_FAQ_QUESTIONS.map((question) => {
+  const item = FAQ_ITEMS.find((faq) => faq.question === question)
+  if (!item) throw new Error(`Faq is out of sync with FAQ_ITEMS: "${question}"`)
+  return item
+})
 
 export default function Faq() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0)
-  const reduceMotion = useReducedMotion()
-
   return (
-    <section id="faq" className="scroll-mt-24 py-20 md:py-32 bg-bg">
+    <section id="faq" className="scroll-mt-24 py-20 md:py-32 bg-surface">
       <div className="container-studio">
-        <div className="mb-12 md:mb-14">
-          <p className="eyebrow mb-4 text-xs text-accent-dark">
-            FAQ
-          </p>
-          <h2 className="text-display-xl text-graphite">
-            Questions, answered.
-          </h2>
-        </div>
+        <Reveal className="mb-12 md:mb-14">
+          <p className="eyebrow mb-4 text-xs text-accent-dark">FAQ</p>
+          <h2 className="text-display-xl text-graphite">Questions, answered.</h2>
+        </Reveal>
 
-        <div className="max-w-3xl border-t border-hairline">
-          {FAQ_ITEMS.map((item, index) => {
-            const isOpen = openIndex === index
-            const panelId = `faq-panel-${index}`
-            const buttonId = `faq-button-${index}`
-            return (
-              <div key={item.question} className="border-b border-hairline">
-                <h3>
-                  <button
-                    id={buttonId}
-                    type="button"
-                    aria-expanded={isOpen}
-                    aria-controls={panelId}
-                    onClick={() => setOpenIndex(isOpen ? null : index)}
-                    className="flex w-full items-center justify-between gap-4 py-5 text-left cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
-                  >
-                    <span className="text-lg font-semibold text-graphite group-hover:text-accent transition-colors duration-200">
-                      {item.question}
-                    </span>
-                      <svg
-                        className={`w-5 h-5 flex-shrink-0 text-accent transition-transform duration-300 ${isOpen ? 'rotate-45' : ''}`}
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
-                      </svg>
-                    </button>
-                  </h3>
-                  <div
-                    className={`grid ${reduceMotion ? '' : 'transition-[grid-template-rows] duration-300 ease-out'}`}
-                    style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
-                  >
-                    <div
-                      id={panelId}
-                      role="region"
-                      aria-labelledby={buttonId}
-                      aria-hidden={!isOpen}
-                      className="overflow-hidden"
-                    >
-                      <p className="pb-5 pr-8 text-graphite-soft leading-relaxed">{item.answer}</p>
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {featuredFaqItems.map((item, index) => (
+            <Reveal key={item.question} index={index} className="rounded-[14px] bg-bg p-[18px]">
+              <p className="font-display text-[13px] font-semibold text-graphite">{item.question}</p>
+              <p className="mt-1.5 text-xs leading-[1.5] text-graphite-soft">{item.answer}</p>
+            </Reveal>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
   )
 }
