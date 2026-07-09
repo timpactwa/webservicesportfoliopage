@@ -3,45 +3,43 @@
 import { useState } from 'react'
 import { useReducedMotion } from 'framer-motion'
 import { FAQ_ITEMS } from '@/lib/data'
-import PixelReveal from '@/components/ui/PixelReveal'
-import ScanlineHeading from '@/components/ui/ScanlineHeading'
+import TriangleHeading from '@/components/ui/TriangleHeading'
 
 export default function Faq() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
   const reduceMotion = useReducedMotion()
 
   return (
-    <PixelReveal pixelSize={16}>
-      <section className="py-20 md:py-32 bg-white">
-        <div className="container-studio">
-          <div className="mb-12 md:mb-14">
-            <p className="text-accent font-bold text-sm uppercase tracking-widest mb-4">
-              FAQ
-            </p>
-            <ScanlineHeading as="h2" className="text-display-xl font-black text-charcoal" delay={0.3}>
-              Questions, answered.
-            </ScanlineHeading>
-          </div>
+    <section className="py-20 md:py-32 bg-bg">
+      <div className="container-studio">
+        <div className="mb-12 md:mb-14">
+          <p className="eyebrow mb-4 text-xs text-accent-dark">
+            FAQ
+          </p>
+          <TriangleHeading as="h2" className="text-display-xl text-graphite" delay={0.1}>
+            Questions, answered.
+          </TriangleHeading>
+        </div>
 
-          <div className="max-w-3xl border-t border-neutral-200">
-            {FAQ_ITEMS.map((item, index) => {
-              const isOpen = openIndex === index
-              const panelId = `faq-panel-${index}`
-              const buttonId = `faq-button-${index}`
-              return (
-                <div key={item.question} className="border-b border-neutral-200">
-                  <h3>
-                    <button
-                      id={buttonId}
-                      type="button"
-                      aria-expanded={isOpen}
-                      aria-controls={panelId}
-                      onClick={() => setOpenIndex(isOpen ? null : index)}
-                      className="flex w-full items-center justify-between gap-4 py-5 text-left cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
-                    >
-                      <span className="text-lg font-bold text-charcoal group-hover:text-accent transition-colors duration-200">
-                        {item.question}
-                      </span>
+        <div className="max-w-3xl border-t border-hairline">
+          {FAQ_ITEMS.map((item, index) => {
+            const isOpen = openIndex === index
+            const panelId = `faq-panel-${index}`
+            const buttonId = `faq-button-${index}`
+            return (
+              <div key={item.question} className="border-b border-hairline">
+                <h3>
+                  <button
+                    id={buttonId}
+                    type="button"
+                    aria-expanded={isOpen}
+                    aria-controls={panelId}
+                    onClick={() => setOpenIndex(isOpen ? null : index)}
+                    className="flex w-full items-center justify-between gap-4 py-5 text-left cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                  >
+                    <span className="text-lg font-semibold text-graphite group-hover:text-accent transition-colors duration-200">
+                      {item.question}
+                    </span>
                       <svg
                         className={`w-5 h-5 flex-shrink-0 text-accent transition-transform duration-300 ${isOpen ? 'rotate-45' : ''}`}
                         fill="none"
@@ -65,7 +63,7 @@ export default function Faq() {
                       aria-hidden={!isOpen}
                       className="overflow-hidden"
                     >
-                      <p className="pb-5 pr-8 text-neutral-600 leading-relaxed">{item.answer}</p>
+                      <p className="pb-5 pr-8 text-graphite-soft leading-relaxed">{item.answer}</p>
                     </div>
                   </div>
                 </div>
@@ -74,6 +72,5 @@ export default function Faq() {
           </div>
         </div>
       </section>
-    </PixelReveal>
   )
 }

@@ -2,8 +2,7 @@
 
 import { motion } from 'framer-motion'
 import ServiceCard from '@/components/ui/ServiceCard'
-import PixelReveal from '@/components/ui/PixelReveal'
-import ScanlineHeading from '@/components/ui/ScanlineHeading'
+import TriangleHeading from '@/components/ui/TriangleHeading'
 
 const containerVariants = {
   hidden: {},
@@ -30,56 +29,54 @@ const AIIcon = () => (
 
 export default function WhatWeDo() {
   return (
-    <PixelReveal pixelSize={16}>
-      <section className="py-20 md:py-32 bg-white">
-        <div className="container-studio">
-          <div className="mb-14">
-            <motion.p
-              className="text-accent font-bold text-sm uppercase tracking-widest mb-4"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-            >
-              What We Do
-            </motion.p>
-            <ScanlineHeading
-              as="h2"
-              className="text-display-xl font-black text-charcoal"
-              delay={0.5}
-            >
-              Two services.
-              <br />
-              One focused team.
-            </ScanlineHeading>
-          </div>
-
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-50px' }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+    <section className="py-20 md:py-32 bg-bg">
+      <div className="container-studio">
+        <div className="mb-14">
+          <motion.p
+            className="eyebrow mb-4 text-xs text-accent-dark"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
           >
-            <motion.div variants={itemVariants}>
-              <ServiceCard
-                icon={<WebIcon />}
-                title="Web Design & Development"
-                description="Custom Next.js sites that load fast, rank in local search, and turn visitors into customers."
-                href="/services#web"
-              />
-            </motion.div>
-            <motion.div variants={itemVariants}>
-              <ServiceCard
-                icon={<AIIcon />}
-                title="AI Consulting & Automation"
-                description="Lead follow-up, intake, and busywork, handled."
-                href="/services#ai"
-              />
-            </motion.div>
-          </motion.div>
+            What We Do
+          </motion.p>
+          <TriangleHeading
+            as="h2"
+            className="text-display-xl text-graphite"
+            delay={0.1}
+          >
+            Two services.
+            <br />
+            Both built to get you more customers.
+          </TriangleHeading>
         </div>
-      </section>
-    </PixelReveal>
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        >
+          <motion.div variants={itemVariants}>
+            <ServiceCard
+              icon={<WebIcon />}
+              title="Web Design & Development"
+              description="Custom-built websites that load fast, rank in local search, and turn visitors into customers."
+              href="/services#web"
+            />
+          </motion.div>
+          <motion.div variants={itemVariants}>
+            <ServiceCard
+              icon={<AIIcon />}
+              title="AI Consulting & Automation"
+              description="The follow-ups, intake forms, and after-hours questions you don't have time for, answered automatically."
+              href="/services#ai"
+            />
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
   )
 }

@@ -8,8 +8,8 @@ const contentSecurityPolicy = [
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data:", // data: covers the bg-grid-pattern SVG token
   "font-src 'self'",
-  `connect-src 'self'${isDev ? ' ws:' : ''}`,
-  'frame-src https://calendly.com https://*.vercel.app', // booking embed + live demos
+  `connect-src 'self' https://api.web3forms.com${isDev ? ' ws:' : ''}`, // contact form submissions
+  'frame-src https://*.vercel.app', // live demo previews
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<!-- @template name="Render — Landing (Direction A)" description="Full landing page: warm-neutral palette, compass-mark logo, mosaic render-in hero, and five distinct supporting animations" -->
+<helmet>
+  <script src="./ds-base.js"></script>
+  <script src="./triangle-reveal.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    [data-reveal] { will-change: opacity, transform; }
+    [data-magnetic] { will-change: transform; transition: transform .35s cubic-bezier(.22,1,.36,1); }
+    @keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  </style>
+</helmet>
+
+<div style="
+    position:relative; font-family:'Inter', system-ui, sans-serif; overflow-x:hidden;
+    --bg: oklch(0.975 0.007 88); --surface: oklch(0.95 0.009 85);
+    --graphite: oklch(0.24 0.012 80); --graphite-soft: oklch(0.48 0.012 80);
+    --accent: oklch(0.60 0.13 190); --accent-dark: oklch(0.47 0.12 190); --accent-soft: oklch(0.93 0.035 190);
+    --hairline: oklch(0.24 0.012 80 / 0.12);
+    background: var(--bg); color: var(--graphite);
+  " data-screen-label="Landing">
+
+  <!-- ============================= NAV ============================= -->
+  <nav data-nav style="position:fixed; top:0; left:0; right:0; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:20px 48px; transition:background .3s ease, box-shadow .3s ease;">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <svg viewBox="0 0 32 32" width="22" height="22">
+        <polygon points="16,2 30,16 16,16" fill="var(--accent-dark)"></polygon>
+        <polygon points="30,16 16,30 16,16" fill="var(--accent)"></polygon>
+        <polygon points="16,30 2,16 16,16" fill="var(--graphite)"></polygon>
+        <polygon points="2,16 16,2 16,16" fill="var(--graphite-soft)"></polygon>
+      </svg>
+      <span style="font:600 20px/1 'Inter Tight', sans-serif; letter-spacing:-0.02em;">render</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:36px;">
+      <a href="#work" style="font:500 14px/1 'Inter', sans-serif; text-decoration:none;">Work</a>
+      <a href="#services" style="font:500 14px/1 'Inter', sans-serif; text-decoration:none;">Services</a>
+      <a href="#pricing" style="font:500 14px/1 'Inter', sans-serif; text-decoration:none;">Pricing</a>
+    </div>
+    <button data-magnetic style="background:var(--graphite); border:none; color:#fff; font:600 14px/1 'Inter', sans-serif; padding:12px 22px; border-radius:100px; cursor:pointer;">Start a project</button>
+  </nav>
+
+  <!-- ============================= HERO ============================= -->
+  <section style="position:relative; min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:160px 48px 100px; text-align:center;">
+    <div data-parallax="14" style="position:absolute; top:8%; left:8%; width:260px; height:260px; border-radius:50%; background:var(--accent-soft); filter:blur(70px); opacity:0.7; pointer-events:none;"></div>
+    <div data-parallax="20" style="position:absolute; bottom:12%; right:10%; width:220px; height:220px; border-radius:50%; background:var(--surface); filter:blur(60px); opacity:0.9; pointer-events:none;"></div>
+
+    <div data-reveal style="opacity:0; transform:translateY(20px); position:relative; font:600 12px/1 ui-monospace, monospace; letter-spacing:.12em; text-transform:uppercase; color:var(--accent-dark); margin-bottom:22px;">render — web studio</div>
+
+    <div style="position:relative; max-width:800px;">
+      <div data-line-mask style="overflow:hidden;"><div style="font:600 clamp(40px,6vw,72px)/1.08 'Inter Tight', sans-serif; letter-spacing:-0.03em; transform:translateY(115%); display:inline-block;">Every pixel,</div></div>
+      <div data-line-mask style="overflow:hidden;"><div style="font:600 clamp(40px,6vw,72px)/1.08 'Inter Tight', sans-serif; letter-spacing:-0.03em; color:var(--accent-dark); transform:translateY(115%); display:inline-block;">considered.</div></div>
+    </div>
+
+    <div data-reveal style="opacity:0; transform:translateY(20px); position:relative; font:400 18px/1.6 'Inter', sans-serif; color:var(--graphite-soft); max-width:480px; margin-top:26px;">Websites for small businesses, designed and rendered with the same care as the work they showcase.</div>
+
+    <div data-reveal style="opacity:0; transform:translateY(20px); position:relative; display:flex; gap:14px; margin-top:36px;">
+      <button data-magnetic style="background:var(--accent); border:none; color:#fff; font:600 15px/1 'Inter', sans-serif; padding:16px 28px; border-radius:100px; cursor:pointer;">Start a project</button>
+      <button data-magnetic style="background:transparent; border:1.5px solid var(--graphite); color:var(--graphite); font:600 15px/1 'Inter', sans-serif; padding:16px 28px; border-radius:100px; cursor:pointer;">See the work</button>
+    </div>
+
+    <div data-reveal style="opacity:0; transform:translateY(28px); position:relative; width:100%; max-width:1040px; aspect-ratio:16/8; border-radius:24px; overflow:hidden; margin-top:64px; box-shadow:0 30px 80px -30px oklch(0.24 0.012 80 / 0.25);">
+      <triangle-reveal tone="a" label="studio work" rows="9" cols="16"></triangle-reveal>
+    </div>
+  </section>
+
+  <!-- ============================= TRUSTED MARQUEE ============================= -->
+  <section style="padding:36px 0; background:var(--surface); border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline);">
+    <div style="text-align:center; font:600 11px/1 ui-monospace, monospace; letter-spacing:.1em; text-transform:uppercase; color:var(--graphite-soft); margin-bottom:20px;">Where render shows up</div>
+    <div style="width:100%; overflow:hidden; -webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent); mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);">
+      <div style="display:flex; gap:56px; width:max-content; animation:marquee-scroll 22s linear infinite;">
+        <span style="font:600 17px/1 'Inter Tight', sans-serif; color:var(--graphite-soft); white-space:nowrap;">Restaurants</span>
+        <span style="font:600 17px/1 'Inter Tight', sans-serif; color:var(--graphite-soft); white-space:nowrap;">Photo &amp; design studios</span>
+        <span style="font:600 17px/1 'Inter Tight', sans-serif; color:var(--graphite-soft); white-space:nowrap;">Clinics</span>
+        <span style="font:600 17px/1 'Inter Tight', sans-serif; color:var(--graphite-soft); white-space:nowrap;">Retail</span>
+        <span style="font:600 17px/1 'Inter Tight', sans-serif; color:var(--graphite-soft); white-space:nowrap;">Contractors</span>
+        <span style="font:600 17px/1 'Inter Tight', sans-serif; color:var(--graphite-soft); white-space:nowrap;">Restaurants</span>
+        <span style="font:600 17px/1 'Inter Tight', sans-serif; color:var(--graphite-soft); white-space:nowrap;">Photo &amp; design studios</span>
+        <span style="font:600 17px/1 'Inter Tight', sans-serif; color:var(--graphite-soft); white-space:nowrap;">Clinics</span>
+        <span style="font:600 17px/1 'Inter Tight', sans-serif; color:var(--graphite-soft); white-space:nowrap;">Retail</span>
+        <span style="font:600 17px/1 'Inter Tight', sans-serif; color:var(--graphite-soft); white-space:nowrap;">Contractors</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= SERVICES ============================= -->
+  <section id="services" style="padding:120px 48px; max-width:1200px; margin:0 auto;">
+    <div data-reveal style="opacity:0; transform:translateY(20px); font:600 clamp(28px,4vw,40px)/1.15 'Inter Tight', sans-serif; letter-spacing:-0.02em; max-width:520px;">What you get</div>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:56px;">
+
+      <div data-reveal data-tilt-card style="opacity:0; transform:translateY(20px); background:var(--surface); border:1px solid var(--hairline); border-radius:20px; padding:32px; transform-style:preserve-3d; will-change:transform; transition:transform .15s ease-out;">
+        <svg viewBox="0 0 20 20" width="20" height="20" style="margin-bottom:20px;"><polygon points="10,2 18,18 2,18" fill="var(--accent)"></polygon></svg>
+        <div style="font:600 17px/1.3 'Inter Tight', sans-serif; margin-bottom:10px;">Design &amp; build</div>
+        <div style="font:400 14px/1.6 'Inter', sans-serif; color:var(--graphite-soft);">A full site, designed and built end to end — no templates stitched together.</div>
+      </div>
+
+      <div data-reveal data-tilt-card style="opacity:0; transform:translateY(20px); background:var(--surface); border:1px solid var(--hairline); border-radius:20px; padding:32px; transform-style:preserve-3d; will-change:transform; transition:transform .15s ease-out;">
+        <svg viewBox="0 0 20 20" width="20" height="20" style="margin-bottom:20px;"><polygon points="10,2 18,18 2,18" fill="var(--accent)"></polygon></svg>
+        <div style="font:600 17px/1.3 'Inter Tight', sans-serif; margin-bottom:10px;">Content &amp; copy</div>
+        <div style="font:400 14px/1.6 'Inter', sans-serif; color:var(--graphite-soft);">We help shape the words too, so the site sounds like you, not a template.</div>
+      </div>
+
+      <div data-reveal data-tilt-card style="opacity:0; transform:translateY(20px); background:var(--surface); border:1px solid var(--hairline); border-radius:20px; padding:32px; transform-style:preserve-3d; will-change:transform; transition:transform .15s ease-out;">
+        <svg viewBox="0 0 20 20" width="20" height="20" style="margin-bottom:20px;"><polygon points="10,2 18,18 2,18" fill="var(--accent)"></polygon></svg>
+        <div style="font:600 17px/1.3 'Inter Tight', sans-serif; margin-bottom:10px;">Care after launch</div>
+        <div style="font:400 14px/1.6 'Inter', sans-serif; color:var(--graphite-soft);">Small fixes, seasonal updates, and a person to call — not a ticket queue.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================= PROCESS ============================= -->
+  <section style="padding:120px 48px; background:var(--graphite); color:#fff;">
+    <div style="max-width:1200px; margin:0 auto;">
+      <div data-reveal style="opacity:0; transform:translateY(20px); font:600 clamp(28px,4vw,40px)/1.15 'Inter Tight', sans-serif; letter-spacing:-0.02em; max-width:520px; margin-bottom:56px;">Three steps, start to launch</div>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
+
+        <div data-reveal style="opacity:0; transform:translateY(20px); display:flex; align-items:center; gap:20px;">
+          <svg width="64" height="64" viewBox="0 0 64 64" style="transform:rotate(-90deg); flex-shrink:0;">
+            <circle cx="32" cy="32" r="26" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="5"></circle>
+            <circle data-counter-ring data-counter-target="33" cx="32" cy="32" r="26" fill="none" stroke="var(--accent)" stroke-width="5" stroke-linecap="round" stroke-dasharray="163.4" stroke-dashoffset="163.4"></circle>
+          </svg>
+          <div>
+            <div style="font:600 12px/1 ui-monospace, monospace; letter-spacing:.06em; color:rgba(255,255,255,0.5); margin-bottom:6px;">STEP 01</div>
+            <div style="font:600 17px/1.3 'Inter Tight', sans-serif;">Discovery call</div>
+          </div>
+        </div>
+
+        <div data-reveal style="opacity:0; transform:translateY(20px); display:flex; align-items:center; gap:20px;">
+          <svg width="64" height="64" viewBox="0 0 64 64" style="transform:rotate(-90deg); flex-shrink:0;">
+            <circle cx="32" cy="32" r="26" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="5"></circle>
+            <circle data-counter-ring data-counter-target="66" cx="32" cy="32" r="26" fill="none" stroke="var(--accent)" stroke-width="5" stroke-linecap="round" stroke-dasharray="163.4" stroke-dashoffset="163.4"></circle>
+          </svg>
+          <div>
+            <div style="font:600 12px/1 ui-monospace, monospace; letter-spacing:.06em; color:rgba(255,255,255,0.5); margin-bottom:6px;">STEP 02</div>
+            <div style="font:600 17px/1.3 'Inter Tight', sans-serif;">Design &amp; build</div>
+          </div>
+        </div>
+
+        <div data-reveal style="opacity:0; transform:translateY(20px); display:flex; align-items:center; gap:20px;">
+          <svg width="64" height="64" viewBox="0 0 64 64" style="transform:rotate(-90deg); flex-shrink:0;">
+            <circle cx="32" cy="32" r="26" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="5"></circle>
+            <circle data-counter-ring data-counter-target="100" cx="32" cy="32" r="26" fill="none" stroke="var(--accent)" stroke-width="5" stroke-linecap="round" stroke-dasharray="163.4" stroke-dashoffset="163.4"></circle>
+          </svg>
+          <div>
+            <div style="font:600 12px/1 ui-monospace, monospace; letter-spacing:.06em; color:rgba(255,255,255,0.5); margin-bottom:6px;">STEP 03</div>
+            <div style="font:600 17px/1.3 'Inter Tight', sans-serif;">Launch</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= WORK ============================= -->
+  <section id="work" style="padding:120px 48px; max-width:1000px; margin:0 auto;">
+    <div data-reveal style="opacity:0; transform:translateY(20px); font:600 clamp(28px,4vw,40px)/1.15 'Inter Tight', sans-serif; letter-spacing:-0.02em; max-width:520px; margin-bottom:24px;">Recent work</div>
+
+    <div data-cursor-follow style="position:relative;">
+      <div data-cursor-label style="position:absolute; left:0; top:0; transform:translate(-50%,-50%); pointer-events:none; opacity:0; transition:opacity .25s ease; background:var(--graphite); color:#fff; font:600 12px/1 'Inter Tight', sans-serif; padding:10px 18px; border-radius:100px; z-index:5; white-space:nowrap;">View project →</div>
+
+      <a data-cursor-row data-cursor-text="View project →" data-reveal href="#" style="opacity:0; transform:translateY(20px); display:flex; align-items:center; justify-content:space-between; padding:28px 0; border-top:1px solid var(--hairline); text-decoration:none; color:inherit;">
+        <div>
+          <div style="font:600 20px/1.3 'Inter Tight', sans-serif;">Marina &amp; Co.</div>
+          <div style="font:400 14px/1.5 'Inter', sans-serif; color:var(--graphite-soft); margin-top:4px;">Restaurant — booking &amp; menu site</div>
+        </div>
+        <div style="width:96px; height:64px; border-radius:12px; overflow:hidden; flex-shrink:0;"><triangle-reveal tone="a" rows="5" cols="7"></triangle-reveal></div>
+      </a>
+
+      <a data-cursor-row data-cursor-text="Visit site →" data-reveal href="#" style="opacity:0; transform:translateY(20px); display:flex; align-items:center; justify-content:space-between; padding:28px 0; border-top:1px solid var(--hairline); text-decoration:none; color:inherit;">
+        <div>
+          <div style="font:600 20px/1.3 'Inter Tight', sans-serif;">Ashgrove Dental</div>
+          <div style="font:400 14px/1.5 'Inter', sans-serif; color:var(--graphite-soft); margin-top:4px;">Clinic — patient intake &amp; scheduling</div>
+        </div>
+        <div style="width:96px; height:64px; border-radius:12px; overflow:hidden; flex-shrink:0;"><triangle-reveal tone="b" rows="5" cols="7"></triangle-reveal></div>
+      </a>
+
+      <a data-cursor-row data-cursor-text="View project →" data-reveal href="#" style="opacity:0; transform:translateY(20px); display:flex; align-items:center; justify-content:space-between; padding:28px 0; border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline); text-decoration:none; color:inherit;">
+        <div>
+          <div style="font:600 20px/1.3 'Inter Tight', sans-serif;">Loft Studio</div>
+          <div style="font:400 14px/1.5 'Inter', sans-serif; color:var(--graphite-soft); margin-top:4px;">Photography — portfolio &amp; booking</div>
+        </div>
+        <div style="width:96px; height:64px; border-radius:12px; overflow:hidden; flex-shrink:0;"><triangle-reveal tone="a" rows="5" cols="7"></triangle-reveal></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================= PRICING ============================= -->
+  <section id="pricing" style="padding:120px 48px; background:var(--surface);">
+    <div style="max-width:1200px; margin:0 auto;">
+      <div data-reveal style="opacity:0; transform:translateY(20px); font:600 clamp(28px,4vw,40px)/1.15 'Inter Tight', sans-serif; letter-spacing:-0.02em; max-width:520px; margin-bottom:56px;">Pricing, plainly</div>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px; align-items:stretch;">
+
+        <div data-reveal style="opacity:0; transform:translateY(20px); background:var(--bg); border:1px solid var(--hairline); border-radius:20px; padding:36px; display:flex; flex-direction:column;">
+          <div style="font:600 14px/1 'Inter Tight', sans-serif; color:var(--graphite-soft); margin-bottom:16px;">Starter</div>
+          <div style="font:600 44px/1 'Inter Tight', sans-serif;">$<span data-counter data-counter-target="750">0</span></div>
+          <div style="font:400 13px/1.5 'Inter', sans-serif; color:var(--graphite-soft); margin-top:6px; margin-bottom:28px;">one-time</div>
+          <div style="font:400 14px/1.7 'Inter', sans-serif; color:var(--graphite-soft); flex:1;">1–3 page site<br>Mobile-first build<br>2 weeks turnaround</div>
+          <button style="margin-top:28px; background:transparent; border:1.5px solid var(--graphite); color:var(--graphite); font:600 14px/1 'Inter', sans-serif; padding:14px 24px; border-radius:100px; cursor:pointer;">Get started</button>
+        </div>
+
+        <div data-reveal style="opacity:0; transform:translateY(20px); background:var(--graphite); color:#fff; border-radius:20px; padding:36px; display:flex; flex-direction:column; box-shadow:0 24px 60px -24px oklch(0.24 0.012 80 / 0.35);">
+          <div style="font:600 14px/1 'Inter Tight', sans-serif; color:var(--accent-soft); margin-bottom:16px;">Growth — most popular</div>
+          <div style="font:600 44px/1 'Inter Tight', sans-serif;">$<span data-counter data-counter-target="1500">0</span></div>
+          <div style="font:400 13px/1.5 'Inter', sans-serif; color:rgba(255,255,255,0.6); margin-top:6px; margin-bottom:28px;">one-time</div>
+          <div style="font:400 14px/1.7 'Inter', sans-serif; color:rgba(255,255,255,0.75); flex:1;">4–6 page site<br>Copy &amp; SEO setup<br>3 weeks turnaround</div>
+          <button data-magnetic style="margin-top:28px; background:var(--accent); border:none; color:#fff; font:600 14px/1 'Inter', sans-serif; padding:14px 24px; border-radius:100px; cursor:pointer;">Get started</button>
+        </div>
+
+        <div data-reveal style="opacity:0; transform:translateY(20px); background:var(--bg); border:1px solid var(--hairline); border-radius:20px; padding:36px; display:flex; flex-direction:column;">
+          <div style="font:600 14px/1 'Inter Tight', sans-serif; color:var(--graphite-soft); margin-bottom:16px;">Custom</div>
+          <div style="font:600 44px/1 'Inter Tight', sans-serif;">Let's talk</div>
+          <div style="font:400 13px/1.5 'Inter', sans-serif; color:var(--graphite-soft); margin-top:6px; margin-bottom:28px;">scoped to you</div>
+          <div style="font:400 14px/1.7 'Inter', sans-serif; color:var(--graphite-soft); flex:1;">Multi-location or e-commerce<br>Ongoing care plan<br>Direct line to the studio</div>
+          <button style="margin-top:28px; background:transparent; border:1.5px solid var(--graphite); color:var(--graphite); font:600 14px/1 'Inter', sans-serif; padding:14px 24px; border-radius:100px; cursor:pointer;">Book a call</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= CTA FOOTER BAND ============================= -->
+  <section style="position:relative; padding:120px 48px; background:var(--graphite); color:#fff; overflow:hidden;">
+    <div style="position:absolute; right:6%; top:50%; transform:translateY(-50%); width:180px; height:180px; border-radius:20px; overflow:hidden; opacity:0.85;">
+      <triangle-reveal tone="b" rows="6" cols="6"></triangle-reveal>
+    </div>
+    <div style="max-width:600px;">
+      <div data-line-mask style="overflow:hidden;"><div style="font:600 clamp(30px,4.5vw,48px)/1.15 'Inter Tight', sans-serif; letter-spacing:-0.02em; transform:translateY(115%); display:inline-block;">Let's build something</div></div>
+      <div data-line-mask style="overflow:hidden;"><div style="font:600 clamp(30px,4.5vw,48px)/1.15 'Inter Tight', sans-serif; letter-spacing:-0.02em; transform:translateY(115%); display:inline-block;">worth finding.</div></div>
+      <button data-magnetic style="margin-top:36px; background:var(--accent); border:none; color:#fff; font:600 15px/1 'Inter', sans-serif; padding:16px 28px; border-radius:100px; cursor:pointer;">Get a quote</button>
+    </div>
+  </section>
+
+  <!-- ============================= FOOTER ============================= -->
+  <footer style="padding:32px 48px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <svg viewBox="0 0 32 32" width="18" height="18">
+        <polygon points="16,2 30,16 16,16" fill="var(--accent-dark)"></polygon>
+        <polygon points="30,16 16,30 16,16" fill="var(--accent)"></polygon>
+        <polygon points="16,30 2,16 16,16" fill="var(--graphite)"></polygon>
+        <polygon points="2,16 16,2 16,16" fill="var(--graphite-soft)"></polygon>
+      </svg>
+      <span style="font:600 15px/1 'Inter Tight', sans-serif; letter-spacing:-0.02em;">render</span>
+    </div>
+    <div style="display:flex; gap:28px;">
+      <a href="#work" style="font:500 13px/1 'Inter', sans-serif; text-decoration:none; color:var(--graphite-soft);">Work</a>
+      <a href="#services" style="font:500 13px/1 'Inter', sans-serif; text-decoration:none; color:var(--graphite-soft);">Services</a>
+      <a href="#pricing" style="font:500 13px/1 'Inter', sans-serif; text-decoration:none; color:var(--graphite-soft);">Pricing</a>
+    </div>
+    <div style="font:400 13px/1 'Inter', sans-serif; color:var(--graphite-soft);">© 2026 render</div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // magnetic buttons
+    document.querySelectorAll('[data-magnetic]').forEach((el) => {
+      el.addEventListener('mousemove', (e) => {
+        const r = el.getBoundingClientRect();
+        const x = (e.clientX - r.left - r.width / 2) * 0.25;
+        const y = (e.clientY - r.top - r.height / 2) * 0.4;
+        el.style.transform = `translate(${x}px, ${y}px)`;
+      });
+      el.addEventListener('mouseleave', () => { el.style.transform = 'translate(0,0)'; });
+    });
+
+    // scroll fade-up reveal
+    const items = Array.from(document.querySelectorAll('[data-reveal]'));
+    if (reduced) {
+      items.forEach((el) => { el.style.opacity = '1'; el.style.transform = 'none'; });
+    } else {
+      const groups = new Map();
+      items.forEach((el) => {
+        const parent = el.parentElement;
+        if (!groups.has(parent)) groups.set(parent, []);
+        groups.get(parent).push(el);
+      });
+      const order = new Map();
+      groups.forEach((list) => list.forEach((el, i) => order.set(el, i)));
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          const delay = (order.get(el) || 0) * 90;
+          el.style.transition = `opacity .8s cubic-bezier(.22,1,.36,1) ${delay}ms, transform .8s cubic-bezier(.22,1,.36,1) ${delay}ms`;
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+          io.unobserve(el);
+        });
+      }, { threshold: 0.2, rootMargin: '0px 0px -60px 0px' });
+
+      items.forEach((el) => io.observe(el));
+    }
+
+    // line-mask headline wipe
+    const maskEls = document.querySelectorAll('[data-line-mask]');
+    if (reduced) {
+      maskEls.forEach((el) => { const inner = el.firstElementChild; if (inner) inner.style.transform = 'translateY(0)'; });
+    } else {
+      const maskIO = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const inner = entry.target.firstElementChild;
+          if (inner) {
+            inner.style.transition = 'transform .85s cubic-bezier(.22,1,.36,1)';
+            inner.style.transform = 'translateY(0)';
+          }
+          maskIO.unobserve(entry.target);
+        });
+      }, { threshold: 0.4 });
+      maskEls.forEach((el) => maskIO.observe(el));
+    }
+
+    // tilt cards
+    if (!reduced) {
+      document.querySelectorAll('[data-tilt-card]').forEach((card) => {
+        card.addEventListener('mousemove', (e) => {
+          const r = card.getBoundingClientRect();
+          const px = (e.clientX - r.left) / r.width - 0.5;
+          const py = (e.clientY - r.top) / r.height - 0.5;
+          card.style.transform = `perspective(700px) rotateX(${(-py * 8).toFixed(2)}deg) rotateY(${(px * 10).toFixed(2)}deg) translateY(0)`;
+        });
+        card.addEventListener('mouseleave', () => { card.style.transform = 'perspective(700px) rotateX(0) rotateY(0)'; });
+      });
+    }
+
+    // cursor-follow label (work showcase)
+    if (!reduced) {
+      document.querySelectorAll('[data-cursor-follow]').forEach((box) => {
+        const label = box.querySelector('[data-cursor-label]');
+        if (!label) return;
+        box.addEventListener('mousemove', (e) => {
+          const r = box.getBoundingClientRect();
+          label.style.left = (e.clientX - r.left) + 'px';
+          label.style.top = (e.clientY - r.top) + 'px';
+        });
+        box.querySelectorAll('[data-cursor-row]').forEach((row) => {
+          row.addEventListener('mouseenter', () => {
+            label.style.opacity = '1';
+            const t = row.getAttribute('data-cursor-text');
+            if (t) label.textContent = t;
+          });
+          row.addEventListener('mouseleave', () => { label.style.opacity = '0'; });
+        });
+      });
+    }
+
+    // ambient hero parallax
+    if (!reduced) {
+      const parallaxEls = document.querySelectorAll('[data-parallax]');
+      if (parallaxEls.length) {
+        document.addEventListener('mousemove', (e) => {
+          const nx = e.clientX / window.innerWidth - 0.5;
+          const ny = e.clientY / window.innerHeight - 0.5;
+          parallaxEls.forEach((el) => {
+            const depth = parseFloat(el.getAttribute('data-parallax')) || 10;
+            el.style.transform = `translate(${(nx * depth).toFixed(1)}px, ${(ny * depth).toFixed(1)}px)`;
+          });
+        });
+      }
+    }
+
+    // nav blur on scroll
+    const nav = document.querySelector('[data-nav]');
+    if (nav) {
+      const onScroll = () => {
+        if (window.scrollY > 40) {
+          nav.style.background = 'color-mix(in oklab, var(--bg) 80%, transparent)';
+          nav.style.backdropFilter = 'blur(14px)';
+          nav.style.boxShadow = '0 1px 0 var(--hairline)';
+        } else {
+          nav.style.background = 'transparent';
+          nav.style.backdropFilter = 'none';
+          nav.style.boxShadow = 'none';
+        }
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+
+    // animated counters + draw-in rings
+    const counterEls = document.querySelectorAll('[data-counter]');
+    const ringEls = document.querySelectorAll('[data-counter-ring]');
+    const animatedSet = new WeakSet();
+    const runCounter = (el) => {
+      if (animatedSet.has(el)) return;
+      animatedSet.add(el);
+      const target = parseFloat(el.getAttribute('data-counter-target') || '0');
+      if (reduced) { el.textContent = String(target); return; }
+      const dur = 1200;
+      const start = performance.now();
+      const tick = (now) => {
+        const p = Math.min(1, (now - start) / dur);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = String(Math.round(target * eased));
+        if (p < 1) requestAnimationFrame(tick); else el.textContent = String(target);
+      };
+      requestAnimationFrame(tick);
+    };
+    const runRing = (el) => {
+      if (animatedSet.has(el)) return;
+      animatedSet.add(el);
+      const target = parseFloat(el.getAttribute('data-counter-target') || '0');
+      const r = parseFloat(el.getAttribute('r')) || 30;
+      const circumference = 2 * Math.PI * r;
+      const offset = circumference - (target / 100) * circumference;
+      if (reduced) { el.style.strokeDashoffset = String(offset); return; }
+      el.style.transition = 'stroke-dashoffset 1.4s cubic-bezier(.22,1,.36,1)';
+      requestAnimationFrame(() => { el.style.strokeDashoffset = String(offset); });
+    };
+    const counterIO = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        if (entry.target.hasAttribute('data-counter')) runCounter(entry.target);
+        if (entry.target.hasAttribute('data-counter-ring')) runRing(entry.target);
+      });
+    }, { threshold: 0.4 });
+    counterEls.forEach((el) => counterIO.observe(el));
+    ringEls.forEach((el) => counterIO.observe(el));
+  }
+
+  renderVals() { return {}; }
+}
+
+</script>
+</body>
+</html>

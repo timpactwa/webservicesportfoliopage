@@ -1,144 +1,111 @@
 'use client'
 
+import { useEffect, useRef } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import Button from '@/components/ui/Button'
-import Logo from '@/components/ui/Logo'
-import PixelCanvas from '@/components/sections/PixelCanvas'
+import ResolveText from '@/components/ui/ResolveText'
+import TriangleReveal from '@/components/ui/TriangleReveal'
 
-const EASE = [0.25, 0.46, 0.45, 0.94] as [number, number, number, number]
+const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number]
 
 export default function Hero() {
-  const reduceMotion = useReducedMotion()
+  const reduce = useReducedMotion()
+  const blobsRef = useRef<HTMLDivElement>(null)
 
-  // Reduced-motion users get the content immediately (no opacity:0 hold, no delay).
-  // Everyone else gets a quick stagger that starts almost immediately: the headline
-  // is the LCP element, so it must not wait for the PixelCanvas intro to finish.
-  const reveal = (delay: number, y = 30, duration = 0.7) =>
-    reduceMotion
+  // Ambient parallax: two blurred blobs drift a few px opposite the cursor.
+  useEffect(() => {
+    if (reduce) return
+    if (typeof window !== 'undefined' && !window.matchMedia('(pointer: fine)').matches) return
+    const container = blobsRef.current
+    if (!container) return
+    const blobs = Array.from(container.querySelectorAll<HTMLElement>('[data-depth]'))
+    const onMove = (e: MouseEvent) => {
+      const nx = e.clientX / window.innerWidth - 0.5
+      const ny = e.clientY / window.innerHeight - 0.5
+      blobs.forEach((b) => {
+        const depth = parseFloat(b.dataset.depth || '10')
+        b.style.transform = `translate(${(nx * depth).toFixed(1)}px, ${(ny * depth).toFixed(1)}px)`
+      })
+    }
+    document.addEventListener('mousemove', onMove)
+    return () => document.removeEventListener('mousemove', onMove)
+  }, [reduce])
+
+  // Block-level render-in: blur-to-sharp resolve, matching ResolveText's verb so
+  // the whole hero arrives as one top-down pass rather than a set of fades.
+  const resolve = (delay: number) =>
+    reduce
       ? { initial: { opacity: 1 }, animate: { opacity: 1 }, transition: { duration: 0 } }
       : {
-          initial: { opacity: 0, y },
-          animate: { opacity: 1, y: 0 },
-          transition: { duration, delay, ease: EASE },
+          initial: { opacity: 0, y: 8, filter: 'blur(6px)' },
+          animate: { opacity: 1, y: 0, filter: 'blur(0px)' },
+          transition: { duration: 0.9, delay, ease: EASE },
         }
 
   return (
-    <section className="relative min-h-screen flex items-center bg-charcoal overflow-hidden">
-      <PixelCanvas />
+    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pb-24 pt-32 text-center md:pt-40">
+      {/* Ambient parallax blobs */}
+      <div ref={blobsRef} aria-hidden className="pointer-events-none absolute inset-0">
+        <div
+          data-depth="14"
+          className="absolute left-[8%] top-[10%] h-64 w-64 rounded-full bg-accent-soft opacity-70 blur-[70px]"
+        />
+        <div
+          data-depth="20"
+          className="absolute bottom-[14%] right-[10%] h-56 w-56 rounded-full bg-surface opacity-90 blur-[60px]"
+        />
+      </div>
 
+      {/* Signature render-in mosaic, subtle behind the copy — edges masked so the
+          center stays clean and text-readable. */}
       <div
-        className="absolute inset-y-0 right-0 w-2/3 pointer-events-none hidden lg:block"
-        style={{ background: 'radial-gradient(ellipse at 72% 50%, rgba(37,99,235,0.09) 0%, transparent 62%)' }}
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.22]"
+        style={{
+          WebkitMaskImage: 'radial-gradient(ellipse 70% 60% at 50% 45%, transparent 30%, black 85%)',
+          maskImage: 'radial-gradient(ellipse 70% 60% at 50% 45%, transparent 30%, black 85%)',
+        }}
+      >
+        <TriangleReveal tone="a" rows={9} cols={14} label="" />
+      </div>
+
+      <motion.p
+        {...resolve(0.1)}
+        className="eyebrow relative mb-6 text-xs text-accent-dark"
+      >
+        Web Design &amp; Local SEO · Morris County, NJ
+      </motion.p>
+
+      <ResolveText
+        as="h1"
+        trigger="mount"
+        delay={0.35}
+        stagger={0.12}
+        className="relative max-w-4xl text-display-xl md:text-display-2xl"
+        lines={['Websites That Win', 'Local Customers.']}
+        lineClassName={(i) => (i === 1 ? 'text-accent-dark' : undefined)}
       />
 
-      <div className="container-studio relative z-10 py-24 w-full">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12 xl:gap-20">
+      <motion.p
+        {...resolve(1.15)}
+        className="relative mt-7 max-w-xl text-lg leading-relaxed text-graphite-soft"
+      >
+        Render builds fast, modern websites and on-site SEO that put Morris County businesses
+        in front of the customers already searching for them.
+      </motion.p>
 
-          {/* Text column */}
-          <div className="flex-1 min-w-0">
-            <motion.div {...reveal(0.15, 18, 0.6)} className="mb-8">
-              <Logo variant="icon" priority className="h-14 w-14" />
-            </motion.div>
+      <motion.div {...resolve(1.4)} className="relative mt-9 flex flex-col gap-4 sm:flex-row">
+        <Button variant="primary" size="lg" href="/contact">
+          Request a Call
+        </Button>
+        <Button variant="secondary" size="lg" href="/contact?intent=mockup">
+          Get a Free Mockup
+        </Button>
+      </motion.div>
 
-            <motion.h1
-              {...reveal(0.25)}
-              className="text-display-lg md:text-display-2xl font-black text-white mb-6"
-            >
-              We Build the Web
-              <br />
-              <span className="text-accent">for Local Business.</span>
-            </motion.h1>
-
-            <motion.p
-              {...reveal(0.38)}
-              className="text-lg md:text-xl text-neutral-400 max-w-lg mb-10 leading-relaxed"
-            >
-              Render is a founder-led studio building fast, modern websites and practical AI tools
-              for local businesses across Morris County, NJ.
-            </motion.p>
-
-            <motion.div
-              {...reveal(0.5)}
-              className="flex flex-col sm:flex-row gap-4 mb-8"
-            >
-              <Button variant="primary" size="lg" href="/contact">
-                Book a Call
-              </Button>
-              <Button variant="secondary-inverse" size="lg" href="/services">
-                View Services
-              </Button>
-            </motion.div>
-
-            <motion.p
-              {...reveal(0.62)}
-              className="text-sm text-accent font-semibold"
-            >
-              Fixed, published pricing. Clear scope. You see the number before you ever book a call.
-            </motion.p>
-          </div>
-
-          {/* Sigil column */}
-          <motion.div
-            {...(reduceMotion
-              ? { initial: { opacity: 1 }, animate: { opacity: 1 }, transition: { duration: 0 } }
-              : {
-                  initial: { opacity: 0, x: 48 },
-                  animate: { opacity: 1, x: 0 },
-                  transition: { duration: 1.4, delay: 0.45, ease: EASE },
-                })}
-            className="hidden lg:flex items-center justify-center flex-shrink-0"
-          >
-            <svg
-              width="440"
-              height="300"
-              viewBox="0 0 440 300"
-              fill="none"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <defs>
-                <linearGradient id="bracketGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.7" />
-                  <stop offset="100%" stopColor="#2563EB" stopOpacity="0.3" />
-                </linearGradient>
-                <filter id="bracketGlow" x="-25%" y="-25%" width="150%" height="150%">
-                  <feGaussianBlur stdDeviation="7" result="blur" />
-                  <feMerge>
-                    <feMergeNode in="blur" />
-                    <feMergeNode in="SourceGraphic" />
-                  </feMerge>
-                </filter>
-              </defs>
-              <g filter="url(#bracketGlow)">
-                {/* < */}
-                <path
-                  d="M105 40 L20 150 L105 260"
-                  stroke="url(#bracketGrad)"
-                  strokeWidth="30"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                {/* / */}
-                <path
-                  d="M190 260 L255 40"
-                  stroke="url(#bracketGrad)"
-                  strokeWidth="30"
-                  strokeLinecap="round"
-                />
-                {/* > */}
-                <path
-                  d="M335 40 L420 150 L335 260"
-                  stroke="url(#bracketGrad)"
-                  strokeWidth="30"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </g>
-            </svg>
-          </motion.div>
-
-        </div>
-      </div>
+      <motion.p {...resolve(1.6)} className="relative mt-8 text-sm font-medium text-accent-dark">
+        Fixed, published pricing. Clear scope. You see the number before you ever book a call.
+      </motion.p>
     </section>
   )
 }

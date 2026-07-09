@@ -3,22 +3,53 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    /* Warm-neutral rebrand palette — OKLCH channels only (L C H) so Tailwind's
+       <alpha-value> modifier works (e.g. bg-accent/10). */
+    --bg: 0.975 0.007 88;
+    --surface: 0.95 0.009 85;
+    --graphite: 0.24 0.012 80;
+    --graphite-soft: 0.48 0.012 80;
+    --accent: 0.6 0.13 190;
+    --accent-dark: 0.47 0.12 190;
+    --accent-soft: 0.93 0.035 190;
+    /* Full color (baked alpha) for hairline borders/dividers. */
+    --hairline: oklch(0.24 0.012 80 / 0.12);
+  }
+
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
   }
 
   body {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+    background: oklch(var(--bg));
+    color: oklch(var(--graphite));
   }
 
   h1, h2, h3 {
-    font-weight: 900;
-    letter-spacing: -0.03em;
+    font-family: var(--font-inter-tight), 'Inter Tight', system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  /* Monospace eyebrow / small-label treatment (uppercase, wide tracking). */
+  .eyebrow {
+    font-family: var(--font-mono, ui-monospace), 'SF Mono', monospace;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
   }
 }
 
 @layer utilities {
+  .font-display {
+    font-family: var(--font-inter-tight), 'Inter Tight', system-ui, sans-serif;
+  }
+
   .container-studio {
     max-width: 80rem;
     margin-left: auto;

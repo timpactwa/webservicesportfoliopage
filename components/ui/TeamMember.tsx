@@ -43,16 +43,16 @@ export default function TeamMember({ name, role, school, focus, bio, initials, g
           />
         ) : (
           <div className="w-full h-full bg-accent flex items-center justify-center">
-            <span className="text-white font-black text-5xl md:text-6xl">{initials}</span>
+            <span className="font-display text-white font-semibold text-5xl md:text-6xl">{initials}</span>
           </div>
         )}
       </div>
-      <h3 className="text-3xl md:text-4xl font-black text-charcoal mb-1">{name}</h3>
-      <p className="text-accent font-bold text-sm uppercase tracking-widest mb-1">{role}</p>
-      <p className="text-neutral-500 text-sm mb-4">
+      <h3 className="text-3xl md:text-4xl font-semibold text-graphite mb-1">{name}</h3>
+      <p className="eyebrow mb-1 text-xs text-accent-dark">{role}</p>
+      <p className="text-graphite-soft text-sm mb-4">
         {school} · {focus}
       </p>
-      <p className="text-neutral-600 leading-relaxed mb-5">{bio}</p>
+      <p className="text-graphite-soft leading-relaxed mb-5">{bio}</p>
       {(github || linkedin) && (
         <div className="flex items-center gap-3">
           {github && (
@@ -60,7 +60,7 @@ export default function TeamMember({ name, role, school, focus, bio, initials, g
               href={github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-neutral-400 hover:text-charcoal transition-colors duration-150"
+              className="text-graphite-soft hover:text-graphite transition-colors duration-150"
               aria-label={`${name} on GitHub`}
             >
               <GitHubIcon />
@@ -71,7 +71,7 @@ export default function TeamMember({ name, role, school, focus, bio, initials, g
               href={linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-neutral-400 hover:text-accent transition-colors duration-150"
+              className="text-graphite-soft hover:text-accent transition-colors duration-150"
               aria-label={`${name} on LinkedIn`}
             >
               <LinkedInIcon />

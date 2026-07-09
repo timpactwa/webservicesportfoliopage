@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Hero from '@/components/sections/Hero'
+import Testimonials from '@/components/sections/Testimonials'
 import TrustStrip from '@/components/sections/TrustStrip'
 import WhatWeDo from '@/components/sections/WhatWeDo'
 import WhyUs from '@/components/sections/WhyUs'
@@ -38,6 +39,8 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd).replace(/</g, '\\u003c') }}
       />
       <Hero />
+      {/* Renders nothing until a real client testimonial exists. */}
+      <Testimonials />
       <TrustStrip />
       <WhatWeDo />
       <PortfolioTeaser />

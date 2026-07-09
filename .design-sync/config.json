@@ -12,19 +12,20 @@
   "docsDir": ".design-sync/no-docs",
   "readmeHeader": ".design-sync/conventions.md",
   "overrides": {
-    "DemoModal": { "cardMode": "single", "viewport": "480x360" },
-    "PixelReveal": { "cardMode": "column" }
+    "DemoModal": { "cardMode": "single", "viewport": "480x360" }
   },
   "componentSrcMap": {
     "Button": "components/ui/Button.tsx",
     "PricingCard": "components/ui/PricingCard.tsx",
     "ServiceCard": "components/ui/ServiceCard.tsx",
     "TeamMember": "components/ui/TeamMember.tsx",
-    "Logo": null,
+    "Logo": "components/ui/Logo.tsx",
     "ScanlineHeading": "components/ui/ScanlineHeading.tsx",
-    "PixelReveal": "components/ui/PixelReveal.tsx",
-    "CalendlyEmbed": "components/ui/CalendlyEmbed.tsx",
     "DemoModal": "components/ui/DemoModal.tsx",
-    "ResponsiveDemoPreview": "components/ui/ResponsiveDemoPreview.tsx"
+    "ResponsiveDemoPreview": "components/ui/ResponsiveDemoPreview.tsx",
+    "TriangleReveal": "components/ui/TriangleReveal.tsx",
+    "LineMaskHeading": "components/ui/LineMaskHeading.tsx",
+    "Reveal": "components/ui/Reveal.tsx",
+    "TiltCard": "components/ui/TiltCard.tsx"
   }
 }

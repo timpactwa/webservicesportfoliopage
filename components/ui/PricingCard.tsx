@@ -1,80 +1,103 @@
 'use client'
 
+import { useEffect, useState } from 'react'
+import { useReducedMotion } from 'framer-motion'
 import Button from './Button'
 import { useCountUp } from '@/hooks/useCountUp'
 import { useTilt } from '@/hooks/useTilt'
+import { cn } from '@/lib/utils'
+import type { PricingTier } from '@/lib/data'
 
-interface PricingCardProps {
-  tier: 'Starter' | 'Standard' | 'Premium'
-  priceRange: string
-  monthlyRange: string
-  features: string[]
-  isHighlighted?: boolean
-  ctaHref: string
-}
+type PricingCardProps = Omit<PricingTier, 'tier'> & { tier: PricingTier['tier'] }
 
 export default function PricingCard({
   tier,
   priceRange,
   monthlyRange,
+  summary,
   features,
   isHighlighted,
+  badge,
+  note,
+  ctaLabel,
   ctaHref,
 }: PricingCardProps) {
-  // Parse numeric value from priceRange string (e.g. '$2,000' → 2000)
+  // Custom tier has no number to count up to ("Let's talk"), so fall back to a
+  // static label. The hook still runs to keep hook order stable across tiers.
   const numericPrice = parseInt(priceRange.replace(/[^0-9]/g, ''), 10)
+  const hasNumericPrice = Number.isFinite(numericPrice) && numericPrice > 0
 
   const { count, ref } = useCountUp({
-    to: numericPrice,
+    to: hasNumericPrice ? numericPrice : 0,
     duration: 1200,
     delay: 200,
   })
 
-  const tilt = useTilt<HTMLDivElement>()
+  const tilt = useTilt<HTMLDivElement>({ max: 6, perspective: 800 })
 
-  const displayPrice = `$${count.toLocaleString()}`
+  // The count-up starts at 0, so handing it straight to the DOM would ship "$0"
+  // in the server-rendered HTML: what crawlers, AI answer engines, and no-JS
+  // visitors read. Published pricing is the whole differentiator, so render the
+  // real number until the client takes over the animation. Anyone who prefers
+  // reduced motion just keeps the real number.
+  const prefersReducedMotion = useReducedMotion()
+  const [isAnimating, setIsAnimating] = useState(false)
+  useEffect(() => {
+    if (!prefersReducedMotion) setIsAnimating(true)
+  }, [prefersReducedMotion])
+
+  const displayPrice =
+    hasNumericPrice && isAnimating ? `$${count.toLocaleString()}` : priceRange
 
   return (
     <div
       ref={tilt.ref}
       onMouseMove={tilt.onMouseMove}
       onMouseLeave={tilt.onMouseLeave}
-      style={{}}
-      className={`p-8 border relative group ${
+      style={{ transition: 'transform 150ms ease-out', transformStyle: 'preserve-3d' }}
+      className={cn(
+        'group relative flex h-full flex-col rounded-card border p-8',
         isHighlighted
-          ? 'bg-charcoal text-white border-charcoal'
-          : 'bg-white text-charcoal border-neutral-200'
-      }`}
+          ? 'bg-graphite text-white border-graphite shadow-card-hover'
+          : 'bg-surface text-graphite border-hairline'
+      )}
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        className="pointer-events-none absolute inset-0 rounded-card opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={{
           background:
-            'radial-gradient(450px circle at var(--glow-x, 50%) var(--glow-y, 50%), rgba(37,99,235,0.12), transparent 60%)',
+            'radial-gradient(450px circle at var(--glow-x, 50%) var(--glow-y, 50%), oklch(0.60 0.13 190 / 0.14), transparent 60%)',
         }}
       />
-      <div className="relative">
-        {isHighlighted && (
-          <span className="absolute top-4 right-4 bg-accent text-white text-xs font-bold px-3 py-1 uppercase tracking-widest">
-            Most Popular
+      <div className="relative flex h-full flex-col">
+        {badge && (
+          <span className="eyebrow absolute top-4 right-4 rounded-full bg-accent px-3 py-1 text-[10px] text-white">
+            {badge}
           </span>
         )}
-        <p className="text-accent font-bold text-sm uppercase tracking-widest mb-4">{tier}</p>
+        <p className={cn('eyebrow mb-4 text-xs', isHighlighted ? 'text-accent-soft' : 'text-accent-dark')}>
+          {tier}
+        </p>
         <p
           ref={ref as React.RefObject<HTMLParagraphElement>}
-          className="text-4xl font-black mb-1"
+          className="font-display text-4xl font-semibold mb-1"
         >
           {displayPrice}
         </p>
-        <p className={`text-sm mb-8 ${isHighlighted ? 'text-neutral-400' : 'text-neutral-500'}`}>
-          + {monthlyRange} maintenance
+        <p className={cn('text-sm', isHighlighted ? 'text-white/55' : 'text-graphite-soft')}>
+          {hasNumericPrice ? `+ ${monthlyRange} maintenance` : monthlyRange}
         </p>
-        <ul className="space-y-3 mb-8">
+
+        <p className={cn('mt-5 text-sm leading-relaxed', isHighlighted ? 'text-white/70' : 'text-graphite-soft')}>
+          {summary}
+        </p>
+
+        <ul className="space-y-3 my-8">
           {features.map((feature) => (
             <li key={feature} className="flex items-start gap-3 text-sm">
               <svg
-                className="w-4 h-4 text-accent flex-shrink-0 mt-0.5"
+                className={cn('w-4 h-4 flex-shrink-0 mt-0.5', isHighlighted ? 'text-accent-soft' : 'text-accent')}
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -82,13 +105,21 @@ export default function PricingCard({
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
-              <span className={isHighlighted ? 'text-neutral-300' : 'text-neutral-600'}>{feature}</span>
+              <span className={isHighlighted ? 'text-white/70' : 'text-graphite-soft'}>{feature}</span>
             </li>
           ))}
         </ul>
-        <Button variant={isHighlighted ? 'primary' : 'secondary'} href={ctaHref} fullWidth>
-          Get Started
-        </Button>
+
+        <div className="mt-auto">
+          <Button variant={isHighlighted ? 'primary' : 'secondary'} href={ctaHref} fullWidth>
+            {ctaLabel}
+          </Button>
+          {note && (
+            <p className={cn('mt-4 text-center text-xs', isHighlighted ? 'text-white/45' : 'text-graphite-soft')}>
+              {note}
+            </p>
+          )}
+        </div>
       </div>
     </div>
   )

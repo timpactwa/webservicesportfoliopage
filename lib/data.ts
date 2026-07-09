@@ -6,13 +6,55 @@ export const NAV_LINKS = [
   { label: 'Contact', href: '/contact' },
 ]
 
-export const PRICING_TIERS = [
+/** Towns we name explicitly in copy. Ordered by how we want them read, not alphabetically. */
+export const SERVICE_TOWNS = ['Randolph', 'Denville', 'Morristown', 'Parsippany', 'Madison']
+
+/**
+ * Single source of truth for how we describe the demo sites. The three demos are
+ * sample brands we invented and built, not real businesses or paying clients, and
+ * every surface that shows them has to say so.
+ */
+export const DEMO_DISCLAIMER = {
+  badge: 'Demo template',
+  short: 'A sample site we designed and built. Not a real business.',
+  long: 'Fuego Street Tacos, Hartline Builders, and Marlowe Dental Studio are demo templates we designed and built to show what we can do. They are sample brands, not real businesses and not paying clients. Hope Tree Family Services is a real consulting engagement.',
+}
+
+/** Honest scarcity. True today: rates go up once the portfolio fills out. */
+export const FOUNDING_CLIENT_NOTE = 'Founding client pricing, limited to our first clients.'
+
+/**
+ * Risk reversal. This is a promise, so it has to stay true of the process:
+ * a first design direction is shown BEFORE any deposit is taken.
+ */
+export const GUARANTEE = {
+  short: 'Your first design direction is on us.',
+  long: "Your first design direction is on us. If it isn't right, you walk away and no deposit is taken.",
+}
+
+export type PricingTier = {
+  tier: 'Starter' | 'Standard' | 'Premium' | 'Custom'
+  priceRange: string
+  monthlyRange: string
+  summary: string
+  isHighlighted?: boolean
+  badge?: string
+  note?: string
+  ctaLabel: string
+  ctaHref: string
+  features: string[]
+}
+
+export const PRICING_TIERS: PricingTier[] = [
   {
-    tier: 'Starter' as const,
+    tier: 'Starter',
     priceRange: '$500',
     monthlyRange: '$50/mo',
+    summary: 'For a business that needs a clean, professional site online fast.',
     isHighlighted: false,
-    ctaHref: '/contact',
+    note: FOUNDING_CLIENT_NOTE,
+    ctaLabel: 'Book a Call About Starter',
+    ctaHref: '/contact?tier=Starter',
     features: [
       '1-3 page website',
       'Mobile-ready responsive build',
@@ -23,11 +65,15 @@ export const PRICING_TIERS = [
     ],
   },
   {
-    tier: 'Standard' as const,
+    tier: 'Standard',
     priceRange: '$750',
     monthlyRange: '$75/mo',
+    summary: 'For a business ready to show up in local search and look like the obvious choice.',
     isHighlighted: true,
-    ctaHref: '/contact',
+    badge: 'Most Chosen',
+    note: FOUNDING_CLIENT_NOTE,
+    ctaLabel: 'Book a Call About Standard',
+    ctaHref: '/contact?tier=Standard',
     features: [
       '4-6 page website',
       'Service-focused page layouts',
@@ -38,11 +84,14 @@ export const PRICING_TIERS = [
     ],
   },
   {
-    tier: 'Premium' as const,
+    tier: 'Premium',
     priceRange: '$2,000',
     monthlyRange: '$125/mo',
+    summary: 'For a business that wants bookings and leads running without you chasing them.',
     isHighlighted: false,
-    ctaHref: '/contact',
+    note: FOUNDING_CLIENT_NOTE,
+    ctaLabel: 'Book a Call About Premium',
+    ctaHref: '/contact?tier=Premium',
     features: [
       '7+ page custom website',
       'Booking or lead workflow integration',
@@ -50,6 +99,23 @@ export const PRICING_TIERS = [
       'Expanded local SEO structure',
       'Analytics dashboard',
       'Priority launch support',
+    ],
+  },
+  {
+    tier: 'Custom',
+    priceRange: "Let's talk",
+    monthlyRange: 'Scoped with you',
+    summary: 'Multiple locations, online ordering, or AI automation built into the build.',
+    isHighlighted: false,
+    ctaLabel: 'Scope My Project',
+    ctaHref: '/contact?tier=Custom',
+    features: [
+      'Multi-location or franchise builds',
+      'E-commerce and online ordering',
+      'AI automation built into the site',
+      'Custom integrations with your tools',
+      'A fixed number before you commit',
+      'Never a vague "contact us for a quote"',
     ],
   },
 ]
@@ -60,7 +126,7 @@ export const TEAM_MEMBERS = [
     role: 'Co-founder',
     school: 'Virginia Tech',
     focus: 'Computer Science',
-    bio: "I build the sites. CS student at Virginia Tech with a focus on modern web technologies. I'm obsessed with performance, clean code, and building things that actually work.",
+    bio: "Tim builds every Render site and leads the AI automation work. He studies Computer Science at Virginia Tech, researches XR security through Spatial Seer (3rd place at VT's Undergraduate Research Symposium), and built DBWorkout, a gamified tool for learning SQL. He also interns in IT and Asset Management at Suburban Propane. His LinkedIn and GitHub are below if you want to check the work yourself.",
     initials: 'T',
     accentShape: 'square' as const,
     github: 'https://github.com/timpactwa',
@@ -72,7 +138,7 @@ export const TEAM_MEMBERS = [
     role: 'Co-founder',
     school: 'Virginia Tech',
     focus: 'Finance',
-    bio: 'I handle the strategy. Business and marketing student focused on helping local businesses tell their story online and grow their customer base without burning money.',
+    bio: 'Luke leads strategy and handles the numbers behind every project. He studies Finance at Virginia Tech and consults with 180 Degrees Consulting, where he built the foster parent recruitment strategy and KPI framework behind the Hope Tree Family Services case study. He works with owners on positioning, pricing, and what the site actually needs to do.',
     initials: 'L',
     accentShape: 'circle' as const,
     linkedin: 'https://www.linkedin.com/in/lukewilkins2/',
@@ -80,6 +146,26 @@ export const TEAM_MEMBERS = [
     imageClassName: 'scale-[1.35]',
   },
 ]
+
+export type Testimonial = {
+  quote: string
+  name: string
+  business: string
+  town?: string
+  /** A concrete outcome, e.g. "3x more booking requests in 60 days". Only ever a real, measured number. */
+  result?: string
+  source?: 'Google Review' | 'Direct'
+}
+
+/**
+ * Real client testimonials only. Never seed this with sample, placeholder, or
+ * illustrative quotes: the Testimonials section renders nothing while it is empty,
+ * which is the honest state until a paying client gives us a quote.
+ *
+ * TODO: drop the first real client testimonial here (quote, name, business, town,
+ * and a measured result if we have one). It belongs directly under the hero.
+ */
+export const TESTIMONIALS: Testimonial[] = []
 
 export type ProjectProofImage = {
   src: string
@@ -253,12 +339,12 @@ export const TRUST_MARKERS = [
     description: 'You work directly with the people building your site. No account managers, no markup.',
   },
   {
-    label: 'Next.js builds',
-    description: 'Modern, fast-loading sites engineered for performance and search, not slow templates.',
+    label: 'Built for speed',
+    description: 'Every site is built from scratch and tested against Google\'s speed benchmarks, not assembled from a slow theme.',
   },
   {
     label: 'SEO included',
-    description: 'On-site local SEO comes standard with every website we build.',
+    description: 'On-site local SEO comes standard, so you show up when someone nearby searches for what you do.',
   },
   {
     label: '2–4 week launch',
@@ -266,6 +352,8 @@ export const TRUST_MARKERS = [
   },
 ]
 
+// Every marker here has to be something a skeptical visitor can go and check for
+// themselves in one click. That is the promise the section eyebrow makes.
 export const PROOF_MARKERS = [
   {
     label: 'Pricing on the page',
@@ -274,9 +362,9 @@ export const PROOF_MARKERS = [
     href: '/services',
   },
   {
-    label: 'Two real founders',
+    label: 'Tim and Luke, by name',
     description:
-      'Tim and Luke, Virginia Tech, based in Morris County. Named, reachable, and on every project.',
+      'Real names, real profiles, a real email that gets answered. Look us up before you ever reply to us.',
     href: '/about',
   },
   {
@@ -304,6 +392,16 @@ export const FAQ_ITEMS = [
       'Yes. Once your project is complete and paid, the site and its content are yours.',
   },
   {
+    question: "What if I don't like the design?",
+    answer:
+      "You see a first design direction before you pay a deposit. If it isn't right, you walk away and owe nothing. Once we're building, revisions are part of the process, not an extra charge. We're not done until the site looks right to you, not just to us.",
+  },
+  {
+    question: 'How do I know the 2–4 week timeline is real?',
+    answer:
+      "The clock starts once we have your content and direction, which is the one part in your hands. From there we tell you exactly what we're waiting on at every step, so \"still in progress\" never turns into radio silence.",
+  },
+  {
     question: 'What do I need to have ready?',
     answer:
       "Whatever you've got: photos, a rough idea, or examples you like. We work from any starting point and guide you through copy, structure, and design.",
@@ -316,7 +414,7 @@ export const FAQ_ITEMS = [
   {
     question: 'What does the monthly fee cover?',
     answer:
-      'Optional maintenance keeps your site updated, secure, and online: hosting support, small content updates, and fixes. You can start without it and add it later.',
+      'The monthly plan is optional and month to month, not a contract. It covers hosting support, small content updates, and fixes. Start without it and add it later, or cancel anytime if you decide you do not need it.',
   },
   {
     question: 'I get my customers from Facebook and word of mouth. Why add a website?',
@@ -326,25 +424,31 @@ export const FAQ_ITEMS = [
   {
     question: 'Do you only work with Morris County businesses?',
     answer:
-      "We're based in and focused on Morris County, NJ, but we're happy to talk with nearby local businesses too.",
+      "We're based in Morris County and work most often in Randolph, Denville, Morristown, Parsippany, and Madison. If you're in a nearby town, we're still happy to talk.",
   },
 ]
 
+// Each item has to carry information that appears nowhere else on the page.
+// "Founder-led" already lives in TrustStrip and the named founders live in
+// ProofBar, so neither belongs here.
 export const WHY_US_ITEMS = [
   {
     number: '01',
-    title: 'You Pay For The Work',
-    description: "No account managers, no agency markup, no layers between you and the people building your site.",
+    title: 'First Direction On Us',
+    description:
+      "You see a real design direction before you pay a deposit. If it isn't right, you walk away and owe nothing.",
   },
   {
     number: '02',
-    title: 'Modern Tech Stack',
-    description: "Fast, modern websites built for performance, not outdated templates that slow you down.",
+    title: 'Fixed Price, No Surprises',
+    description:
+      'Every project starts with a fixed-price summary. No change orders unless you ask for something outside the original scope.',
   },
   {
     number: '03',
-    title: 'Straight Talk',
-    description: "We tell you exactly what we're building, what it costs, and when it's done.",
+    title: 'Founding Client Pricing',
+    description:
+      'Current rates are for our first clients. They go up as our portfolio grows, so early is genuinely cheaper.',
   },
   {
     number: '04',

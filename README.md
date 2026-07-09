@@ -29,7 +29,7 @@ The business is starting in Morris County, NJ, with Randolph as the first focuse
 | First lead source | https://randolphlocal.com/directory/ |
 | First lead segment | Businesses with no website listed, manually verified before outreach |
 | Outreach motion | Personalized email, then call follow-up |
-| Booking stack | Calendly scheduling link with meeting details handled by Calendly |
+| Booking stack | On-site "request a time" form (Web3Forms -> email). We confirm the time by reply. |
 | Website domain | renderlocalwebsites.com |
 | Public email | renderlocalwebsites@gmail.com |
 | Public lead form | Removed for now to keep booking low-friction |
@@ -84,7 +84,7 @@ Lead generation
 -> No-website lead verification
 -> Personalized email outreach
 -> Call follow-up
--> Calendly booking
+-> Request a call (on-site form)
 -> Google Meet consultation
 -> Project summary
 -> Stripe deposit link

@@ -15,33 +15,36 @@ export default function OpengraphImage() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          background: '#0F0F0F',
+          background: '#2d2a25',
           backgroundImage:
-            'radial-gradient(ellipse at 78% 30%, rgba(37,99,235,0.22) 0%, transparent 60%)',
+            'radial-gradient(ellipse at 78% 30%, rgba(20,160,145,0.22) 0%, transparent 60%)',
           padding: '80px',
         }}
       >
-        {/* Bracket sigil */}
-        <div style={{ display: 'flex', alignItems: 'center', color: '#3B82F6', fontSize: 96, fontWeight: 800, letterSpacing: '-0.04em' }}>
-          {'</>'}
-        </div>
+        {/* Compass mark */}
+        <svg width="96" height="96" viewBox="0 0 32 32">
+          <polygon points="16,2 30,16 16,16" fill="#0a7366" />
+          <polygon points="30,16 16,30 16,16" fill="#14a091" />
+          <polygon points="16,30 2,16 16,16" fill="#f3efe8" />
+          <polygon points="2,16 16,2 16,16" fill="#a8a29a" />
+        </svg>
 
         {/* Headline */}
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <div style={{ fontSize: 88, fontWeight: 800, color: '#FFFFFF', lineHeight: 1.05, letterSpacing: '-0.03em' }}>
+          <div style={{ fontSize: 88, fontWeight: 700, color: '#FFFFFF', lineHeight: 1.05, letterSpacing: '-0.03em' }}>
             We Build the Web
           </div>
-          <div style={{ fontSize: 88, fontWeight: 800, color: '#3B82F6', lineHeight: 1.05, letterSpacing: '-0.03em' }}>
+          <div style={{ fontSize: 88, fontWeight: 700, color: '#5fd0c1', lineHeight: 1.05, letterSpacing: '-0.03em' }}>
             for Local Business.
           </div>
         </div>
 
         {/* Footer row */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-          <div style={{ display: 'flex', alignItems: 'center', fontSize: 44, fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.02em' }}>
-            Render
+          <div style={{ display: 'flex', alignItems: 'center', fontSize: 44, fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+            render
           </div>
-          <div style={{ fontSize: 30, color: '#A3A3A3' }}>
+          <div style={{ fontSize: 30, color: '#c4beb4' }}>
             Web Design & AI Consulting · Morris County, NJ
           </div>
         </div>

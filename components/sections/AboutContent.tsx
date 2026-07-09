@@ -3,7 +3,8 @@
 import { motion, type Variants } from 'framer-motion'
 import { TEAM_MEMBERS } from '@/lib/data'
 import TeamMember from '@/components/ui/TeamMember'
-import ScanlineHeading from '@/components/ui/ScanlineHeading'
+import TriangleHeading from '@/components/ui/TriangleHeading'
+import Button from '@/components/ui/Button'
 
 const values = [
   { title: 'Quality over quantity', description: 'We take on fewer clients so we can do better work.' },
@@ -19,7 +20,7 @@ const cardVariants: Variants = {
 export default function AboutContent() {
   return (
     <div>
-      <section className="py-20 md:py-32 bg-white">
+      <section className="py-20 md:py-32 bg-bg">
         <div className="container-studio">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -28,21 +29,21 @@ export default function AboutContent() {
             transition={{ duration: 0.55 }}
             className="mb-20"
           >
-            <ScanlineHeading
+            <TriangleHeading
               as="h1"
-              className="text-display-xl font-black text-charcoal mb-8 max-w-3xl"
+              className="text-display-xl text-graphite mb-8 max-w-3xl"
               delay={0}
             >
               Built for local.<br />Priced in the open.
-            </ScanlineHeading>
-            <p className="text-accent font-bold text-sm uppercase tracking-widest mb-4">Our Mission</p>
-            <p className="text-2xl text-neutral-600 leading-relaxed max-w-2xl">
-              Tim brings the software. Luke brings the strategy. Together we help local businesses get modern websites and practical digital tools without the retainer, the markup, or the six-week sales process. No overhead, no middlemen, just two people who care about the work.
+            </TriangleHeading>
+            <p className="eyebrow mb-4 text-xs text-accent-dark">Our Mission</p>
+            <p className="text-2xl text-graphite-soft leading-relaxed max-w-2xl">
+              Tim brings the software. Luke brings the strategy. Together we help local businesses get modern websites and practical digital tools without the retainer, the markup, or the six-week sales process. No overhead, no middlemen. You hire the two people actually doing the work.
             </p>
           </motion.div>
 
           <div className="mb-4">
-            <p className="text-accent font-bold text-sm uppercase tracking-widest mb-10">The Team</p>
+            <p className="eyebrow mb-10 text-xs text-accent-dark">The Team</p>
             <motion.div
               initial="hidden"
               whileInView="show"
@@ -60,15 +61,27 @@ export default function AboutContent() {
         </div>
       </section>
 
-      <section className="py-16 md:py-20 bg-charcoal text-white">
+      <section className="py-16 md:py-20 bg-graphite text-white">
         <div className="container-studio">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
             {values.map((value) => (
               <div key={value.title}>
-                <h3 className="text-lg font-black text-white mb-2">{value.title}</h3>
-                <p className="text-neutral-400 text-sm leading-relaxed">{value.description}</p>
+                <h3 className="text-lg font-semibold text-white mb-2">{value.title}</h3>
+                <p className="text-white/60 text-sm leading-relaxed">{value.description}</p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-14 flex flex-col items-center gap-4 border-t border-white/10 pt-10 text-center sm:flex-row sm:justify-between sm:text-left">
+            <p className="text-xl font-semibold text-white">Ready to talk about your site?</p>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Button variant="primary" href="/contact">
+                Request a Call
+              </Button>
+              <Button variant="secondary-inverse" href="/contact?intent=mockup">
+                Get a Free Mockup
+              </Button>
+            </div>
           </div>
         </div>
       </section>

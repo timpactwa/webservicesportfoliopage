@@ -10,32 +10,63 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Warm-neutral rebrand palette. Values live as OKLCH CSS vars in globals.css
+        // so the whole system can be tuned in one place; the alpha syntax below lets
+        // utilities like `bg-accent/10` keep working.
+        bg: 'oklch(var(--bg) / <alpha-value>)',
+        surface: 'oklch(var(--surface) / <alpha-value>)',
+        hairline: 'var(--hairline)',
+        // `accent` name kept (was blue) — now the quiet teal. Repointing here restyles
+        // every existing text-accent / bg-accent usage for free.
         accent: {
-          DEFAULT: '#2563EB',
-          light: '#3B82F6',
-          dark: '#1D4ED8',
+          DEFAULT: 'oklch(var(--accent) / <alpha-value>)',
+          light: 'oklch(var(--accent) / <alpha-value>)',
+          dark: 'oklch(var(--accent-dark) / <alpha-value>)',
+          soft: 'oklch(var(--accent-soft) / <alpha-value>)',
         },
+        // `charcoal` name kept (was near-black) — now warm graphite.
         charcoal: {
-          DEFAULT: '#0F0F0F',
-          soft: '#1A1A1A',
-          muted: '#2A2A2A',
+          DEFAULT: 'oklch(var(--graphite) / <alpha-value>)',
+          soft: 'oklch(var(--graphite) / <alpha-value>)',
+          muted: 'oklch(var(--graphite-soft) / <alpha-value>)',
+        },
+        graphite: {
+          DEFAULT: 'oklch(var(--graphite) / <alpha-value>)',
+          soft: 'oklch(var(--graphite-soft) / <alpha-value>)',
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
+        display: ['var(--font-inter-tight)', 'Inter Tight', 'system-ui', 'sans-serif'],
+        mono: ['ui-monospace', 'SFMono-Regular', 'SF Mono', 'Menlo', 'monospace'],
       },
       fontSize: {
-        'display-2xl': ['clamp(3rem, 8vw, 6rem)', { lineHeight: '1', letterSpacing: '-0.03em' }],
-        'display-xl': ['clamp(2.25rem, 6vw, 4.5rem)', { lineHeight: '1.05', letterSpacing: '-0.025em' }],
-        'display-lg': ['clamp(1.875rem, 4vw, 3rem)', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
-        'display-md': ['clamp(1.5rem, 3vw, 2.25rem)', { lineHeight: '1.15', letterSpacing: '-0.015em' }],
+        'display-2xl': ['clamp(2.75rem, 7vw, 5rem)', { lineHeight: '1.05', letterSpacing: '-0.03em' }],
+        'display-xl': ['clamp(2.25rem, 5vw, 3.5rem)', { lineHeight: '1.08', letterSpacing: '-0.025em' }],
+        'display-lg': ['clamp(1.875rem, 4vw, 3rem)', { lineHeight: '1.12', letterSpacing: '-0.02em' }],
+        'display-md': ['clamp(1.5rem, 3vw, 2.25rem)', { lineHeight: '1.15', letterSpacing: '-0.02em' }],
+      },
+      borderRadius: {
+        card: '20px',
+        'card-lg': '24px',
       },
       backgroundImage: {
-        'grid-pattern': "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232563EB' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
+        // Warm teal-tinted dot grid (was blue).
+        'grid-pattern': "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23158B7B' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
       },
       boxShadow: {
-        'card': '0 4px 24px rgba(0,0,0,0.06)',
-        'card-hover': '0 8px 40px rgba(0,0,0,0.12)',
+        card: '0 4px 24px oklch(var(--graphite) / 0.06)',
+        'card-hover': '0 12px 48px oklch(var(--graphite) / 0.12)',
+        'hero-visual': '0 30px 80px -30px oklch(var(--graphite) / 0.25)',
+      },
+      keyframes: {
+        'marquee-scroll': {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-50%)' },
+        },
+      },
+      animation: {
+        marquee: 'marquee-scroll 22s linear infinite',
       },
     },
   },

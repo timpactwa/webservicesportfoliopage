@@ -10,18 +10,18 @@ export default function ProofBar() {
   const reduceMotion = useReducedMotion()
 
   return (
-    <section className="bg-white border-y border-accent/20" aria-label="Verify what we claim">
+    <section className="bg-surface border-y border-hairline" aria-label="Verify what we claim">
       <div className="container-studio py-14 md:py-16">
         <motion.p
           initial={reduceMotion ? { opacity: 1 } : { opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: reduceMotion ? 0 : 0.4 }}
-          className="text-accent font-bold text-sm uppercase tracking-widest mb-8 text-center"
+          className="eyebrow mb-8 text-center text-xs text-accent-dark"
         >
           Nothing here you have to take our word for
         </motion.p>
-        <div className="grid grid-cols-1 sm:grid-cols-3 divide-y divide-neutral-100 sm:divide-y-0 sm:divide-x">
+        <div className="grid grid-cols-1 sm:grid-cols-3 divide-y divide-hairline sm:divide-y-0 sm:divide-x">
           {PROOF_MARKERS.map((marker, index) => (
             <motion.div
               key={marker.label}
@@ -37,9 +37,9 @@ export default function ProofBar() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                 </span>
-                <p className="text-base font-black text-charcoal">{marker.label}</p>
+                <p className="text-base font-semibold text-graphite">{marker.label}</p>
               </div>
-              <p className="text-sm text-neutral-600 leading-relaxed mb-3">{marker.description}</p>
+              <p className="text-sm text-graphite-soft leading-relaxed mb-3">{marker.description}</p>
               <Link
                 href={marker.href}
                 className="inline-flex items-center gap-1 text-sm font-semibold text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-sm"

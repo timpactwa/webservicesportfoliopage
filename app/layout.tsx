@@ -1,13 +1,22 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Inter_Tight } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import MobileCtaBar from '@/components/layout/MobileCtaBar'
 
 const inter = Inter({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800', '900'],
+  weight: ['400', '500', '600', '700'],
   display: 'swap',
+  variable: '--font-inter',
+})
+
+const interTight = Inter_Tight({
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+  display: 'swap',
+  variable: '--font-inter-tight',
 })
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://renderlocalwebsites.com'
@@ -76,10 +85,9 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en" className={`${inter.variable} ${interTight.variable}`}>
       <head>
-        <link rel="preconnect" href="https://calendly.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://calendly.com" />
+        <link rel="dns-prefetch" href="https://api.web3forms.com" />
       </head>
       <body>
         <script
@@ -90,6 +98,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <main>{children}</main>
         <Footer />
+        {/* Reserves scroll space so the fixed mobile bar never covers the footer.
+            Matches the footer background so it reads as part of it. */}
+        <div aria-hidden className="h-[72px] bg-graphite md:hidden" />
+        <MobileCtaBar />
       </body>
     </html>
   )

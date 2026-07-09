@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { type RefObject, useEffect, useRef, useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
-import { PROJECTS, TRUST_MARKERS, type Project } from '@/lib/data'
+import { DEMO_DISCLAIMER, PROJECTS, TRUST_MARKERS, type Project } from '@/lib/data'
 import DemoModal from '@/components/ui/DemoModal'
 import Button from '@/components/ui/Button'
 import ResponsiveDemoPreview from '@/components/ui/ResponsiveDemoPreview'
@@ -80,23 +80,29 @@ export default function WorkGrid() {
 
   return (
     <>
-      <section className="py-20 md:py-32 bg-[#f4f4f2]">
+      <section className="py-20 md:py-32 bg-surface">
         <div className="container-studio">
           <motion.div
             variants={sectionVariants}
             {...safeRevealProps}
             className="mb-14 md:mb-20 max-w-3xl"
           >
-            <p className="text-accent font-bold text-xs uppercase tracking-widest mb-4">
+            <p className="eyebrow mb-4 text-xs text-accent-dark">
               Portfolio
             </p>
-            <h1 className="text-display-2xl font-black text-charcoal mb-6">Our Work.</h1>
-            <p className="text-lg text-neutral-600 leading-relaxed mb-8">
-              Every project below is a fully built site or completed deliverable, not a mockup.
-              Click through the live demos yourself to see how we turn a messy business need into
-              something a customer can actually use, the same process we bring to Morris County, NJ
-              businesses.
+            <h1 className="text-display-2xl text-graphite mb-6">Our Work.</h1>
+            <p className="text-lg text-graphite-soft leading-relaxed mb-6">
+              Every demo below is a fully built, working site you can click through yourself, not a
+              screenshot. They show how we turn a messy business need into something a customer can
+              actually use, the same process we bring to Morris County, NJ businesses.
             </p>
+
+            <div className="mb-8 rounded-card border border-hairline bg-bg p-5">
+              <p className="text-sm font-semibold text-graphite mb-1">
+                To be clear about what these are
+              </p>
+              <p className="text-sm text-graphite-soft leading-relaxed">{DEMO_DISCLAIMER.long}</p>
+            </div>
 
             <div className="flex flex-col sm:flex-row sm:items-center gap-6 mb-10">
               <Button variant="primary" href="/contact">
@@ -104,11 +110,11 @@ export default function WorkGrid() {
               </Button>
             </div>
 
-            <div className="flex flex-wrap gap-x-8 gap-y-3 pt-6 border-t border-neutral-200">
+            <div className="flex flex-wrap gap-x-8 gap-y-3 pt-6 border-t border-hairline">
               {TRUST_MARKERS.map((item) => (
                 <div key={item.label} className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 shrink-0 bg-accent" />
-                  <span className="text-sm font-bold text-neutral-700">{item.label}</span>
+                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                  <span className="text-sm font-semibold text-graphite-soft">{item.label}</span>
                 </div>
               ))}
             </div>
@@ -121,10 +127,10 @@ export default function WorkGrid() {
               className="mb-6"
             >
               <div>
-                <p className="text-accent font-bold text-xs uppercase tracking-widest mb-2">
+                <p className="eyebrow mb-2 text-xs text-accent-dark">
                   Featured Proof
                 </p>
-                <h2 className="text-display-md font-black text-charcoal">
+                <h2 className="text-display-md text-graphite">
                   Consulting proof and live web work.
                 </h2>
               </div>
@@ -187,8 +193,8 @@ function FeaturedProjectCard({
   onOpenDemo?: () => void
 }) {
   return (
-    <article className="h-full bg-white border border-neutral-200 hover:border-neutral-300 shadow-card hover:shadow-card-hover overflow-hidden transition-shadow duration-300">
-      <div className="relative aspect-[16/10] overflow-hidden bg-[#0F0F0F]">
+    <article className="h-full rounded-card bg-bg border border-hairline hover:border-accent/30 shadow-card hover:shadow-card-hover overflow-hidden transition-shadow duration-300">
+      <div className="relative aspect-[16/10] overflow-hidden bg-graphite">
         {project.demoUrl ? (
           <>
             <ResponsiveDemoPreview url={project.demoUrl} baseHeight={900} fallbackScale={0.45} />
@@ -204,40 +210,49 @@ function FeaturedProjectCard({
             className="object-cover"
           />
         ) : (
-          <div className={`absolute inset-0 bg-gradient-to-br ${project.gradientFrom ?? 'from-blue-500'} ${project.gradientTo ?? 'to-indigo-700'}`} />
+          <div className={`absolute inset-0 bg-gradient-to-br ${project.gradientFrom ?? 'from-accent'} ${project.gradientTo ?? 'to-accent-dark'}`} />
         )}
 
         {(project.demoUrl || !project.imageUrl) && (
-          <div className="absolute top-4 left-4">
-            <span className="bg-[#0F0F0F] text-white text-[10px] font-black px-3 py-1.5 uppercase tracking-widest">
+          <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+            <span className="eyebrow rounded-full bg-graphite text-white text-[10px] px-3 py-1.5">
               {project.featuredLabel ?? project.cardLabel ?? 'Featured'}
             </span>
+            {project.demoUrl && (
+              <span className="eyebrow rounded-full bg-white/90 text-graphite text-[10px] px-3 py-1.5">
+                {DEMO_DISCLAIMER.badge}
+              </span>
+            )}
           </div>
         )}
       </div>
 
       <div className="p-5 md:p-6">
-        <p className="text-accent font-bold text-xs uppercase tracking-widest mb-2">
+        <p className="eyebrow mb-2 text-xs text-accent-dark">
           {project.category}
         </p>
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
-          <h3 className="text-2xl font-black text-charcoal leading-tight">{project.projectName}</h3>
+          <h3 className="text-2xl font-semibold text-graphite leading-tight">{project.projectName}</h3>
           {project.date && (
-            <span className="shrink-0 text-[10px] font-black uppercase tracking-widest text-neutral-500 border border-neutral-200 px-2.5 py-1">
+            <span className="eyebrow shrink-0 rounded-full text-[10px] text-graphite-soft border border-hairline px-2.5 py-1">
               {project.date}
             </span>
           )}
         </div>
 
         {project.description && (
-          <p className="text-neutral-600 leading-relaxed mb-5">{project.description}</p>
+          <p className="text-graphite-soft leading-relaxed mb-3">{project.description}</p>
+        )}
+
+        {project.demoUrl && (
+          <p className="text-sm text-graphite-soft/80 italic mb-5">{DEMO_DISCLAIMER.short}</p>
         )}
 
         {project.proofPoints && project.proofPoints.length > 0 && (
           <div className="space-y-2 mb-5">
             {project.proofPoints.slice(0, 2).map((point) => (
-              <div key={point} className="flex gap-3 text-sm text-neutral-600 leading-relaxed">
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-[#0F8F46]" />
+              <div key={point} className="flex gap-3 text-sm text-graphite-soft leading-relaxed">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#0F8F46]" />
                 <span>{point}</span>
               </div>
             ))}
@@ -249,7 +264,7 @@ function FeaturedProjectCard({
             {project.tags.slice(0, 3).map((tag) => (
               <span
                 key={tag}
-                className="text-[9px] font-bold uppercase tracking-widest text-neutral-500 border border-neutral-200 px-2 py-1"
+                className="eyebrow rounded-full text-[9px] text-graphite-soft border border-hairline px-2 py-1"
               >
                 {tag}
               </span>
@@ -262,7 +277,7 @@ function FeaturedProjectCard({
             <button
               type="button"
               onClick={onOpenCaseStudy}
-              className="inline-flex items-center justify-center bg-accent hover:bg-accent-dark text-white font-bold px-5 py-3 transition-colors"
+              className="inline-flex items-center justify-center rounded-full bg-accent hover:bg-accent-dark text-white font-semibold px-5 py-3 transition-colors"
               aria-expanded={isActive}
             >
               {isActive ? 'Hide Case Study' : 'View Case Study'}
@@ -273,7 +288,7 @@ function FeaturedProjectCard({
               type="button"
               onClick={onOpenDemo}
               aria-haspopup="dialog"
-              className="inline-flex items-center justify-center bg-accent hover:bg-accent-dark text-white font-bold px-5 py-3 transition-colors"
+              className="inline-flex items-center justify-center rounded-full bg-accent hover:bg-accent-dark text-white font-semibold px-5 py-3 transition-colors"
             >
               Preview Demo
             </button>
@@ -301,34 +316,34 @@ function CaseStudySection({
       initial={prefersReducedMotion ? false : { opacity: 0, y: 28 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="mt-8 scroll-mt-28 bg-[#0F0F0F] text-white overflow-hidden"
+      className="mt-8 scroll-mt-28 rounded-card-lg bg-graphite text-white overflow-hidden"
     >
       <div className="grid min-w-0 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="min-w-0 p-6 sm:p-8 lg:p-10">
-          <p className="text-[#5FBF72] font-bold text-xs uppercase tracking-widest mb-4">
+          <p className="eyebrow mb-4 text-xs text-[#5FBF72]">
             {caseStudy.eyebrow}
           </p>
-          <h2 className="text-3xl sm:text-display-md lg:text-display-lg font-black text-white max-w-3xl break-words">
+          <h2 className="text-3xl sm:text-display-md lg:text-display-lg font-semibold text-white max-w-3xl break-words">
             {caseStudy.title}
           </h2>
-          <p className="mt-5 text-neutral-300 leading-relaxed max-w-2xl break-words">
+          <p className="mt-5 text-white/70 leading-relaxed max-w-2xl break-words">
             {caseStudy.summary}
           </p>
 
           <div className="mt-8 grid sm:grid-cols-3 gap-3">
             {caseStudy.stats.map((stat) => (
-              <div key={stat.label} className="min-w-0 border border-white/10 bg-white/[0.03] p-4">
-                <p className="text-3xl font-black text-[#5FBF72]">{stat.value}</p>
-                <p className="text-xs font-bold uppercase tracking-widest text-white mt-1">
+              <div key={stat.label} className="min-w-0 rounded-xl border border-white/10 bg-white/[0.03] p-4">
+                <p className="font-display text-3xl font-semibold text-[#5FBF72]">{stat.value}</p>
+                <p className="eyebrow text-xs text-white mt-1">
                   {stat.label}
                 </p>
-                <p className="text-xs text-neutral-500 mt-2 leading-relaxed">{stat.description}</p>
+                <p className="text-xs text-white/50 mt-2 leading-relaxed">{stat.description}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="relative w-full min-w-0 self-start aspect-[16/10] min-h-[260px] bg-white lg:m-10 lg:ml-0 lg:min-h-0">
+        <div className="relative w-full min-w-0 self-start aspect-[16/10] min-h-[260px] bg-white lg:m-10 lg:ml-0 lg:min-h-0 rounded-xl overflow-hidden">
           {(project.detailHeroImageUrl ?? project.imageUrl) && (
             <Image
               src={project.detailHeroImageUrl ?? project.imageUrl!}
@@ -351,35 +366,35 @@ function CaseStudySection({
               ['Recommendation', caseStudy.recommendation],
             ].map(([label, copy]) => (
               <div key={label}>
-                <h3 className="text-sm font-black uppercase tracking-widest text-white mb-2">
+                <h3 className="eyebrow text-sm text-white mb-2">
                   {label}
                 </h3>
-                <p className="text-neutral-400 leading-relaxed break-words">{copy}</p>
+                <p className="text-white/60 leading-relaxed break-words">{copy}</p>
               </div>
             ))}
           </div>
 
           <div className="min-w-0">
-            <h3 className="text-sm font-black uppercase tracking-widest text-white mb-4">
+            <h3 className="eyebrow text-sm text-white mb-4">
               Deliverables
             </h3>
             <div className="grid sm:grid-cols-2 gap-3 mb-8">
               {caseStudy.deliverables.map((deliverable) => (
                 <div
                   key={deliverable}
-                  className="min-w-0 border border-white/10 bg-white/[0.03] px-4 py-3 text-sm font-bold text-neutral-200 break-words"
+                  className="min-w-0 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm font-semibold text-white/80 break-words"
                 >
                   {deliverable}
                 </div>
               ))}
             </div>
 
-            <h3 className="text-sm font-black uppercase tracking-widest text-white mb-4">
+            <h3 className="eyebrow text-sm text-white mb-4">
               Proof Objects
             </h3>
             <div className="grid sm:grid-cols-2 gap-4">
               {caseStudy.proofImages.map((proof) => (
-                <figure key={proof.src} className="bg-white text-charcoal overflow-hidden">
+                <figure key={proof.src} className="rounded-xl bg-white text-graphite overflow-hidden">
                   <div className="relative aspect-[4/3] bg-neutral-100">
                     <Image
                       src={proof.src}
@@ -389,7 +404,7 @@ function CaseStudySection({
                       className="object-contain"
                     />
                   </div>
-                  <figcaption className="px-4 py-3 text-xs font-black uppercase tracking-widest">
+                  <figcaption className="eyebrow px-4 py-3 text-xs">
                     {proof.label}
                   </figcaption>
                 </figure>

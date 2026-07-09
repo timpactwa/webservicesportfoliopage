@@ -13,36 +13,37 @@ import { useScrolled } from '@/hooks/useScrolled'
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
-  const scrolled = useScrolled(24)
+  const scrolled = useScrolled(40)
 
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 backdrop-blur-md border-b transition-all duration-300',
+        'sticky top-0 z-50 transition-all duration-300',
         scrolled
-          ? 'bg-white/95 border-neutral-200 shadow-sm'
-          : 'bg-white/90 border-neutral-100'
+          ? 'bg-bg/80 backdrop-blur-xl shadow-[0_1px_0_var(--hairline)]'
+          : 'bg-transparent'
       )}
     >
       <div className="container-studio">
         <div
           className={cn(
             'flex items-center justify-between transition-all duration-300',
-            scrolled ? 'h-12 md:h-16' : 'h-16 md:h-20'
+            scrolled ? 'h-14 md:h-16' : 'h-16 md:h-20'
           )}
         >
           <Link href="/" className="block shrink-0" aria-label="Render home">
-            <Logo variant="dark" priority className="h-auto w-32 sm:w-36 md:w-40" />
+            <Logo variant="dark" className="text-xl md:text-2xl" />
           </Link>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-9">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-semibold transition-colors duration-150 ${
-                  pathname === link.href ? 'text-accent' : 'text-neutral-600 hover:text-charcoal'
-                }`}
+                className={cn(
+                  'text-sm font-medium transition-colors duration-150',
+                  pathname === link.href ? 'text-accent' : 'text-graphite-soft hover:text-graphite'
+                )}
               >
                 {link.label}
               </Link>
@@ -51,12 +52,12 @@ export default function Navbar() {
 
           <div className="hidden md:block">
             <Button variant="primary" size="sm" href="/contact">
-              Book a Call
+              Request a Call
             </Button>
           </div>
 
           <button
-            className="md:hidden p-2 transition-colors text-neutral-600 hover:text-charcoal"
+            className="md:hidden p-2 transition-colors text-graphite-soft hover:text-graphite"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
             aria-expanded={isOpen}
@@ -79,7 +80,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden border-t border-neutral-100 bg-white"
+            className="md:hidden border-t border-hairline bg-bg/95 backdrop-blur-xl"
           >
             <div className="container-studio py-4 flex flex-col gap-4">
               {NAV_LINKS.map((link) => (
@@ -87,14 +88,15 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className={`text-base font-semibold py-1 ${
-                    pathname === link.href ? 'text-accent' : 'text-neutral-700'
-                  }`}
+                  className={cn(
+                    'text-base font-medium py-1',
+                    pathname === link.href ? 'text-accent' : 'text-graphite'
+                  )}
                 >
                   {link.label}
                 </Link>
               ))}
-              <Button variant="primary" size="md" href="/contact" onClick={() => setIsOpen(false)}>
+              <Button variant="primary" size="md" href="/contact" onClick={() => setIsOpen(false)} fullWidth>
                 Book a Call
               </Button>
             </div>

@@ -38,4 +38,4 @@ Next.js 14 App Router. All routes are in `app/` (`page.tsx`, `services/`, `work/
 
 **Client components:** add `'use client'` only when using Framer Motion or React state. Keep pages as server components by default.
 
-**Contact form:** currently simulates submission with local state only — not wired to any endpoint yet.
+**Contact form:** `/contact` is an on-site "request a time" form (`components/ui/RequestCallForm.tsx`) that POSTs to Web3Forms and emails `renderlocalwebsites@gmail.com`. Needs `NEXT_PUBLIC_WEB3FORMS_KEY` in `.env.local` and in Vercel env vars; without it the form shows a graceful "email us instead" error. Calendly has been removed entirely. Deep links: `?tier=Starter|Standard|Premium|Custom` and `?intent=mockup|ai|seo` preselect the "What do you need?" field.
