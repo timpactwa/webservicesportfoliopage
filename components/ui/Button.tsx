@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
-import { useMagnetic } from '@/hooks/useMagnetic'
 
 interface ButtonProps {
   children: React.ReactNode
@@ -17,7 +16,7 @@ interface ButtonProps {
 }
 
 const variants = {
-  primary: 'bg-accent text-white hover:bg-accent-dark',
+  primary: 'bg-accent-dark text-white hover:bg-accent',
   secondary: 'border-[1.5px] border-graphite text-graphite hover:bg-graphite hover:text-white',
   'secondary-inverse': 'border-[1.5px] border-white text-white hover:bg-white hover:text-graphite',
   ghost: 'text-accent hover:text-accent-dark',
@@ -40,9 +39,6 @@ export default function Button({
   className,
   fullWidth,
 }: ButtonProps) {
-  const isMagnetic = variant === 'primary' && !disabled
-  const magnetic = useMagnetic<HTMLAnchorElement & HTMLButtonElement>({ strength: 0.25, max: 8 })
-
   const baseClass = cn(
     'relative inline-flex items-center justify-center rounded-full font-semibold',
     'transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2',
@@ -56,29 +52,14 @@ export default function Button({
 
   if (href) {
     return (
-      <Link
-        href={href}
-        ref={isMagnetic ? magnetic.ref : undefined}
-        className={baseClass}
-        onClick={onClick}
-        onMouseMove={isMagnetic ? magnetic.onMouseMove : undefined}
-        onMouseLeave={isMagnetic ? magnetic.onMouseLeave : undefined}
-      >
+      <Link href={href} className={baseClass} onClick={onClick}>
         {children}
       </Link>
     )
   }
 
   return (
-    <button
-      type={type}
-      ref={isMagnetic ? magnetic.ref : undefined}
-      onClick={onClick}
-      disabled={disabled}
-      className={baseClass}
-      onMouseMove={isMagnetic ? magnetic.onMouseMove : undefined}
-      onMouseLeave={isMagnetic ? magnetic.onMouseLeave : undefined}
-    >
+    <button type={type} onClick={onClick} disabled={disabled} className={baseClass}>
       {children}
     </button>
   )
