@@ -225,6 +225,8 @@ export const PROJECTS: Project[] = [
     featuredLabel: 'Live Website Demo',
     isComingSoon: false,
     demoUrl: 'https://fuego-street-tacos.vercel.app',
+    posterUrl: '/work/posters/fuego-street-tacos.png',
+    posterAlt: 'Fuego Street Tacos demo homepage',
   },
   {
     projectName: 'Hartline Builders',
@@ -236,6 +238,8 @@ export const PROJECTS: Project[] = [
     featuredLabel: 'Live Website Demo',
     isComingSoon: false,
     demoUrl: 'https://hartline-builders.vercel.app',
+    posterUrl: '/work/posters/hartline-builders.png',
+    posterAlt: 'Hartline Builders demo homepage',
   },
   {
     projectName: 'Marlowe Dental Studio',
@@ -247,6 +251,8 @@ export const PROJECTS: Project[] = [
     featuredLabel: 'Live Website Demo',
     isComingSoon: false,
     demoUrl: 'https://marlowe-dental.vercel.app',
+    posterUrl: '/work/posters/marlowe-dental.png',
+    posterAlt: 'Marlowe Dental Studio demo homepage',
   },
   {
     projectName: 'Hope Tree Family Services',
