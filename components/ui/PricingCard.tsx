@@ -10,6 +10,7 @@ type PricingCardProps = Omit<PricingTier, 'tier'> & { tier: PricingTier['tier'] 
 export default function PricingCard({
   tier,
   priceRange,
+  standardPrice,
   monthlyRange,
   summary,
   features,
@@ -50,7 +51,25 @@ export default function PricingCard({
         <p className={cn('eyebrow mb-4 text-xs', isHighlighted ? 'text-accent-soft' : 'text-accent-dark')}>
           {tier}
         </p>
-        <p className="font-display text-4xl font-semibold mb-1">{priceRange}</p>
+        {/* The struck price is the rate once founding slots run out. Screen readers
+            get "Regular price X, founding client price Y" rather than two bare numbers. */}
+        <p className="font-display mb-1 flex items-baseline gap-2.5 text-4xl font-semibold">
+          {standardPrice && (
+            <s
+              className={cn(
+                'text-2xl font-medium decoration-2',
+                isHighlighted ? 'text-white/40' : 'text-graphite-soft/60'
+              )}
+            >
+              <span className="sr-only">Regular price </span>
+              {standardPrice}
+            </s>
+          )}
+          <span>
+            {standardPrice && <span className="sr-only">Founding client price </span>}
+            {priceRange}
+          </span>
+        </p>
         <p className={cn('text-sm', isHighlighted ? 'text-white/55' : 'text-graphite-soft')}>
           {hasNumericPrice ? `+ ${monthlyRange} maintenance` : monthlyRange}
         </p>

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import GuideLayout from '@/components/ui/GuideLayout'
 import Button from '@/components/ui/Button'
+import { NOT_A_FIT } from '@/lib/data'
 
 const PATH = '/guides/choosing-a-web-designer-morris-county'
 const TITLE = 'How to Choose a Web Designer in Morris County'
@@ -134,21 +135,16 @@ export default function ChoosingAWebDesignerGuide() {
         a website held hostage with a service fee attached.
       </p>
 
-      <h2 className="text-2xl font-semibold text-graphite mt-10 mb-4">
-        When Render is not the right choice
-      </h2>
-      <p className="text-graphite-soft leading-relaxed mb-5">
-        We&apos;d rather tell you this upfront than take a project that&apos;s a bad fit for both
-        of us. If you need a large build backed by a big ad budget, a dedicated account team, and
-        coordinated campaigns across multiple channels, a full-service agency built for that
-        scale is a better fit than a two-person shop. And if you just need a single page for a
-        hobby or a one-time event, and you don&apos;t need it to rank locally or grow with your
-        business, a DIY builder might genuinely be enough, and cheaper.
-      </p>
-      <p className="text-graphite-soft leading-relaxed mb-5">
-        Render is built for small, local businesses that want a real site, real local SEO, and a
-        direct line to the two people actually building it, without agency overhead.
-      </p>
+      {/* Copy lives in lib/data.ts because the homepage pricing section says the same
+          thing. One wording, two places, so they can never drift apart. */}
+      <h2 className="text-2xl font-semibold text-graphite mt-10 mb-4">{NOT_A_FIT.headline}</h2>
+      <p className="text-graphite-soft leading-relaxed mb-5">{NOT_A_FIT.intro}</p>
+      {NOT_A_FIT.cases.map((item) => (
+        <p key={item.title} className="text-graphite-soft leading-relaxed mb-5">
+          <strong className="font-semibold text-graphite">{item.title}.</strong> {item.body}
+        </p>
+      ))}
+      <p className="text-graphite-soft leading-relaxed mb-5">{NOT_A_FIT.closing}</p>
 
       <h2 className="text-2xl font-semibold text-graphite mt-10 mb-4">
         How Render answers these seven questions

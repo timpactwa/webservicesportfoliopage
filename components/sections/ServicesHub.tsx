@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { FAQ_ITEMS, GUARANTEE, PRICING_TIERS } from '@/lib/data'
+import { FAQ_ITEMS, FOUNDING_CLIENT_NOTE, GUARANTEE, PRICING_TIERS } from '@/lib/data'
 import Button from '@/components/ui/Button'
 import Reveal from '@/components/ui/Reveal'
 
@@ -129,8 +129,17 @@ export default function ServicesHub() {
                       </span>
                     )}
                   </div>
-                  <p className="mt-3 font-display text-3xl font-semibold text-graphite">
-                    {tier.priceRange}
+                  <p className="mt-3 flex items-baseline gap-2 font-display text-3xl font-semibold text-graphite">
+                    {tier.standardPrice && (
+                      <s className="text-lg font-medium text-graphite-soft/60">
+                        <span className="sr-only">Regular price </span>
+                        {tier.standardPrice}
+                      </s>
+                    )}
+                    <span>
+                      {tier.standardPrice && <span className="sr-only">Founding client price </span>}
+                      {tier.priceRange}
+                    </span>
                   </p>
                   <p className="mt-1 text-sm text-graphite-soft">
                     {/^\$/.test(tier.priceRange) ? `+ ${tier.monthlyRange} optional` : tier.monthlyRange}
@@ -143,10 +152,9 @@ export default function ServicesHub() {
           <Reveal delay={0.1}>
             <div className="mt-8 rounded-card border border-accent/25 bg-accent/5 p-6 text-center">
               <p className="text-base font-semibold text-graphite">{GUARANTEE.long}</p>
-              <p className="mt-2 text-sm text-graphite-soft">
-                Founding client pricing. These are our first-client rates and they go up as our
-                portfolio grows.
-              </p>
+              {FOUNDING_CLIENT_NOTE && (
+                <p className="mt-2 text-sm text-graphite-soft">{FOUNDING_CLIENT_NOTE}</p>
+              )}
             </div>
           </Reveal>
 

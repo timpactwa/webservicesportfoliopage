@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { FOUNDING_CLIENT_NOTE, GUARANTEE, PRICING_TIERS, type PricingTier } from '@/lib/data'
+import { FOUNDING_CLIENT_NOTE, GUARANTEE, NOT_A_FIT, PRICING_TIERS, type PricingTier } from '@/lib/data'
 import Reveal from '@/components/ui/Reveal'
 import { track } from '@/lib/analytics'
 import { cn } from '@/lib/utils'
@@ -42,7 +42,20 @@ export default function HomePricing() {
                     </span>
                   )}
                   <p className="font-display text-[11px] font-semibold text-graphite">{tier.tier}</p>
-                  <p className="font-display mt-1 text-[19px] font-semibold text-graphite">
+                  {/* Custom has no struck price. The blank line keeps its price on the
+                      same baseline as the other three instead of riding up a row. */}
+                  {tier.standardPrice ? (
+                    <s className="mt-1 block text-[10.5px] font-medium text-graphite-soft/70">
+                      <span className="sr-only">Regular price </span>
+                      {tier.standardPrice}
+                    </s>
+                  ) : (
+                    <span aria-hidden="true" className="mt-1 block text-[10.5px]">
+                      &nbsp;
+                    </span>
+                  )}
+                  <p className="font-display text-[19px] font-semibold text-graphite">
+                    {tier.standardPrice && <span className="sr-only">Founding client price </span>}
                     {tier.priceRange}
                   </p>
                   <p className="mt-2 truncate text-[10.5px] text-graphite-soft">{summaryLine(tier)}</p>
@@ -64,10 +77,15 @@ export default function HomePricing() {
           </div>
         </Reveal>
 
-        <Reveal delay={0.1} className="mt-6">
-          <p className="text-center text-[11px] text-graphite-soft">
-            {GUARANTEE.short} {FOUNDING_CLIENT_NOTE}
-          </p>
+        {/* The guarantee is what makes a stranger comfortable with the number directly
+            above it, so it gets read at a real size instead of whispering at 11px. */}
+        <Reveal delay={0.1} className="mt-8">
+          <div className="rounded-card border border-accent/25 bg-accent/5 px-6 py-5 text-center">
+            <p className="text-base font-semibold text-graphite">{GUARANTEE.long}</p>
+            {FOUNDING_CLIENT_NOTE && (
+              <p className="mt-2 text-sm text-graphite-soft">{FOUNDING_CLIENT_NOTE}</p>
+            )}
+          </div>
         </Reveal>
 
         <Reveal delay={0.15} className="mt-6">
@@ -77,6 +95,26 @@ export default function HomePricing() {
           >
             What&apos;s included in each tier <span aria-hidden="true">→</span>
           </Link>
+        </Reveal>
+
+        {/* A cheap price with no stated trade-off invites the buyer to guess what was
+            cut. Naming who Render is wrong for is what turns the number into a choice. */}
+        <Reveal delay={0.2} className="mt-16 border-t border-hairline pt-10">
+          <h3 className="font-display text-xl font-semibold text-graphite">{NOT_A_FIT.headline}</h3>
+          <p className="mt-2 max-w-2xl text-graphite-soft">{NOT_A_FIT.intro}</p>
+
+          <dl className="mt-8 grid grid-cols-1 gap-x-10 gap-y-7 md:grid-cols-2">
+            {NOT_A_FIT.cases.map((item) => (
+              <div key={item.title}>
+                <dt className="font-semibold text-graphite">{item.title}</dt>
+                <dd className="mt-1.5 leading-relaxed text-graphite-soft">{item.body}</dd>
+              </div>
+            ))}
+          </dl>
+
+          <p className="mt-8 max-w-3xl font-medium leading-relaxed text-graphite">
+            {NOT_A_FIT.closing}
+          </p>
         </Reveal>
       </div>
     </section>

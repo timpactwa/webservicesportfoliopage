@@ -262,7 +262,18 @@ export default function Estimator() {
               <div className="rounded-card border border-hairline bg-surface p-6 md:p-8">
                 <p className="eyebrow mb-2 text-xs text-accent-dark">Your Estimate</p>
                 <h2 className="text-2xl font-semibold text-graphite mb-1">{tierData.tier}</h2>
-                <p className="font-display text-3xl font-semibold text-graphite mb-1">{tierData.priceRange}</p>
+                <p className="font-display mb-1 flex items-baseline gap-2 text-3xl font-semibold text-graphite">
+                  {tierData.standardPrice && (
+                    <s className="text-lg font-medium text-graphite-soft/60">
+                      <span className="sr-only">Regular price </span>
+                      {tierData.standardPrice}
+                    </s>
+                  )}
+                  <span>
+                    {tierData.standardPrice && <span className="sr-only">Founding client price </span>}
+                    {tierData.priceRange}
+                  </span>
+                </p>
                 <p className="text-sm text-graphite-soft mb-5">
                   {tierData.tier === 'Custom' ? tierData.monthlyRange : `+ ${tierData.monthlyRange} maintenance`}
                 </p>

@@ -24,7 +24,33 @@ export const DEMO_DISCLAIMER = {
 }
 
 /** Honest scarcity. True today: rates go up once the portfolio fills out. */
-export const FOUNDING_CLIENT_NOTE = 'Founding client pricing, limited to our first clients.'
+/**
+ * Founding client pricing. Each tier's struck-through `standardPrice` is what
+ * Render charges once these slots are gone, so the note is a published
+ * commitment rather than a label. A discount with no reference price and no
+ * limit persuades nobody, because there is nothing it is cheaper than.
+ *
+ * Update `claimedSlots` as founding clients sign. When it reaches `totalSlots`,
+ * move each tier's `standardPrice` into `priceRange`, delete `standardPrice`,
+ * and this note empties itself out.
+ */
+export const FOUNDING_CLIENT = {
+  totalSlots: 5,
+  claimedSlots: 0,
+}
+
+export const FOUNDING_SLOTS_LEFT = FOUNDING_CLIENT.totalSlots - FOUNDING_CLIENT.claimedSlots
+
+/**
+ * Never renders "5 of 5 slots left", which would tell every visitor that nobody
+ * has bought yet. Before the first sale it states the cap; after it, the count.
+ */
+export const FOUNDING_CLIENT_NOTE =
+  FOUNDING_SLOTS_LEFT <= 0
+    ? ''
+    : FOUNDING_CLIENT.claimedSlots === 0
+      ? `Founding client price, for our first ${FOUNDING_CLIENT.totalSlots} clients.`
+      : `Founding client price. ${FOUNDING_SLOTS_LEFT} of ${FOUNDING_CLIENT.totalSlots} slots left.`
 
 /**
  * Risk reversal. This is a promise, so it has to stay true of the process:
@@ -38,6 +64,8 @@ export const GUARANTEE = {
 export type PricingTier = {
   tier: 'Starter' | 'Standard' | 'Premium' | 'Custom'
   priceRange: string
+  /** What this tier costs once the founding slots are gone. Rendered struck through. */
+  standardPrice?: string
   monthlyRange: string
   summary: string
   isHighlighted?: boolean
@@ -52,7 +80,8 @@ export const PRICING_TIERS: PricingTier[] = [
   {
     tier: 'Starter',
     priceRange: '$500',
-    monthlyRange: '$50/mo',
+    standardPrice: '$1,500',
+    monthlyRange: '$99/mo',
     summary: 'For a business that needs a clean, professional site online fast.',
     isHighlighted: false,
     note: FOUNDING_CLIENT_NOTE,
@@ -70,7 +99,8 @@ export const PRICING_TIERS: PricingTier[] = [
   {
     tier: 'Standard',
     priceRange: '$750',
-    monthlyRange: '$75/mo',
+    standardPrice: '$2,900',
+    monthlyRange: '$149/mo',
     summary: 'For a business ready to show up in local search and look like the obvious choice.',
     isHighlighted: true,
     badge: 'Most Chosen',
@@ -89,7 +119,8 @@ export const PRICING_TIERS: PricingTier[] = [
   {
     tier: 'Premium',
     priceRange: '$2,000',
-    monthlyRange: '$125/mo',
+    standardPrice: '$4,900',
+    monthlyRange: '$199/mo',
     summary: 'For a business that wants bookings and leads running without you chasing them.',
     isHighlighted: false,
     note: FOUNDING_CLIENT_NOTE,
@@ -460,6 +491,32 @@ export const RISK_REVERSAL = {
   headline: GUARANTEE.long,
   supporting:
     'Every project starts with a fixed-price summary. No change orders unless you ask for something outside the original scope.',
+}
+
+/**
+ * Who Render is wrong for. This sits directly beneath the prices, because a low
+ * price with no stated trade-off reads as "the same thing, but cheaper," which
+ * invites the buyer to wonder what got cut. A low price with a named trade-off
+ * reads as a deliberate operating model.
+ *
+ * Rendered on the homepage pricing section and on the "choosing a web designer"
+ * guide, which is where this copy originally lived.
+ */
+export const NOT_A_FIT = {
+  headline: 'When Render is not the right choice',
+  intro: "We would rather say this before you pay us than after.",
+  cases: [
+    {
+      title: 'You need a full-service agency',
+      body: 'If you want a large build backed by a big ad budget, a dedicated account team, and campaigns coordinated across several channels, an agency built for that scale will serve you better than a two-person shop.',
+    },
+    {
+      title: 'You need one page, once',
+      body: 'If it is for a hobby or a one-time event, and it does not need to rank locally or grow alongside a business, a DIY builder is genuinely enough, and cheaper.',
+    },
+  ],
+  closing:
+    'Render is built for small, local businesses that want a real site, real local SEO, and a direct line to the two people building it, without agency overhead.',
 }
 
 export type Differentiator = { title: string; description: string }
