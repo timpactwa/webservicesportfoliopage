@@ -43,6 +43,26 @@
 }
 
 @layer components {
+  /* Scroll fade-up, driven by components/ui/Reveal.tsx. Deliberately CSS and
+     not an animation library: the homepage mounts two dozen of these, and
+     running each through Framer Motion cost most of a second of main-thread
+     time on a slow CPU. Nesting the rules inside the media query means a
+     reduced-motion visitor never gets the hidden state at all. */
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      opacity: 0;
+      transform: translateY(var(--reveal-y, 20px));
+      transition:
+        opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s),
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s);
+    }
+
+    .reveal[data-revealed='true'] {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
   /* Monospace eyebrow / small-label treatment (uppercase, wide tracking). */
   .eyebrow {
     font-family: var(--font-mono, ui-monospace), 'SF Mono', monospace;
