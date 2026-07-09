@@ -37,13 +37,12 @@ export default function HomeServices() {
               description="Custom-built websites that load fast, rank in local search, and turn visitors into customers."
               href="/services/web-design"
               cta={
-                <Button
-                  href="/services/web-design"
-                  variant="secondary"
-                  size="sm"
-                  ariaLabel="Learn more about web design and development"
-                >
-                  Learn more
+                /* The visible label stays "Learn more". The sr-only span makes the
+                   anchor text descriptive for screen readers, for search engines,
+                   and for Lighthouse's link-text audit, which reads innerText and
+                   ignores aria-label. */
+                <Button href="/services/web-design" variant="secondary" size="sm">
+                  Learn more<span className="sr-only"> about web design and development</span>
                 </Button>
               }
             />
@@ -55,13 +54,8 @@ export default function HomeServices() {
               description="The follow-ups, intake forms, and after-hours questions you don't have time for, answered automatically."
               href="/services/ai-automation"
               cta={
-                <Button
-                  href="/services/ai-automation"
-                  variant="primary"
-                  size="sm"
-                  ariaLabel="Learn more about AI consulting and automation"
-                >
-                  Learn more
+                <Button href="/services/ai-automation" variant="primary" size="sm">
+                  Learn more<span className="sr-only"> about AI consulting and automation</span>
                 </Button>
               }
             />

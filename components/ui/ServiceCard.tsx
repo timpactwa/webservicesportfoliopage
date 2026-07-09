@@ -35,10 +35,10 @@ export default function ServiceCard({ icon, title, description, href, cta }: Ser
           {cta ?? (
             <Link
               href={href}
-              aria-label={`Learn more about ${title}`}
               className="flex items-center gap-1 text-sm font-semibold text-accent transition-all duration-200 group-hover:gap-2"
             >
-              Learn more <span aria-hidden="true">→</span>
+              Learn more<span className="sr-only"> about {title}</span>{' '}
+              <span aria-hidden="true">→</span>
             </Link>
           )}
         </div>
