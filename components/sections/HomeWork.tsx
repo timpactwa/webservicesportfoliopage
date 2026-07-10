@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { DEMO_DISCLAIMER, PROJECTS, type Project } from '@/lib/data'
+import { DEMO_DISCLAIMER, DEMO_SECTION, PROJECTS, type Project } from '@/lib/data'
 import DemoModal from '@/components/ui/DemoModal'
 import ResponsiveDemoPreview from '@/components/ui/ResponsiveDemoPreview'
 import Reveal from '@/components/ui/Reveal'
@@ -26,10 +26,9 @@ export default function HomeWork() {
         <div className="container-studio">
           <Reveal className="mb-14 max-w-3xl">
             <p className="eyebrow mb-4 text-xs text-accent-dark">Our work</p>
-            <h2 className="text-display-xl text-graphite">Real sites, invented brands.</h2>
-            <p className="mt-5 text-lg text-graphite-soft leading-relaxed">
-              {DEMO_DISCLAIMER.short}
-            </p>
+            <h2 className="text-display-xl text-graphite">{DEMO_SECTION.headline}</h2>
+            <p className="mt-5 text-lg leading-relaxed text-graphite-soft">{DEMO_SECTION.intro}</p>
+            <p className="mt-4 text-lg leading-relaxed text-graphite">{DEMO_SECTION.offer}</p>
           </Reveal>
 
           {/* Three demos across a single row rather than a 2x2 block. The old grid

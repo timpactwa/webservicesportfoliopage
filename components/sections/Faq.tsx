@@ -28,9 +28,9 @@ export default function Faq() {
   return (
     <section id="faq" className="scroll-mt-24 py-20 md:py-32 bg-surface">
       <div className="container-studio">
+        {/* No eyebrow. It read "FAQ" directly above a headline reading "FAQ". */}
         <Reveal className="mb-12 md:mb-14">
-          <p className="eyebrow mb-4 text-xs text-accent-dark">FAQ</p>
-          <h2 className="text-display-xl text-graphite">Questions, answered.</h2>
+          <h2 className="text-display-xl text-graphite">FAQ</h2>
         </Reveal>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
