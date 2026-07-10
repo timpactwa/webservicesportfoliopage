@@ -638,3 +638,39 @@ export const RENDER_PROMISE = {
   /** Seconds each non-final word holds once sharp. Decelerating. */
   holds: [0.55, 0.75],
 } as const
+
+/**
+ * Homepage demo section. The offer deliberately says "in that style" and never
+ * "replicate": site copy, images, and code are copyrightable, and a distinctive
+ * design can support a trade-dress claim. A homepage that promises to reproduce
+ * a URL a customer sends is a written commitment to do exactly that.
+ */
+export const DEMO_SECTION = {
+  headline: 'Demo websites you can click.',
+  intro: 'Sample sites we designed and built. Not real businesses, and not client work.',
+  offer:
+    "See a website template you like, here or on another site? Send us the link and we'll build you something in that style, with your brand and your content.",
+}
+
+/** Rendered as stacked lines, so pricing owns the tallest headline block on the page. */
+export const PRICING_HEADLINE = ['No BS.', 'No hidden fees.'] as const
+
+/** The one em dash approved for shipped copy. See CLAUDE.md. */
+export const PRICING_CUSTOM_LABEL = "Custom — let's talk."
+
+export const LAUNCH_TIMELINE_SECTION = {
+  eyebrow: 'Your launch timeline',
+  headline: 'From first call to live site.',
+}
+
+export const CTA_BAND = {
+  headline: "Ready to see what we'd build?",
+  body: 'Tell us what you need and a couple of times that work. We map out exactly what we would build, on a free call, with nothing to buy.',
+}
+
+/** What happens after someone submits the form. Shown beside it in the booking modal. */
+export const CALL_STEPS = [
+  'You send a couple of times that work for you.',
+  'We confirm one by email, usually within a business day.',
+  'On the call we map out exactly what we would build, and what it costs.',
+]
