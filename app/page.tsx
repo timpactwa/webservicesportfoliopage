@@ -1,11 +1,10 @@
 import type { Metadata } from 'next'
 import Hero from '@/components/sections/Hero'
 import Testimonials from '@/components/sections/Testimonials'
-import ProofStrip from '@/components/sections/ProofStrip'
-import HomeWork from '@/components/sections/HomeWork'
-import WhyUs from '@/components/sections/WhyUs'
-import HomePricing from '@/components/sections/HomePricing'
 import HomeServices from '@/components/sections/HomeServices'
+import WhyUs from '@/components/sections/WhyUs'
+import HomeWork from '@/components/sections/HomeWork'
+import HomePricing from '@/components/sections/HomePricing'
 import LaunchTimeline from '@/components/sections/LaunchTimeline'
 import Faq, { featuredFaqItems } from '@/components/sections/Faq'
 import CtaBand from '@/components/sections/CtaBand'
@@ -41,22 +40,22 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd).replace(/</g, '\\u003c') }}
       />
       {/*
-        Ranked: evidence, then argument, then price. A stranger with no reason to
-        trust us meets the clickable demos before any claim, and the guarantee
-        before any number. WhyUs closes on the risk reversal and HomePricing
-        follows it immediately; that adjacency is load bearing. #services sits
-        after the price because "what exactly do you sell" is the last question a
-        convinced visitor asks, not the first, and the launch timeline answers
-        "how long" once they want it.
+        Ranked: what we do, then why us, then proof, then price. Services lead
+        because "what exactly do you sell" is the first thing a stranger needs
+        answered. WhyUs makes three claims a visitor can click and check, so the
+        argument carries its own proof; the clickable demos then back it, and the
+        guarantee-then-price sequence is preserved inside HomePricing, where the
+        "Before you commit" panel sits directly above the first number. The
+        launch timeline answers "how long" once they want it, and the CTA band
+        closes the page.
       */}
       <Hero />
       {/* Renders nothing until a real client testimonial exists. */}
       <Testimonials />
-      <ProofStrip />
-      <HomeWork />
-      <WhyUs />
-      <HomePricing />
       <HomeServices />
+      <WhyUs />
+      <HomeWork />
+      <HomePricing />
       <LaunchTimeline />
       <Faq />
       <CtaBand />

@@ -73,7 +73,7 @@ export default function AboutContent() {
             <p className="text-xl font-semibold text-white">Ready to talk about your site?</p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <Button variant="primary" href="/contact">
-                Request a Call
+                Book a Free Call
               </Button>
               <Button variant="secondary-inverse" href="/contact?intent=mockup">
                 Get a Free Mockup

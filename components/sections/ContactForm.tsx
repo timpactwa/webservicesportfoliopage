@@ -13,7 +13,7 @@ export default function ContactForm() {
     <section className="pt-10 pb-20 md:pt-16 md:pb-32 bg-bg">
       <div className="container-studio">
         <div className="max-w-3xl mb-12">
-          <h1 className="text-display-xl text-graphite mb-6">Request a Call.</h1>
+          <h1 className="text-display-xl text-graphite mb-6">Book a Free Call.</h1>
           <p className="text-lg text-graphite-soft leading-relaxed">
             Tell us when you are free and what you need. We&apos;ll use the call to understand your
             business and map out exactly what we&apos;d build. It&apos;s free, and there is nothing

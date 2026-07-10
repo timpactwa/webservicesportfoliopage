@@ -14,7 +14,7 @@ const featureItems = [
 
 const processSteps = [
   {
-    title: 'Request a call',
+    title: 'Book a free call',
     description:
       'Tell us what you need and when you are free. The call is free and there is nothing to buy on it.',
   },
@@ -217,7 +217,7 @@ export default function WebDesignDetail() {
                 </dl>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                   <Button variant="primary" href="/contact">
-                    Request a Call
+                    Book a Free Call
                   </Button>
                   <Button variant="secondary" href="/contact?intent=mockup">
                     Get a Free Mockup

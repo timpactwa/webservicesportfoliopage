@@ -197,7 +197,7 @@ export default function ChoosingAWebDesignerGuide() {
           Get a Free Estimate
         </Button>
         <Button variant="secondary" size="lg" href="/contact">
-          Request a Call
+          Book a Free Call
         </Button>
       </div>
     </GuideLayout>

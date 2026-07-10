@@ -4,10 +4,9 @@ import { useEffect, useRef, useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import BookingModal from '@/components/ui/BookingModal'
 import Button from '@/components/ui/Button'
-import CornerTriangles from '@/components/ui/CornerTriangles'
 import ResolveText from '@/components/ui/ResolveText'
+import TriangleReveal from '@/components/ui/TriangleReveal'
 import type { CallIntent } from '@/components/ui/RequestCallForm'
-import { track } from '@/lib/analytics'
 import { GUARANTEE, SERVICE_TOWNS } from '@/lib/data'
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number]
@@ -72,9 +71,18 @@ export default function Hero() {
           />
         </div>
 
-        {/* Subtle corner accents, mounted after window load so they are never on
-            the critical path and never animate while the h1 is still resolving. */}
-        <CornerTriangles />
+        {/* Signature render-in mosaic, subtle behind the copy, edges masked so the
+            center stays clean and text-readable. */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.22]"
+          style={{
+            WebkitMaskImage: 'radial-gradient(ellipse 70% 60% at 50% 45%, transparent 30%, black 85%)',
+            maskImage: 'radial-gradient(ellipse 70% 60% at 50% 45%, transparent 30%, black 85%)',
+          }}
+        >
+          <TriangleReveal tone="a" rows={9} cols={14} label="" />
+        </div>
 
         <motion.p
           {...resolve(0.1)}
@@ -107,18 +115,7 @@ export default function Hero() {
 
         <motion.div {...resolve(1.4)} className="relative mt-9 flex flex-col gap-4 sm:flex-row">
           <Button variant="primary" size="lg" href="/contact" onClick={openBooking(null)}>
-            Request a Call
-          </Button>
-          <Button
-            variant="secondary"
-            size="lg"
-            href="/contact?intent=mockup"
-            onClick={(event) => {
-              track('mockup_request', { source: 'hero' })
-              openBooking('mockup')(event)
-            }}
-          >
-            Get a Free Mockup
+            Book a Free Call
           </Button>
         </motion.div>
 

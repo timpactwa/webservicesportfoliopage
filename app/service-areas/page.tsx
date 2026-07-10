@@ -148,7 +148,7 @@ export default function ServiceAreasPage() {
 
           <div className="flex flex-col gap-4 sm:flex-row">
             <Button variant="primary" size="lg" href="/contact">
-              Request a Call
+              Book a Free Call
             </Button>
             <Button variant="secondary" size="lg" href="/contact?intent=mockup">
               Get a Free Mockup

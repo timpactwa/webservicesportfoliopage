@@ -50,7 +50,7 @@ export default function BookingModal({ isOpen, onClose, tier = null, intent = nu
           >
             <div className="mb-8 flex items-start justify-between gap-6">
               <div>
-                <p className="eyebrow mb-3 text-xs text-accent-dark">Request a call</p>
+                <p className="eyebrow mb-3 text-xs text-accent-dark">Book a free call</p>
                 <h2 id="booking-modal-title" className="text-display-md text-graphite">
                   Tell us what you need.
                 </h2>

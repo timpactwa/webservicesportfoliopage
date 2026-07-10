@@ -4,10 +4,10 @@ import { useState } from 'react'
 import Link from 'next/link'
 import {
   FOUNDING_CLIENT_NOTE,
-  GUARANTEE,
   PRICING_CUSTOM_LABEL,
   PRICING_HEADLINE,
   PRICING_TIERS,
+  RISK_REVERSAL,
   type PricingTier,
 } from '@/lib/data'
 import Reveal from '@/components/ui/Reveal'
@@ -52,6 +52,24 @@ export default function HomePricing() {
             </h2>
           </Reveal>
 
+          {/* The guarantee reads directly above the first number, so risk comes
+              off the table before the price goes on it. It used to sit below the
+              tiers here and again inside WhyUs; this is the single home for it. */}
+          <Reveal delay={0.05} className="mb-12">
+            <div className="rounded-card border border-accent/25 bg-accent/5 p-6 md:p-8">
+              <p className="eyebrow mb-3 text-xs text-accent-dark">Before you commit</p>
+              <p className="font-display max-w-3xl text-xl font-semibold leading-snug text-graphite md:text-2xl">
+                {RISK_REVERSAL.headline}
+              </p>
+              <p className="mt-3 max-w-2xl leading-relaxed text-graphite-soft">
+                {RISK_REVERSAL.supporting}
+              </p>
+              {FOUNDING_CLIENT_NOTE && (
+                <p className="mt-4 text-sm font-medium text-accent-dark">{FOUNDING_CLIENT_NOTE}</p>
+              )}
+            </div>
+          </Reveal>
+
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {mainTiers.map((tier, index) => (
               <TierCard key={tier.tier} tier={tier} index={index} onBook={openBooking(tier.tier)} />
@@ -80,18 +98,7 @@ export default function HomePricing() {
             </Reveal>
           )}
 
-          {/* The guarantee is what makes a stranger comfortable with the numbers directly
-              above it, so it gets read at a real size instead of whispering at 11px. */}
-          <Reveal delay={0.15} className="mt-10">
-            <div className="rounded-card border border-accent/25 bg-accent/5 px-6 py-5 text-center">
-              <p className="text-base font-semibold text-graphite">{GUARANTEE.long}</p>
-              {FOUNDING_CLIENT_NOTE && (
-                <p className="mt-2 text-sm text-graphite-soft">{FOUNDING_CLIENT_NOTE}</p>
-              )}
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.2} className="mt-6">
+          <Reveal delay={0.2} className="mt-10">
             <Link
               href="/services/web-design#pricing"
               className="inline-flex items-center gap-1 text-sm font-semibold text-accent transition-all duration-200 hover:gap-2"

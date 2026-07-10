@@ -14,7 +14,7 @@ const resourceLinks = [
   { label: 'Service Areas', href: '/service-areas' },
   { label: 'Our Work', href: '/work' },
   { label: 'About', href: '/about' },
-  { label: 'Request a Call', href: '/contact' },
+  { label: 'Book a Free Call', href: '/contact' },
 ]
 
 export default function Footer() {

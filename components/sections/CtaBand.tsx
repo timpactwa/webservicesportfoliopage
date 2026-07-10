@@ -6,7 +6,6 @@ import Button from '@/components/ui/Button'
 import BookingModal from '@/components/ui/BookingModal'
 import type { CallIntent } from '@/components/ui/RequestCallForm'
 import { CTA_BAND, GUARANTEE } from '@/lib/data'
-import { track } from '@/lib/analytics'
 
 /**
  * Replaces the old HomeContact section. The form itself now lives in a modal, so
@@ -31,7 +30,7 @@ export default function CtaBand() {
       <section
         id="contact"
         data-cta-takeover
-        className="scroll-mt-24 border-t border-hairline bg-bg py-20 pb-28 md:py-32 md:pb-32"
+        className="scroll-mt-24 border-t border-hairline bg-bg py-24 pb-32 md:py-40 md:pb-40"
       >
         <div className="container-studio">
           <Reveal className="max-w-3xl">
@@ -39,20 +38,9 @@ export default function CtaBand() {
             <h2 className="text-display-xl text-graphite">{CTA_BAND.headline}</h2>
             <p className="mt-5 text-lg leading-relaxed text-graphite-soft">{CTA_BAND.body}</p>
 
-            <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Button variant="primary" size="lg" href="/contact" onClick={openBooking(null)}>
-                Request a Call
-              </Button>
-              <Button
-                variant="secondary"
-                size="lg"
-                href="/contact?intent=mockup"
-                onClick={(event) => {
-                  track('mockup_request', { source: 'cta-band' })
-                  openBooking('mockup')(event)
-                }}
-              >
-                Get a Free Mockup
+                Book a Free Call
               </Button>
             </div>
 

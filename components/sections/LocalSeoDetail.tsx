@@ -156,7 +156,7 @@ export default function LocalSeoDetail() {
                 </p>
                 <div className="flex flex-col gap-3 sm:flex-row">
                   <Button variant="primary" href="/contact?intent=seo">
-                    Request a Call
+                    Book a Free Call
                   </Button>
                   <Button variant="secondary" href="/estimate">
                     Get an Instant Estimate

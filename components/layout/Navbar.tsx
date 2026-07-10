@@ -74,7 +74,7 @@ export default function Navbar() {
 
           <div className="hidden md:block">
             <Button variant="primary" size="sm" href="/contact">
-              Request a Call
+              Book a Free Call
             </Button>
           </div>
 

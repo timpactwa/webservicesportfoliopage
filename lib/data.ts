@@ -395,11 +395,12 @@ export const TRUST_MARKERS = [
 ]
 
 // Every marker here has to be something a skeptical visitor can go and check for
-// themselves in one click. That is the promise the section eyebrow makes.
+// themselves in one click.
 //
-// These render in ProofStrip directly under the homepage hero, where they answer
-// "why Render" with three claims a stranger can falsify rather than four claims
-// any agency could also make. Copy therefore points *down* the page, not up.
+// No longer rendered on the homepage: ProofStrip was deleted in the 2026-07-10
+// content pass and its three proofs were folded into WHY_RENDER, which makes the
+// same falsifiable claims inside the argument instead of restating them in a
+// separate row. Kept here in case a future surface wants the compact form.
 export const PROOF_MARKERS = [
   {
     label: 'Pricing on the page',
@@ -639,6 +640,49 @@ export const RENDER_PROMISE = {
   holds: [0.55, 0.75],
 } as const
 
+export type WhyRenderPillar = {
+  title: string
+  body: string
+  linkLabel: string
+  href: string
+}
+
+/**
+ * The homepage "Why Render" pillars. Each is a promise a stranger can click and
+ * falsify in about thirty seconds, which is the only claim that does any work for
+ * a studio with no client testimonials yet. This absorbs the old ProofStrip:
+ * published pricing, the named founders, and the show-before-you-pay guarantee
+ * now live here, each linked to where it can be verified, instead of being
+ * restated in a separate row.
+ */
+export const WHY_RENDER: {
+  pillars: WhyRenderPillar[]
+  notForLine: string
+} = {
+  pillars: [
+    {
+      title: 'You talk to the people who build it.',
+      body: 'Tim and Luke write the code ourselves. No account manager, no handoff to a junior, no ticket queue. The people you meet on the call are the people who build and maintain your site.',
+      linkLabel: 'Meet the founders',
+      href: '/about',
+    },
+    {
+      title: 'You see the price before you talk to us.',
+      body: 'Every package price is published on this page. No "contact us for a quote," no discovery call just to get a number.',
+      linkLabel: 'See the pricing',
+      href: '/#pricing',
+    },
+    {
+      title: 'You see the site before you pay.',
+      body: "We show you a real design direction before any deposit changes hands. If it isn't right, you walk away and owe nothing.",
+      linkLabel: 'See how it works',
+      href: '/services/web-design',
+    },
+  ],
+  notForLine:
+    "Not the right fit for everyone: if you need a big-agency team running multi-channel ad campaigns, or a one-off hobby page, we'll point you somewhere better.",
+}
+
 /**
  * Homepage demo section. The offer deliberately says "in that style" and never
  * "replicate": site copy, images, and code are copyrightable, and a distinctive
@@ -646,14 +690,15 @@ export const RENDER_PROMISE = {
  * a URL a customer sends is a written commitment to do exactly that.
  */
 export const DEMO_SECTION = {
-  headline: 'Demo websites you can click.',
-  intro: 'Sample sites we designed and built. Not real businesses, and not client work.',
+  headline: 'See real sites we built.',
+  intro:
+    'Every one is deployed and live. Open any card and use it the way a customer would. Sample brands we built to show what we do, plus one real client engagement.',
   offer:
     "See a website template you like, here or on another site? Send us the link and we'll build you something in that style, with your brand and your content.",
 }
 
 /** Rendered as stacked lines, so pricing owns the tallest headline block on the page. */
-export const PRICING_HEADLINE = ['No BS.', 'No hidden fees.'] as const
+export const PRICING_HEADLINE = ['No surprises.', 'No hidden fees.'] as const
 
 /** The one em dash approved for shipped copy. See CLAUDE.md. */
 export const PRICING_CUSTOM_LABEL = "Custom — let's talk."
