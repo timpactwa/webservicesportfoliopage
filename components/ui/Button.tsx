@@ -8,7 +8,8 @@ interface ButtonProps {
   variant?: 'primary' | 'secondary' | 'secondary-inverse' | 'ghost'
   size?: 'sm' | 'md' | 'lg'
   href?: string
-  onClick?: () => void
+  /** Receives the event so a link-styled CTA can preventDefault and open a modal instead. */
+  onClick?: (event: React.MouseEvent) => void
   type?: 'button' | 'submit' | 'reset'
   disabled?: boolean
   className?: string

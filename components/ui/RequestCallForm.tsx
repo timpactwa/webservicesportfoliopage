@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { useSearchParams } from 'next/navigation'
 import Button from './Button'
 import { track } from '@/lib/analytics'
 import { submitToWeb3Forms, Web3FormsNotConfiguredError } from '@/lib/web3forms'
@@ -16,7 +15,7 @@ const NEEDS = [
 
 // Map the deep links (hero "Get a Free Mockup", pricing card CTAs, the AI section
 // CTA) onto a preselected need so the visitor never re-states what they just clicked.
-function initialNeed(intent: string | null, tier: string | null): string {
+function initialNeed(intent: CallIntent | null, tier: string | null): string {
   if (intent === 'mockup') return 'Free homepage mockup'
   if (intent === 'ai') return 'AI automation'
   if (intent === 'seo') return 'Local SEO help'
@@ -31,11 +30,21 @@ const fieldClass =
 
 const labelClass = 'mb-2 block text-sm font-semibold text-graphite'
 
-export default function RequestCallForm() {
-  const searchParams = useSearchParams()
-  const tier = searchParams.get('tier')
-  const intent = searchParams.get('intent')
+export type CallIntent = 'mockup' | 'ai' | 'seo'
 
+interface RequestCallFormProps {
+  /** Preselects "New website" and tags the submission. */
+  tier?: string | null
+  /** Preselects the matching "What do you need?" option. */
+  intent?: CallIntent | null
+}
+
+/**
+ * Presentational on purpose. It reads no search params, so BookingModal, which
+ * has no URL to read, can render it directly and pass the same two values as
+ * props. RequestCallFormFromUrl supplies them from the query string on /contact.
+ */
+export default function RequestCallForm({ tier = null, intent = null }: RequestCallFormProps) {
   const [need, setNeed] = useState(() => initialNeed(intent, tier))
   const [status, setStatus] = useState<Status>('idle')
   const [error, setError] = useState<string | null>(null)

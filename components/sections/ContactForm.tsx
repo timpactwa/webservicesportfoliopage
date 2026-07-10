@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import RequestCallForm from '@/components/ui/RequestCallForm'
+import RequestCallFormFromUrl from '@/components/ui/RequestCallFormFromUrl'
 import { GUARANTEE } from '@/lib/data'
 
 const steps = [
@@ -84,7 +84,7 @@ export default function ContactForm() {
                 <div className="h-[640px] rounded-card border border-hairline bg-surface" />
               }
             >
-              <RequestCallForm />
+              <RequestCallFormFromUrl />
             </Suspense>
           </div>
         </div>
