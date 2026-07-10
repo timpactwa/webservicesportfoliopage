@@ -3,15 +3,12 @@
 Date: 2026-07-09
 Status: implemented on branch `homepage-restructure`
 
-> **Amendment, Tim, live during implementation (commit 2af7ae6):** the corner
-> accents are not the filled triangle clusters described below. They are
-> wireframe webs: outlines only, never filled, never a straight-line grid.
-> Radial spokes plus sagging concentric arcs recede into each corner, gaps
-> widening outward so density piles into a tunnel; lines draw themselves in and
-> settle from a blur, opacity 0.35, `farthest-side` radial mask. The section
-> below titled "Hero: corner triangles" is superseded on the pattern's paint
-> and geometry; its mounting rules (post-load, `aria-hidden`, zero CLS,
-> reduced-motion static) all still bind.
+> **Amendment history.** During implementation Tim trialed two corner-accent
+> variants live: a straight-line wireframe, then radial webs with sagging arcs
+> (commits 2af7ae6, d8a1f0c). On 2026-07-10 he rejected the webs and the file
+> was restored to the filled triangle clusters exactly as the "Hero: corner
+> triangles" section below describes. That section stands as written and as
+> implemented. Do not reintroduce the web pattern without Tim asking for it.
 
 ## What we're building
 
