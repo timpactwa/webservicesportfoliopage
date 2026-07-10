@@ -42,6 +42,6 @@ Next.js 14 App Router. Routes in `app/`: `/` home, `/services` (hub) + `/service
 
 **Analytics:** GA4 via `components/Analytics.tsx`, gated on `NEXT_PUBLIC_GA_ID` (empty = zero analytics JS shipped). Fire events with `track()` from `lib/analytics.ts`. Current events: `request_call_submit`, `estimate_complete`, `mockup_request`, `tier_cta_click`.
 
-**Copy rules:** no em dashes anywhere in shipped copy. No fabricated proof: `TESTIMONIALS` in `lib/data.ts` stays empty until a real client quote exists, and the three demo sites are always labeled as demo templates, not client work.
+**Copy rules:** no em dashes in shipped copy. One approved exception, granted by Tim on 2026-07-09: the Custom row in the homepage pricing section (`PRICING_CUSTOM_LABEL` in `lib/data.ts`, rendering `Custom — let's talk.`). Any further exception needs Tim's sign-off. No fabricated proof: `TESTIMONIALS` in `lib/data.ts` stays empty until a real client quote exists, and the three demo sites are always labeled as demo templates, not client work.
 
 **Contact form:** `/contact` is an on-site "request a time" form (`components/ui/RequestCallForm.tsx`) that POSTs to Web3Forms and emails `renderlocalwebsites@gmail.com`. Needs `NEXT_PUBLIC_WEB3FORMS_KEY` in `.env.local` and in Vercel env vars; without it the form shows a graceful "email us instead" error. Calendly has been removed entirely. Deep links: `?tier=Starter|Standard|Premium|Custom` and `?intent=mockup|ai|seo` preselect the "What do you need?" field.
