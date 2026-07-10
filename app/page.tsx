@@ -5,9 +5,10 @@ import ProofStrip from '@/components/sections/ProofStrip'
 import HomeWork from '@/components/sections/HomeWork'
 import WhyUs from '@/components/sections/WhyUs'
 import HomePricing from '@/components/sections/HomePricing'
-import Faq, { featuredFaqItems } from '@/components/sections/Faq'
 import HomeServices from '@/components/sections/HomeServices'
-import HomeContact from '@/components/sections/HomeContact'
+import LaunchTimeline from '@/components/sections/LaunchTimeline'
+import Faq, { featuredFaqItems } from '@/components/sections/Faq'
+import CtaBand from '@/components/sections/CtaBand'
 
 export const metadata: Metadata = {
   title: {
@@ -40,12 +41,13 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd).replace(/</g, '\\u003c') }}
       />
       {/*
-        Guarantee-led order. The hero promises published prices, clickable demos, and
-        two named founders; ProofStrip cashes all three one screen later instead of
-        six. Evidence (#work) then comes before the argument (#why), and the guarantee
-        closes #why so a visitor reaches #pricing with the risk already taken off the
-        table. #services sits after the FAQ because "what exactly do you sell" is the
-        last question a convinced visitor asks, not the first.
+        Ranked: evidence, then argument, then price. A stranger with no reason to
+        trust us meets the clickable demos before any claim, and the guarantee
+        before any number. WhyUs closes on the risk reversal and HomePricing
+        follows it immediately; that adjacency is load bearing. #services sits
+        after the price because "what exactly do you sell" is the last question a
+        convinced visitor asks, not the first, and the launch timeline answers
+        "how long" once they want it.
       */}
       <Hero />
       {/* Renders nothing until a real client testimonial exists. */}
@@ -54,9 +56,10 @@ export default function HomePage() {
       <HomeWork />
       <WhyUs />
       <HomePricing />
-      <Faq />
       <HomeServices />
-      <HomeContact />
+      <LaunchTimeline />
+      <Faq />
+      <CtaBand />
     </>
   )
 }

@@ -8,20 +8,19 @@ import { track } from '@/lib/analytics'
 /**
  * Persistent mobile conversion path. Most local-search traffic is mobile, and the
  * only other mobile CTA lives inside the hamburger menu. Hidden on /contact, where
- * the form itself is already the call to action, and hidden on the homepage once
- * the #contact section is substantially in view (its CTAs take over there).
+ * the form itself is already the call to action, and hidden over any section that
+ * declares [data-cta-takeover], whose own CTAs take over there.
+ *
+ * The old lookup was getElementById('contact'), which coupled this bar to a
+ * section id that has since been deleted. Any page may now opt in.
  */
 export default function MobileCtaBar() {
   const pathname = usePathname()
   const [contactInView, setContactInView] = useState(false)
 
   useEffect(() => {
-    // Only the homepage carries the #contact section this bar defers to.
-    if (pathname !== '/') {
-      setContactInView(false)
-      return
-    }
-    const el = document.getElementById('contact')
+    setContactInView(false)
+    const el = document.querySelector('[data-cta-takeover]')
     if (!el) return
     const observer = new IntersectionObserver(
       ([entry]) => setContactInView(entry.intersectionRatio >= 0.2),
