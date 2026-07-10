@@ -31,7 +31,7 @@ export default function MobileCtaBar() {
   }, [pathname])
 
   if (pathname === '/contact') return null
-  if (pathname === '/' && contactInView) return null
+  if (contactInView) return null
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-hairline bg-bg/90 backdrop-blur-xl md:hidden">

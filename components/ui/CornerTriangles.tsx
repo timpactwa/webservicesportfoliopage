@@ -11,13 +11,12 @@ const CORNERS = [
   { id: 'br', position: 'right-0 bottom-0', transform: 'scale(-1, -1)' },
 ] as const
 
-const STROKE = 'oklch(var(--accent-dark))'
-
 /** Spoke angles across the quarter, degrees. */
 const ANGLES = [0, 15, 30, 45, 60, 75, 90]
 /** Ring radii. Gaps widen outward, so density piles up near the corner: the tunnel.
-    Max ring at 72 of 120 keeps the whole web inside the solid zone of the mask,
-    which is what stops the outer arcs breaking off into floating fragments. */
+    The outermost ring sits at 60% of the box, inside the mask's fade ramp but well
+    short of its 88% cutoff, so the outer arcs dim instead of shearing off into
+    floating fragments. */
 const RADII = [16, 30, 48, 72]
 /** How far each arc segment sags toward the corner, as a fraction. The web. */
 const SAG = 0.07
@@ -96,6 +95,10 @@ export default function CornerTriangles() {
           to   { opacity: 1; filter: blur(0.5px); }
         }
         .corner-web-line {
+          /* Stroke color set here, not as a presentation attribute: var() support
+             in SVG presentation attributes is not guaranteed across engines, and
+             the failure mode is an invisible web. */
+          stroke: oklch(var(--accent-dark));
           stroke-dasharray: 1;
           stroke-dashoffset: 1;
           animation: cornerWebDraw 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -136,7 +139,6 @@ export default function CornerTriangles() {
                 x2={s.x1}
                 y2={s.y1}
                 pathLength={1}
-                stroke={STROKE}
                 strokeWidth={0.8}
                 vectorEffect="non-scaling-stroke"
                 style={{ animationDelay: `${s.delay}ms` }}
@@ -149,7 +151,6 @@ export default function CornerTriangles() {
                 d={ring.d}
                 pathLength={1}
                 fill="none"
-                stroke={STROKE}
                 strokeWidth={1}
                 vectorEffect="non-scaling-stroke"
                 style={{ animationDelay: `${ring.delay}ms` }}

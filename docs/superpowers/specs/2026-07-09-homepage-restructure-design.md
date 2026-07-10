@@ -1,7 +1,17 @@
 # Homepage Restructure
 
 Date: 2026-07-09
-Status: approved, not implemented
+Status: implemented on branch `homepage-restructure`
+
+> **Amendment, Tim, live during implementation (commit 2af7ae6):** the corner
+> accents are not the filled triangle clusters described below. They are
+> wireframe webs: outlines only, never filled, never a straight-line grid.
+> Radial spokes plus sagging concentric arcs recede into each corner, gaps
+> widening outward so density piles into a tunnel; lines draw themselves in and
+> settle from a blur, opacity 0.35, `farthest-side` radial mask. The section
+> below titled "Hero: corner triangles" is superseded on the pattern's paint
+> and geometry; its mounting rules (post-load, `aria-hidden`, zero CLS,
+> reduced-motion static) all still bind.
 
 ## What we're building
 
