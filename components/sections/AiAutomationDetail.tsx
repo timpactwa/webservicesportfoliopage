@@ -1,6 +1,6 @@
 import { AI_USE_CASES, GUARANTEE } from '@/lib/data'
 import Button from '@/components/ui/Button'
-import InboxDemo from '@/components/ui/InboxDemo'
+import PhoneChatDemo from '@/components/ui/PhoneChatDemo'
 import Reveal from '@/components/ui/Reveal'
 import UseCaseCard from '@/components/ui/UseCaseCard'
 
@@ -36,8 +36,11 @@ export default function AiAutomationDetail() {
                 </Button>
               </div>
             </div>
-            <div className="flex justify-center lg:justify-end">
-              <InboxDemo />
+            <div className="flex flex-col items-center lg:items-end">
+              <PhoneChatDemo />
+              <p className="mt-6 text-center text-xs text-white/50">
+                Illustrative example, not a recording of a real customer.
+              </p>
             </div>
           </div>
         </div>
