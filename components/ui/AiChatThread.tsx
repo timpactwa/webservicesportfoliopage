@@ -76,6 +76,10 @@ export default function AiChatThread({
     }
 
     const runCycle = () => {
+      // Every timer from the previous cycle has fired by the time the loop
+      // re-enters; drop their ids so the array stays bounded while the thread
+      // is mounted long-term (the phone hero plays for the life of the page).
+      timers.current = []
       setPlaying(true)
       setState(EMPTY)
       later(() => setState((s) => ({ ...s, systemChip: true })), 300)

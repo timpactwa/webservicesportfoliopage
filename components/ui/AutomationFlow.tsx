@@ -32,7 +32,7 @@ const LOOP_MS = 4000
 
 /**
  * Three-step "how it works" row. Discs light in sequence once the row scrolls into
- * view, then loop. once:true per repo convention — the sequence starts once and keeps
+ * view, then loop. once:true per repo convention: the sequence starts once and keeps
  * looping; it does not restart on scroll out and back.
  *
  * Timer hygiene follows AiChatThread: every timeout lives in a ref, cleared on unmount,
@@ -58,6 +58,9 @@ export default function AutomationFlow() {
     }
 
     const runCycle = () => {
+      // Previous cycle's timers have all fired once the loop re-enters; drop
+      // their ids so the array stays bounded while the section stays mounted.
+      timers.current = []
       setLit(new Set())
       STEPS.forEach((_, i) => {
         later(() => setLit((prev) => new Set(prev).add(i)), FIRST_LIGHT_MS + i * STEP_STAGGER_MS)
