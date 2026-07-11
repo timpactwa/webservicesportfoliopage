@@ -1,4 +1,5 @@
 import { AI_USE_CASES, GUARANTEE } from '@/lib/data'
+import AutomationFlow from '@/components/ui/AutomationFlow'
 import Button from '@/components/ui/Button'
 import PhoneChatDemo from '@/components/ui/PhoneChatDemo'
 import Reveal from '@/components/ui/Reveal'
@@ -43,6 +44,21 @@ export default function AiAutomationDetail() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-28 bg-surface border-b border-hairline">
+        <div className="container-studio">
+          <div className="max-w-2xl mx-auto text-center mb-14">
+            <p className="eyebrow mb-4 text-xs text-accent-dark">How the automation works</p>
+            <h2 className="mb-4 text-display-md text-graphite">
+              It runs quietly in the background.
+            </h2>
+            <p className="text-lg text-graphite-soft">
+              Three steps, no app to check. You just get the good part: a captured lead.
+            </p>
+          </div>
+          <AutomationFlow />
         </div>
       </section>
 
