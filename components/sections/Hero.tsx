@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import BookingModal from '@/components/ui/BookingModal'
 import Button from '@/components/ui/Button'
-import ResolveText from '@/components/ui/ResolveText'
 import TriangleReveal from '@/components/ui/TriangleReveal'
 import type { CallIntent } from '@/components/ui/RequestCallForm'
 import { GUARANTEE } from '@/lib/data'
@@ -16,22 +15,42 @@ export default function Hero() {
   const blobsRef = useRef<HTMLDivElement>(null)
 
   // Ambient parallax: two blurred blobs drift a few px opposite the cursor.
+  // Cursor position is cached and the transform writes are coalesced into a
+  // single rAF, so a fast mousemove never reads layout or thrashes the main thread.
   useEffect(() => {
     if (reduce) return
     if (typeof window !== 'undefined' && !window.matchMedia('(pointer: fine)').matches) return
     const container = blobsRef.current
     if (!container) return
     const blobs = Array.from(container.querySelectorAll<HTMLElement>('[data-depth]'))
-    const onMove = (e: MouseEvent) => {
-      const nx = e.clientX / window.innerWidth - 0.5
-      const ny = e.clientY / window.innerHeight - 0.5
+    let vw = window.innerWidth
+    let vh = window.innerHeight
+    let nx = 0
+    let ny = 0
+    let raf = 0
+    const apply = () => {
+      raf = 0
       blobs.forEach((b) => {
         const depth = parseFloat(b.dataset.depth || '10')
         b.style.transform = `translate(${(nx * depth).toFixed(1)}px, ${(ny * depth).toFixed(1)}px)`
       })
     }
+    const onMove = (e: MouseEvent) => {
+      nx = e.clientX / vw - 0.5
+      ny = e.clientY / vh - 0.5
+      if (!raf) raf = requestAnimationFrame(apply)
+    }
+    const onResize = () => {
+      vw = window.innerWidth
+      vh = window.innerHeight
+    }
     document.addEventListener('mousemove', onMove)
-    return () => document.removeEventListener('mousemove', onMove)
+    window.addEventListener('resize', onResize)
+    return () => {
+      document.removeEventListener('mousemove', onMove)
+      window.removeEventListener('resize', onResize)
+      if (raf) cancelAnimationFrame(raf)
+    }
   }, [reduce])
 
   const [booking, setBooking] = useState<{ intent: CallIntent | null } | null>(null)
@@ -91,31 +110,27 @@ export default function Hero() {
           Web Design &amp; Local SEO · Morris County, NJ
         </motion.p>
 
-        <ResolveText
-          as="h1"
-          trigger="mount"
-          delay={0.35}
-          stagger={0.12}
-          className="relative max-w-4xl text-display-xl md:text-display-2xl"
-          lines={['A Website That Actually', 'Brings You Customers']}
-          lineClassName={(i) => (i === 1 ? 'text-accent-dark' : undefined)}
-        />
+        {/* Static, server-rendered headline: this is the LCP element, so it must
+            paint on first byte. No entrance animation lives on it (that used to add
+            ~3.5s of LCP render delay); the render-in choreography stays on the
+            surrounding eyebrow, CTAs, guarantee, and the mosaic behind it. */}
+        <h1 className="relative max-w-4xl text-display-xl md:text-display-2xl">
+          <span className="block">A Website That Actually</span>
+          <span className="block text-accent-dark">Brings You Customers</span>
+        </h1>
 
-        <motion.p
-          {...resolve(1.15)}
-          className="relative mt-7 max-w-xl text-lg leading-relaxed text-graphite-soft"
-        >
+        <p className="relative mt-7 max-w-xl text-lg leading-relaxed text-graphite-soft">
           Affordable, fixed prices. Live demos you can click right now. Built by two founders in
           Morris County, NJ.
-        </motion.p>
+        </p>
 
-        <motion.div {...resolve(1.4)} className="relative mt-9 flex flex-col gap-4 sm:flex-row">
+        <motion.div {...resolve(0.3)} className="relative mt-9 flex flex-col gap-4 sm:flex-row">
           <Button variant="primary" size="lg" href="/contact" onClick={openBooking(null)}>
             Book a Free Call
           </Button>
         </motion.div>
 
-        <motion.p {...resolve(1.6)} className="relative mt-8 text-sm font-medium text-accent-dark">
+        <motion.p {...resolve(0.45)} className="relative mt-8 text-sm font-medium text-accent-dark">
           {GUARANTEE.short}
         </motion.p>
       </section>

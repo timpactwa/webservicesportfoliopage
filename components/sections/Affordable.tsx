@@ -48,13 +48,15 @@ export default function Affordable() {
               <dt className="font-display text-lg font-semibold leading-snug text-white">
                 {promise.text}
               </dt>
-              <Link
-                href={promise.href}
-                className="group mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-soft transition-all duration-200 hover:gap-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-soft focus-visible:ring-offset-2 focus-visible:ring-offset-graphite-light"
-              >
-                {promise.linkLabel}
-                <ArrowRight />
-              </Link>
+              <dd>
+                <Link
+                  href={promise.href}
+                  className="group mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-soft transition-all duration-200 hover:gap-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-soft focus-visible:ring-offset-2 focus-visible:ring-offset-graphite-light"
+                >
+                  {promise.linkLabel}
+                  <ArrowRight />
+                </Link>
+              </dd>
             </Reveal>
           ))}
         </dl>

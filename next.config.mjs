@@ -4,12 +4,12 @@ const isDev = process.env.NODE_ENV === 'development'
 // Dev mode additionally needs 'unsafe-eval' (source maps) and ws: (hot reload).
 const contentSecurityPolicy = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com${isDev ? " 'unsafe-eval'" : ''}`,
+  `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://static.cloudflareinsights.com${isDev ? " 'unsafe-eval'" : ''}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data:", // data: covers the bg-grid-pattern SVG token
   "font-src 'self'",
   // contact form submissions + GA4 collection endpoints
-  `connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com${isDev ? ' ws:' : ''}`,
+  `connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://cloudflareinsights.com${isDev ? ' ws:' : ''}`,
   'frame-src https://*.vercel.app', // live demo previews
   "object-src 'none'",
   "base-uri 'self'",
@@ -54,6 +54,12 @@ const nextConfig = {
           {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()',
+          },
+          {
+            // Isolates our browsing-context group so a cross-origin popup can't
+            // reach back through window.opener. No effect on the demo iframes.
+            key: 'Cross-Origin-Opener-Policy',
+            value: 'same-origin',
           },
         ],
       },
