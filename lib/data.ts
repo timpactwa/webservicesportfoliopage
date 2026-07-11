@@ -81,7 +81,7 @@ export const PRICING_TIERS: PricingTier[] = [
     tier: 'Starter',
     priceRange: '$500',
     standardPrice: '$1,500',
-    monthlyRange: '$99/mo',
+    monthlyRange: '$45/mo',
     summary: 'For a business that needs a clean, professional site online fast.',
     isHighlighted: false,
     note: FOUNDING_CLIENT_NOTE,
@@ -100,7 +100,7 @@ export const PRICING_TIERS: PricingTier[] = [
     tier: 'Standard',
     priceRange: '$750',
     standardPrice: '$2,900',
-    monthlyRange: '$149/mo',
+    monthlyRange: '$55/mo',
     summary: 'For a business ready to show up in local search and look like the obvious choice.',
     isHighlighted: true,
     badge: 'Most Chosen',
@@ -120,7 +120,7 @@ export const PRICING_TIERS: PricingTier[] = [
     tier: 'Premium',
     priceRange: '$2,000',
     standardPrice: '$4,900',
-    monthlyRange: '$199/mo',
+    monthlyRange: '$65/mo',
     summary: 'For a business that wants bookings and leads running without you chasing them.',
     isHighlighted: false,
     note: FOUNDING_CLIENT_NOTE,
@@ -587,6 +587,20 @@ export const AI_USE_CASES: AIUseCase[] = [
       'The checklist your crew follows updates itself as your process changes, so new hires always get the same answer.',
   },
 ]
+
+// Published AI automation pricing, rendered as a callout on /services/ai-automation.
+// A range, not a grid: automations vary more than a website build, so we publish
+// the honest span and the reason a number moves, then quote the exact figure after
+// a call. Keep in sync with public/llms.txt and public/pricing.md when it changes.
+export const AI_PRICING = {
+  eyebrow: 'What it costs',
+  range: '$500 to $1,500',
+  rangeNote: 'Most automations, depending on how many steps they touch.',
+  customLabel: 'Custom systems',
+  customNote: 'Quoted after a call.',
+  upkeep:
+    'Upkeep is optional: $75/mo, plus any platform or text-message costs passed to you at cost, never marked up.',
+}
 
 export type LaunchTimelineStep = {
   week: string

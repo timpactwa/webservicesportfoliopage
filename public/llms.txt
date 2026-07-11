@@ -13,14 +13,14 @@ Last updated July 2026.
 
 - [Web Design & Development](https://www.renderlocalwebsites.com/services/web-design): custom-built, mobile-first websites, live in 2 to 4 weeks.
 - [Local SEO](https://www.renderlocalwebsites.com/services/local-seo): on-site local SEO standard with every build, plus Google Business Profile setup and optimization.
-- [AI Consulting & Automation](https://www.renderlocalwebsites.com/services/ai-automation): after-hours replies, lead routing, review requests that send themselves.
+- [AI Consulting & Automation](https://www.renderlocalwebsites.com/services/ai-automation): after-hours replies, lead routing, review requests that send themselves. Most automations run $500 to $1,500; bigger custom systems quoted after a call. Optional upkeep $75/mo plus platform and text costs at cost.
 - [Care Plan](https://www.renderlocalwebsites.com/services/web-design): optional monthly maintenance covering hosting support, updates and fixes. Month to month, cancel anytime.
 
 ## Pricing (published, USD)
 
-- [Starter](https://www.renderlocalwebsites.com/services/web-design): $500 build plus optional $99/mo Care Plan. 1-3 page website. Regular price $1,500.
-- [Standard](https://www.renderlocalwebsites.com/services/web-design): $750 build plus optional $149/mo Care Plan. 4-6 pages with local SEO. Most chosen. Regular price $2,900.
-- [Premium](https://www.renderlocalwebsites.com/services/web-design): $2,000 build plus optional $199/mo Care Plan. 7+ pages with booking or lead workflow. Regular price $4,900.
+- [Starter](https://www.renderlocalwebsites.com/services/web-design): $500 build plus optional $45/mo Care Plan. 1-3 page website. Regular price $1,500.
+- [Standard](https://www.renderlocalwebsites.com/services/web-design): $750 build plus optional $55/mo Care Plan. 4-6 pages with local SEO. Most chosen. Regular price $2,900.
+- [Premium](https://www.renderlocalwebsites.com/services/web-design): $2,000 build plus optional $65/mo Care Plan. 7+ pages with booking or lead workflow. Regular price $4,900.
 - [Custom](https://www.renderlocalwebsites.com/contact?tier=Custom): scoped per project with a fixed number before commitment. Multi-location, e-commerce, or AI automation.
 - [Full price list](https://www.renderlocalwebsites.com/pricing.md): the same tiers in a machine-readable table.
 

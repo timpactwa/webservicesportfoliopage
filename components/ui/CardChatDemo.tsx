@@ -5,11 +5,11 @@ import { useInView } from 'framer-motion'
 import AiChatThread from '@/components/ui/AiChatThread'
 
 /**
- * Compact chat preview for the top of the homepage AI card. Reuses AiChatThread
- * verbatim (same conversation as the AI page phone hero and the old modal),
- * gating its loop on scroll-into-view so it never plays off-screen. No phone
- * frame here: a mini messages-app header sits above the thread so it reads as a
- * live auto-reply without dominating the card. once:true per repo convention.
+ * Compact chat preview for the homepage AI card. Reuses AiChatThread verbatim
+ * (same conversation as the AI page phone hero and the old modal), gating its loop
+ * on scroll-into-view so it never plays off-screen. No phone frame here: a mini
+ * messages-app header sits above the thread so it reads as a live auto-reply
+ * without dominating the card. once:true per repo convention.
  */
 export default function CardChatDemo() {
   const ref = useRef<HTMLDivElement>(null)
@@ -42,7 +42,12 @@ export default function CardChatDemo() {
         </span>
       </div>
 
-      <AiChatThread play={inView} className="p-3.5" />
+      {/* Fixed-height viewport: the white chat window never changes size. The thread
+          is pinned to the bottom (justify-end), so each new message pushes the earlier
+          ones up and off the top, exactly like a real messages screen. */}
+      <div className="flex h-[300px] flex-col justify-end overflow-hidden">
+        <AiChatThread play={inView} className="p-3.5" />
+      </div>
     </div>
   )
 }

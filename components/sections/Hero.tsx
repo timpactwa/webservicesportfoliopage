@@ -7,7 +7,7 @@ import Button from '@/components/ui/Button'
 import ResolveText from '@/components/ui/ResolveText'
 import TriangleReveal from '@/components/ui/TriangleReveal'
 import type { CallIntent } from '@/components/ui/RequestCallForm'
-import { GUARANTEE, SERVICE_TOWNS } from '@/lib/data'
+import { GUARANTEE } from '@/lib/data'
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number]
 
@@ -107,10 +107,6 @@ export default function Hero() {
         >
           Affordable, fixed prices. Live demos you can click right now. Built by two founders in
           Morris County, NJ.
-        </motion.p>
-
-        <motion.p {...resolve(1.3)} className="relative mt-4 text-sm font-medium text-accent-dark">
-          Serving {SERVICE_TOWNS.join(' · ')}
         </motion.p>
 
         <motion.div {...resolve(1.4)} className="relative mt-9 flex flex-col gap-4 sm:flex-row">

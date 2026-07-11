@@ -25,7 +25,7 @@ export default function HomeWork() {
       <section id="work" className="scroll-mt-24 py-20 md:py-32 bg-surface">
         <div className="container-studio">
           <Reveal className="mb-14 max-w-3xl">
-            <p className="eyebrow mb-4 text-xs text-accent-dark">Our work</p>
+            <p className="eyebrow mb-4 text-sm text-accent-dark">Our work</p>
             <h2 className="text-display-xl text-graphite">{DEMO_SECTION.headline}</h2>
             <p className="mt-5 text-lg leading-relaxed text-graphite-soft">{DEMO_SECTION.intro}</p>
             <p className="mt-4 text-lg leading-relaxed text-graphite">{DEMO_SECTION.offer}</p>

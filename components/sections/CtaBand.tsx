@@ -34,7 +34,7 @@ export default function CtaBand() {
       >
         <div className="container-studio">
           <Reveal className="max-w-3xl">
-            <p className="eyebrow mb-4 text-xs text-accent-dark">Contact</p>
+            <p className="eyebrow mb-4 text-sm text-accent-dark">Contact</p>
             <h2 className="text-display-xl text-graphite">{CTA_BAND.headline}</h2>
             <p className="mt-5 text-lg leading-relaxed text-graphite-soft">{CTA_BAND.body}</p>
 

@@ -34,7 +34,7 @@ export default function Affordable() {
     <section id="why" className="scroll-mt-24 bg-graphite-light py-20 text-white md:py-32">
       <div className="container-studio">
         <Reveal className="mb-12 max-w-3xl">
-          <p className="eyebrow mb-4 text-xs text-accent-soft">{AFFORDABLE.eyebrow}</p>
+          <p className="eyebrow mb-4 text-sm text-accent-soft">{AFFORDABLE.eyebrow}</p>
           <h2 className="text-display-xl text-white">{AFFORDABLE.headline}</h2>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70">{AFFORDABLE.body}</p>
         </Reveal>

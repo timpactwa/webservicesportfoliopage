@@ -89,7 +89,7 @@ const jsonLd = {
       price: '500',
       priceCurrency: 'USD',
       description:
-        '1-3 page website, $500 founding client build (regularly $1,500) plus optional $99/mo Care Plan.',
+        '1-3 page website, $500 founding client build (regularly $1,500) plus optional $45/mo Care Plan.',
     },
     {
       '@type': 'Offer',
@@ -97,7 +97,7 @@ const jsonLd = {
       price: '750',
       priceCurrency: 'USD',
       description:
-        '4-6 page website with local SEO, $750 founding client build (regularly $2,900) plus optional $149/mo Care Plan.',
+        '4-6 page website with local SEO, $750 founding client build (regularly $2,900) plus optional $55/mo Care Plan.',
     },
     {
       '@type': 'Offer',
@@ -105,7 +105,7 @@ const jsonLd = {
       price: '2000',
       priceCurrency: 'USD',
       description:
-        '7+ page website with booking or lead workflow, $2,000 founding client build (regularly $4,900) plus optional $199/mo Care Plan.',
+        '7+ page website with booking or lead workflow, $2,000 founding client build (regularly $4,900) plus optional $65/mo Care Plan.',
     },
   ],
   address: {

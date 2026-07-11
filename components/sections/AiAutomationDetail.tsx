@@ -1,4 +1,4 @@
-import { AI_USE_CASES, GUARANTEE } from '@/lib/data'
+import { AI_PRICING, AI_USE_CASES, GUARANTEE } from '@/lib/data'
 import AutomationFlow from '@/components/ui/AutomationFlow'
 import Button from '@/components/ui/Button'
 import PhoneChatDemo from '@/components/ui/PhoneChatDemo'
@@ -36,7 +36,7 @@ export default function AiAutomationDetail() {
                 </Button>
               </div>
             </div>
-            <div className="flex flex-col items-center lg:items-end">
+            <div className="flex flex-col items-center lg:items-end lg:pr-12">
               <PhoneChatDemo />
               <p className="mt-6 text-center text-xs text-white/50">
                 Illustrative example, not a recording of a real customer.
@@ -131,6 +131,24 @@ export default function AiAutomationDetail() {
                   It pairs naturally with a website build, but you don&apos;t need one from us to
                   start. {GUARANTEE.short} That standard applies here too.
                 </p>
+                <div className="mb-8 rounded-card border border-hairline bg-surface p-6">
+                  <p className="eyebrow mb-4 text-xs text-accent-dark">{AI_PRICING.eyebrow}</p>
+                  <div className="space-y-4">
+                    <div>
+                      <p className="text-2xl font-semibold text-graphite">{AI_PRICING.range}</p>
+                      <p className="text-sm text-graphite-soft">{AI_PRICING.rangeNote}</p>
+                    </div>
+                    <div>
+                      <p className="text-base font-semibold text-graphite">
+                        {AI_PRICING.customLabel}
+                      </p>
+                      <p className="text-sm text-graphite-soft">{AI_PRICING.customNote}</p>
+                    </div>
+                    <p className="border-t border-hairline pt-4 text-sm text-graphite-soft">
+                      {AI_PRICING.upkeep}
+                    </p>
+                  </div>
+                </div>
                 <div className="flex flex-col gap-3 sm:flex-row">
                   <Button variant="primary" size="lg" href="/contact?intent=ai">
                     Talk to Us About AI

@@ -10,7 +10,7 @@ export default function LaunchTimeline() {
     <section className="border-t border-hairline bg-surface py-20 md:py-28">
       <div className="container-studio">
         <Reveal className="mb-14 max-w-3xl">
-          <p className="eyebrow mb-4 text-xs text-accent-dark">{LAUNCH_TIMELINE_SECTION.eyebrow}</p>
+          <p className="eyebrow mb-4 text-sm text-accent-dark">{LAUNCH_TIMELINE_SECTION.eyebrow}</p>
           <h2 className="text-display-xl text-graphite">{LAUNCH_TIMELINE_SECTION.headline}</h2>
         </Reveal>
 

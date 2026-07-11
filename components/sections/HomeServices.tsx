@@ -28,16 +28,16 @@ export default function HomeServices() {
     <section id="services" className="scroll-mt-24 py-20 md:py-32 bg-bg">
       <div className="container-studio">
         <Reveal className="mb-14">
-          <p className="eyebrow mb-4 text-xs text-accent-dark">What we do</p>
+          <p className="eyebrow mb-4 text-sm text-accent-dark">What we do</p>
           <h2 className="text-display-xl text-graphite">
             Websites first. Automation where it pays.
           </h2>
         </Reveal>
 
-        {/* Checkerboard: the web card carries its live demo at the BOTTOM (under the
-            Learn more pill) and the AI card carries its chat animation at the TOP
-            (above the lightning icon), so the two media blocks sit on opposite
-            corners. items-stretch keeps both cards the same height. */}
+        {/* Both cards carry their media at the BOTTOM, under the Learn more pill: the
+            web card its live demo iframe, the AI card its chat animation. Aligned
+            rather than checkerboarded, so the two media blocks read as a matched pair.
+            items-stretch keeps both cards the same height. */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:items-stretch">
           <Reveal index={0} className="h-full">
             <ServiceCard
@@ -64,7 +64,6 @@ export default function HomeServices() {
 
           <Reveal index={1} className="h-full">
             <ServiceCard
-              topMedia={<CardChatDemo />}
               icon={<AIIcon />}
               title="AI Consulting & Automation"
               description="The calls, forms, and questions you can't get to, answered automatically."
@@ -74,6 +73,7 @@ export default function HomeServices() {
                   Learn more<span className="sr-only"> about AI consulting and automation</span>
                 </Button>
               }
+              bottomMedia={<CardChatDemo />}
             />
           </Reveal>
         </div>

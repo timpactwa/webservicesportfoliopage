@@ -6,9 +6,9 @@ number. Last updated July 2026.
 
 | Package  | Build price (founding) | Regular build price | Optional monthly Care Plan | Best for |
 |----------|------------------------|---------------------|----------------------------|----------|
-| Starter  | $500                   | $1,500              | $99/mo                     | A clean, professional 1-3 page site online fast |
-| Standard | $750                   | $2,900              | $149/mo                    | 4-6 pages with local SEO; the most chosen package |
-| Premium  | $2,000                 | $4,900              | $199/mo                    | 7+ pages with a booking or lead-capture workflow |
+| Starter  | $500                   | $1,500              | $45/mo                     | A clean, professional 1-3 page site online fast |
+| Standard | $750                   | $2,900              | $55/mo                     | 4-6 pages with local SEO; the most chosen package |
+| Premium  | $2,000                 | $4,900              | $65/mo                     | 7+ pages with a booking or lead-capture workflow |
 | Custom   | Fixed quote after scoping | Fixed quote after scoping | Scoped with you | Multi-location, e-commerce, or AI automation built in |
 
 Notes:
@@ -25,6 +25,9 @@ Notes:
   content are yours.
 - Typical launch: 2 to 4 weeks once content and direction are in.
 - AI automation is scoped separately with a fixed number before you commit.
+  Most automations run $500 to $1,500 depending on how many steps they touch;
+  bigger custom systems are quoted after a call. Optional upkeep is $75/mo, plus
+  any platform or text-message costs passed to you at cost, never marked up.
 
 - [Full details](https://www.renderlocalwebsites.com/services/web-design)
 - [Instant estimate, no email required](https://www.renderlocalwebsites.com/estimate)

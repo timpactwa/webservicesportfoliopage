@@ -42,7 +42,7 @@ export default function HomePricing() {
           {/* Two stacked lines at display-xl is a taller block than the hero's
               display-2xl, so pricing dominates without a new token. */}
           <Reveal className="mb-14 max-w-3xl">
-            <p className="eyebrow mb-4 text-xs text-accent-dark">Pricing</p>
+            <p className="eyebrow mb-4 text-sm text-accent-dark">Pricing</p>
             <h2 className="text-display-xl text-graphite">
               {PRICING_HEADLINE.map((line) => (
                 <span key={line} className="block">
@@ -57,7 +57,7 @@ export default function HomePricing() {
               tiers here and again inside WhyUs; this is the single home for it. */}
           <Reveal delay={0.05} className="mb-12">
             <div className="rounded-card border border-accent/25 bg-accent/5 p-6 md:p-8">
-              <p className="eyebrow mb-3 text-xs text-accent-dark">Before you commit</p>
+              <p className="eyebrow mb-3 text-sm text-accent-dark">Before you commit</p>
               <p className="font-display max-w-3xl text-xl font-semibold leading-snug text-graphite md:text-2xl">
                 {RISK_REVERSAL.headline}
               </p>
