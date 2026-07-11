@@ -105,7 +105,7 @@ export default function Hero() {
           {...resolve(1.15)}
           className="relative mt-7 max-w-xl text-lg leading-relaxed text-graphite-soft"
         >
-          Fixed, published prices. Live demos you can click right now. Built by two founders in
+          Affordable, fixed prices. Live demos you can click right now. Built by two founders in
           Morris County, NJ.
         </motion.p>
 

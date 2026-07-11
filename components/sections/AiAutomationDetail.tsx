@@ -25,10 +25,9 @@ export default function AiAutomationDetail() {
               </h1>
               <div className="space-y-5 text-lg leading-relaxed text-white/70">
                 <p>
-                  Every missed after-hours message, every lead sitting in an inbox for two days,
-                  every review request you meant to send but didn&apos;t. That is a customer choosing
-                  whoever answered first. We build small, reliable systems that catch it. No
-                  dashboards to learn, no science project.
+                  Every after-hours message, every lead stuck in an inbox, every review you meant to
+                  ask for. That is a customer choosing whoever answered first. We build small,
+                  reliable systems that catch it, no dashboards to learn.
                 </p>
               </div>
               <div className="mt-8">
@@ -67,8 +66,8 @@ export default function AiAutomationDetail() {
           <div className="mb-12 max-w-2xl md:mb-16">
             <h2 className="mb-4 text-display-md text-graphite">The follow-ups worth automating.</h2>
             <p className="text-lg leading-relaxed text-graphite-soft">
-              These are the small, repeatable tasks that quietly lose you customers. Each one is a
-              system we can build and hand you.
+              The small, repeatable tasks that quietly lose you customers. Each one is a system we
+              build and hand you.
             </p>
           </div>
           <Reveal>

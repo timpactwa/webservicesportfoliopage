@@ -3,9 +3,9 @@ export const NAV_LINKS = [
   // whichever section is in the reading zone, so a nav ordered differently from the
   // page would light its tabs up out of sequence on scroll.
   { label: 'Home', href: '/' },
-  { label: 'Work', href: '/#work' },
-  { label: 'Pricing', href: '/#pricing' },
   { label: 'Services', href: '/#services' },
+  { label: 'Pricing', href: '/#pricing' },
+  { label: 'Work', href: '/#work' },
   { label: 'Contact', href: '/#contact' },
 ]
 
@@ -553,38 +553,38 @@ export type AIUseCase = {
 }
 
 // Practical AI automation examples, kept concrete and free of invented outcomes.
-// Every description stays to two sentences and reports what the system does,
+// Every description stays to one plain sentence and reports what the system does,
 // never a made-up hours-saved or dollars-saved figure.
 export const AI_USE_CASES: AIUseCase[] = [
   {
     title: 'Missed-call text-back',
     description:
-      "A call you can't pick up gets an instant text back, so the person doesn't just hang up and call the next name on Google. It works whether you're on a job, driving, or already on the phone.",
+      "A call you can't grab gets an instant text back, so they don't just call the next name on Google.",
   },
   {
     title: 'Review requests on autopilot',
     description:
-      'Once a job wraps, the customer gets a text or email with a direct link to leave a review. Nobody on your team has to remember to send it.',
+      'When a job wraps, the customer automatically gets a text with a direct link to leave a review.',
   },
   {
     title: 'Appointment and quote follow-up',
     description:
-      'A quote that never got an answer gets a friendly nudge instead of sitting in your inbox. Upcoming appointments get a reminder, so fewer people forget to show.',
+      'Quotes with no reply get a friendly nudge, and upcoming appointments get a reminder so fewer people no-show.',
   },
   {
     title: 'After-hours FAQ answering',
     description:
-      'Your site answers the questions people ask at 9pm: your hours, your pricing range, and what services you offer. You get fewer basic questions and more inquiries worth calling back.',
+      'Your site answers the basics people ask at 9pm, like your hours, pricing, and services, so you wake up to real leads.',
   },
   {
     title: 'Lead routing and triage',
     description:
-      "New inquiries land already sorted by what they're asking for, with urgent ones flagged. You see what needs a callback today instead of digging through one shared inbox.",
+      'New inquiries land already sorted and flagged, so you see what needs a callback today at a glance.',
   },
   {
     title: 'Self-updating SOPs',
     description:
-      "The checklist your crew uses stays current on its own as your process changes, instead of living in someone's head or a stale printout. New hires get the same answer every time.",
+      'The checklist your crew follows updates itself as your process changes, so new hires always get the same answer.',
   },
 ]
 
@@ -623,64 +623,50 @@ export const LAUNCH_TIMELINE: LaunchTimelineStep[] = [
   },
 ]
 
-/**
- * The render-verb closer on the homepage. The trailing period lives inside each
- * word: a period placed after the slot would sit at the right edge of a box
- * sized for "customers." and float away from the shorter words.
- *
- * "customers." is both the longest entry and the resting one, which is what
- * makes the slot's resting width its natural width and its layout shift zero.
- * Reordering so it rests on a shorter word breaks that guarantee.
- */
-export const RENDER_PROMISE = {
-  lead: "We don't just render websites.",
-  verb: 'We render',
-  words: ['leads.', 'bookings.', 'customers.'],
-  /** Seconds each non-final word holds once sharp. Decelerating. */
-  holds: [0.55, 0.75],
-} as const
-
-export type WhyRenderPillar = {
-  title: string
-  body: string
+export type AffordablePromise = {
+  text: string
   linkLabel: string
   href: string
 }
 
 /**
- * The homepage "Why Render" pillars. Each is a promise a stranger can click and
- * falsify in about thirty seconds, which is the only claim that does any work for
- * a studio with no client testimonials yet. This absorbs the old ProofStrip:
- * published pricing, the named founders, and the show-before-you-pay guarantee
- * now live here, each linked to where it can be verified, instead of being
- * restated in a separate row.
+ * The homepage "Why Render" section: the affordability and AI-honesty pitch, with
+ * three verifiable promises underneath. Each promise links to where a stranger can
+ * falsify it in about thirty seconds, which is the only kind of proof that works
+ * before a client testimonial exists. This replaces the old animated render-verb
+ * headline and the three-pillar block, folding their claims into one lean section
+ * that also carries the brand story.
  */
-export const WHY_RENDER: {
-  pillars: WhyRenderPillar[]
-  notForLine: string
+export const AFFORDABLE: {
+  eyebrow: string
+  headline: string
+  body: string
+  promises: AffordablePromise[]
+  paymentsNote: string
 } = {
-  pillars: [
+  eyebrow: 'Why Render',
+  headline: "Affordable, because we're efficient.",
+  body:
+    "We use AI to build faster, and a developer checks every line before it ships. One of us works in security research and reviews every site's security by hand. Same quality, fewer hours, so you pay for the result, not the runaround.",
+  paymentsNote:
+    'Payments run through Stripe, the payment platform trusted by companies like Amazon, so your card details never touch us.',
+  promises: [
     {
-      title: 'You talk to the people who build it.',
-      body: 'Tim and Luke write the code ourselves. No account manager, no handoff to a junior, no ticket queue. The people you meet on the call are the people who build and maintain your site.',
+      text: 'You talk to the people who build it.',
       linkLabel: 'Meet the founders',
       href: '/about',
     },
     {
-      title: 'You see the price before you talk to us.',
-      body: 'Every package price is published on this page. No "contact us for a quote," no discovery call just to get a number.',
+      text: 'Every price is published, before you ever call.',
       linkLabel: 'See the pricing',
       href: '/#pricing',
     },
     {
-      title: 'You see the site before you pay.',
-      body: "We show you a real design direction before any deposit changes hands. If it isn't right, you walk away and owe nothing.",
+      text: 'You see the site before you pay a cent.',
       linkLabel: 'See how it works',
       href: '/services/web-design',
     },
   ],
-  notForLine:
-    "Not the right fit for everyone: if you need a big-agency team running multi-channel ad campaigns, or a one-off hobby page, we'll point you somewhere better.",
 }
 
 /**

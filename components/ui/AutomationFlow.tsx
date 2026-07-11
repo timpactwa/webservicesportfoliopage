@@ -25,10 +25,12 @@ const STEPS = [
   },
 ]
 
-// Light disc i at 400 + i*700 ms after the row enters view; reset and replay every 4000 ms.
+// Light disc i at 400 + i*700 ms after the row enters view; the discs then hold lit
+// and the sequence replays every 18000 ms, so the motion is a slow, occasional
+// accent rather than a constant blink.
 const FIRST_LIGHT_MS = 400
 const STEP_STAGGER_MS = 700
-const LOOP_MS = 4000
+const LOOP_MS = 18000
 
 /**
  * Three-step "how it works" row. Discs light in sequence once the row scrolls into

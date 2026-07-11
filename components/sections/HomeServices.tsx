@@ -1,10 +1,9 @@
-import Link from 'next/link'
 import Button from '@/components/ui/Button'
+import CardChatDemo from '@/components/ui/CardChatDemo'
+import DemoIframePreview from '@/components/ui/DemoIframePreview'
 import Reveal from '@/components/ui/Reveal'
 import ServiceCard from '@/components/ui/ServiceCard'
-import SeeItWorkButton from '@/components/ui/SeeItWorkButton'
-import UseCaseCard from '@/components/ui/UseCaseCard'
-import { AI_USE_CASES } from '@/lib/data'
+import { PROJECTS } from '@/lib/data'
 
 const WebIcon = () => (
   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -19,6 +18,11 @@ const AIIcon = () => (
   </svg>
 )
 
+// The web card embeds a real deployed demo. Any brand except Hartline works; the AI
+// card's chat animation is already branded Hartline Builders, so a different brand
+// here keeps the two cards from echoing the same name.
+const webDemo = PROJECTS.find((p) => p.demoUrl && p.projectName !== 'Hartline Builders')
+
 export default function HomeServices() {
   return (
     <section id="services" className="scroll-mt-24 py-20 md:py-32 bg-bg">
@@ -30,7 +34,11 @@ export default function HomeServices() {
           </h2>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Checkerboard: the web card carries its live demo at the BOTTOM (under the
+            Learn more pill) and the AI card carries its chat animation at the TOP
+            (above the lightning icon), so the two media blocks sit on opposite
+            corners. items-stretch keeps both cards the same height. */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:items-stretch">
           <Reveal index={0} className="h-full">
             <ServiceCard
               icon={<WebIcon />}
@@ -46,48 +54,27 @@ export default function HomeServices() {
                   Learn more<span className="sr-only"> about web design and development</span>
                 </Button>
               }
-            />
-          </Reveal>
-          <Reveal index={1} className="h-full">
-            <ServiceCard
-              icon={<AIIcon />}
-              title="AI Consulting & Automation"
-              description="The follow-ups, intake forms, and after-hours questions you don't have time for, answered automatically."
-              href="/services/ai-automation"
-              cta={
-                <span className="flex flex-wrap items-center gap-3">
-                  <Button href="/services/ai-automation" variant="primary" size="sm">
-                    Learn more<span className="sr-only"> about AI consulting and automation</span>
-                  </Button>
-                  <SeeItWorkButton />
-                </span>
+              bottomMedia={
+                webDemo?.demoUrl ? (
+                  <DemoIframePreview url={webDemo.demoUrl} title={webDemo.projectName} />
+                ) : undefined
               }
             />
           </Reveal>
-        </div>
 
-        <div className="mt-16">
-          <Reveal className="mb-8">
-            <p className="eyebrow text-xs text-accent-dark">AI in practice</p>
-          </Reveal>
-
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            {AI_USE_CASES.slice(0, 3).map((useCase) => (
-              <UseCaseCard
-                key={useCase.title}
-                title={useCase.title}
-                description={useCase.description}
-              />
-            ))}
-          </div>
-
-          <Reveal delay={0.1} className="mt-8">
-            <Link
+          <Reveal index={1} className="h-full">
+            <ServiceCard
+              topMedia={<CardChatDemo />}
+              icon={<AIIcon />}
+              title="AI Consulting & Automation"
+              description="The calls, forms, and questions you can't get to, answered automatically."
               href="/services/ai-automation"
-              className="inline-flex items-center gap-1 text-sm font-semibold text-accent transition-all duration-200 hover:gap-2"
-            >
-              See all six AI use cases <span aria-hidden="true">→</span>
-            </Link>
+              cta={
+                <Button href="/services/ai-automation" variant="primary" size="sm">
+                  Learn more<span className="sr-only"> about AI consulting and automation</span>
+                </Button>
+              }
+            />
           </Reveal>
         </div>
       </div>

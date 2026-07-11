@@ -7,9 +7,21 @@ interface ServiceCardProps {
   href: string
   /** Replaces the default "Learn more" text link, e.g. with a pill button. */
   cta?: React.ReactNode
+  /** Media rendered above the icon (e.g. the AI chat animation). */
+  topMedia?: React.ReactNode
+  /** Media rendered below the CTA (e.g. a live demo iframe). */
+  bottomMedia?: React.ReactNode
 }
 
-export default function ServiceCard({ icon, title, description, href, cta }: ServiceCardProps) {
+export default function ServiceCard({
+  icon,
+  title,
+  description,
+  href,
+  cta,
+  topMedia,
+  bottomMedia,
+}: ServiceCardProps) {
   return (
     <div
       style={{
@@ -26,6 +38,7 @@ export default function ServiceCard({ icon, title, description, href, cta }: Ser
         }}
       />
       <div className="relative flex h-full flex-col items-start">
+        {topMedia && <div className="mb-8 w-full">{topMedia}</div>}
         <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-accent-soft text-accent-dark">
           {icon}
         </div>
@@ -42,6 +55,7 @@ export default function ServiceCard({ icon, title, description, href, cta }: Ser
             </Link>
           )}
         </div>
+        {bottomMedia && <div className="mt-6 w-full">{bottomMedia}</div>}
       </div>
     </div>
   )
