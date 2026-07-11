@@ -602,6 +602,52 @@ export const AI_PRICING = {
     'Upkeep is optional: $75/mo, plus any platform or text-message costs passed to you at cost, never marked up.',
 }
 
+/**
+ * Google PageSpeed Insights scores for our own marketing site, shown on the
+ * web-design page to back the "Performance-optimized (Core Web Vitals)" feature
+ * with Google's own numbers. A snapshot: re-run pagespeed.web.dev after any
+ * significant change and update these. The "run it yourself" link keeps the
+ * claim honest and self-correcting for anyone who checks the live scores.
+ */
+export type PageSpeedScore = { label: string; value: number }
+export const PAGESPEED: {
+  eyebrow: string
+  headline: string
+  body: string
+  verifyUrl: string
+  verifyLabel: string
+  attribution: string
+  results: { device: 'Desktop' | 'Mobile'; scores: PageSpeedScore[] }[]
+} = {
+  eyebrow: 'Performance, proven',
+  headline: "Don't take our word for it. Take Google's.",
+  body:
+    "This is our own site, scored by Google PageSpeed Insights. It's the standard we hold every build to, and you can run the same test yourself in one click.",
+  verifyUrl: 'https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fwww.renderlocalwebsites.com',
+  verifyLabel: 'Run the test yourself',
+  attribution: 'Measured on renderlocalwebsites.com by Google PageSpeed Insights.',
+  results: [
+    {
+      device: 'Desktop',
+      scores: [
+        { label: 'Performance', value: 100 },
+        { label: 'Accessibility', value: 100 },
+        { label: 'Best Practices', value: 100 },
+        { label: 'SEO', value: 100 },
+      ],
+    },
+    {
+      device: 'Mobile',
+      scores: [
+        { label: 'Performance', value: 96 },
+        { label: 'Accessibility', value: 100 },
+        { label: 'Best Practices', value: 100 },
+        { label: 'SEO', value: 100 },
+      ],
+    },
+  ],
+}
+
 export type LaunchTimelineStep = {
   week: string
   title: string

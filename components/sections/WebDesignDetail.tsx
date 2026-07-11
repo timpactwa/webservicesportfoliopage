@@ -3,6 +3,7 @@ import PricingCard from '@/components/ui/PricingCard'
 import Button from '@/components/ui/Button'
 import Reveal from '@/components/ui/Reveal'
 import WebDesignDemos from '@/components/sections/WebDesignDemos'
+import PageSpeedProof from '@/components/sections/PageSpeedProof'
 
 const featureItems = [
   'Custom-built, mobile-ready websites',
@@ -114,6 +115,8 @@ export default function WebDesignDetail() {
         </div>
       </section>
 
+      <PageSpeedProof />
+
       <section className="py-20 md:py-28 bg-surface border-y border-hairline">
         <div className="container-studio">
           <Reveal>
@@ -144,7 +147,7 @@ export default function WebDesignDetail() {
                 <p className="leading-relaxed text-graphite-soft">
                   The Care Plan is our optional monthly maintenance product: hosting support,
                   security updates, small content changes, and fixes, handled by the people who
-                  built your site. $50 to $125 per month depending on your tier. Month to month,
+                  built your site. $45 to $65 per month depending on your tier. Month to month,
                   not a contract. Start without it and add it later, or cancel anytime.
                 </p>
               </div>
