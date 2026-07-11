@@ -118,9 +118,14 @@ function DemoFrame({ url, title }: { url: string; title: string }) {
     // snapping. The done timer gates the sharpen on the bar reaching full.
     const kick = setTimeout(() => setBarFull(true), 30)
     const done = setTimeout(() => setBarDone(true), 1100)
+    // Fail open: if the iframe's load event never fires (dropped connection,
+    // blocked embed, hung navigation), force the loaded state so the frame
+    // always sharpens instead of parking blurred forever.
+    const loadFallback = setTimeout(() => setLoaded(true), 5000)
     return () => {
       clearTimeout(kick)
       clearTimeout(done)
+      clearTimeout(loadFallback)
     }
   }, [reduceMotion])
 
@@ -155,7 +160,7 @@ function DemoFrame({ url, title }: { url: string; title: string }) {
           style={{
             background:
               'linear-gradient(to bottom, transparent, oklch(0.6 0.13 190 / 0.18), transparent)',
-            animation: 'sig-scan 1.1s ease-in-out',
+            animation: 'sig-scan 1.1s ease-in-out forwards',
           }}
         />
       )}
