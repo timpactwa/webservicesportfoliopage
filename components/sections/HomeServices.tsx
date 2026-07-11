@@ -2,7 +2,8 @@ import Link from 'next/link'
 import Button from '@/components/ui/Button'
 import Reveal from '@/components/ui/Reveal'
 import ServiceCard from '@/components/ui/ServiceCard'
-import { AiUseCasesInteractive } from '@/components/ui/UseCaseDemo'
+import SeeItWorkButton from '@/components/ui/SeeItWorkButton'
+import UseCaseCard from '@/components/ui/UseCaseCard'
 import { AI_USE_CASES } from '@/lib/data'
 
 const WebIcon = () => (
@@ -54,9 +55,12 @@ export default function HomeServices() {
               description="The follow-ups, intake forms, and after-hours questions you don't have time for, answered automatically."
               href="/services/ai-automation"
               cta={
-                <Button href="/services/ai-automation" variant="primary" size="sm">
-                  Learn more<span className="sr-only"> about AI consulting and automation</span>
-                </Button>
+                <span className="flex flex-wrap items-center gap-3">
+                  <Button href="/services/ai-automation" variant="primary" size="sm">
+                    Learn more<span className="sr-only"> about AI consulting and automation</span>
+                  </Button>
+                  <SeeItWorkButton />
+                </span>
               }
             />
           </Reveal>
@@ -64,13 +68,18 @@ export default function HomeServices() {
 
         <div className="mt-16">
           <Reveal className="mb-8">
-            <p className="eyebrow text-xs text-accent-dark">
-              AI in practice{' '}
-              <span className="text-graphite-soft">&middot; tap a card to see it work</span>
-            </p>
+            <p className="eyebrow text-xs text-accent-dark">AI in practice</p>
           </Reveal>
 
-          <AiUseCasesInteractive useCases={AI_USE_CASES.slice(0, 3)} />
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {AI_USE_CASES.slice(0, 3).map((useCase) => (
+              <UseCaseCard
+                key={useCase.title}
+                title={useCase.title}
+                description={useCase.description}
+              />
+            ))}
+          </div>
 
           <Reveal delay={0.1} className="mt-8">
             <Link

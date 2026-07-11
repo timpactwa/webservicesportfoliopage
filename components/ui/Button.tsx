@@ -14,6 +14,8 @@ interface ButtonProps {
   disabled?: boolean
   className?: string
   fullWidth?: boolean
+  /** Signals to assistive tech that this control opens a dialog/menu; forwarded to the rendered element. */
+  'aria-haspopup'?: React.AriaAttributes['aria-haspopup']
 }
 
 const variants = {
@@ -39,6 +41,7 @@ export default function Button({
   disabled,
   className,
   fullWidth,
+  'aria-haspopup': ariaHasPopup,
 }: ButtonProps) {
   const baseClass = cn(
     'relative inline-flex items-center justify-center rounded-full font-semibold',
@@ -53,14 +56,14 @@ export default function Button({
 
   if (href) {
     return (
-      <Link href={href} className={baseClass} onClick={onClick}>
+      <Link href={href} className={baseClass} onClick={onClick} aria-haspopup={ariaHasPopup}>
         {children}
       </Link>
     )
   }
 
   return (
-    <button type={type} onClick={onClick} disabled={disabled} className={baseClass}>
+    <button type={type} onClick={onClick} disabled={disabled} className={baseClass} aria-haspopup={ariaHasPopup}>
       {children}
     </button>
   )
