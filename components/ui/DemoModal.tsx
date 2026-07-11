@@ -1,7 +1,7 @@
 'use client'
 
-import { AnimatePresence, motion } from 'framer-motion'
-import { useRef } from 'react'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
 import { useDialog } from './useDialog'
 
 interface DemoModalProps {
@@ -92,15 +92,90 @@ export default function DemoModal({ url, title, isOpen, onClose }: DemoModalProp
             className="flex-1 min-h-0"
             onClick={(e) => e.stopPropagation()}
           >
-            <iframe
-              src={url}
-              title={title}
-              className="w-full h-full border-0"
-              allow="fullscreen"
-            />
+            <DemoFrame url={url} title={title} />
           </motion.div>
         </motion.div>
       )}
     </AnimatePresence>
+  )
+}
+
+// Mounted inside the AnimatePresence conditional so its render-in state resets on
+// every open. The iframe "renders in": a teal bar sweeps the top, one scanline
+// passes, and the frame sharpens from blur once BOTH the ~1.1s bar timer and the
+// iframe load have fired. Reduced motion skips all of it and shows the frame flat.
+function DemoFrame({ url, title }: { url: string; title: string }) {
+  const reduceMotion = useReducedMotion()
+  const [barFull, setBarFull] = useState(false)
+  const [barDone, setBarDone] = useState(false)
+  const [loaded, setLoaded] = useState(false)
+
+  const sharp = Boolean(reduceMotion) || (barDone && loaded)
+
+  useEffect(() => {
+    if (reduceMotion) return
+    // ~30ms after mount so the width transition animates from 0 rather than
+    // snapping. The done timer gates the sharpen on the bar reaching full.
+    const kick = setTimeout(() => setBarFull(true), 30)
+    const done = setTimeout(() => setBarDone(true), 1100)
+    return () => {
+      clearTimeout(kick)
+      clearTimeout(done)
+    }
+  }, [reduceMotion])
+
+  return (
+    <div className="relative w-full h-full overflow-hidden">
+      <style>{`
+        @keyframes sig-scan {
+          0% { transform: translateY(-100%); opacity: 0; }
+          15% { opacity: 1; }
+          85% { opacity: 1; }
+          100% { transform: translateY(400%); opacity: 0; }
+        }
+      `}</style>
+
+      {!reduceMotion && (
+        <div
+          aria-hidden="true"
+          className="absolute top-0 left-0 h-[3px] bg-accent z-10"
+          style={{
+            width: barFull ? '100%' : '0%',
+            opacity: sharp ? 0 : 1,
+            boxShadow: '0 0 12px oklch(0.6 0.13 190)',
+            transition: 'width 1.1s ease-out, opacity 0.4s ease',
+          }}
+        />
+      )}
+
+      {!reduceMotion && !sharp && (
+        <div
+          aria-hidden="true"
+          className="absolute left-0 right-0 top-0 h-[40%] z-10 pointer-events-none"
+          style={{
+            background:
+              'linear-gradient(to bottom, transparent, oklch(0.6 0.13 190 / 0.18), transparent)',
+            animation: 'sig-scan 1.1s ease-in-out',
+          }}
+        />
+      )}
+
+      <iframe
+        src={url}
+        title={title}
+        className="w-full h-full border-0"
+        allow="fullscreen"
+        onLoad={() => setLoaded(true)}
+        style={
+          reduceMotion
+            ? undefined
+            : {
+                filter: sharp ? 'none' : 'blur(12px) grayscale(0.5)',
+                opacity: sharp ? 1 : 0.35,
+                transition: 'filter 0.7s ease, opacity 0.5s ease',
+              }
+        }
+      />
+    </div>
   )
 }

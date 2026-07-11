@@ -2,6 +2,7 @@ import { FAQ_ITEMS, GUARANTEE, PRICING_TIERS, SERVICE_TOWNS } from '@/lib/data'
 import PricingCard from '@/components/ui/PricingCard'
 import Button from '@/components/ui/Button'
 import Reveal from '@/components/ui/Reveal'
+import WebDesignDemos from '@/components/sections/WebDesignDemos'
 
 const featureItems = [
   'Custom-built, mobile-ready websites',
@@ -77,6 +78,8 @@ export default function WebDesignDetail() {
               ))}
             </ul>
           </div>
+
+          <WebDesignDemos />
 
           <div id="pricing" className="scroll-mt-28">
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
