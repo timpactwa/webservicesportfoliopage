@@ -12,7 +12,7 @@ import { cn } from '@/lib/utils'
  */
 export default function PhoneChatDemo({ className }: { className?: string }) {
   const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { amount: 0.3 })
+  const inView = useInView(ref, { amount: 0.3, once: true })
 
   return (
     <div
